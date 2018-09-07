@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: e773fbb2c58e0eb4d94e0a22b773b197
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orc_jump 1_0
+    21300002: orc_jump 1_1
+    21300004: orc_jump 1_2
+    21300006: orc_jump 1_3
+    21300008: orc_jump 1_4
+    21300010: orc_jump 1_5
+    21300012: orc_jump 1_6
+    21300014: orc_jump 1_7
+    21300016: orc_jump 1_8
+    21300018: orc_jump 1_9
+    21300020: orc_jump 1_10
+    21300022: orc_jump 1_11
+    21300024: orc_jump 1_12
+    21300026: orc_jump 1_13
+    21300028: orc_jump 1_14
+    21300030: orc_jump 1_15
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orc_jump 1_0
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1770
+        width: 1492
+        height: 1038
+      alignment: 9
+      pivot: {x: 0.29195336, y: 0.40031937}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b324863be1f2240b2971c5a0e25e5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_1
+      rect:
+        serializedVersion: 2
+        x: 2316
+        y: 1777
+        width: 1500
+        height: 1032
+      alignment: 9
+      pivot: {x: 0.31814617, y: 0.39973983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef1feabcf6ad444ba458689eb3d3a0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_2
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 1777
+        width: 1562
+        height: 1032
+      alignment: 9
+      pivot: {x: 0.32536444, y: 0.44531274}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb812109722add41aeb347f72bda7b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_3
+      rect:
+        serializedVersion: 2
+        x: 6285
+        y: 1762
+        width: 1563
+        height: 1007
+      alignment: 9
+      pivot: {x: 0.34954846, y: 0.43461394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e947102b1a2f548948854eed6de0a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_4
+      rect:
+        serializedVersion: 2
+        x: 8285
+        y: 1724
+        width: 1553
+        height: 1047
+      alignment: 9
+      pivot: {x: 0.2819549, y: 0.4550802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0edbaa41de30e3746a52d870fe3ef6fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_5
+      rect:
+        serializedVersion: 2
+        x: 10253
+        y: 1662
+        width: 1468
+        height: 1101
+      alignment: 9
+      pivot: {x: 0.34622067, y: 0.49145663}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849d192d098e90144968ec23c07b4727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_6
+      rect:
+        serializedVersion: 2
+        x: 12185
+        y: 1621
+        width: 1538
+        height: 1164
+      alignment: 9
+      pivot: {x: 0.3654509, y: 0.4999998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b48c2cb6bfcc240b3fcf11bb7eb087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_7
+      rect:
+        serializedVersion: 2
+        x: 14216
+        y: 1632
+        width: 1585
+        height: 1179
+      alignment: 9
+      pivot: {x: 0.35163707, y: 0.4441529}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2fe713287485543b46c69de4c87327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_8
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 270
+        width: 1492
+        height: 1038
+      alignment: 9
+      pivot: {x: 0.31086668, y: 0.42750487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a997c99f8927f49bc0d58e54755be4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_9
+      rect:
+        serializedVersion: 2
+        x: 2316
+        y: 277
+        width: 1500
+        height: 1032
+      alignment: 9
+      pivot: {x: 0.29933366, y: 0.37239584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f9f24ae0b714043ae8125b0ffebfc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_10
+      rect:
+        serializedVersion: 2
+        x: 4293
+        y: 277
+        width: 1562
+        height: 1032
+      alignment: 9
+      pivot: {x: 0.28923288, y: 0.42708322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1f51ab78d37714e9372fe728162810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_11
+      rect:
+        serializedVersion: 2
+        x: 6285
+        y: 262
+        width: 1563
+        height: 1007
+      alignment: 9
+      pivot: {x: 0.28334963, y: 0.39725056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8c36ae9de204344a6eb9a4ba160f32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_12
+      rect:
+        serializedVersion: 2
+        x: 8285
+        y: 215
+        width: 1553
+        height: 1047
+      alignment: 9
+      pivot: {x: 0.29406857, y: 0.46406406}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2451eefaab4f04bbfab77ea7b3e722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_13
+      rect:
+        serializedVersion: 2
+        x: 10262
+        y: 162
+        width: 1468
+        height: 1101
+      alignment: 9
+      pivot: {x: 0.31418172, y: 0.47437012}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716ac8607c344ce448f351bf549e7037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_14
+      rect:
+        serializedVersion: 2
+        x: 12185
+        y: 130
+        width: 1538
+        height: 1164
+      alignment: 9
+      pivot: {x: 0.3532191, y: 0.4676763}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e796f81abdd4f3f4b8a81ddda7608de8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_jump 1_15
+      rect:
+        serializedVersion: 2
+        x: 14216
+        y: 114
+        width: 1585
+        height: 1179
+      alignment: 9
+      pivot: {x: 0.3457025, y: 0.49202174}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807c480926430e3489cd8c6d8219d5e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4fb967dd98cfbe54faa3ff6943fd9a10
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

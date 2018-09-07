@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1858643899442918}
+  m_IsPrefabParent: 1
+--- !u!1 &1858643899442918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4606307999491396}
+  - component: {fileID: 114588287242820610}
+  - component: {fileID: 114770617314744036}
+  - component: {fileID: 114939149705271064}
+  m_Layer: 0
+  m_Name: PlayerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4606307999491396
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858643899442918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114588287242820610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858643899442918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22aa4a92644ed12489e2dbf729895f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerColor: {r: 1, g: 0, b: 0, a: 1}
+  _offSet: {x: 0, y: 11, z: 0}
+  _pointer: {fileID: 1681762698188922, guid: c5cb1ea4055926d478a3b4ee40a26d46, type: 2}
+  _sprites:
+  - {fileID: 21300000, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300002, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300004, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300006, guid: ec46bca909864194085c2b66dae68956, type: 3}
+--- !u!114 &114770617314744036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858643899442918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ad64de5756e6c4b8fc8d03a44211fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerNumber: 0
+  AutoSpawn: 0
+  _orcPrefab: {fileID: 1320102641833578, guid: a8a166adf3a79ad418532845d325c419, type: 2}
+  _hud: {fileID: 0}
+  _orcs: 3
+  _spawnWait: 3
+  _maxTimeToSpawn: 7
+--- !u!114 &114939149705271064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858643899442918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c30616c6639a84b8734ca41b32f4fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

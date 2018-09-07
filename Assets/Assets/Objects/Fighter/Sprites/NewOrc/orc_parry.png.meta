@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: bb022f7b63066f14daa063faf2da6404
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orc_parry_1
+    21300002: orc_parry_2
+    21300004: orc_parry_3
+    21300006: orc_parry_4
+    21300008: orc_parry_5
+    21300010: orc_parry_7
+    21300012: orc_parry_8
+    21300014: orc_parry_9
+    21300016: orc_parry_10
+    21300018: orc_parry_11
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orc_parry_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 2066
+        width: 1554
+        height: 1413
+      alignment: 9
+      pivot: {x: 0.5163428, y: 0.5089867}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee25547ebc647d743b8a54e3ad971d8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_2
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 2066
+        width: 1596
+        height: 1468
+      alignment: 9
+      pivot: {x: 0.52917343, y: 0.46251592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7214059a4d7cf74790ff9065af2a0a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_3
+      rect:
+        serializedVersion: 2
+        x: 3718
+        y: 2066
+        width: 1589
+        height: 1420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65afceece1715c84b95b77787225054c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_4
+      rect:
+        serializedVersion: 2
+        x: 5447
+        y: 2066
+        width: 1678
+        height: 1394
+      alignment: 9
+      pivot: {x: 0.515135, y: 0.51214576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f98392abe47a08488dba4532b4a0e8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 266
+        width: 1578
+        height: 1409
+      alignment: 9
+      pivot: {x: 0.52414143, y: 0.4909876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060147f9a3a1c254ba249178bd6d04f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_8
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 266
+        width: 1596
+        height: 1468
+      alignment: 9
+      pivot: {x: 0.521217, y: 0.45098257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0e23191d376174b9a01b2967a53991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_9
+      rect:
+        serializedVersion: 2
+        x: 3718
+        y: 266
+        width: 1589
+        height: 1420
+      alignment: 9
+      pivot: {x: 0.50266355, y: 0.4910574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b777f8870fa9a46bde825a7cffa501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_parry_10
+      rect:
+        serializedVersion: 2
+        x: 5451
+        y: 266
+        width: 1678
+        height: 1394
+      alignment: 9
+      pivot: {x: 0.50756747, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c7a13f34ab1f54d858f2f1b5b7460b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cb18ce343179bff4a8d0b2edd80e5f3b
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

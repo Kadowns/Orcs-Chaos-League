@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: 5c33159d423deb0459501b0dfba41312
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orc_taunt_0
+    21300002: orc_taunt_1
+    21300004: orc_taunt_2
+    21300006: orc_taunt_3
+    21300008: orc_taunt_4
+    21300010: orc_taunt_5
+    21300012: orc_taunt_6
+    21300014: orc_taunt_7
+    21300016: orc_taunt_8
+    21300018: orc_taunt_9
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orc_taunt_0
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 2064
+        width: 1892
+        height: 1381
+      alignment: 9
+      pivot: {x: 0.43919143, y: 0.43635798}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a82e1ce8672574686f941ca6f70bdc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_1
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 2057
+        width: 1875
+        height: 1308
+      alignment: 9
+      pivot: {x: 0.4472711, y: 0.45348114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125288001d05d2645a52886fe0b64a1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_2
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 2053
+        width: 1928
+        height: 1179
+      alignment: 9
+      pivot: {x: 0.45189747, y: 0.49946037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182256e41f255ff46b5a526d6f4aef9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_3
+      rect:
+        serializedVersion: 2
+        x: 7218
+        y: 2057
+        width: 1932
+        height: 1196
+      alignment: 9
+      pivot: {x: 0.45450872, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c359a661939abde40b2858f35d108460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_4
+      rect:
+        serializedVersion: 2
+        x: 9558
+        y: 2064
+        width: 1893
+        height: 1398
+      alignment: 9
+      pivot: {x: 0.44056743, y: 0.4331217}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486aea775a2af8547adaefde0030164e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_5
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 255
+        width: 1892
+        height: 1381
+      alignment: 9
+      pivot: {x: 0.44478446, y: 0.44377956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29b211609b1af343981f5978fe3e1ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_6
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 263
+        width: 1875
+        height: 1307
+      alignment: 9
+      pivot: {x: 0.44492656, y: 0.45273712}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba9f28202335eb4fb51581fa4d0b383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_7
+      rect:
+        serializedVersion: 2
+        x: 4921
+        y: 252
+        width: 1928
+        height: 1177
+      alignment: 9
+      pivot: {x: 0.4348152, y: 0.5085244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c695ecd08f46e074490449914b7cb15e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_8
+      rect:
+        serializedVersion: 2
+        x: 7218
+        y: 250
+        width: 1932
+        height: 1196
+      alignment: 9
+      pivot: {x: 0.4401436, y: 0.4964895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa5f9b55ab30af43bd61967f22dc5df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_taunt_9
+      rect:
+        serializedVersion: 2
+        x: 9554
+        y: 267
+        width: 1893
+        height: 1398
+      alignment: 9
+      pivot: {x: 0.43706718, y: 0.4414598}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 048cebd6cdc78d24ea70635cc2dae9af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5123b99c2a791da4eb6e6db5d9480893
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

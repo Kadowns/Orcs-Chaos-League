@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86eb9f361873bfd4ba60bbf59eaf1a65, type: 3}
+  m_Name: NormalOrcMotor
+  m_EditorClassIdentifier: 
+  _attacks:
+  - tag: Stomp
+    id: 0
+    range: 8
+    hurtForSeconds: 0.5
+    force: 100
+    knockBack: 1
+    knockUp: 1
+    miniDash: 0
+    screenShake: 1
+    tryClip: {fileID: 8300000, guid: c689ba2f912ef4a4c8e06f33208b0f97, type: 3}
+    hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}
+  - tag: Combo1
+    id: 1
+    range: 4.5
+    hurtForSeconds: 0.25
+    force: 50
+    knockBack: 0
+    knockUp: 0
+    miniDash: 0
+    screenShake: 0
+    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
+    hitClip: {fileID: 8300000, guid: 76878ad0be505c946a815c688b535818, type: 3}
+  - tag: Combo2
+    id: 2
+    range: 4.7
+    hurtForSeconds: 0.3
+    force: 100
+    knockBack: 0
+    knockUp: 0
+    miniDash: 1
+    screenShake: 0
+    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
+    hitClip: {fileID: 8300000, guid: ad566a3be40796a4c85c3a47dd6e2e26, type: 3}
+  - tag: Combo3
+    id: 3
+    range: 5
+    hurtForSeconds: 0.6
+    force: 150
+    knockBack: 1
+    knockUp: 0
+    miniDash: 0
+    screenShake: 1
+    tryClip: {fileID: 8300000, guid: 92188ab65b6e74843bcd4ac3aaaa4fdf, type: 3}
+    hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}

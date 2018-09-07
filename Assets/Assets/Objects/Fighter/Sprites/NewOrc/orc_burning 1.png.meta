@@ -1,0 +1,389 @@
+fileFormatVersion: 2
+guid: 29ec54301bf0e82418f317a385550f51
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orc_burning 1_0
+    21300002: orc_burning 1_1
+    21300004: orc_burning 1_2
+    21300006: orc_burning 1_3
+    21300008: orc_burning 1_4
+    21300010: orc_burning 1_5
+    21300012: orc_burning 1_6
+    21300014: orc_burning 1_7
+    21300016: orc_burning 1_8
+    21300018: orc_burning 1_9
+    21300020: orc_burning 1_10
+    21300022: orc_burning 1_11
+    21300024: orc_burning 1_12
+    21300026: orc_burning 1_13
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orc_burning 1_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1613
+        width: 1842
+        height: 1165
+      alignment: 9
+      pivot: {x: 0.5511109, y: 0.46969533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9553a64f0d3771948b8b8e311049cbeb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_1
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 1628
+        width: 1838
+        height: 1120
+      alignment: 9
+      pivot: {x: 0.57683337, y: 0.48423898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68d39ec17320714c9e57c12deb0ffed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_2
+      rect:
+        serializedVersion: 2
+        x: 4440
+        y: 1635
+        width: 1835
+        height: 1113
+      alignment: 9
+      pivot: {x: 0.5929922, y: 0.49471337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5705cfba5166a654e85593d5fe8dfdc2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_3
+      rect:
+        serializedVersion: 2
+        x: 6644
+        y: 1703
+        width: 1841
+        height: 1045
+      alignment: 9
+      pivot: {x: 0.5671194, y: 0.4605845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8407e5f36aa1b43bf872f925e0c1be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_4
+      rect:
+        serializedVersion: 2
+        x: 8854
+        y: 1718
+        width: 1842
+        height: 1060
+      alignment: 9
+      pivot: {x: 0.57666653, y: 0.4389379}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b193387682c024541a09fa79180bc630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_5
+      rect:
+        serializedVersion: 2
+        x: 11058
+        y: 1726
+        width: 1834
+        height: 1022
+      alignment: 9
+      pivot: {x: 0.586626, y: 0.4424251}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80847500e38bf4f4dacbc1da0f93f810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_6
+      rect:
+        serializedVersion: 2
+        x: 13246
+        y: 1613
+        width: 1834
+        height: 1135
+      alignment: 9
+      pivot: {x: 0.5691107, y: 0.50000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0785dbc0b014b6b46b1688d630ab8be3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_7
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 117
+        width: 1842
+        height: 1165
+      alignment: 9
+      pivot: {x: 0.5540654, y: 0.4766863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647dd097d99872440aad341a19e6c3ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_8
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 132
+        width: 1838
+        height: 1120
+      alignment: 9
+      pivot: {x: 0.58866316, y: 0.48383337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e97c338dbcb5b849b182b7128d49877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_9
+      rect:
+        serializedVersion: 2
+        x: 4440
+        y: 132
+        width: 1835
+        height: 1119
+      alignment: 9
+      pivot: {x: 0.60854346, y: 0.508091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b002fc0e579fb5949be5a25aa92b23a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_10
+      rect:
+        serializedVersion: 2
+        x: 6644
+        y: 207
+        width: 1841
+        height: 1045
+      alignment: 9
+      pivot: {x: 0.6032719, y: 0.4653457}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21a716fadaa587438a45bd02700254a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_11
+      rect:
+        serializedVersion: 2
+        x: 8854
+        y: 214
+        width: 1842
+        height: 1068
+      alignment: 9
+      pivot: {x: 0.583556, y: 0.46609187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fc3980f26b59943ba5b8e173cc8836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_12
+      rect:
+        serializedVersion: 2
+        x: 11058
+        y: 229
+        width: 1834
+        height: 1023
+      alignment: 9
+      pivot: {x: 0.5789839, y: 0.4469002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0a8035c25a1d24d91f905e259a33d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_burning 1_13
+      rect:
+        serializedVersion: 2
+        x: 13246
+        y: 109
+        width: 1834
+        height: 1135
+      alignment: 9
+      pivot: {x: 0.5888565, y: 0.47606996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7502b9329c2c542b0e6ac4daa10c15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0bdffc17476cc60498ac346bf9b5c222
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

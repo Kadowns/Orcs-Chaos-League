@@ -1,0 +1,389 @@
+fileFormatVersion: 2
+guid: 90046194ba863d449b35c57389b27ec7
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orc_attack 1_0
+    21300002: orc_attack 1_1
+    21300004: orc_attack 1_2
+    21300006: orc_attack 1_3
+    21300008: orc_attack 1_4
+    21300010: orc_attack 1_5
+    21300012: orc_attack 1_6
+    21300014: orc_attack 1_7
+    21300016: orc_attack 1_8
+    21300018: orc_attack 1_9
+    21300020: orc_attack 1_10
+    21300022: orc_attack 1_11
+    21300024: orc_attack 1_12
+    21300026: orc_attack 1_13
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orc_attack 1_0
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1614
+        width: 1289
+        height: 1131
+      alignment: 9
+      pivot: {x: 0.6542013, y: 0.44978777}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f981c6cf406bf47b6aeeccee907709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_1
+      rect:
+        serializedVersion: 2
+        x: 2606
+        y: 1622
+        width: 1352
+        height: 1138
+      alignment: 9
+      pivot: {x: 0.6610174, y: 0.4750483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38d79c77ccdef547842ccb175ce2ffd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_2
+      rect:
+        serializedVersion: 2
+        x: 5043
+        y: 1630
+        width: 1203
+        height: 1146
+      alignment: 9
+      pivot: {x: 0.6022821, y: 0.4504452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acd13afef9d9b249bae81481bb312aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_3
+      rect:
+        serializedVersion: 2
+        x: 7386
+        y: 1621
+        width: 1064
+        height: 1146
+      alignment: 9
+      pivot: {x: 0.6601223, y: 0.44218618}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d7ad74c4f604248ba7337f5378ae95
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_4
+      rect:
+        serializedVersion: 2
+        x: 9785
+        y: 1630
+        width: 934
+        height: 1162
+      alignment: 9
+      pivot: {x: 0.6317408, y: 0.426691}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e49736ea72dda147a33a6290357f91a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_5
+      rect:
+        serializedVersion: 2
+        x: 11560
+        y: 1645
+        width: 1855
+        height: 1215
+      alignment: 9
+      pivot: {x: 0.5969466, y: 0.43767902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b8a0a66ddda374996f4bc1caf49ddf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_6
+      rect:
+        serializedVersion: 2
+        x: 14186
+        y: 1654
+        width: 1633
+        height: 1177
+      alignment: 9
+      pivot: {x: 0.47681606, y: 0.4517502}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee6f5e06b7366b44a8e843bd3cba396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_7
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 114
+        width: 1289
+        height: 1131
+      alignment: 9
+      pivot: {x: 0.6615442, y: 0.46652526}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3177d4cab4c545d4fb6e805933ffaf6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_8
+      rect:
+        serializedVersion: 2
+        x: 2606
+        y: 122
+        width: 1352
+        height: 1138
+      alignment: 9
+      pivot: {x: 0.68201965, y: 0.4667314}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2981b486c855bd847a0d012d2e588258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_9
+      rect:
+        serializedVersion: 2
+        x: 5043
+        y: 130
+        width: 1203
+        height: 1146
+      alignment: 9
+      pivot: {x: 0.5865463, y: 0.44218603}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7543558f92c514580699f57649ca7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_10
+      rect:
+        serializedVersion: 2
+        x: 7386
+        y: 130
+        width: 1064
+        height: 1146
+      alignment: 9
+      pivot: {x: 0.6601223, y: 0.4504452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cde4a89eabb5f42bdb4dacc733098b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_11
+      rect:
+        serializedVersion: 2
+        x: 9785
+        y: 130
+        width: 934
+        height: 1162
+      alignment: 9
+      pivot: {x: 0.6216071, y: 0.43483663}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ae9bad9daea5845ab876e5feb0a561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_12
+      rect:
+        serializedVersion: 2
+        x: 11560
+        y: 142
+        width: 1855
+        height: 1213
+      alignment: 9
+      pivot: {x: 0.58163905, y: 0.4375761}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c80f9d9b80f2af4a8a3149ebab480ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_attack 1_13
+      rect:
+        serializedVersion: 2
+        x: 14186
+        y: 154
+        width: 1633
+        height: 1177
+      alignment: 9
+      pivot: {x: 0.47102007, y: 0.45979172}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11edbf8c36cf05949a2faccbc0a268c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 11bf8e3b66d60ee499a429be41716e67
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

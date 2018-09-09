@@ -60,6 +60,11 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		GameObject ps = _pool.SpawnFromPool("CagePS", position, Quaternion.identity);
 		ps.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
 	}
+	
+	public void CreateGuidedRockExpParticles(Vector3 position) {
+		GameObject ps = _pool.SpawnFromPool("GuidedRockExpPS", position, Quaternion.identity);
+		ps.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
+	}
 
 	public void CreateRockExpParticles(Vector3 position) {
 		GameObject ps = _pool.SpawnFromPool("RockExpPS", position, Quaternion.identity);

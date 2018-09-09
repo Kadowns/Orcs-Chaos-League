@@ -13,9 +13,13 @@ public class FighterHUD : MonoBehaviour {
     private int danoAtual, LifeCount = 0;
     private bool timerChange, shit2;
 
+	
+
 
 
     public void UpdateLife(int value) {
+	    
+	    
 
         switch (value)
         {

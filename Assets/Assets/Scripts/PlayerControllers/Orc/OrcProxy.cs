@@ -25,7 +25,12 @@ public class OrcProxy : MonoBehaviour {
 		_anima.SetBool("Attack", _state.Attacking);
 		_anima.SetInteger("AttackID", _state.LastAttackId);
 		_anima.SetBool("Parry", _state.Parrying);
+		_anima.SetBool("Counter", _state.Countered);
 		_anima.SetFloat("MoveSpeed", _state.Velocity.sqrMagnitude);
 		_anima.SetInteger("Direction", _state.LastDir.x < 0 ? 1 : 0);		
+	}
+
+	public void CounterEnded() {
+		_state.Countered = false;
 	}
 }

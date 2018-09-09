@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArenaState : MonoBehaviour {
     public ArenaMotor Motor;
     public PlataformBehaviour[] Plataforms;
-    public LavaExplosion[] LavaExplosions;
+    public EventSpawner[] Events;
     public AnimationCurve OscilationCurve;	
     public int MaxPlataformHits;
     public float PlataformLoweredTime;

@@ -278,11 +278,8 @@ public class OrcMotor : Motor {
 							state.ActualAttack.HitSFx(Random.Range(0.8f, 1.2f));
 						}
 						else {
-							ScreenEffects.Instance.FreezeFrame(0.08f);
-							ScreenEffects.Instance.ScreenShake(0.1f, 0.5f);
-							GlobalAudio.Instance.PlayByIndex(4);
-							Damage(state, -dir, state.ActualAttack.force, state.TimeToStun, true, true);
-							otherState.Countered = true;
+							otherMotor.DoCounter(otherState);
+							Damage(state, -dir, state.ActualAttack.force, state.TimeToStun, true, true);					
 						} 			
 					}						
 				}
@@ -299,6 +296,14 @@ public class OrcMotor : Motor {
 			}
 		}
 		state.Cooldown = true;
+	}
+
+	public void DoCounter(OrcEntityState state) {
+		ScreenEffects.Instance.FreezeFrame(0.08f);
+		ScreenEffects.Instance.ScreenShake(0.1f, 0.5f);
+		GlobalAudio.Instance.PlayByIndex(4);
+		state.Countered = true;
+		StopParry(state);
 	}
 	
 	private Vector3 ClosestOrc(MovableEntity entity) {
@@ -507,6 +512,7 @@ public class OrcMotor : Motor {
 		FlashColor(state, _colors.AttackPreparationColor, state.TimeToCounter, 0.5f);
 		state.CanCounter = true;
 		state.Parrying = true;
+		state.StopParry = false;
 		float timer = 0;
 		while (timer < state.MinimumParryTime || !state.StopParry) {
 			timer += Time.deltaTime;
@@ -518,10 +524,10 @@ public class OrcMotor : Motor {
 			}
 			yield return null;
 		}
+		
 		SetTintColor(state, Color.white);
 		state.StopParry = false;
 		state.Parrying = false;
-		state.Countered = false;
 		state.CanCounter = false;
 	}
 	

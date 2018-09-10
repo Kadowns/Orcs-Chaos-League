@@ -58,13 +58,13 @@ public class ArenaController : Singleton<ArenaController> {
 			_suddenDeathTimer += Time.deltaTime;
 			if (_suddenDeathTimer > SuddenDeathWait) {
 				_fx.ScreenShake(1.5f, 5f);
-
+				_suddenDeath = true;
 				ArenaMotor.OnSuddenDeath(this, Arenas[_currentArena]);
 				_fx.BlurForSeconds(1.5f, 20f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
 				_music.PlayBgmByIndex(1);
 				_music.SetBGMPitch(1.075f);
 				_music.DramaticFrequencyChange(0.1f, 1.5f, 0.5f, 200f, 22000f);
-				_suddenDeath = true;
+				
 				_suddenDeathTimer = 0;
 			}
 		}

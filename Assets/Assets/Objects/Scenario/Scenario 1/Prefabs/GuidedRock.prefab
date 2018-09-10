@@ -25,7 +25,8 @@ GameObject:
   - component: {fileID: 199884055775102022}
   - component: {fileID: 198154851084509084}
   - component: {fileID: 108728982761280364}
-  m_Layer: 0
+  - component: {fileID: 114042427687240244}
+  m_Layer: 12
   m_Name: GuidedRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +43,7 @@ GameObject:
   - component: {fileID: 4365654482250084}
   - component: {fileID: 33399352287459746}
   - component: {fileID: 23330921327295162}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +92,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1b8def65281aa424c87e55108ac3b5ef, type: 2}
+  - {fileID: 2100000, guid: 3fb4a5687d9844b4cb0e5041727d70f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169,6 +170,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114042427687240244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349353263348454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5444a21de3f0e940ac0b693c9f7d7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sfx: []
 --- !u!114 &114442068180691686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,9 +196,9 @@ MonoBehaviour:
   HitForce: 200
   HitDelayTime: 1
   MaximumHits: 3
-  InitialSpeed: 10
-  ExplosionDelayTime: 2
-  ScaleFactor: 2
+  InitialSpeed: 20
+  ExplosionDelayTime: 1
+  ScaleFactor: 1.5
   HitScaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -295,8 +308,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.8484176
-      value: 11.115621
+      time: 0.831755
+      value: 14.573094
       inSlope: -1.2610523
       outSlope: -1.2610523
       tangentMode: 0
@@ -304,14 +317,14 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 1.0015342
+      value: -0.04523778
+      inSlope: -72.264046
+      outSlope: -72.264046
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

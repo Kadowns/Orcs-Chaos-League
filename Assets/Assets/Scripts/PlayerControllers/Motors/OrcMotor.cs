@@ -253,14 +253,15 @@ public class OrcMotor : Motor {
 	
 	private void ApplyDamage(MovableEntity entity, OrcEntityState state) {
 	
-		Collider[] cols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range);
+		Collider[] orcsCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range, 1<<11);
+		Collider[] rockCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range * 2, 1<<12);
 		
-		if (cols.Length > 0) {
-			for (int i = 0; i < cols.Length; i++) {
+		if (orcsCols.Length > 0) {
+			for (int i = 0; i < orcsCols.Length; i++) {
 				//se o maluco estiver dentro do circulo e for um player, ele é arremessado
-				if (cols[i].CompareTag("Player") && cols[i].gameObject != entity.gameObject) {
+				if (orcsCols[i].gameObject != entity.gameObject) {
 
-					var otherEntity = cols[i].gameObject.GetComponent<MovableEntity>();
+					var otherEntity = orcsCols[i].gameObject.GetComponent<MovableEntity>();
 					var otherMotor = otherEntity.Motor as OrcMotor;
 					var otherState = otherEntity.State as OrcEntityState;
          
@@ -283,16 +284,20 @@ public class OrcMotor : Motor {
 						} 			
 					}						
 				}
-				else {
+			}
+		}
 
-					var throwable = cols[i].GetComponent<IThrowable>();
-					if (throwable != null) {
-						Vector3 dir = (cols[i].transform.position - entity.transform.position).normalized
-							.normalized;
+		if (rockCols.Length > 0) {
+			foreach (var rock in rockCols) {
+				state.ActualAttack.HitSFx(Random.Range(0.8f, 1.2f));
+				var throwable = rock.GetComponent<IThrowable>();
+				if (throwable != null) {
+					Vector3 dir = (rock.transform.position - entity.transform.position).normalized
+						.normalized;
 
-						throwable.Throw(dir);
-					}				
-				}	
+					throwable.Throw(dir);
+				}
+
 			}
 		}
 		state.Cooldown = true;

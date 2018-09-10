@@ -25,6 +25,8 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	private bool _wasHit, _exploding;
 
 	private float _hitTime;
+
+	private Color _targetColor;
 	
 	private Transform _target;
 
@@ -70,7 +72,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	private Transform FindTarget() {
-		Collider[] cols = Physics.OverlapSphere(transform.position, 90, 1<<11);
+		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1<<11);
 		Transform target = null;
 		float maxDist = float.MaxValue;
 		foreach (var col in cols) {
@@ -81,6 +83,13 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 				target = col.transform;
 			}
 		}
+
+		if (target != null) {
+			_targetColor = target.GetComponent<OrcEntityState>().PlayerColor;
+			_renderer.material.SetColor("_EmissionColor", _targetColor * 5);
+		}
+		
+		
 		return target;
 	}
 
@@ -127,7 +136,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		while (timer < ExplosionDelayTime) {
 			var curveValue = ExplosionScaleCurve.Evaluate(timer / ExplosionDelayTime);
 			transform.localScale = Vector3.Lerp(lastScale, Vector3.one * curveValue, timer / ExplosionDelayTime);
-			_renderer.material.SetColor("_EmissionColor", Color.Lerp(Color.white * 15, Color.white * 5, curveValue * curveValue));
+			_renderer.material.SetColor("_EmissionColor", _targetColor * Mathf.Lerp(15, 5, curveValue * curveValue));
 			_light.intensity = curveValue * curveValue * 1.2f;
 			timer += Time.deltaTime;
 			yield return null;
@@ -148,7 +157,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	private void ResetToDefault() {
-		_renderer.material.SetColor("_EmissionColor", Color.white * 5);
+		_renderer.material.SetColor("_EmissionColor", _targetColor * 5);
 		_light.intensity = 4.5f;
 		_wasHit = false;
 		_exploding = false;
@@ -159,13 +168,12 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	private IEnumerator WasHit() {
 		_hitTime = Time.time + HitDelayTime;
 		_wasHit = true;
-		var lastColor = _renderer.material.GetColor("_EmissionColor");
 		var lastScale = transform.localScale;
 		var lastIntensity = _light.intensity;
 		while (Time.time < _hitTime) {
 			var curveValue = HitScaleCurve.Evaluate((Time.time - _hitTime + HitDelayTime) / HitDelayTime);
 			transform.localScale = lastScale + Vector3.one * (curveValue * curveValue) * ScaleFactor;
-			_renderer.material.SetColor("_EmissionColor", Color.Lerp(Color.white * 30, lastColor, curveValue * curveValue));
+			_renderer.material.SetColor("_EmissionColor", _targetColor * Mathf.Lerp(30, 4, curveValue * curveValue));
 			_light.intensity = lastIntensity * (curveValue * curveValue) * 1.2f;
 				
 			yield return null;

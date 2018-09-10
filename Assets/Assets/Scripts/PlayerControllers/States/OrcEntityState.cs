@@ -57,6 +57,8 @@ public class OrcEntityState : EntityState {
 			return new Vector3(Rb.velocity.x, 0, Rb.velocity.z);
 		}
 	}
+	
+	public Color PlayerColor { get; set; }
 
 	public Vector3 LastPos { get; set; }
 

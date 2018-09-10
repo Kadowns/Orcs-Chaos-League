@@ -36,22 +36,19 @@ public class ClassicArenaMotor : ArenaMotor {
 	protected IEnumerator SuddenDeath(ArenaController controller, ArenaState state) {
 
 		controller.StartCoroutine(SuddenDeathExplosions(controller, state));
-		int rand = Random.Range(0, 3);
+		int rand = Random.Range(0, state.Plataforms.Length);
 		int sunkPlataforms = 0;
-		bool[] sunk = new bool[4];
+		bool[] sunk = new bool[state.Plataforms.Length];
 		do {
-			int plataformsToSink = 4 - (controller.PlayerInGame - 2);
+
+			int plataformsToSink = state.Plataforms.Length - (int)(state.Plataforms.Length * ((float)(controller.PlayerInGame - 1) / 4));
+			
 			if (sunkPlataforms < plataformsToSink) {
-				while (state.Plataforms[rand].transform.position.y > -8) {
-					state.Plataforms[rand].transform.position += Vector3.down * 4 * Time.deltaTime;
-
-					yield return null;
-				}
-
-				state.Plataforms[rand].transform.position = new Vector3(state.Plataforms[rand].transform.position.x, -8, state.Plataforms[rand].transform.position.z);
+				state.Plataforms[rand].Lower();		
 				sunk[rand] = true;
 				sunkPlataforms++;
 				rand = rand + 1 >= state.Plataforms.Length ? 0 : rand + 1;
+				yield return new WaitForSeconds(0.5f);
 			}
 			else {
 
@@ -59,17 +56,10 @@ public class ClassicArenaMotor : ArenaMotor {
 				do {
 
 					if (sunk[i]) {
-						while (state.Plataforms[i].transform.position.y < 0) {
-							state.Plataforms[i].transform.position += Vector3.up * 4 * Time.deltaTime;
-
-							yield return null;
-						}
-
-						state.Plataforms[i].transform.position =
-							new Vector3(state.Plataforms[i].transform.position.x, 0, state.Plataforms[i].transform.position.z);
+						state.Plataforms[i].Raise();
 						sunkPlataforms--;
 						sunk[i] = false;
-						yield return new WaitForSeconds(10f);
+						yield return new WaitForSeconds(2f);
 						break;
 					}
 
@@ -82,13 +72,8 @@ public class ClassicArenaMotor : ArenaMotor {
 
 	private IEnumerator RaisePlataforms(ArenaController controller, ArenaState state) {
 		yield return null;
-		for (int i = 0; i < state.Plataforms.Length; i++) {
-			while (state.Plataforms[i].transform.position.y < 0) {
-				state.Plataforms[i].transform.position += Vector3.up * 4 * Time.deltaTime;
-				yield return null;
-			}
-
-			state.Plataforms[i].transform.position = new Vector3(state.Plataforms[i].transform.position.x, 0, state.Plataforms[i].transform.position.z);
+		foreach (var platforms in state.Plataforms) {
+			platforms.Raise();
 		}
 	}
 

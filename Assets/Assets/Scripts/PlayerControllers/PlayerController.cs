@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 
     private PlayerController _pc;
 
+	private PlayerPointer _pointer;
 	private MovableEntity _box, _orc;
 	private BoxMotor _boxMotor;
 	private OrcMotor _orcMotor;
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Awake() {
+		_pointer = GetComponent<PlayerPointer>();
 		_input = GetComponent<InputSource>();
 		var playerInput = _input as PlayerInput;
 		if (playerInput != null) {		
@@ -70,7 +72,8 @@ public class PlayerController : MonoBehaviour {
 		_orcMotor = _orc.Motor as OrcMotor;
 		_orcState = _orc.State as OrcEntityState;
 		_orcState.Controller = this;
-		
+		_orcState.PlayerColor = _pointer.GetPlayerColor();
+
 	}
 	
 
@@ -119,7 +122,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void SetPointerTarget(Transform target) {
-		GetComponent<PlayerPointer>().SetTarget(target);
+		_pointer.SetTarget(target);
 	}
 	
 	public void UpdateDamage(int damage) {

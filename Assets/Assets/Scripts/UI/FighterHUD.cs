@@ -7,46 +7,36 @@ public class FighterHUD : MonoBehaviour {
 
 	[SerializeField] private Text _damageText;
     [SerializeField] private Animator _lifeanim, _lifeanim2, _lifeanim3, _head;
-    
-   
 
+	public PlayerController Controller;
+   
     private int danoAtual, LifeCount = 0;
     private bool timerChange, shit2;
 
+	private void Start() {
+		Controller.ScoreEvent += UpdateDamage;
+	}
 	
 
-
-
     public void UpdateLife(int value) {
-	    
-	    
-
+	 
         switch (value)
         {
             case 2:
                 _lifeanim.SetInteger("StateChange", 2);
                 _head.SetInteger("StateChange", 2);
-                //LifeCount = 0;
-                //Debug.Log(value);
-                //Debug.Log(LifeCount);
+
                 break;
             case 1:
                 _lifeanim2.SetInteger("StateChange", 2);
                 _head.SetInteger("StateChange", 1);
                 LifeCount = 0;
 
-                //Debug.Log(value);
-                //Debug.Log(LifeCount);
-
                 break;
             case 0:
                 _lifeanim3.SetInteger("StateChange", 2);
                 _head.SetInteger("StateChange", 0);
                 LifeCount++;
-                //Debug.Log(value);
-                //Debug.Log(LifeCount);
-
-               
 
                 break;
 

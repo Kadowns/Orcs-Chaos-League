@@ -19016,7 +19016,7 @@ MonoBehaviour:
   Arenas:
   - {fileID: 2006345556}
   - {fileID: 1697129185}
-  SuddenDeathWait: 5
+  SuddenDeathWait: 20
   PlayerInGame: 0
 --- !u!1 &1052082574
 GameObject:
@@ -38620,6 +38620,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114201949372305332, guid: 235908fa5794b3841ba0298e02eb43a1,
+        type: 2}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 612024977}
+    - target: {fileID: 114077031554294484, guid: 235908fa5794b3841ba0298e02eb43a1,
+        type: 2}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 1472769337}
+    - target: {fileID: 114730469246259180, guid: 235908fa5794b3841ba0298e02eb43a1,
+        type: 2}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 245479813}
+    - target: {fileID: 114153277069276562, guid: 235908fa5794b3841ba0298e02eb43a1,
+        type: 2}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 1012289211}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 235908fa5794b3841ba0298e02eb43a1, type: 2}
   m_IsPrefabParent: 0

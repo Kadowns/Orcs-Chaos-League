@@ -214,11 +214,9 @@ public class OrcMotor : Motor {
 
 	private bool Grounded(MovableEntity entity, OrcEntityState state) {
 		RaycastHit hit;
-		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, ~(1<<12 & 1<<10& 1<<8))) {
+		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, ~(1<<12 & 1<<11 & 1<<10 & 1<<8))) {
 			state.DoubleJump = false;
-
-			if (!hit.collider.CompareTag("Player"))
-				entity.transform.SetParent(hit.transform);
+			entity.transform.SetParent(hit.transform);
 										
 			return true;
 		}
@@ -254,7 +252,7 @@ public class OrcMotor : Motor {
 	private void ApplyDamage(MovableEntity entity, OrcEntityState state) {
 	
 		Collider[] orcsCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range, 1<<11);
-		Collider[] rockCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range * 2, 1<<12);
+		Collider[] rockCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range * 1.5f, 1<<12);
 		
 		if (orcsCols.Length > 0) {
 			for (int i = 0; i < orcsCols.Length; i++) {
@@ -269,7 +267,6 @@ public class OrcMotor : Motor {
 						Vector3 dir = (otherEntity.transform.position - entity.transform.position).normalized;
 
 						if (!otherState.CanCounter) {
-
 							otherMotor.Damage(otherState, dir, state.ActualAttack.force, state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
 								state.ActualAttack.knockBack,
 								state.ActualAttack.knockUp);
@@ -392,7 +389,7 @@ public class OrcMotor : Motor {
 	
 	public void Burn(OrcEntityState state, int damage, float timeToBurn, Vector3 dir, float knockBackForce) {
 		
-		Vibrate(state, 0, damage / 50f, timeToBurn);
+		Vibrate(state, 1, damage / 50f, timeToBurn);
 		state.Rb.AddForce(dir * knockBackForce, ForceMode.Impulse);
 		state.TimeToBurn = timeToBurn;
 		state.Hurt = false;
@@ -408,8 +405,9 @@ public class OrcMotor : Motor {
 		state.Damage = state.Damage + amount > 999 ? 999 : state.Damage + amount;
 		if (state.Damage > 50) {
 			state.Flash.SetRedAmount(state.Damage);
-		}		
-		state.Controller.Hud.UpdateDamage(state.Damage);
+		}
+
+		state.Controller.UpdateScore(state.Damage);
 	}
 
 	private void WasHit(OrcEntityState state, float hurtTime) {

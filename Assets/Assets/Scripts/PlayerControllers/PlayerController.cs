@@ -4,17 +4,18 @@ using Rewired;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+	
+	public delegate void ScoreDelegate(int score);
 
+	public event ScoreDelegate ScoreEvent;
 
-	[SerializeField] public int _playerNumber;
+	[SerializeField] private int _playerNumber;
 
 	public int PlayerNumber {
 		get { return _playerNumber; }
 	}
 
 	public bool AutoSpawn;
-
-    private int lastplayer;
 
     [SerializeField] GameObject _orcPrefab;
 	[SerializeField] private FighterHUD _hud;
@@ -35,15 +36,12 @@ public class PlayerController : MonoBehaviour {
 
 	private Player _player;
 
-	private int _actualGameState, x;
+	private int _score = 0;
+	private int _actualGameState;
 	
     private float _spawnTimer = 0;
 
 	private bool _spawnNewOrc, _playerInGame;
-
-	public FighterHUD Hud {
-		get { return _hud; }
-	}
 
 	public bool PlayerInGame {
 		get { return _playerInGame; }
@@ -154,9 +152,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
     private void Update() {
-
-        PlayerID(x);
-
 	    if (_input.CenterButtonPresssed && _actualGameState != -1) {
 		    GameController.Instance.Pause(PlayerNumber);
 	    }
@@ -184,12 +179,14 @@ public class PlayerController : MonoBehaviour {
 			   if (_player.GetAnyButton()) {
 				   GameController.Instance.StartGame();
 			   }
-			   break;	
-                
-                
-             	    
+			   break;	         	    
 	    }	    
-    }
+    }	
+	
+	public void UpdateScore(int scoreToAdd) {
+		_score += scoreToAdd;
+		ScoreEvent.Invoke(_score);
+	}
 
 	public void UpdateGameState(int index) {
 		_actualGameState = index;
@@ -281,15 +278,4 @@ public class PlayerController : MonoBehaviour {
 			controllerMap.enabled = value;
 		}
 	}
-
-   
-    public void PlayerID(int x)
-    {
-        
-        if (_player.isPlaying)
-            x = _player.id;
-
-        
-    }
-  
 }

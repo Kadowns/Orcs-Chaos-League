@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: bb022f7b63066f14daa063faf2da6404
+guid: b9d0fe12803c8be40b4d9d601e3a501a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: orc_parry_1
-    21300002: orc_parry_2
-    21300004: orc_parry_3
-    21300006: orc_parry_4
-    21300008: orc_parry_5
-    21300010: orc_parry_7
-    21300012: orc_parry_8
-    21300014: orc_parry_9
-    21300016: orc_parry_10
-    21300018: orc_parry_11
+    21300000: stomp_com_sombra_direita_0
+    21300002: stomp_com_sombra_direita_1
+    21300004: stomp_com_sombra_direita_2
+    21300006: stomp_com_sombra_direita_3
+    21300008: stomp_com_sombra_direita_4
+    21300010: stomp_com_sombra_direita_5
+    21300012: stomp_com_sombra_direita_6
+    21300014: stomp_com_sombra_direita_7
+    21300016: stomp_com_sombra_direita_8
+    21300018: stomp_com_sombra_direita_9
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -92,161 +92,201 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orc_parry_1
+      name: stomp_com_sombra_direita_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 2066
-        width: 1554
-        height: 1413
-      alignment: 9
-      pivot: {x: 0.5144876, y: 0.4053111}
+        x: 926
+        y: 9869
+        width: 1487
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee25547ebc647d743b8a54e3ad971d8b
+      spriteID: f3bb68741364b8748ae527521f99f0a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_2
+      name: stomp_com_sombra_direita_1
       rect:
         serializedVersion: 2
-        x: 1896
-        y: 2066
-        width: 1596
-        height: 1468
-      alignment: 9
-      pivot: {x: 0.5136489, y: 0.37526843}
+        x: 3419
+        y: 9875
+        width: 1499
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7214059a4d7cf74790ff9065af2a0a3
+      spriteID: 64f1116e7c6dce443b2559d7cceb0bf4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_3
+      name: stomp_com_sombra_direita_2
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 2066
-        width: 1589
-        height: 1420
-      alignment: 9
-      pivot: {x: 0.5, y: 0.40000018}
+        x: 891
+        y: 7578
+        width: 1558
+        height: 1027
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65afceece1715c84b95b77787225054c
+      spriteID: de832205b546f3548987c633c1df983c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_4
+      name: stomp_com_sombra_direita_3
       rect:
         serializedVersion: 2
-        x: 5447
-        y: 2066
-        width: 1678
-        height: 1394
-      alignment: 9
-      pivot: {x: 0.52163655, y: 0.40520898}
+        x: 3390
+        y: 7567
+        width: 1556
+        height: 1004
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f98392abe47a08488dba4532b4a0e8f
+      spriteID: bd66a2ac566c08744a98790b5d81f87d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_7
+      name: stomp_com_sombra_direita_4
       rect:
         serializedVersion: 2
-        x: 82
-        y: 266
-        width: 1578
-        height: 1409
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 469
+        y: 5220
+        width: 1933
+        height: 1133
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 060147f9a3a1c254ba249178bd6d04f6
+      spriteID: 849d67a4a0a40ca46a38acaef89bdb22
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_8
+      name: stomp_com_sombra_direita_5
       rect:
         serializedVersion: 2
-        x: 1883
-        y: 266
-        width: 1596
-        height: 1468
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 2896
+        y: 5225
+        width: 1978
+        height: 1101
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0e23191d376174b9a01b2967a53991
+      spriteID: a426aecdf63e4b648b75c388c6371b48
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_9
+      name: stomp_com_sombra_direita_6
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 266
-        width: 1589
-        height: 1420
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 363
+        y: 2883
+        width: 1994
+        height: 1107
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1b777f8870fa9a46bde825a7cffa501
+      spriteID: a12dd78f03a950c4197b36c1fc4ca65e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_10
+      name: stomp_com_sombra_direita_7
       rect:
         serializedVersion: 2
-        x: 5451
-        y: 266
-        width: 1678
-        height: 1394
-      alignment: 9
-      pivot: {x: 0.50756747, y: 0.5}
+        x: 2789
+        y: 2883
+        width: 2051
+        height: 1595
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39c7a13f34ab1f54d858f2f1b5b7460b
+      spriteID: c50fb80ea4e0b06469b5aafca2c356a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stomp_com_sombra_direita_8
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 588
+        width: 1989
+        height: 1217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99663ce84167434f96777f6960125db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stomp_com_sombra_direita_9
+      rect:
+        serializedVersion: 2
+        x: 2862
+        y: 525
+        width: 1910
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478878d9c468e6a438e4f24435da91a4
       vertices: []
       indices: 
       edges: []
@@ -254,7 +294,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cb18ce343179bff4a8d0b2edd80e5f3b
+    spriteID: a95f1bb5a8194a94bab1f1d560b1c476
     vertices: []
     indices: 
     edges: []

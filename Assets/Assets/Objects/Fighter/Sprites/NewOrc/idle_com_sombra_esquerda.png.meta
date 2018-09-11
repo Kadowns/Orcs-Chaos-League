@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: bb022f7b63066f14daa063faf2da6404
+guid: 142c9c12bd674244d89e76b79afcd5b1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: orc_parry_1
-    21300002: orc_parry_2
-    21300004: orc_parry_3
-    21300006: orc_parry_4
-    21300008: orc_parry_5
-    21300010: orc_parry_7
-    21300012: orc_parry_8
-    21300014: orc_parry_9
-    21300016: orc_parry_10
-    21300018: orc_parry_11
+    21300000: idle_com_sombra_esquerda_0
+    21300002: idle_com_sombra_esquerda_1
+    21300004: idle_com_sombra_esquerda_2
+    21300006: idle_com_sombra_esquerda_3
+    21300008: idle_com_sombra_esquerda_4
+    21300010: idle_com_sombra_esquerda_5
+    21300012: idle_com_sombra_esquerda_6
+    21300014: idle_com_sombra_esquerda_7
+    21300016: idle_com_sombra_esquerda_8
+    21300018: idle_com_sombra_esquerda_9
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -92,161 +92,201 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orc_parry_1
+      name: idle_com_sombra_esquerda_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 2066
-        width: 1554
-        height: 1413
-      alignment: 9
-      pivot: {x: 0.5144876, y: 0.4053111}
+        x: 53
+        y: 102
+        width: 1669
+        height: 1155
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee25547ebc647d743b8a54e3ad971d8b
+      spriteID: d0f2759c7fbc2a842b18ce205c2c4fb9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_2
+      name: idle_com_sombra_esquerda_1
       rect:
         serializedVersion: 2
-        x: 1896
-        y: 2066
-        width: 1596
-        height: 1468
-      alignment: 9
-      pivot: {x: 0.5136489, y: 0.37526843}
+        x: 1006
+        y: 92
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7214059a4d7cf74790ff9065af2a0a3
+      spriteID: 302bb6f55eea6b34da689566214598d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_3
+      name: idle_com_sombra_esquerda_2
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 2066
-        width: 1589
-        height: 1420
-      alignment: 9
-      pivot: {x: 0.5, y: 0.40000018}
+        x: 1867
+        y: 102
+        width: 1645
+        height: 1162
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65afceece1715c84b95b77787225054c
+      spriteID: 3548c1c4ddb02514e96a42ac714ba197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_4
+      name: idle_com_sombra_esquerda_3
       rect:
         serializedVersion: 2
-        x: 5447
-        y: 2066
-        width: 1678
-        height: 1394
-      alignment: 9
-      pivot: {x: 0.52163655, y: 0.40520898}
+        x: 3639
+        y: 102
+        width: 1659
+        height: 1148
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f98392abe47a08488dba4532b4a0e8f
+      spriteID: f73ace4873f4e974d8c30e90f8a8284e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_7
+      name: idle_com_sombra_esquerda_4
       rect:
         serializedVersion: 2
-        x: 82
-        y: 266
-        width: 1578
-        height: 1409
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 5481
+        y: 102
+        width: 1652
+        height: 1155
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 060147f9a3a1c254ba249178bd6d04f6
+      spriteID: 5930df452ace95144a50e5650efc0485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_8
+      name: idle_com_sombra_esquerda_5
       rect:
         serializedVersion: 2
-        x: 1883
-        y: 266
-        width: 1596
-        height: 1468
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 7302
+        y: 102
+        width: 1631
+        height: 1154
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0e23191d376174b9a01b2967a53991
+      spriteID: 5d27c1eced2292248a8673256631dcb0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_9
+      name: idle_com_sombra_esquerda_6
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 266
-        width: 1589
-        height: 1420
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 9053
+        y: 102
+        width: 1708
+        height: 1148
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1b777f8870fa9a46bde825a7cffa501
+      spriteID: b5810af3ab20a57429d8030fb4047617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_10
+      name: idle_com_sombra_esquerda_7
       rect:
         serializedVersion: 2
-        x: 5451
-        y: 266
-        width: 1678
-        height: 1394
-      alignment: 9
-      pivot: {x: 0.50756747, y: 0.5}
+        x: 10860
+        y: 102
+        width: 1711
+        height: 1133
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39c7a13f34ab1f54d858f2f1b5b7460b
+      spriteID: 316e0cf3cf69ae844900b159292164d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_com_sombra_esquerda_8
+      rect:
+        serializedVersion: 2
+        x: 12660
+        y: 102
+        width: 1694
+        height: 1120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255ce53bb18c1bb4996c26236f5d2f66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_com_sombra_esquerda_9
+      rect:
+        serializedVersion: 2
+        x: 2806
+        y: 92
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1bfcb1fbd475b47b1c359769f14df9
       vertices: []
       indices: 
       edges: []
@@ -254,7 +294,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cb18ce343179bff4a8d0b2edd80e5f3b
+    spriteID: fd6bd115e79f5f244b22b781b280ac58
     vertices: []
     indices: 
     edges: []

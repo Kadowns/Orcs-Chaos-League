@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: bb022f7b63066f14daa063faf2da6404
+guid: 75e4ba1b32f1fc044be550e0dcb0ff67
 TextureImporter:
   fileIDToRecycleName:
-    21300000: orc_parry_1
-    21300002: orc_parry_2
-    21300004: orc_parry_3
-    21300006: orc_parry_4
-    21300008: orc_parry_5
-    21300010: orc_parry_7
-    21300012: orc_parry_8
-    21300014: orc_parry_9
-    21300016: orc_parry_10
-    21300018: orc_parry_11
+    21300000: idle_editada_0
+    21300002: idle_editada_1
+    21300004: idle_editada_2
+    21300006: idle_editada_3
+    21300008: idle_editada_4
+    21300010: idle_editada_5
+    21300012: idle_editada_6
+    21300014: idle_editada_7
+    21300016: idle_editada_8
+    21300018: idle_editada_9
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -92,161 +92,201 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orc_parry_1
+      name: idle_editada_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 2066
-        width: 1554
-        height: 1413
-      alignment: 9
-      pivot: {x: 0.5144876, y: 0.4053111}
+        x: 54
+        y: 102
+        width: 1668
+        height: 1155
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee25547ebc647d743b8a54e3ad971d8b
+      spriteID: de5499575d26a534daf1df2012b6532b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_2
+      name: idle_editada_1
       rect:
         serializedVersion: 2
-        x: 1896
-        y: 2066
-        width: 1596
-        height: 1468
-      alignment: 9
-      pivot: {x: 0.5136489, y: 0.37526843}
+        x: 1850
+        y: 543
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7214059a4d7cf74790ff9065af2a0a3
+      spriteID: da2705dc629ce494aa1a9879154ddaa6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_3
+      name: idle_editada_2
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 2066
-        width: 1589
-        height: 1420
-      alignment: 9
-      pivot: {x: 0.5, y: 0.40000018}
+        x: 1867
+        y: 102
+        width: 1645
+        height: 1162
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65afceece1715c84b95b77787225054c
+      spriteID: 6b804f5b3534e974f9483ec1f3c608f4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_4
+      name: idle_editada_3
       rect:
         serializedVersion: 2
-        x: 5447
-        y: 2066
-        width: 1678
-        height: 1394
-      alignment: 9
-      pivot: {x: 0.52163655, y: 0.40520898}
+        x: 3639
+        y: 102
+        width: 1659
+        height: 1148
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f98392abe47a08488dba4532b4a0e8f
+      spriteID: 74ee32ce279896d49afe1ff674b6f644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_7
+      name: idle_editada_4
       rect:
         serializedVersion: 2
-        x: 82
-        y: 266
-        width: 1578
-        height: 1409
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 5481
+        y: 102
+        width: 1652
+        height: 1155
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 060147f9a3a1c254ba249178bd6d04f6
+      spriteID: 441416749a28f5b44a98182c14c6d607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_8
+      name: idle_editada_5
       rect:
         serializedVersion: 2
-        x: 1883
-        y: 266
-        width: 1596
-        height: 1468
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 7302
+        y: 102
+        width: 1631
+        height: 1154
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0e23191d376174b9a01b2967a53991
+      spriteID: 9e4e06c3ef304934cae4f0d54f7a89d2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_9
+      name: idle_editada_6
       rect:
         serializedVersion: 2
-        x: 3718
-        y: 266
-        width: 1589
-        height: 1420
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+        x: 9053
+        y: 102
+        width: 1708
+        height: 1148
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1b777f8870fa9a46bde825a7cffa501
+      spriteID: 6499c7dd86e23a1459cfb240611ab1df
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc_parry_10
+      name: idle_editada_7
       rect:
         serializedVersion: 2
-        x: 5451
-        y: 266
-        width: 1678
-        height: 1394
-      alignment: 9
-      pivot: {x: 0.50756747, y: 0.5}
+        x: 10860
+        y: 97
+        width: 1711
+        height: 1138
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39c7a13f34ab1f54d858f2f1b5b7460b
+      spriteID: 82fb455b9143d194e84a0c5b34b9cd88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_editada_8
+      rect:
+        serializedVersion: 2
+        x: 12660
+        y: 102
+        width: 1694
+        height: 1120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d43764f668bc54bbd601cc376259a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_editada_9
+      rect:
+        serializedVersion: 2
+        x: 6432
+        y: 90
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41e2fa7477d158418511c4226d4d213
       vertices: []
       indices: 
       edges: []
@@ -254,7 +294,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cb18ce343179bff4a8d0b2edd80e5f3b
+    spriteID: 6cbd318d76ac2454c81bef3fd7bfc920
     vertices: []
     indices: 
     edges: []

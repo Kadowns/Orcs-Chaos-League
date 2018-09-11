@@ -30751,7 +30751,7 @@ Prefab:
     - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
         type: 2}
       propertyPath: AutoSpawn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

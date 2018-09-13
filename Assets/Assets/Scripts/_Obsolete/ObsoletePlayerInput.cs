@@ -183,13 +183,13 @@ public class ObsoletePlayerInput : MonoBehaviour {
 	}
 	
 	public void UpdateDamage(int damage) {
-		_hud.UpdateDamage(damage);
+		_hud.UpdateScore(damage);
 	}
 
 	public void SubtractLife() {
 
 		_spawner.SubtractLife();
-		_hud.UpdateDamage("---");
+		_hud.UpdateScore("---");
 		var lifes = _spawner.GetOrcs();
 		if (lifes >= 0)
 			_hud.UpdateLife(lifes);

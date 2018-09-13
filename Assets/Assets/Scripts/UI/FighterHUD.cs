@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FighterHUD : MonoBehaviour {
 
-	[SerializeField] private Text _damageText;
+	[SerializeField] private Text _scoreText;
     [SerializeField] private Animator _lifeanim, _lifeanim2, _lifeanim3, _head;
 
 	public PlayerController Controller;
@@ -14,7 +14,8 @@ public class FighterHUD : MonoBehaviour {
     private bool timerChange, shit2;
 
 	private void Start() {
-		Controller.ScoreEvent += UpdateDamage;
+		Controller.ScoreEvent += UpdateScore;
+		Controller.DeathEvent += UpdateLife;
 	}
 	
 
@@ -45,32 +46,31 @@ public class FighterHUD : MonoBehaviour {
         if (LifeCount >= 2 || value == -1 && LifeCount >= 1)
         {
             _head.SetInteger("StateChange", 4);
-            //shit = 0;
         }
 
         ResetVariables(shit2);
        
     }
 
-    public void UpdateDamage(string text) {
-		_damageText.transform.localScale = Vector3.one;
-		_damageText.text = text;
+    public void UpdateScore(string text) {
+		_scoreText.transform.localScale = Vector3.one;
+		_scoreText.text = text;
 	}
 	
-	public void UpdateDamage(int damage) {
-		_damageText.transform.localScale = Vector3.one;
-		_damageText.color = Color.Lerp(Color.white, Color.red, (float)damage / 100);
+	public void UpdateScore(int score) {
+		_scoreText.transform.localScale = Vector3.one;
+		_scoreText.color = Color.Lerp(Color.white, Color.green, (float)score / 100);
 		
-		StartCoroutine(ImpactScale(_damageText, damage, 0.25f, 2f));
+		StartCoroutine(ImpactScale(_scoreText, score, 0.25f, 2f));
     }
 
-	private IEnumerator ImpactScale(Text text, int targetDamage, float timeToScale, float scale) {
+	private IEnumerator ImpactScale(Text text, int targetScore, float timeToScale, float scale) {
 
 		float scaleTimer = 0;
 		while (scaleTimer < timeToScale) {
 			scaleTimer += Time.deltaTime;
 			text.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * scale, scaleTimer / timeToScale);
-            danoAtual = (int)Mathf.Lerp(danoAtual, targetDamage, scaleTimer / timeToScale);
+            danoAtual = (int)Mathf.Lerp(danoAtual, targetScore, scaleTimer / timeToScale);
             text.text = "" + danoAtual;
 			yield return null;
 		}
@@ -83,7 +83,6 @@ public class FighterHUD : MonoBehaviour {
         {
             shit2 = retorno;
             LifeCount = 0;
-            Debug.Log(retorno);
         }
     }
 }

@@ -6,8 +6,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 	
 	public delegate void ScoreDelegate(int score);
-
 	public event ScoreDelegate ScoreEvent;
+
+	public delegate void DeathDelegate(int remainingLives);
+	public event DeathDelegate DeathEvent;
 
 	[SerializeField] private int _playerNumber;
 
@@ -60,7 +62,6 @@ public class PlayerController : MonoBehaviour {
 	private void Start() {
 		CreateOrc();
 	}
-
 
 	private void CreateOrc() {
         _orcPrefab = Instantiate(_orcPrefab, transform);
@@ -124,16 +125,16 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	public void UpdateDamage(int damage) {
-		_hud.UpdateDamage(damage);
+		_hud.UpdateScore(damage);
 	}
 
 	public void SubtractLife() {
 		
 		if (_box != null) {
-		   
+
+			_score /= 2;
+			ScoreEvent.Invoke(_score);
 			_orcs--;
-			_hud.UpdateDamage("---");
-			_hud.UpdateLife(_orcs);
 			if (_orcs < 0) {
 				gameObject.SetActive(false);
 				SetPointerTarget(null);
@@ -149,6 +150,7 @@ public class PlayerController : MonoBehaviour {
 			ResetToDefault(false);
 			GameController.Instance.DecreaseActivePlayers();
 		}		
+		DeathEvent.Invoke(_orcs);
 	}
 
     private void Update() {
@@ -183,7 +185,7 @@ public class PlayerController : MonoBehaviour {
 	    }	    
     }	
 	
-	public void UpdateScore(int scoreToAdd) {
+	public void AddScore(int scoreToAdd) {
 		_score += scoreToAdd;
 		ScoreEvent.Invoke(_score);
 	}

@@ -267,6 +267,7 @@ public class OrcMotor : Motor {
 						Vector3 dir = (otherEntity.transform.position - entity.transform.position).normalized;
 
 						if (!otherState.CanCounter) {
+							state.Controller.AddScore(15);
 							otherMotor.Damage(otherState, dir, state.ActualAttack.force, state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
 								state.ActualAttack.knockBack,
 								state.ActualAttack.knockUp);
@@ -406,8 +407,6 @@ public class OrcMotor : Motor {
 		if (state.Damage > 50) {
 			state.Flash.SetRedAmount(state.Damage);
 		}
-
-		state.Controller.UpdateScore(state.Damage);
 	}
 
 	private void WasHit(OrcEntityState state, float hurtTime) {

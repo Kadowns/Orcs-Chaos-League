@@ -167,6 +167,7 @@ public class GameController : Singleton<GameController> {
 				
 				_music.DramaticFrequencyChange(0.5f, 4.5f, 1f, 600f, 250f);
 				GlobalAudio.Instance.LoopByIndex(2);
+
 				for (int i = 0; i < _playerController.Length; i++) {
 					if (!_playerController[i].PlayerInGame) {
 
@@ -178,7 +179,7 @@ public class GameController : Singleton<GameController> {
 					_playerController[i].StartSpawning();
 				}
 				
-				ArenaController.Instance.PrepareGame(_activePlayers, CurrentArena);
+				ArenaController.Instance.PrepareGame(ref _playerController, CurrentArena);
 				break;
 		}
 		

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	
-	public delegate void ScoreDelegate(int score);
+	public delegate void ScoreDelegate();
 	public event ScoreDelegate ScoreEvent;
 
 	public delegate void DeathDelegate(int remainingLives);
@@ -21,11 +21,8 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] GameObject _orcPrefab;
 	[SerializeField] private FighterHUD _hud;
-    [SerializeField] private int _orcs = 3;
     [SerializeField] private float _spawnWait = 3;
 	[SerializeField] private float _maxTimeToSpawn;
-
-    private PlayerController _pc;
 
 	private PlayerPointer _pointer;
 	private MovableEntity _box, _orc;
@@ -38,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Player _player;
 
+    public int Score { get { return _score; } }
 	private int _score = 0;
 	private int _actualGameState;
 	
@@ -50,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Awake() {
+ 
 		_pointer = GetComponent<PlayerPointer>();
 		_input = GetComponent<InputSource>();
 		var playerInput = _input as PlayerInput;
@@ -75,7 +74,6 @@ public class PlayerController : MonoBehaviour {
 
 	}
 	
-
 	public void SpawnOrc() {
 
 		_orcPrefab.SetActive(true);
@@ -104,11 +102,10 @@ public class PlayerController : MonoBehaviour {
 			_orcPrefab.transform.parent = transform;
 			_orcMotor.ResetToDefault(_orcState);
 			SetPointerTarget(_orcPrefab.transform);
-			UpdateDamage(0);
 			_spawnNewOrc = false;
 
 		}
-
+        ScoreEvent.Invoke();
 		CameraController.Instance.UpdatePlayers();	
 		CameraController.Instance.MaxZoom(false);  
 	}
@@ -123,26 +120,13 @@ public class PlayerController : MonoBehaviour {
 	public void SetPointerTarget(Transform target) {
 		_pointer.SetTarget(target);
 	}
-	
-	public void UpdateDamage(int damage) {
-		_hud.UpdateScore(damage);
-	}
 
 	public void SubtractLife() {
 		
 		if (_box != null) {
 
-			_score /= 2;
-			ScoreEvent.Invoke(_score);
-			_orcs--;
-			if (_orcs < 0) {
-				gameObject.SetActive(false);
-				SetPointerTarget(null);
-				ArenaController.Instance.PlayerDied(_playerNumber);
-				
-				return;
-			}
-				
+            _score /= 2;
+            ScoreEvent.Invoke();
 		    SetPointerTarget(_box.transform);
 			StartSpawning();
 		}
@@ -150,7 +134,7 @@ public class PlayerController : MonoBehaviour {
 			ResetToDefault(false);
 			GameController.Instance.DecreaseActivePlayers();
 		}		
-		DeathEvent.Invoke(_orcs);
+		DeathEvent.Invoke(3);
 	}
 
     private void Update() {
@@ -187,7 +171,10 @@ public class PlayerController : MonoBehaviour {
 	
 	public void AddScore(int scoreToAdd) {
 		_score += scoreToAdd;
-		ScoreEvent.Invoke(_score);
+		ScoreEvent.Invoke();
+        if (_score >= 999) {
+            ArenaController.Instance.GameShouldEnd(_playerNumber);
+        }
 	}
 
 	public void UpdateGameState(int index) {
@@ -210,10 +197,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void ResetToDefault(bool rematch) {		
-		_orcs = 3;
-		if (rematch) 
-			return;
-
+        _score = 0;
+           
+        if (rematch) {
+            ScoreEvent.Invoke();
+            return;
+        }
+			
 		_spawnNewOrc = false;
 		CameraController.Instance.MaxZoom(false);
 		if (_box != null)
@@ -249,10 +239,6 @@ public class PlayerController : MonoBehaviour {
 	public void SetDefaultPosition(Vector3 position) {
 		_boxMotor.SetDefaultRaised(_boxState, position.y + 300);
 		_boxMotor.SetDefaultLowered(_boxState, position.y + 200);
-	}
-	
-	public int GetOrcs() {
-		return _orcs;
 	}
 	
 	public bool CanSpawn() {

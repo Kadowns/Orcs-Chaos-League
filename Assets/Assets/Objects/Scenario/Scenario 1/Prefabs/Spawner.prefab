@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 65535292651572790}
   - component: {fileID: 95724426191972112}
   - component: {fileID: 54296613743284366}
-  - component: {fileID: 114690633894659820}
   - component: {fileID: 114504009084961000}
   - component: {fileID: 114569353381134944}
   - component: {fileID: 114205512052639324}
@@ -163,8 +162,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602592896861216}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -13, y: 484, z: 13}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -13, y: -16, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4701678237224084}
@@ -664,6 +663,7 @@ MonoBehaviour:
   RoofPoint: {fileID: 4752733850357490}
   JointRb: {fileID: 54143924082849230}
   MoveSpeed: 12500
+  GravityScale: 10
   CageDoor: {fileID: 1585688814793422}
   SlotText: {fileID: 95401983591824770}
 --- !u!114 &114569353381134944
@@ -691,20 +691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28998df73513b2448fe2e1e2cd1dd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114690633894659820
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971488582667650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0772fd61d30df8448ae300881cc65cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GravityScale: 1
-  _extraGravity: 10
-  GlobalGravity: -9.81
 --- !u!114 &114768287385367850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,9 +715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6decc94ea79fb94b8e942e4df95732b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shouldApplyForce: 0
-  _cableLength: 0
-  _cableStrength: 0
+  _shouldApplyForce: 1
+  _cableLength: 250
+  _cableStrength: 100
   _endPoint: {fileID: 4752733850357490}
 --- !u!120 &120549246525607726
 LineRenderer:

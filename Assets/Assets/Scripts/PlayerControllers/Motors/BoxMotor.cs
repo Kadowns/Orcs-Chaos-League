@@ -43,12 +43,18 @@ public class BoxMotor : Motor {
 
 	public override void FixedTick(MovableEntity entity, InputSource input) {
 	    var state = entity.State as BoxEntityState;
+        ApplyGravity(entity, state);
 		TestCollisions(state);
 	}
 
 	public override void LateTick(MovableEntity entity, InputSource input) {
 
 	}
+
+    private static void ApplyGravity(MovableEntity entity, BoxEntityState state) {
+        Vector3 gravity = Physics.gravity * state.GravityScale;
+        state.Rb.AddForce(gravity, ForceMode.Acceleration);
+    }
 
     private bool ActionButton(InputSource input) {
         return input.ActionDownButton || input.ActionLeftButton || input.ActionRightButton || input.ActionUpButton;
@@ -76,15 +82,14 @@ public class BoxMotor : Motor {
         state.StopAllCoroutines();
         state.Rb.isKinematic = true;
         state.CageDoor.SetActive(false);
-        state.SlotText.SetTrigger("Free");     
-        state.Rb.constraints = RigidbodyConstraints.FreezeAll;
-        state.JointRb.constraints = RigidbodyConstraints.FreezeAll;
-        state.JointRb.isKinematic = true;
+        state.SlotText.SetTrigger("Free");        
         state.Orc = null;
         state.Controller = null;
         state.RoofPoint.position =  state.DefaultPosition + Vector3.up * -200;
         state.transform.position =  state.DefaultPosition;
         state.transform.rotation = Quaternion.identity;
+        state.JointRb.isKinematic = true;
+        state.JointRb.transform.position = state.transform.position;
         state.Cage.enabled = false;
         state.Col.enabled = true;
         

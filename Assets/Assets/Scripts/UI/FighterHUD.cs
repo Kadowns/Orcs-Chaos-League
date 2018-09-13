@@ -6,36 +6,43 @@ using UnityEngine.UI;
 public class FighterHUD : MonoBehaviour {
 
 	[SerializeField] private Text _scoreText;
-    [SerializeField] private Animator _lifeanim, _lifeanim2, _lifeanim3, _head;
+    [SerializeField] private Animator _head;
 
 	public PlayerController Controller;
    
     private int danoAtual, LifeCount = 0;
     private bool timerChange, shit2;
 
-	private void Start() {
-		Controller.ScoreEvent += UpdateScore;
-		Controller.DeathEvent += UpdateLife;
-	}
-	
+    private void OnEnable()
+    {
+        Controller.ScoreEvent += UpdateScore;
+        Controller.DeathEvent += UpdateLife;
+    }
+
+    private void OnDisable()
+    {
+        Controller.ScoreEvent -= UpdateScore;
+        Controller.DeathEvent -= UpdateLife;
+    }
+
 
     public void UpdateLife(int value) {
 	 
         switch (value)
         {
             case 2:
-                _lifeanim.SetInteger("StateChange", 2);
+              //  _lifeanim.SetInteger("StateChange", 2);
                 _head.SetInteger("StateChange", 2);
 
                 break;
             case 1:
-                _lifeanim2.SetInteger("StateChange", 2);
+            //    _lifeanim2.SetInteger("StateChange", 2);
                 _head.SetInteger("StateChange", 1);
                 LifeCount = 0;
 
                 break;
             case 0:
-                _lifeanim3.SetInteger("StateChange", 2);
+          //      _lifeanim3.SetInteger("StateChange", 2);
                 _head.SetInteger("StateChange", 0);
                 LifeCount++;
 
@@ -52,16 +59,13 @@ public class FighterHUD : MonoBehaviour {
        
     }
 
-    public void UpdateScore(string text) {
-		_scoreText.transform.localScale = Vector3.one;
-		_scoreText.text = text;
-	}
 	
-	public void UpdateScore(int score) {
+	public void UpdateScore() {
+        var score = Controller.Score;
 		_scoreText.transform.localScale = Vector3.one;
-		_scoreText.color = Color.Lerp(Color.white, Color.green, (float)score / 100);
-		
-		StartCoroutine(ImpactScale(_scoreText, score, 0.25f, 2f));
+		_scoreText.color = Color.Lerp(Color.white, Color.green, (float)score / 999);
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(ImpactScale(_scoreText, score, 0.25f, 2f));
     }
 
 	private IEnumerator ImpactScale(Text text, int targetScore, float timeToScale, float scale) {

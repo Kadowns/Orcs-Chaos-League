@@ -9,6 +9,7 @@ public class BoxEntityState : EntityState {
 	public Transform RoofPoint;
 	public Rigidbody JointRb;
 	public float MoveSpeed = 500f;
+    public float GravityScale = 10f;
 	public GameObject CageDoor;
 	public Animator SlotText;
 

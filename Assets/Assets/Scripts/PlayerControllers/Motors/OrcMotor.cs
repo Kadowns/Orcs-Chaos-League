@@ -104,7 +104,6 @@ public class OrcMotor : Motor {
 					ScreenEffects.Instance.ScreenShake(0.15f, 2.5f);
 					ApplyDamage(entity, state);
 					state.StompDrawback = true;
-					DamagePlataform(state);
                     				
 					state.TimeToCooldown = state.DropAttackCooldown;
 					state.GravityScale = 1f;
@@ -217,8 +216,17 @@ public class OrcMotor : Motor {
 		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, ~(1<<12 & 1<<11 & 1<<10 & 1<<8))) {
 			state.DoubleJump = false;
 			entity.transform.SetParent(hit.transform);
-										
-			return true;
+            if (hit.collider.CompareTag("Ground") && state.DropAttack)
+            {
+                ScreenEffects.Instance.CreateStompParticles(state.transform.position);
+                PlataformBehaviour plat = hit.collider.gameObject.GetComponent<PlataformBehaviour>();
+                if (plat != null)
+                {
+                    plat.Damage();
+                }
+            }
+
+            return true;
 		}
 		entity.transform.SetParent(null);	
 		return false;
@@ -267,7 +275,7 @@ public class OrcMotor : Motor {
 						Vector3 dir = (otherEntity.transform.position - entity.transform.position).normalized;
 
 						if (!otherState.CanCounter) {
-							state.Controller.AddScore(15);
+							state.Controller.AddScore(7 * state.LastAttackId);
 							otherMotor.Damage(otherState, dir, state.ActualAttack.force, state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
 								state.ActualAttack.knockBack,
 								state.ActualAttack.knockUp);
@@ -306,6 +314,7 @@ public class OrcMotor : Motor {
 		ScreenEffects.Instance.ScreenShake(0.1f, 0.5f);
 		GlobalAudio.Instance.PlayByIndex(4);
 		state.Countered = true;
+        state.Controller.AddScore(20);
 		StopParry(state);
 	}
 	
@@ -361,20 +370,6 @@ public class OrcMotor : Motor {
 		state.Controller.Vibrate(motorIndex, motorLevel, duration);
 	}
 
-	
-	private void DamagePlataform(OrcEntityState state) {
-		RaycastHit hit;
-		if (Physics.Raycast(state.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.1f)) {
-			if(hit.collider.CompareTag("Ground")) {
-				ScreenEffects.Instance.CreateStompParticles(state.transform.position);
-				PlataformBehaviour plat = hit.collider.gameObject.GetComponent<PlataformBehaviour>();
-				if (plat != null) {
-					plat.Damage();
-				}			
-			}
-		}
-	}
-
 	public void FellOnLava(OrcEntityState state) {
 		if (state.Damage < 100) {
 			Burn(state, 50, 2.5f, Vector3.up, 300);
@@ -416,8 +411,8 @@ public class OrcMotor : Motor {
 		state.CanStomp = false;
 		state.TauntTimer = 0;
 		state.Rb.isKinematic = false;
-		
-		state.AttackSpeed = 1f / (4 + state.Damage / 25);
+
+        state.AttackSpeed = Mathf.Lerp(0.4f, 0.075f, state.Damage / 100);
 		state.Attacking = false;
 		state.LastAttackId = 0;
 		state.SimpleAttack = false;
@@ -612,7 +607,8 @@ public class OrcMotor : Motor {
 		
 		state.StopAllCoroutines();
 		state.LastAttackId = 0;
-		state.StopParry = false;
+        state.AttackSpeed = 0.4f;
+        state.StopParry = false;
 	    state.Attacking = false;
 		state.Parrying = false;
 		state.CanCounter = false;

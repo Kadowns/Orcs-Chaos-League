@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4433588968351112}
   - component: {fileID: 212807155658004332}
   - component: {fileID: 114804058021032574}
-  - component: {fileID: 114094987498968356}
   - component: {fileID: 95283475648927078}
   - component: {fileID: 114429485993776172}
   m_Layer: 11
@@ -52,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4433588968351112
 Transform:
   m_ObjectHideFlags: 1
@@ -73,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320102641833578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7736845, y: 1.45, z: -0.6452973}
+  m_LocalPosition: {x: 3.468429, y: 495.9, z: -5.947902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4433588968351112}
@@ -113,17 +112,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114094987498968356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1139540242924082}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1b6378c5480784dbcc58e458b99e6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114215978647397776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7c5397322bc7d8f4c8053b2fffd62673, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32d5a53a4136532469a93b4b917bd441, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

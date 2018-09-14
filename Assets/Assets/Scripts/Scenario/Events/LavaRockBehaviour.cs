@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 
+	public float GravityScale = 10f;
 
 	private float _minimumTimeAlive = 0.2f;
 	private float _timeAlive = 0;
@@ -30,6 +31,10 @@ public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 			_timeAlive = 0;
 			_canDie = true;
 		}
+	}
+
+	private void FixedUpdate() {
+		_rb.AddForce(Physics.gravity * GravityScale, ForceMode.Acceleration);
 	}
 
 	public void Throw(Vector3 dir) {

@@ -412,7 +412,7 @@ public class OrcMotor : Motor {
 		state.TauntTimer = 0;
 		state.Rb.isKinematic = false;
 
-        state.AttackSpeed = Mathf.Lerp(0.4f, 0.075f, state.Damage / 100);
+        state.AttackSpeed = Mathf.Lerp(0.25f, 0.075f, state.Damage / 100);
 		state.Attacking = false;
 		state.LastAttackId = 0;
 		state.SimpleAttack = false;
@@ -607,7 +607,7 @@ public class OrcMotor : Motor {
 		
 		state.StopAllCoroutines();
 		state.LastAttackId = 0;
-        state.AttackSpeed = 0.4f;
+        state.AttackSpeed = 0.25f;
         state.StopParry = false;
 	    state.Attacking = false;
 		state.Parrying = false;

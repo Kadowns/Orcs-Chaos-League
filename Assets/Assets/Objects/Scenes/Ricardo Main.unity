@@ -12880,7 +12880,7 @@ MonoBehaviour:
     stationaryBlending: 0.95
     motionBlending: 0.85
   subpixelMorphologicalAntialiasing:
-    quality: 1
+    quality: 2
   fastApproximateAntialiasing:
     fastMode: 0
     keepAlpha: 0
@@ -30736,7 +30736,7 @@ Prefab:
     - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
         type: 2}
       propertyPath: AutoSpawn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -38520,9 +38520,20 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114201949372305332, guid: 235908fa5794b3841ba0298e02eb43a1,
+        type: 2}
+      propertyPath: _scoreText
+      value: 
+      objectReference: {fileID: 2027406609}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 235908fa5794b3841ba0298e02eb43a1, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2027406609 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114721751617765152, guid: 235908fa5794b3841ba0298e02eb43a1,
+    type: 2}
+  m_PrefabInternal: {fileID: 2027406608}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2028515718
 GameObject:
   m_ObjectHideFlags: 0

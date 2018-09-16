@@ -38,6 +38,11 @@ public class ArenaController : Singleton<ArenaController> {
 		_hud = HUDController.Instance;
 		_music = MusicController.Instance;
 		_fx = ScreenEffects.Instance;
+
+		_players = GameController.Instance.PlayerControllers;
+		foreach (var p in _players) {
+			p.DeathEvent += PlayerDied;
+		}
 	}
 
 	private void Update() {
@@ -93,16 +98,20 @@ public class ArenaController : Singleton<ArenaController> {
         _suddenDeath = false;
         _gameTimer = 0;
         _gameStarted = false;
-        _startGame = false;
+	    _startGame = false;
         ArenaMotor.ResetToDefault(this, Arenas[_currentArena]);
     }
 
-	public void PlayerDied(int playerNumber) {    
-		PlayerInGame--;
+	public void PlayerDied(int attackerNumber) {
+		if (_players == null || attackerNumber == -1)
+			return;
+		
+		_players[attackerNumber].GotKill();
+		
 	}
 
 	public void PrepareGame(ref PlayerController[] players, int currentArena) {
-        _players = players;
+       
         PlayerInGame = GetActivePlayers();
 		_currentArena = currentArena;
 		ArenaMotor = Arenas[currentArena].Motor;

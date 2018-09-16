@@ -6,15 +6,13 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class GameController : Singleton<GameController> {
 
-
+	public PlayerController[] PlayerControllers;
 	public int CurrentArena = 0;
 	
     [SerializeField] private GameObject _hub;
 	[SerializeField] private GameObject _scenario1;
-	[SerializeField] private PlayerController[] _playerController;
 	[SerializeField] private float _hubWait = 3;
 	[SerializeField] private float _gameOverDelay = 3;
-    [SerializeField] private int x;
 
 
     private FighterHUD _fhud;
@@ -64,9 +62,7 @@ public class GameController : Singleton<GameController> {
 						_hud.EnableMenuByIndex(1);
 						_hud.FighterHud(false);
 						_gameOverMenu = true;
-                        boolNathan = true;
-
-                        _hud.WinnerSymbol(x);            
+                        boolNathan = true;          
 					}
 						
 					if (_goToHub || _rematch) {
@@ -84,12 +80,12 @@ public class GameController : Singleton<GameController> {
 						}
 						_hud.EnableMenuByIndex(-1);
 						if (_rematch) {
-							for (int i = 0; i < _playerController.Length; i++) {
-								if (!_playerController[i].PlayerInGame)
+							for (int i = 0; i < PlayerControllers.Length; i++) {
+								if (!PlayerControllers[i].PlayerInGame)
 									continue;
 							
-								_playerController[i].gameObject.SetActive(true);
-								_playerController[i].ResetToDefault(true);
+								PlayerControllers[i].gameObject.SetActive(true);
+								PlayerControllers[i].ResetToDefault(true);
 							}
 							SetGameState(1);
 							_rematch = false;
@@ -99,9 +95,9 @@ public class GameController : Singleton<GameController> {
 							_camera.DoTransition("TransitionToHub");
 							_activePlayers = 0;
 							_readyPlayers = 0;
-							for (int i = 0; i < _playerController.Length; i++) {
-								_playerController[i].gameObject.SetActive(true);
-								_playerController[i].ResetToDefault(false);
+							for (int i = 0; i < PlayerControllers.Length; i++) {
+								PlayerControllers[i].gameObject.SetActive(true);
+								PlayerControllers[i].ResetToDefault(false);
 							}
 							SetGameState(0);
 							_goToHub = false;
@@ -168,22 +164,22 @@ public class GameController : Singleton<GameController> {
 				_music.DramaticFrequencyChange(0.5f, 4.5f, 1f, 600f, 250f);
 				GlobalAudio.Instance.LoopByIndex(2);
 
-				for (int i = 0; i < _playerController.Length; i++) {
-					if (!_playerController[i].PlayerInGame) {
+				for (int i = 0; i < PlayerControllers.Length; i++) {
+					if (!PlayerControllers[i].PlayerInGame) {
 
-						_playerController[i].gameObject.SetActive(false);
+						PlayerControllers[i].gameObject.SetActive(false);
 						continue;
 					}
 
-					_playerController[i].SetDefaultPosition(_scenario1.transform.position);
-					_playerController[i].StartSpawning();
+					PlayerControllers[i].SetDefaultPosition(_scenario1.transform.position);
+					PlayerControllers[i].StartSpawning();
 				}
 				
-				ArenaController.Instance.PrepareGame(ref _playerController, CurrentArena);
+				ArenaController.Instance.PrepareGame(ref PlayerControllers, CurrentArena);
 				break;
 		}
 		
-		foreach (var controller in _playerController) {
+		foreach (var controller in PlayerControllers) {
 			
 			controller.UpdateGameState(_gameState);
 		}
@@ -206,13 +202,13 @@ public class GameController : Singleton<GameController> {
 
 	public void ChangePlayersInput(string inputToDisable, string inputToEnable) {
 		
-		foreach (var input in _playerController) {
+		foreach (var input in PlayerControllers) {
 			input.ChangeInputMode(inputToDisable, inputToEnable);
 		}
 	}
 
 	public void SetPlayersInput(string categoryName, bool value) {
-		foreach (var input in _playerController) {
+		foreach (var input in PlayerControllers) {
 			input.SetInputMode(categoryName, value);
 		}
 	}

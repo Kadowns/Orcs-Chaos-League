@@ -39,7 +39,7 @@ public class OrcEntityState : EntityState {
 	#region Properties
 	
 	#region MainProperties
-
+	
 	public int Damage { get; set; }
 
 	public Rigidbody Rb { get; set; }

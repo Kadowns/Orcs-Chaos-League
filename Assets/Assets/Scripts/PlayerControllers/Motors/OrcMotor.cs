@@ -211,6 +211,12 @@ public class OrcMotor : Motor {
 		state.Rb.AddForce(gravity, ForceMode.Acceleration);
 	}
 
+	private void Kill(OrcEntityState state) {
+		state.Rb.isKinematic = true;
+		state.gameObject.SetActive(false);
+		state.Controller.SubtractLife();
+	}
+
 	private bool Grounded(MovableEntity entity, OrcEntityState state) {
 		RaycastHit hit;
 		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, ~(1<<12 & 1<<11 & 1<<10 & 1<<8))) {
@@ -276,9 +282,11 @@ public class OrcMotor : Motor {
 
 						if (!otherState.CanCounter) {
 							state.Controller.AddScore(7 * state.LastAttackId);
-							otherMotor.Damage(otherState, dir, state.ActualAttack.force, state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
+							otherMotor.Damage(otherState, dir, state.ActualAttack.force,
+								state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
 								state.ActualAttack.knockBack,
-								state.ActualAttack.knockUp);
+								state.ActualAttack.knockUp,
+								state.Controller.PlayerNumber);
 							if (state.ActualAttack.screenShake)
 								ScreenEffects.Instance.ScreenShake(0.1f, 1f);
 							
@@ -286,7 +294,7 @@ public class OrcMotor : Motor {
 						}
 						else {
 							otherMotor.DoCounter(otherState);
-							Damage(state, -dir, state.ActualAttack.force, state.TimeToStun, true, true);					
+							Damage(state, -dir, state.ActualAttack.force, state.TimeToStun, true, true, otherState.Controller.PlayerNumber);
 						} 			
 					}						
 				}
@@ -298,8 +306,12 @@ public class OrcMotor : Motor {
 				state.ActualAttack.HitSFx(Random.Range(0.8f, 1.2f));
 				var throwable = rock.GetComponent<IThrowable>();
 				if (throwable != null) {
-					Vector3 dir = (rock.transform.position - entity.transform.position).normalized
+
+					var closest = ClosestOrc(entity);
+
+					Vector3 dir = ((closest != Vector3.zero ? closest : rock.transform.position) - entity.transform.position)
 						.normalized;
+					rock.transform.position = entity.transform.position + dir * 5 + Vector3.up * 2;
 
 					throwable.Throw(dir);
 				}
@@ -335,7 +347,9 @@ public class OrcMotor : Motor {
 		return closest;
 	}
 	
-	public void Damage(OrcEntityState state, Vector3 dir, float force, float hurtTime, bool knockBack, bool knockUp) {
+	public void Damage(OrcEntityState state, Vector3 dir, float force, float hurtTime, bool knockBack, bool knockUp, int attackerNumber) {
+
+		state.Controller.WasHit(attackerNumber);
 		
 		if (!state.Parrying) {
 			WasHit(state, hurtTime);
@@ -375,11 +389,9 @@ public class OrcMotor : Motor {
 			Burn(state, 50, 2.5f, Vector3.up, 300);
 		}
 		else {
+			Kill(state);
 			GlobalAudio.Instance.PlayByIndex(0);
 			ScreenEffects.Instance.CreateDeadOrc(state.transform.position);
-			state.Rb.isKinematic = true;
-			state.gameObject.SetActive(false);
-		    state.Controller.SubtractLife();
 		}
 	}
 	
@@ -492,7 +504,7 @@ public class OrcMotor : Motor {
 		state.StopParry = true;
 	}
 
-	private void BreakParry(OrcEntityState state, Vector3 dir) {
+	private void BreakParry(OrcEntityState state,int attackerNumber,  Vector3 dir) {
 		if (state.ParryRoutine != null) {
 			state.StopCoroutine(state.ParryRoutine);
 		}
@@ -500,7 +512,7 @@ public class OrcMotor : Motor {
 		state.Parrying = false;
 		state.Countered = false;
 		state.CanCounter = false;
-		Damage(state, dir, 150, 1, true, true);
+		Damage(state, dir, 150, 1, true, true, attackerNumber);
 	}
 
 	
@@ -545,13 +557,13 @@ public class OrcMotor : Motor {
 					var otherState = otherEntity.State as OrcEntityState;
 					if (otherMotor != null) {
 						var d = (otherEntity.transform.position - state.transform.position).normalized;
-						state.Sfx.PlaySFxByIndex(3, Random.Range(0.8f, 1.2f));
-						otherMotor.Damage(otherState, d, 100, 1f, true, true);
+						state.Sfx.PlaySFxByIndex(3, Random.Range(0.8f, 1.2f));				
 						if (otherState.Parrying) {
-							otherMotor.BreakParry(otherState, (otherState.transform.position - state.transform.position).normalized);
+							otherMotor.BreakParry(otherState,state.Controller.PlayerNumber, (otherState.transform.position - state.transform.position).normalized);
 							state.Sfx.PlaySFxByIndex(2, Random.Range(0.8f, 1.2f));				
 							ScreenEffects.Instance.FreezeFrame(0.15f);
 						} else {
+							otherMotor.Damage(otherState, d, 100, 1f, true, true, state.Controller.PlayerNumber);
 							ScreenEffects.Instance.FreezeFrame(0.08f);
 						}
 					}

@@ -8,8 +8,11 @@ public class PlayerController : MonoBehaviour {
 	public delegate void ScoreDelegate();
 	public event ScoreDelegate ScoreEvent;
 
-	public delegate void DeathDelegate(int remainingLives);
+	public delegate void DeathDelegate(int attackerNumber);
 	public event DeathDelegate DeathEvent;
+
+	public delegate void KilledDelegate(int count);
+	public event KilledDelegate KilledEvent;
 
 	[SerializeField] private int _playerNumber;
 
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject _orcPrefab;
 	[SerializeField] private FighterHUD _hud;
     [SerializeField] private float _spawnWait = 3;
+	[SerializeField] private float _attackerShouldReceiveKillTime = 5f;
 	[SerializeField] private float _maxTimeToSpawn;
 
 	private PlayerPointer _pointer;
@@ -34,12 +38,14 @@ public class PlayerController : MonoBehaviour {
 	private InputSource _input;
 
 	private Player _player;
-
+	
+	public int KillCount { get; private set; }
     public int Score { get { return _score; } }
+	private int _lastAttackerNumber;
 	private int _score = 0;
 	private int _actualGameState;
 	
-    private float _spawnTimer = 0;
+    private float _spawnTimer = 0, _timeToGiveKill = 0;
 
 	private bool _spawnNewOrc, _playerInGame;
 
@@ -121,6 +127,16 @@ public class PlayerController : MonoBehaviour {
 		_pointer.SetTarget(target);
 	}
 
+	public void WasHit(int attackerNumber) {
+		_lastAttackerNumber = attackerNumber;
+		_timeToGiveKill = Time.time + _attackerShouldReceiveKillTime;
+	}
+
+	public void GotKill() {
+		KillCount++;
+		KilledEvent.Invoke(KillCount);
+	}
+
 	public void SubtractLife() {
 		
 		if (_box != null) {
@@ -134,7 +150,7 @@ public class PlayerController : MonoBehaviour {
 			ResetToDefault(false);
 			GameController.Instance.DecreaseActivePlayers();
 		}		
-		DeathEvent.Invoke(3);
+		DeathEvent.Invoke(_lastAttackerNumber);
 	}
 
     private void Update() {
@@ -150,6 +166,10 @@ public class PlayerController : MonoBehaviour {
 			    }
 			    break;
 		    case 1:
+			    if (_lastAttackerNumber != -1 && Time.time > _timeToGiveKill) {
+				    _lastAttackerNumber = -1;
+			    }
+			    
 			    if (_spawnNewOrc) {
 				    CameraController.Instance.MaxZoom(true);
 				    if (Time.time > _spawnTimer) {
@@ -198,12 +218,11 @@ public class PlayerController : MonoBehaviour {
 
 	public void ResetToDefault(bool rematch) {		
         _score = 0;
-           
-        if (rematch) {
-            ScoreEvent.Invoke();
+		KillCount = 0;
+		_hud.ResetToDefault();
+        if (rematch)   
             return;
-        }
-			
+        		
 		_spawnNewOrc = false;
 		CameraController.Instance.MaxZoom(false);
 		if (_box != null)

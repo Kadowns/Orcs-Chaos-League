@@ -195,9 +195,10 @@ public class BoxMotor : Motor {
                         state.CageDoor.SetActive(true);
                         state.SlotText.SetTrigger("Close");
                     }
-                    else if (state.Col.enabled){
+                    else if (state.Col.enabled) {
                         otherMotor.Damage(otherState,
-                            (col.transform.position - state.transform.position).normalized, 500, 2f, false, false);
+                            (col.transform.position - state.transform.position).normalized, 500, 2f, false, false,
+                            state.Controller.PlayerNumber);
                     }
               
                 }

@@ -16,6 +16,8 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	public float ExplosionDelayTime = 2f;
 
 	public float ScaleFactor = 2;
+	
+	public int AttackerId { get; set; }
 
 	public AnimationCurve HitScaleCurve;
 	public AnimationCurve ExplosionScaleCurve;
@@ -93,11 +95,12 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		return target;
 	}
 
-	public void Throw(Vector3 dir) {
+	public void Throw(Vector3 dir, int attackerID) {
 		if (_wasHit)
 			return;
 
 		_numberOfHits++;
+		AttackerId = attackerID;
 
 		var latDir = new Vector3(dir.x, 0, dir.z);
 		_rb.AddForce(latDir * HitForce, ForceMode.Impulse);
@@ -120,12 +123,12 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		var state = entity.State as OrcEntityState;
 		var dir = (entity.transform.position - transform.position).normalized;
 		if (!state.Parrying) {
-			motor.Burn(state, 80, 0.5f, dir, 150);
+			motor.Burn(state, 80, 0.5f, dir, 150, AttackerId);
 			StartCoroutine(DoExplosion());
 		}
 		else {
 			motor.DoCounter(state);
-			Throw(-dir);
+			Throw(-dir, AttackerId);
 		}
 	}
 
@@ -146,7 +149,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 			var entity = col.GetComponent<MovableEntity>();
 			var motor = entity.Motor as OrcMotor;
 			var state = entity.State as OrcEntityState;
-			motor.Burn(state, 150, 3f, (entity.transform.position - transform.position).normalized, 200f);
+			motor.Burn(state, 150, 3f, (entity.transform.position - transform.position).normalized, 200f, AttackerId);
 		}
 		_fx.ScreenShake(0.15f, 1.5f);
 		_fx.FreezeFrame(0.1f);

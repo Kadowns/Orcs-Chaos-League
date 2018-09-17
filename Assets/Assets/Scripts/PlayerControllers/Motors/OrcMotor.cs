@@ -219,22 +219,22 @@ public class OrcMotor : Motor {
 
 	private bool Grounded(MovableEntity entity, OrcEntityState state) {
 		RaycastHit hit;
-		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, ~(1<<12 & 1<<11 & 1<<10 & 1<<8))) {
+		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f,
+			~(1 << 12 & 1 << 11 & 1 << 10 & 1 << 8))) {
 			state.DoubleJump = false;
 			entity.transform.SetParent(hit.transform);
-            if (hit.collider.CompareTag("Ground") && state.DropAttack)
-            {
-                ScreenEffects.Instance.CreateStompParticles(state.transform.position);
-                PlataformBehaviour plat = hit.collider.gameObject.GetComponent<PlataformBehaviour>();
-                if (plat != null)
-                {
-                    plat.Damage();
-                }
-            }
+			if (hit.collider.CompareTag("Ground") && state.DropAttack) {
+				ScreenEffects.Instance.CreateStompParticles(state.transform.position);
+				PlataformBehaviour plat = hit.collider.gameObject.GetComponent<PlataformBehaviour>();
+				if (plat != null) {
+					plat.Damage();
+				}
+			}
 
-            return true;
+			return true;
 		}
-		entity.transform.SetParent(null);	
+
+		entity.transform.SetParent(null);
 		return false;
 	}
 
@@ -281,7 +281,6 @@ public class OrcMotor : Motor {
 						Vector3 dir = (otherEntity.transform.position - entity.transform.position).normalized;
 
 						if (!otherState.CanCounter) {
-							state.Controller.AddScore(7 * state.LastAttackId);
 							otherMotor.Damage(otherState, dir, state.ActualAttack.force,
 								state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
 								state.ActualAttack.knockBack,
@@ -313,7 +312,7 @@ public class OrcMotor : Motor {
 						.normalized;
 					rock.transform.position = entity.transform.position + dir * 5 + Vector3.up * 2;
 
-					throwable.Throw(dir);
+					throwable.Throw(dir, state.Controller.PlayerNumber);
 				}
 
 			}
@@ -348,12 +347,10 @@ public class OrcMotor : Motor {
 	}
 	
 	public void Damage(OrcEntityState state, Vector3 dir, float force, float hurtTime, bool knockBack, bool knockUp, int attackerNumber) {
-
-		state.Controller.WasHit(attackerNumber);
 		
 		if (!state.Parrying) {
 			WasHit(state, hurtTime);
-			AddDamage(state, (int) ((state.Damage + force) * 0.07f));
+			AddDamage(state, (int) ((state.Damage + force) * 0.07f), attackerNumber);
 			ScreenEffects.Instance.CreateHitParticles(state.transform, dir);
 			
 			FlashColor(state, _colors.HurtColor, 0.2f, 1f);
@@ -386,7 +383,7 @@ public class OrcMotor : Motor {
 
 	public void FellOnLava(OrcEntityState state) {
 		if (state.Damage < 100) {
-			Burn(state, 50, 2.5f, Vector3.up, 300);
+			Burn(state, 50, 2.5f, Vector3.up, 300, -1);
 		}
 		else {
 			Kill(state);
@@ -395,23 +392,24 @@ public class OrcMotor : Motor {
 		}
 	}
 	
-	public void Burn(OrcEntityState state, int damage, float timeToBurn, Vector3 dir, float knockBackForce) {
+	public void Burn(OrcEntityState state, int damage, float timeToBurn, Vector3 dir, float knockBackForce, int attackerID) {
 		
 		Vibrate(state, 1, damage / 50f, timeToBurn);
 		state.Rb.AddForce(dir * knockBackForce, ForceMode.Impulse);
 		state.TimeToBurn = timeToBurn;
 		state.Hurt = false;
 		state.Burning = true;
-		AddDamage(state, damage);
+		AddDamage(state, damage, attackerID);
 		WasHit(state, 0);
 		
 		GlobalAudio.Instance.PlayByIndex(0);
 		ScreenEffects.Instance.CreateBurningParticles(state.transform, timeToBurn);	
 	}
 	
-	private void AddDamage(OrcEntityState state, int amount) {
+	private void AddDamage(OrcEntityState state, int amount, int attackerID) {
 		state.Damage = state.Damage + amount > 999 ? 999 : state.Damage + amount;
-		if (state.Damage > 50) {
+		state.Controller.WasHit(attackerID);
+		if (state.Damage > 100) {
 			state.Flash.SetRedAmount(state.Damage);
 		}
 	}
@@ -424,7 +422,7 @@ public class OrcMotor : Motor {
 		state.TauntTimer = 0;
 		state.Rb.isKinematic = false;
 
-        state.AttackSpeed = Mathf.Lerp(0.25f, 0.075f, state.Damage / 100);
+        state.AttackSpeed = Mathf.Lerp(state.InitialAttackSpeed, 0.05f, (float)state.Damage / 100);
 		state.Attacking = false;
 		state.LastAttackId = 0;
 		state.SimpleAttack = false;
@@ -619,7 +617,7 @@ public class OrcMotor : Motor {
 		
 		state.StopAllCoroutines();
 		state.LastAttackId = 0;
-        state.AttackSpeed = 0.25f;
+        state.AttackSpeed = state.InitialAttackSpeed;
         state.StopParry = false;
 	    state.Attacking = false;
 		state.Parrying = false;

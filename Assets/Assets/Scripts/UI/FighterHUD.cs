@@ -37,9 +37,9 @@ public class FighterHUD : MonoBehaviour {
     
 	
 	public void UpdateScore() {
-        var score = Controller.Score;
+        var score = Controller.OrcDamage;
 		_scoreText.transform.localScale = Vector3.one;
-		_scoreText.color = Color.Lerp(Color.white, Color.green, (float)score / 999);
+		_scoreText.color = Color.Lerp(Color.white, Color.red, (float)score / 100);
         if (gameObject.activeInHierarchy)
             StartCoroutine(ImpactScale(_scoreText, "", score, 0.25f, 2f));
     }

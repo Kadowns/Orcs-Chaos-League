@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour {
 	public int PlayerNumber {
 		get { return _playerNumber; }
 	}
+	
+	public int OrcDamage {
+		get { return (_orcState != null ? _orcState.Damage : 0); }
+	}
 
 	public bool AutoSpawn;
 
@@ -40,9 +44,7 @@ public class PlayerController : MonoBehaviour {
 	private Player _player;
 	
 	public int KillCount { get; private set; }
-    public int Score { get { return _score; } }
 	private int _lastAttackerNumber;
-	private int _score = 0;
 	private int _actualGameState;
 	
     private float _spawnTimer = 0, _timeToGiveKill = 0;
@@ -128,6 +130,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void WasHit(int attackerNumber) {
+		ScoreEvent.Invoke();
 		_lastAttackerNumber = attackerNumber;
 		_timeToGiveKill = Time.time + _attackerShouldReceiveKillTime;
 	}
@@ -140,8 +143,6 @@ public class PlayerController : MonoBehaviour {
 	public void SubtractLife() {
 		
 		if (_box != null) {
-
-            _score /= 2;
             ScoreEvent.Invoke();
 		    SetPointerTarget(_box.transform);
 			StartSpawning();
@@ -190,11 +191,8 @@ public class PlayerController : MonoBehaviour {
     }	
 	
 	public void AddScore(int scoreToAdd) {
-		_score += scoreToAdd;
-		ScoreEvent.Invoke();
-        if (_score >= 999) {
-            ArenaController.Instance.GameShouldEnd(_playerNumber);
-        }
+
+		ArenaController.Instance.GameShouldEnd(_playerNumber);
 	}
 
 	public void UpdateGameState(int index) {
@@ -217,7 +215,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void ResetToDefault(bool rematch) {		
-        _score = 0;
 		KillCount = 0;
 		_hud.ResetToDefault();
         if (rematch)   

@@ -24,8 +24,9 @@ public class OrcEntityState : EntityState {
 	#region AttackFields
 	//Ataque	
 	public float SimpleAttackCooldown = 1f;
-	public float DropAttackCooldown = 1f;	
-	public float AttackSpeed = 0.25f;
+	public float DropAttackCooldown = 1f;
+	public float InitialAttackSpeed = 0.2f;
+	
 	public float DropAttackForceMultiplier = 2;
 	public float DropAttackGravity = 300f;
 	public float MinimumParryTime = 0.5f;
@@ -115,6 +116,8 @@ public class OrcEntityState : EntityState {
 	#region AttackProperties
 
 	public Attack ActualAttack { get; set; }
+	
+	public float AttackSpeed { get; set; }
 
 	public int LastAttackId { get; set; }
 

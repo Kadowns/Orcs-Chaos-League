@@ -16,7 +16,7 @@ MonoBehaviour:
     id: 0
     range: 8
     hurtForSeconds: 0.5
-    force: 100
+    force: 200
     knockBack: 1
     knockUp: 1
     miniDash: 0

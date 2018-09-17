@@ -134,11 +134,11 @@ MonoBehaviour:
   TauntForSeconds: 1
   SimpleAttackCooldown: 0.25
   DropAttackCooldown: 0
-  AttackSpeed: 0.25
-  DropAttackForceMultiplier: 2
-  DropAttackGravity: 175
+  InitialAttackSpeed: 0.2
+  DropAttackForceMultiplier: 4
+  DropAttackGravity: 275
   MinimumParryTime: 0.5
-  TimeToCounter: 0.1
+  TimeToCounter: 0.2
   TimeToStun: 1
 --- !u!114 &114319751400673162
 MonoBehaviour:

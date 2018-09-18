@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlataformBehaviour : MonoBehaviour {
 
 
-	private AnimationCurve _oscilationCurve;
+	[HideInInspector]
+	public AnimationCurve _oscilationCurve;
 
 	private int _life = 5;
 	private int _maxLife;

@@ -202,8 +202,7 @@ public class OrcMotor : Motor {
 		ApplyGravity(entity, state);
 	}
 
-	public override void LateTick(MovableEntity entity, InputSource input) {
-	}
+	public override void LateTick(MovableEntity entity, InputSource input) {}
 
 	private static void ApplyGravity(MovableEntity entity, OrcEntityState state) {
 		Vector3 gravity = Physics.gravity * (state.GravityScale + 5);

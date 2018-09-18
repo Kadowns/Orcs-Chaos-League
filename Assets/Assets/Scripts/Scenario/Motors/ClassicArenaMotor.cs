@@ -12,7 +12,7 @@ public class ClassicArenaMotor : ArenaMotor {
 	}
 
 	public override void Initialize(ArenaController controller, ArenaState state) {
-		for (int i = 0; i < state.Plataforms.Length; i++) {
+		for (int i = 0; i < state.Plataforms.Count; i++) {
 			state.Plataforms[i].DefinePlataforms(state.MaxPlataformHits, state.PlataformLoweredTime, state.OscilationFrequency,
 				state.OscilationScale, state.OscilationCurve, Random.Range(0f, 1f));
 		}
@@ -36,18 +36,18 @@ public class ClassicArenaMotor : ArenaMotor {
 	protected IEnumerator SuddenDeath(ArenaController controller, ArenaState state) {
 
 		controller.StartCoroutine(SuddenDeathExplosions(controller, state));
-		int rand = Random.Range(0, state.Plataforms.Length);
+		int rand = Random.Range(0, state.Plataforms.Count);
 		int sunkPlataforms = 0;
-		bool[] sunk = new bool[state.Plataforms.Length];
+		bool[] sunk = new bool[state.Plataforms.Count];
 		do {
 
-			int plataformsToSink = state.Plataforms.Length - (int)(state.Plataforms.Length * ((float)(controller.PlayerInGame - 1) / 4));
+			int plataformsToSink = state.Plataforms.Count - (int)(state.Plataforms.Count * ((float)(controller.PlayerInGame - 1) / 4));
 			
 			if (sunkPlataforms < plataformsToSink) {
 				state.Plataforms[rand].Lower();		
 				sunk[rand] = true;
 				sunkPlataforms++;
-				rand = rand + 1 >= state.Plataforms.Length ? 0 : rand + 1;
+				rand = rand + 1 >= state.Plataforms.Count ? 0 : rand + 1;
 				yield return new WaitForSeconds(0.5f);
 			}
 			else {
@@ -63,7 +63,7 @@ public class ClassicArenaMotor : ArenaMotor {
 						break;
 					}
 
-					i = i + 1 >= state.Plataforms.Length ? 0 : i + 1;
+					i = i + 1 >= state.Plataforms.Count ? 0 : i + 1;
 				} while (true);
 			}
 

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class PlataformBehaviour : MonoBehaviour {
 
-
-	[HideInInspector]
-	public AnimationCurve _oscilationCurve;
-
-	private int _life = 5;
-	private int _maxLife;
-	private bool _lowered, _shaking, _defined;
-	private float _loweredTime = 7.5f;
-	private float _oscilationFrequency = 5;
-	private float _oscilationScale = 0.01f;
-
-	private float _offSetter;
+    
+    public AnimationCurve _oscilationCurve { get; set; }
+    public int _life { get; set; }
+    public int _maxLife { get; set; }
+    public bool _lowered { get; set; }
+    public bool _shaking{ get; set; }
+    public bool _defined{ get; set; }
+    public float _loweredTime { get; set; }
+    public float _oscilationFrequency { get; set; }
+    public float _oscilationScale { get; set; }
+    public float _offSetter { get; set; }
 
 	private void FixedUpdate() {
 		if (!_defined || _shaking || _lowered)

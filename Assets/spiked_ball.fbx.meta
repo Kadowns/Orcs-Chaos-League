@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: eb369cf3b96d6a94ab0d1a03d1d5bde6
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: group1
+    100002: group2
+    100004: group3
+    100006: group4
+    100008: group5
+    100010: group6
+    100012: group7
+    100014: group8
+    100016: pCone1
+    100018: pCone2
+    100020: pCone3
+    100022: pCone3 1
+    100024: pCone3 2
+    100026: pCone3 3
+    100028: pCone3 4
+    100030: pCone3 5
+    100032: pCone3 6
+    100034: pCone3 7
+    100036: pCone4
+    100038: pCone4 1
+    100040: pCone4 2
+    100042: pCone4 3
+    100044: pCone4 4
+    100046: pCone4 5
+    100048: pCone4 6
+    100050: pCone4 7
+    100052: pSphere1
+    100054: //RootNode
+    400000: group1
+    400002: group2
+    400004: group3
+    400006: group4
+    400008: group5
+    400010: group6
+    400012: group7
+    400014: group8
+    400016: pCone1
+    400018: pCone2
+    400020: pCone3
+    400022: pCone3 1
+    400024: pCone3 2
+    400026: pCone3 3
+    400028: pCone3 4
+    400030: pCone3 5
+    400032: pCone3 6
+    400034: pCone3 7
+    400036: pCone4
+    400038: pCone4 1
+    400040: pCone4 2
+    400042: pCone4 3
+    400044: pCone4 4
+    400046: pCone4 5
+    400048: pCone4 6
+    400050: pCone4 7
+    400052: pSphere1
+    400054: //RootNode
+    2100000: lambert1
+    2300000: pCone1
+    2300002: pCone2
+    2300004: pCone3
+    2300006: pCone3 1
+    2300008: pCone3 2
+    2300010: pCone3 3
+    2300012: pCone3 4
+    2300014: pCone3 5
+    2300016: pCone3 6
+    2300018: pCone3 7
+    2300020: pCone4
+    2300022: pCone4 1
+    2300024: pCone4 2
+    2300026: pCone4 3
+    2300028: pCone4 4
+    2300030: pCone4 5
+    2300032: pCone4 6
+    2300034: pCone4 7
+    2300036: pSphere1
+    3300000: pCone1
+    3300002: pCone2
+    3300004: pCone3
+    3300006: pCone3 1
+    3300008: pCone3 2
+    3300010: pCone3 3
+    3300012: pCone3 4
+    3300014: pCone3 5
+    3300016: pCone3 6
+    3300018: pCone3 7
+    3300020: pCone4
+    3300022: pCone4 1
+    3300024: pCone4 2
+    3300026: pCone4 3
+    3300028: pCone4 4
+    3300030: pCone4 5
+    3300032: pCone4 6
+    3300034: pCone4 7
+    3300036: pSphere1
+    4300000: pSphere1
+    4300002: pCone1
+    4300004: pCone2
+    4300006: pCone3
+    4300008: pCone4
+    4300010: pCone3
+    4300012: pCone4
+    4300014: pCone3
+    4300016: pCone4
+    4300018: pCone3
+    4300020: pCone4
+    4300022: pCone3
+    4300024: pCone4
+    4300026: pCone3
+    4300028: pCone4
+    4300030: pCone3
+    4300032: pCone4
+    4300034: pCone3
+    4300036: pCone4
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 500
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

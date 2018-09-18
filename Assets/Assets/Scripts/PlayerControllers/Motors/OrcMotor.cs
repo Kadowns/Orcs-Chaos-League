@@ -203,7 +203,6 @@ public class OrcMotor : Motor {
 	}
 
 	public override void LateTick(MovableEntity entity, InputSource input) {
-		
 	}
 
 	private static void ApplyGravity(MovableEntity entity, OrcEntityState state) {
@@ -220,7 +219,7 @@ public class OrcMotor : Motor {
 	private bool Grounded(MovableEntity entity, OrcEntityState state) {
 		RaycastHit hit;
 		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f,
-			~(1 << 12 & 1 << 11 & 1 << 10 & 1 << 8))) {
+			~(1 << 12 & 1 << 11 & 1 << 10 & 1 << 8 & 1 << 9))) {
 			state.DoubleJump = false;
 			entity.transform.SetParent(hit.transform);
 			if (hit.collider.CompareTag("Ground") && state.DropAttack) {
@@ -320,12 +319,19 @@ public class OrcMotor : Motor {
 		state.Cooldown = true;
 	}
 
+	public void CollectItem(OrcEntityState state, CollectableItem.ItemType type) {
+		switch (type) {
+			case CollectableItem.ItemType.OrcHead:
+				state.Controller.GotKill();
+				break;
+		}
+	}
+
 	public void DoCounter(OrcEntityState state) {
 		ScreenEffects.Instance.FreezeFrame(0.08f);
 		ScreenEffects.Instance.ScreenShake(0.1f, 0.5f);
 		GlobalAudio.Instance.PlayByIndex(4);
 		state.Countered = true;
-        state.Controller.AddScore(20);
 		StopParry(state);
 	}
 	
@@ -383,7 +389,7 @@ public class OrcMotor : Motor {
 
 	public void FellOnLava(OrcEntityState state) {
 		if (state.Damage < 100) {
-			Burn(state, 50, 2.5f, Vector3.up, 300, -1);
+			Burn(state, 50, 2.5f, Vector3.up, 300, state.Controller.LastAttackerNumber);
 		}
 		else {
 			Kill(state);

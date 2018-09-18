@@ -16,6 +16,7 @@ TagManager:
   - Test
   - Cell
   - READY
+  - OrcHead
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - 
   - 
   - Lava
-  - 
+  - Collectable
   - Box
   - Players
   - Rocks

@@ -15,13 +15,13 @@ public class FighterHUD : MonoBehaviour {
     private bool timerChange, shit2;
 
     private void OnEnable() {
-        Controller.ScoreEvent += UpdateScore;
+        Controller.DamageEvent += UpdateDamage;
         Controller.DeathEvent += UpdateLife;
         Controller.KilledEvent += UpdateKills;
     }
 
     private void OnDisable() {
-        Controller.ScoreEvent -= UpdateScore;
+        Controller.DamageEvent -= UpdateDamage;
         Controller.DeathEvent -= UpdateLife;
         Controller.KilledEvent -= UpdateKills;
     }    
@@ -36,7 +36,7 @@ public class FighterHUD : MonoBehaviour {
     }
     
 	
-	public void UpdateScore() {
+	public void UpdateDamage() {
         var score = Controller.OrcDamage;
 		_scoreText.transform.localScale = Vector3.one;
 		_scoreText.color = Color.Lerp(Color.white, Color.red, (float)score / 100);

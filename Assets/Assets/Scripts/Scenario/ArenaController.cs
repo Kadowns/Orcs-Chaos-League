@@ -80,12 +80,17 @@ public class ArenaController : Singleton<ArenaController> {
 	}
 
     public void GameShouldEnd(int winnerNumber) {
-	    return;
         if (winnerNumber == -1) {
             int maxScore = 0;
             foreach (var p in _players) {
                 if (!p.gameObject.activeInHierarchy)
                     continue;
+
+	            int score = p.KillCount;
+	            if (score > maxScore) {
+		            maxScore = score;
+		            winnerNumber = p.PlayerNumber;
+	            }
             }
         }
         Debug.Log("Winner is Player" + winnerNumber);

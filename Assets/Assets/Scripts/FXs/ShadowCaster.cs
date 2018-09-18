@@ -52,29 +52,33 @@ public class ShadowCaster : MonoBehaviour {
 	private void LateUpdate() {
 		float dist = DistanceToGround();
 
-		if (_castShadow) {
-			_tr.rotation = Quaternion.Euler(90, 0, 0);
-			_tr.position = new Vector3(transform.position.x, dist + transform.position.y, transform.position.z);
-			if (1.5f + dist / 10 > 0)
-				_tr.localScale = new Vector3(1.5f + dist / 10, 1.5f + dist / 10, 1);
+		if (_tr != null) {
+			if (_castShadow) {
+				_tr.rotation = Quaternion.Euler(90, 0, 0);
+				_tr.position = new Vector3(transform.position.x, dist + transform.position.y, transform.position.z);
+				if (1.5f + dist / 10 > 0)
+					_tr.localScale = new Vector3(1.5f + dist / 10, 1.5f + dist / 10, 1);
 
-			else {
-				_tr.localScale = Vector3.zero;
+				else {
+					_tr.localScale = Vector3.zero;
+				}
+
+				float alpha = Mathf.Lerp(1f, 0.6f, -dist / 10);
+				Color c = _renderer.material.color;
+				_renderer.material.color = new Color(c.r, c.g, c.b, alpha);
 			}
+		}
 
-			float alpha = Mathf.Lerp(1f, 0.6f, -dist / 10);
-			Color c = _renderer.material.color;
-			_renderer.material.color = new Color(c.r, c.g, c.b, alpha);
+		if (_line != null) {
+			if (_castLine) {
+				_line.enabled = true;
+				_line.SetPosition(0, transform.position);
+				_line.SetPosition(1, new Vector3(transform.position.x, dist + transform.position.y, transform.position.z));
+			} else {
+				_line.enabled = false;
+			}	
 		}
 		
-
-		if (_castLine) {
-			_line.enabled = true;
-			_line.SetPosition(0, transform.position);
-			_line.SetPosition(1, new Vector3(transform.position.x, dist + transform.position.y, transform.position.z));
-		} else {
-			_line.enabled = false;
-		}	
 	}
 
 	public void SetLineEnabled(bool value) {

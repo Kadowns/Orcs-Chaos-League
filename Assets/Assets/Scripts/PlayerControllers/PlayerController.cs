@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 	
 	public delegate void ScoreDelegate();
-	public event ScoreDelegate ScoreEvent;
+	public event ScoreDelegate DamageEvent;
 
 	public delegate void DeathDelegate(int attackerNumber);
 	public event DeathDelegate DeathEvent;
@@ -38,13 +38,14 @@ public class PlayerController : MonoBehaviour {
 	private OrcMotor _orcMotor;
 	private BoxEntityState _boxState;
 	private OrcEntityState _orcState;
+	private ObjectPooler _pool;
 
 	private InputSource _input;
 
 	private Player _player;
 	
 	public int KillCount { get; private set; }
-	private int _lastAttackerNumber;
+	public int LastAttackerNumber;
 	private int _actualGameState;
 	
     private float _spawnTimer = 0, _timeToGiveKill = 0;
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	private void Start() {
+		_pool = ObjectPooler.Instance;
 		CreateOrc();
 	}
 
@@ -113,7 +115,7 @@ public class PlayerController : MonoBehaviour {
 			_spawnNewOrc = false;
 
 		}
-        ScoreEvent.Invoke();
+        DamageEvent.Invoke();
 		CameraController.Instance.UpdatePlayers();	
 		CameraController.Instance.MaxZoom(false);  
 	}
@@ -130,28 +132,40 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void WasHit(int attackerNumber) {
-		ScoreEvent.Invoke();
-		_lastAttackerNumber = attackerNumber;
+		DamageEvent.Invoke();
+		LastAttackerNumber = attackerNumber;
 		_timeToGiveKill = Time.time + _attackerShouldReceiveKillTime;
 	}
 
 	public void GotKill() {
+		if (!_orc.gameObject.activeInHierarchy)
+			return;
 		KillCount++;
 		KilledEvent.Invoke(KillCount);
+		if (KillCount > 10) {
+			ArenaController.Instance.GameShouldEnd(_playerNumber);
+		}	
 	}
 
 	public void SubtractLife() {
 		
 		if (_box != null) {
-            ScoreEvent.Invoke();
+			for (int i = 0; i < KillCount; i++) {
+				_pool.SpawnFromPool("OrcHead", _orc.transform.position, Quaternion.identity);
+			}
+
+			KillCount = 0;
+			DamageEvent.Invoke();
 		    SetPointerTarget(_box.transform);
 			StartSpawning();
+			
 		}
 		else {
 			ResetToDefault(false);
 			GameController.Instance.DecreaseActivePlayers();
 		}		
-		DeathEvent.Invoke(_lastAttackerNumber);
+		KilledEvent.Invoke(KillCount);
+		DeathEvent.Invoke(LastAttackerNumber);
 	}
 
     private void Update() {
@@ -167,8 +181,8 @@ public class PlayerController : MonoBehaviour {
 			    }
 			    break;
 		    case 1:
-			    if (_lastAttackerNumber != -1 && Time.time > _timeToGiveKill) {
-				    _lastAttackerNumber = -1;
+			    if (LastAttackerNumber != -1 && Time.time > _timeToGiveKill) {
+				    LastAttackerNumber = -1;
 			    }
 			    
 			    if (_spawnNewOrc) {
@@ -189,11 +203,6 @@ public class PlayerController : MonoBehaviour {
 			   break;	         	    
 	    }	    
     }	
-	
-	public void AddScore(int scoreToAdd) {
-
-		ArenaController.Instance.GameShouldEnd(_playerNumber);
-	}
 
 	public void UpdateGameState(int index) {
 		_actualGameState = index;

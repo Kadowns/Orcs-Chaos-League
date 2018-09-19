@@ -33,8 +33,6 @@ public abstract class CollectableItem : CustomGravity, ICollectable, ISpawnable 
 			var otherState = otherEntity.State as OrcEntityState;
 			otherMotor.CollectItem(otherState, Type);
 			Collect();
-		} else if (other.collider.CompareTag("Lava")) {
-			Collect();
 		}
 	}
 	public abstract void OnSpawn();

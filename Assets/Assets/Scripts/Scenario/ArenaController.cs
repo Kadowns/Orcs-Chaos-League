@@ -34,15 +34,17 @@ public class ArenaController : Singleton<ArenaController> {
 	private MusicController _music;
 	private ScreenEffects _fx;
 
-	private void Start() {
-		_hud = HUDController.Instance;
-		_music = MusicController.Instance;
-		_fx = ScreenEffects.Instance;
-
+	private void Awake() {
 		_players = GameController.Instance.PlayerControllers;
 		foreach (var p in _players) {
 			p.DeathEvent += PlayerDied;
 		}
+	}
+	
+	private void Start() {
+		_hud = HUDController.Instance;
+		_music = MusicController.Instance;
+		_fx = ScreenEffects.Instance;	
 	}
 
 	private void Update() {
@@ -94,7 +96,7 @@ public class ArenaController : Singleton<ArenaController> {
             }
         }
         Debug.Log("Winner is Player" + winnerNumber);
-        GameController.Instance.SetGameState(-1);
+        GameController.Instance.EndMatch();
         _suddenDeath = false;
         _gameTimer = 0;
         _gameStarted = false;

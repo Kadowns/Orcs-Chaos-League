@@ -13,12 +13,12 @@ public class BoxMotor : Motor {
 		state.ShadowCaster = entity.GetComponent<ShadowCaster>();
 		state.Animator = entity.GetComponent<Animator>();
 		state.DefaultPosition = entity.transform.position;
+	    state.Cage = entity.GetComponentInChildren<MeshRenderer>();
+	    state.Col = entity.GetComponentInChildren<BoxCollider>();
 	}
 
 	public override void Setup(MovableEntity entity, InputSource input) {
-		var state = entity.State as BoxEntityState;
-		state.Cage = entity.GetComponentInChildren<MeshRenderer>();
-		state.Col = entity.GetComponentInChildren<BoxCollider>();
+		
 	}
 
 	public override void Tick(MovableEntity entity, InputSource input) {
@@ -35,9 +35,6 @@ public class BoxMotor : Motor {
 
 	    if (state.CanSpawn && (ActionButton(input) || state.Controller.AutoSpawn)) {
 	        state.Controller.SpawnOrc();		
-	    }
-	    else if (GameController.Instance.GetGameState() == 0 && ActionButton(input)) {
-	        state.Controller.PlayerIsNotReady();
 	    }
 	}
 
@@ -160,50 +157,29 @@ public class BoxMotor : Motor {
    
     }
 
-    public bool PlayerInside(BoxEntityState state) {
-        return state.PlayerInside;
-    }
-
     private void TestCollisions(BoxEntityState state) {
 
         RaycastHit hit;
         var cols = Physics.BoxCastAll(state.transform.position, Vector3.one * 4.1f, Vector3.up,
             state.transform.rotation, 1f);
-        if (cols.Length > 0) {
+        if (cols.Length > 0 && state.Col.enabled) {
             foreach (var col in cols) {
                 
                 if (col.collider.gameObject == state.gameObject)
                     continue;
-             
-            
+
                 if (col.collider.CompareTag("Player")) {
-                  
+
                     var otherEntity = col.collider.GetComponent<MovableEntity>();
                     var otherMotor = otherEntity.Motor as OrcMotor;
                     var otherState = otherEntity.State as OrcEntityState;
-                    
-                    if (state.Orc == null) {
-                        state.Orc = col.collider.gameObject;
-                              
-                        state.Controller = otherState.Controller;
-                        state.Controller.SetDefaultSpawner(state.gameObject);
-            
-                        state.ShadowCaster.SetLineColor(state.Controller.GetComponent<PlayerPointer>().GetPlayerColor());
-                        GameController.Instance.IncreaseReadyPlayers();
-                        state.Orc.SetActive(false);
-                        state.PlayerInside = true;     
-                        state.CageDoor.SetActive(true);
-                        state.SlotText.SetTrigger("Close");
-                    }
-                    else if (state.Col.enabled) {
-                        otherMotor.Damage(otherState,
-                            (col.transform.position - state.transform.position).normalized, 500, 2f, false, false,
-                            state.Controller.PlayerNumber);
-                    }
-              
+                    otherMotor.Damage(otherState,
+                        (col.transform.position - state.transform.position).normalized, 500, 2f, false, false,
+                        state.Controller.PlayerNumber);
+
                 }
                 else if (col.collider.CompareTag("HollowBox") && state.Col.enabled) {
-                    state.Controller.SpawnOrc();
+                   // state.Controller.SpawnOrc();
                 }
             }
         }        

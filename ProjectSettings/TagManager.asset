@@ -28,10 +28,10 @@ TagManager:
   - 
   - Lava
   - Collectable
-  - Box
+  - Spawners
   - Players
   - Rocks
-  - HUB
+  - Ground
   - PostProcess
   - 
   - 

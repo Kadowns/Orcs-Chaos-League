@@ -9,8 +9,8 @@ public class OrcHeadItem : CollectableItem {
 	private Transform _target;
 	
 	private void FixedUpdate() {
-
-		if (_target != null) {
+		
+		if (_target != null && _target.gameObject.activeInHierarchy) {
 			var dir = (_target.position - transform.position).normalized;
 			_rb.AddForce(dir * MoveSpeed, ForceMode.Acceleration);
 		}

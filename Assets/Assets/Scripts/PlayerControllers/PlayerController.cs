@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 
 	public bool AutoSpawn;
 
+	
+	
 
     [SerializeField] GameObject _orcPrefab;
 	[SerializeField] private MovableEntity _box;
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Awake() {
- 
+		
 		_pointer = GetComponent<PlayerPointer>();
 		_input = GetComponent<InputSource>();
 		var playerInput = _input as PlayerInput;
@@ -168,7 +170,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (_input.CenterButtonPresssed && _actualGameState != -1) {
+		if (_actualGameState != 1)
+			return;
+		if (_input.CenterButtonPresssed) {
 			GameController.Instance.Pause(PlayerNumber);
 		}
 
@@ -196,21 +200,10 @@ public class PlayerController : MonoBehaviour {
 		_spawnTimer = Time.time + _spawnWait;
 	}
 
-	public void ResetToDefault(bool rematch) {		
+	public void ResetToDefault() {		
 		KillCount = 0;
-		_hud.ResetToDefault();
-        if (rematch)   
-            return;
-        		
-		_spawnNewOrc = false;
-		CameraController.Instance.MaxZoom(false);
-		if (_box != null)
-			_boxMotor.ResetToDefault(_boxState);
-		
-		_hud.gameObject.SetActive(false);
-		_playerInGame= false;
 		_spawnTimer = 0;
-		SetPointerTarget(null);
+		_hud.ResetToDefault();
 	}
 
 	public void StartSpawning() {	

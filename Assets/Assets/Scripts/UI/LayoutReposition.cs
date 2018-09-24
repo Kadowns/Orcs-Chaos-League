@@ -22,12 +22,7 @@ public class LayoutReposition : MonoBehaviour {
               _childWidth = transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.x;
               _layout.padding.left = (int)_childWidth / -2;
        }
-
-//       public void DeactivateChild() {
-//              foreach (var child in _childs) {
-//                     child.SetActive(false);
-//              }
-//       }
+       
 
        public void ResetActiveChild() {
               foreach (var child in _childs) {

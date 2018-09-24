@@ -25,6 +25,6 @@ public class DonutArenaMotor : ArenaMotor {
 	public override void NormalEvents(ArenaController controller, ArenaState state) {
 	}
 
-	public override void OnSuddenDeath(ArenaController controller, ArenaState state) {
+	public void GreatEvents(ArenaController controller, ArenaState state) {
 	}
 }

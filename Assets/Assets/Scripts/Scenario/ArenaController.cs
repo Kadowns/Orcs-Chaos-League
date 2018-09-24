@@ -67,9 +67,10 @@ public class ArenaController : Singleton<ArenaController> {
 		if (_gameStarted) {
             _gameTimer += Time.deltaTime;
 			if (!_suddenDeath && _gameTimer > SuddenDeathWait) {
+				
 				_fx.ScreenShake(1.5f, 5f);
 				_suddenDeath = true;
-				ArenaMotor.OnSuddenDeath(this, Arenas[_currentArena]);
+				//ArenaMotor.GreatEvents(this, Arenas[_currentArena]);
 				_fx.BlurForSeconds(1.5f, 20f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
 				_music.PlayBgmByIndex(1);
 				_music.SetBGMPitch(1.075f);

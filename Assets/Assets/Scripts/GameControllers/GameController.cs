@@ -59,36 +59,40 @@ public class GameController : Singleton<GameController> {
 					_hud.FighterHud(false);
 					_gameOverMenu = true;
 				}
-
-				if (_goToHub || _rematch) {
-					_gameOverTimer = 0;
-					_gameOverMenu = false;
-					_fx.Blur(0f, Color.white);
-
-					_hud.ResetToDefault();
-
-					ChangePlayersInput("UI", "Default");
-					var orcs = GameObject.FindGameObjectsWithTag("Player");
-					foreach (var orc in orcs) {
-						orc.SetActive(false);
-					}
-
-					_hud.EnableMenuByIndex(-1);
-					if (_rematch) {
-						StartMatch(ActivePlayers);
-						_rematch = false;
-					}
-
+				else {
 					if (_goToHub) {
 						Debug.Log("VOLTEI PRO MENU");
 					}
-				}
+
+					if (_rematch) {
+						_gameOverTimer = 0;
+						_gameOverMenu = false;
+						_fx.Blur(0f, Color.white);
+
+						_hud.ResetToDefault();
+						foreach (var p in PlayerControllers) {
+							p.ResetToDefault();
+						}
+
+						ChangePlayersInput("UI", "Default");
+						var orcs = GameObject.FindGameObjectsWithTag("Player");
+						foreach (var orc in orcs) {
+							orc.SetActive(false);
+						}
+
+						_hud.EnableMenuByIndex(-1);
+
+						StartMatch(ActivePlayers);
+						_rematch = false;
+					}
+				}	
 			}
 		}	
 	}
 
 	//Função chamada no inicio do jogo pra começar o jogo NÉ
 	public void StartMatch(bool[] playersInGame) {
+		UpdateGameState(1);
 		_camera.SceneCenter(_scenario1.transform);			
 		_music.DramaticFrequencyChange(0.5f, 4.5f, 1f, 600f, 250f);
 
@@ -109,7 +113,7 @@ public class GameController : Singleton<GameController> {
 	}
 
 	public void EndMatch() {
-
+		UpdateGameState(-1);
 
 		_music.ChangeLowPassFilterFrequency(900f, 1f);
 		_fx.Blur(20f, Color.gray);
@@ -118,12 +122,15 @@ public class GameController : Singleton<GameController> {
 		_fx.SetCameraAnimationTrigger("ScanLines");
 		ChangePlayersInput("Default", "UI");
 
+		_matchEnded = true;
+	}
+
+	private void UpdateGameState(int state) {
+		_gameState = state;
 		foreach (var controller in PlayerControllers) {
 
 			controller.UpdateGameState(_gameState);
 		}
-
-		_matchEnded = true;
 	}
 
 	public void Pause(int playerNumber) {

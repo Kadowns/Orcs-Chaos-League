@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class OrcMotor : Motor {
 	
-	public List<Attack> _attacks;
 	private FighterColors _colors;
 	
 	public override void Initialize(MovableEntity entity, InputSource input) {
@@ -25,7 +24,7 @@ public class OrcMotor : Motor {
 	public override void Setup(MovableEntity entity, InputSource input) {
 		var state = entity.State as OrcEntityState;
 		
-		foreach (var atk in _attacks) {
+		foreach (var atk in state.Attacks) {
 			atk.Start(entity.gameObject);
 		}
 		
@@ -217,11 +216,10 @@ public class OrcMotor : Motor {
 
 	private bool Grounded(MovableEntity entity, OrcEntityState state) {
 		RaycastHit hit;
-		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f,
-			~(1 << 12 & 1 << 11 & 1 << 10 & 1 << 8 & 1 << 9))) {
+		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, 1<<13)) {
 			state.DoubleJump = false;
 			entity.transform.SetParent(hit.transform);
-			if (hit.collider.CompareTag("Ground") && state.DropAttack) {
+			if (state.DropAttack) {
 				ScreenEffects.Instance.CreateStompParticles(state.transform.position);
 				PlataformBehaviour plat = hit.collider.gameObject.GetComponent<PlataformBehaviour>();
 				if (plat != null) {
@@ -242,7 +240,7 @@ public class OrcMotor : Motor {
 		
 		if (state.Grounded && state.LastAttackId < 3) {
 			state.LastAttackId += 1;
-			state.ActualAttack = _attacks[state.LastAttackId];
+			state.ActualAttack = state.Attacks[state.LastAttackId];
 			state.SimpleAttack = true;
 			state.Cooldown = false;	
 			state.Attacking = true;
@@ -251,7 +249,7 @@ public class OrcMotor : Motor {
 		}
 		else if (!state.Cooldown && state.CanStomp) {
 			state.LastAttackId = 0;
-			state.ActualAttack = _attacks[state.LastAttackId];
+			state.ActualAttack = state.Attacks[state.LastAttackId];
 			state.Sfx.PlaySFxByIndex(1, Random.Range(1f, 1.2f));
 			state.DropAttack = true;
 			state.DropAttackForce = -DistanceToGround(state.transform.position) * state.DropAttackForceMultiplier;
@@ -335,7 +333,7 @@ public class OrcMotor : Motor {
 	}
 	
 	private Vector3 ClosestOrc(MovableEntity entity) {
-		Collider[] cols = Physics.OverlapSphere(entity.transform.position, 90, 1<<11);
+		Collider[] cols = Physics.OverlapSphere(entity.transform.position, 90, (1<<11 | 1<<10));
 		Vector3 closest = Vector3.zero;
 		float maxDist = float.MaxValue;
 		foreach (var col in cols) {

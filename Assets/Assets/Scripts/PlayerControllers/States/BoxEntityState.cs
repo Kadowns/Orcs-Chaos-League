@@ -10,8 +10,6 @@ public class BoxEntityState : EntityState {
 	public Rigidbody JointRb;
 	public float MoveSpeed = 500f;
     public float GravityScale = 10f;
-	public GameObject CageDoor;
-	public Animator SlotText;
 
 	#endregion
 	

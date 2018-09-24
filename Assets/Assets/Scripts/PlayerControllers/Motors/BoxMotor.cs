@@ -77,11 +77,7 @@ public class BoxMotor : Motor {
 
     public void ResetToDefault(BoxEntityState state) {
         state.StopAllCoroutines();
-        state.Rb.isKinematic = true;
-        state.CageDoor.SetActive(false);
-        state.SlotText.SetTrigger("Free");        
-        state.Orc = null;
-        state.Controller = null;
+        state.Rb.isKinematic = true;     
         state.RoofPoint.position =  state.DefaultPosition + Vector3.up * -200;
         state.transform.position =  state.DefaultPosition;
         state.transform.rotation = Quaternion.identity;
@@ -91,9 +87,6 @@ public class BoxMotor : Motor {
         state.Col.enabled = true;
         
         state.ShadowCaster.SetLineEnabled(false);
-
-        var input = state.GetComponent<MovableEntity>().Input = null;
-
     }
     
     public void LowerBox(BoxEntityState state) {
@@ -159,7 +152,6 @@ public class BoxMotor : Motor {
 
     private void TestCollisions(BoxEntityState state) {
 
-        RaycastHit hit;
         var cols = Physics.BoxCastAll(state.transform.position, Vector3.one * 4.1f, Vector3.up,
             state.transform.rotation, 1f);
         if (cols.Length > 0 && state.Col.enabled) {
@@ -179,7 +171,7 @@ public class BoxMotor : Motor {
 
                 }
                 else if (col.collider.CompareTag("HollowBox") && state.Col.enabled) {
-                   // state.Controller.SpawnOrc();
+                    state.Controller.SpawnOrc();
                 }
             }
         }        

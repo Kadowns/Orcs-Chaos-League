@@ -203,7 +203,9 @@ public class PlayerController : MonoBehaviour {
 	public void ResetToDefault() {		
 		KillCount = 0;
 		_spawnTimer = 0;
+		_spawnNewOrc = false;
 		_hud.ResetToDefault();
+		_boxMotor.ResetToDefault(_boxState);
 	}
 
 	public void StartSpawning() {	

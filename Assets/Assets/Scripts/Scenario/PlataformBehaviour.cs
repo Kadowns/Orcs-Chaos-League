@@ -106,9 +106,5 @@ public class PlataformBehaviour : MonoBehaviour {
 		    transform.localPosition += Vector3.down * 3f * Time.deltaTime;
 		    yield return null;
 	    }
-
-		
-
-		
 	}
 }

@@ -24,11 +24,9 @@ public class ArenaEditor : Editor {
 			_target = target as ArenaState;
 
 
-		
-		
-		DrawPlataformsArray();
-		
-		
+		DrawDefaultInspector();
+
+		//DrawPlataformsArray();
 	}
 
 	private void DrawPlataformsArray() {

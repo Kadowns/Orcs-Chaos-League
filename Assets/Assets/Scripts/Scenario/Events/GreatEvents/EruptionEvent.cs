@@ -7,27 +7,14 @@ public class EruptionEvent : GreatEvent {
 
     public bool Eruption { get; private set; }
 
-    public override void Setup(ArenaState state) {
+    protected override void OnExecute(ArenaState state) {
         
-    }
-
-    public override void Execute(ArenaState state) {
-        EventHUDProxy.Instance.ShowEventHUD(EventType);
         Eruption = true;
-        var fx = ScreenEffects.Instance;
-        fx.ScreenShake(1.5f, 5f);
-        fx.BlurForSeconds(1.5f, 20f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
-        var music = MusicController.Instance;
-        music.PlayBgmByIndex(1);
-        music.SetBGMPitch(1.075f);
-        music.DramaticFrequencyChange(0.1f, 1.5f, 0.5f, 200f, 22000f);
+        
         state.StartCoroutine(DoEruption(state));
     }
 
-    public override void Terminate(ArenaState state) {
-        EventHUDProxy.Instance.HideEventHUD();
-        ScreenEffects.Instance.Blur(0, Color.white);
-        MusicController.Instance.SetBGMPitch(1f);
+    protected  override void OnTerminate(ArenaState state) {
         Eruption = false;
         foreach (var platforms in state.Plataforms) {
             platforms.Raise();

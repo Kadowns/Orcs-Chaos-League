@@ -11,7 +11,6 @@ public class EventHUDProxy : Singleton<EventHUDProxy> {
 		public Sprite Sprite;
 	}
 
-	
 	[SerializeField] private Image _eventIconImage;
 
 	public List<EventIconType> EventIconTypes;
@@ -23,12 +22,7 @@ public class EventHUDProxy : Singleton<EventHUDProxy> {
 	}
 
 	public void ShowEventHUD(GreatEvent.GreatEventType type) {
-		switch (type) {
-		case GreatEvent.GreatEventType.Eruption:
-			_eventIconImage.sprite = EventIconTypes[(int) type].Sprite;
-			break;
-		}
-		
+		_eventIconImage.sprite = EventIconTypes[(int) type].Sprite;
 		_animator.SetTrigger("Show");
 	}
 

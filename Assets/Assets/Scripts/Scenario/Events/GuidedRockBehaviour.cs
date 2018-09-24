@@ -78,8 +78,6 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		Transform target = null;
 		float maxDist = float.MaxValue;
 		foreach (var col in cols) {
-			if (!col.CompareTag("Player"))
-				continue;
 			float dist = (col.transform.position - transform.position).sqrMagnitude;
 			if (dist < maxDist) {
 				maxDist = dist;

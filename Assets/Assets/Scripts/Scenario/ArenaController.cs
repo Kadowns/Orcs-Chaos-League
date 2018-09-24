@@ -81,9 +81,8 @@ public class ArenaController : Singleton<ArenaController> {
 	}
 
 	private IEnumerator DoGreatEvent() {
-		Debug.Log("Comecei");
 		GreatEventInExecution = true;
-		_randomEvent = Random.Range(0, Arenas[_currentArena].GreatEvents.Count - 1);
+		_randomEvent = Random.Range(0, Arenas[_currentArena].GreatEvents.Count);
 		Arenas[_currentArena].GreatEvents[_randomEvent].Execute(Arenas[_currentArena]);
 		yield return new WaitForSeconds(Arenas[_currentArena].GreatEvents[_randomEvent].Duration);
 		Arenas[_currentArena].GreatEvents[_randomEvent].Terminate(Arenas[_currentArena]);

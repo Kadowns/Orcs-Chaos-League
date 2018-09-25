@@ -12,7 +12,9 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 
 	private Rigidbody _rb;
 	
-	private Transform _target;
+	private PlayerController _targetController;
+
+    private Transform _targetTransform;
 
 	private float _timer = 0;
 
@@ -21,18 +23,25 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 	}
 
 	private void FixedUpdate() {
-		if (_target == null || !_target.gameObject.activeInHierarchy) {
+		if (_targetTransform == null || !_targetTransform.gameObject.activeInHierarchy) {
 			FindClosestOrc();
 		}
 		else {
-			var dir = ((_target.transform.position + Vector3.up * YOffset) - transform.position) * 2f;
-			_rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));
+            
+			var dir = ((_targetTransform.transform.position + Vector3.up * YOffset) - transform.position) * 2f;
+            _rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));
 		}
 	}
 
 	public void OnSpawn() {
 		_rb.AddForce(Vector3.up * _spawnForce, ForceMode.Impulse);
 	}
+
+    public void ChangeTarget(PlayerController other) {
+        _targetController.HitEvent -= ChangeTarget;
+        _targetController = other;
+        _targetTransform = _targetController.Orc.transform;
+    }
 
 	public void FindClosestOrc() {
 		var cols = Physics.OverlapSphere(transform.position, 500f, 1 << 11);
@@ -41,8 +50,12 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 			float dist = (col.transform.position - transform.position).sqrMagnitude;
 			if (dist < maxDist) {
 				maxDist = dist;
-				_target = col.transform;
+				_targetTransform = col.transform;
 			}
 		}
+        if (_targetTransform != null) {
+            _targetController = _targetTransform.GetComponent<OrcEntityState>().Controller;
+            _targetController.HitEvent += ChangeTarget;
+        }
 	}
 }

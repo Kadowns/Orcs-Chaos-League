@@ -133,6 +133,8 @@ public class OrcMotor : Motor {
 			}
 		}
 
+
+
 		if (state.StompDrawback) {
 			state.DrawbackTimer += Time.deltaTime;
 			if (state.DrawbackForSeconds < state.DrawbackTimer) {
@@ -277,6 +279,7 @@ public class OrcMotor : Motor {
 						Vector3 dir = (otherEntity.transform.position - entity.transform.position).normalized;
 
 						if (!otherState.CanCounter) {
+                            state.Controller.Hit(otherState.Controller);
 							otherMotor.Damage(otherState, dir, state.ActualAttack.force,
 								state.ActualAttack.hurtForSeconds * (!otherState.Grounded && state.SimpleAttack ? 5 : 1),
 								state.ActualAttack.knockBack,

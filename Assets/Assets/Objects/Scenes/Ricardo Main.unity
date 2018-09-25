@@ -24597,10 +24597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896e43345899d9445830c68f73f00f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToExplode: 10
+  TimeToExplode: 0
   MoveSpeed: 5
   YOffset: 10
-  _spawnForce: 250
+  _spawnForce: 0
 --- !u!54 &1331210539
 Rigidbody:
   m_ObjectHideFlags: 0

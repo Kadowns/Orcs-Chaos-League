@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
 	public delegate void KilledDelegate(int count);
 	public event KilledDelegate KilledEvent;
 
+    public delegate void HitDelegate(PlayerController other);
+    public event HitDelegate HitEvent;
+
 	[SerializeField] private int _playerNumber;
 
 	public int PlayerNumber {
@@ -39,6 +42,12 @@ public class PlayerController : MonoBehaviour {
 	public FighterHUD Hud {
 		get { return _hud; }
 	}
+
+    public MovableEntity Orc {
+        get {
+            return _orc;
+        }
+    }
 
 	private PlayerPointer _pointer;
 	private MovableEntity _orc;
@@ -102,6 +111,12 @@ public class PlayerController : MonoBehaviour {
 		_boxState = _box.State as BoxEntityState;
 		_boxState.Controller = this;
 	}
+
+    public void Hit(PlayerController other) {
+        if (HitEvent != null) {
+            HitEvent.Invoke(other);
+        }
+    }
 
 	public void SpawnOrc() {
 

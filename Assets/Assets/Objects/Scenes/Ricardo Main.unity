@@ -742,7 +742,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25593740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 500, z: 0}
+  m_LocalPosition: {x: 0, y: 14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 676466907}
@@ -24597,9 +24597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896e43345899d9445830c68f73f00f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToExplode: 0
+  TimeToExplode: 10
   MoveSpeed: 5
   YOffset: 10
+  FlashOscilationFrequency: 4
   _spawnForce: 0
 --- !u!54 &1331210539
 Rigidbody:
@@ -29660,6 +29661,7 @@ GameObject:
   - component: {fileID: 1583340949}
   - component: {fileID: 1583340951}
   - component: {fileID: 1583340950}
+  - component: {fileID: 1583340952}
   m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
@@ -29695,7 +29697,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 76849c38fe69c004fb1a52657a466666, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29722,6 +29724,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583340948}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1583340952
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583340948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05fc0d0f724a622498e5907d5dae0fd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1591147621
 GameObject:
   m_ObjectHideFlags: 0
@@ -34626,7 +34646,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294961407
+    m_Bits: 4294966527
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

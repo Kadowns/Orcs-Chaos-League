@@ -7,18 +7,22 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 	public float TimeToExplode;
 	public float MoveSpeed = 100f;
 	public float YOffset = 10;
+    public float FlashOscilationFrequency;
 
 	[SerializeField] private float _spawnForce;
 
+    private Coroutine _SetoffTimerRoutine;
+
 	private Rigidbody _rb;
+
+    private Animator _animator;
 	
 	private PlayerController _targetController;
 
     private Transform _targetTransform;
 
-	private float _timer = 0;
-
 	private void Awake() {
+        _animator = GetComponentInChildren<Animator>();
 		_rb = GetComponent<Rigidbody>();
 	}
 
@@ -27,7 +31,6 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 			FindClosestOrc();
 		}
 		else {
-            
 			var dir = ((_targetTransform.transform.position + Vector3.up * YOffset) - transform.position) * 2f;
             _rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));
 		}
@@ -41,6 +44,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
         _targetController.HitEvent -= ChangeTarget;
         _targetController = other;
         _targetTransform = _targetController.Orc.transform;
+        _targetController.HitEvent += ChangeTarget;
     }
 
 	public void FindClosestOrc() {
@@ -56,6 +60,21 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
         if (_targetTransform != null) {
             _targetController = _targetTransform.GetComponent<OrcEntityState>().Controller;
             _targetController.HitEvent += ChangeTarget;
+            if (_SetoffTimerRoutine == null)
+                _SetoffTimerRoutine = StartCoroutine(SetOffTimer());
         }
 	}
+
+    private IEnumerator SetOffTimer() {
+        
+        float timer = 0;
+        while (timer < TimeToExplode) {
+            if (_targetTransform != null && _targetTransform.gameObject.activeInHierarchy)
+                timer += Time.deltaTime;
+            Debug.Log("ta rodando");
+            _animator.speed = 1 + (timer / TimeToExplode) * FlashOscilationFrequency;
+            yield return null;
+        }
+        _animator.speed = 1;
+    }
 }

@@ -30,7 +30,6 @@ public class ClassicArenaMotor : ArenaMotor {
 
 
 	protected IEnumerator Explosions(ArenaController controller, ArenaState state) {
-		yield return null;
 		do {
 			int explosions = Random.Range(2, 6);
 			for (int i = 0; i < explosions; i++) {

@@ -14,6 +14,8 @@ public class DestroyByDuration : MonoBehaviour {
 	}
 
 	public void InactiveAfterFineshed() {
+		if (!gameObject.activeInHierarchy)
+			return;
 		var ps = GetComponent<ParticleSystem>();
 		StartCoroutine(SetInactiveAfterSeconds(ps.main.duration + ps.main.startLifetime.constant));
 	}

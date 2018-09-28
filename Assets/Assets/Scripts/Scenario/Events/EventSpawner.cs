@@ -7,7 +7,8 @@ public class EventSpawner : MonoBehaviour {
 
 	public enum EventType {
 		RockExplosion,
-		GuidedRock
+		GuidedRock,
+		PotatoBomb
 	};
 
 	[SerializeField] private EventType _type;

@@ -11,7 +11,13 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 
 	[SerializeField] private float _spawnForce;
 
-    private Coroutine _SetoffTimerRoutine;
+	private int _lastTargetId = -1;
+
+	private bool _exploding;
+
+	private ScreenEffects _fx;
+
+    private Coroutine _setoffTimerRoutine;
 
 	private Rigidbody _rb;
 
@@ -26,14 +32,61 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 		_rb = GetComponent<Rigidbody>();
 	}
 
+	private void Start() {
+		_fx = ScreenEffects.Instance;
+	}
+
 	private void FixedUpdate() {
-		if (_targetTransform == null || !_targetTransform.gameObject.activeInHierarchy) {
-			FindClosestOrc();
+		if (_exploding) {
+			var dir = (_targetTransform.position - transform.position) * 2f;
+			_rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));		
+			return;
+		}
+
+		if (_targetTransform != null) {
+			if (!_targetTransform.gameObject.activeInHierarchy) {
+				_targetController.HitEvent -= ChangeTarget;
+				_lastTargetId = -1;
+				_targetController = null;
+				_targetTransform = null;
+			} else {
+				var dir = ((_targetTransform.position + Vector3.up * YOffset) - transform.position) * 2f;
+				_rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));
+			}
 		}
 		else {
-			var dir = ((_targetTransform.transform.position + Vector3.up * YOffset) - transform.position) * 2f;
-            _rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));
-		}
+			FindClosestOrc();
+		}		
+	}
+
+	private void OnCollisionEnter(Collision other) {
+		if (!_exploding || other.collider.gameObject.layer != 11)
+			return;
+		
+		var entity = other.gameObject.GetComponent<MovableEntity>();
+		if (entity == null)
+			return;
+		var motor = entity.Motor as OrcMotor;
+		var state = entity.State as OrcEntityState;
+		
+		motor.Damage(state, (state.transform.position - transform.position).normalized, 300, 1f, true, true, _lastTargetId);
+		
+		_fx.ScreenShake(0.15f, 1.5f);
+		_fx.FreezeFrame(0.1f);
+		_fx.CreateGuidedRockExpParticles(transform.position);
+		
+		
+		gameObject.SetActive(false);
+		ResetToDefault();
+	}
+
+	public void ResetToDefault() {
+		_targetController.HitEvent -= ChangeTarget;
+		_targetController = null;
+		_targetTransform = null;
+		_exploding = false;
+		_animator.speed = 1;
+		_lastTargetId = -1;	
 	}
 
 	public void OnSpawn() {
@@ -41,6 +94,10 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 	}
 
     public void ChangeTarget(PlayerController other) {
+	    if (_exploding)
+		    return;
+	    
+	    _lastTargetId = _targetController.PlayerNumber;
         _targetController.HitEvent -= ChangeTarget;
         _targetController = other;
         _targetTransform = _targetController.Orc.transform;
@@ -60,8 +117,8 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
         if (_targetTransform != null) {
             _targetController = _targetTransform.GetComponent<OrcEntityState>().Controller;
             _targetController.HitEvent += ChangeTarget;
-            if (_SetoffTimerRoutine == null)
-                _SetoffTimerRoutine = StartCoroutine(SetOffTimer());
+            if (_setoffTimerRoutine == null)
+                _setoffTimerRoutine = StartCoroutine(SetOffTimer());
         }
 	}
 
@@ -71,10 +128,10 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
         while (timer < TimeToExplode) {
             if (_targetTransform != null && _targetTransform.gameObject.activeInHierarchy)
                 timer += Time.deltaTime;
-            Debug.Log("ta rodando");
             _animator.speed = 1 + (timer / TimeToExplode) * FlashOscilationFrequency;
             yield return null;
         }
-        _animator.speed = 1;
+	    _exploding = true;    
+        
     }
 }

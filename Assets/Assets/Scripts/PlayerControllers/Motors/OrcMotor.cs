@@ -212,6 +212,7 @@ public class OrcMotor : Motor {
 
 	private void Kill(OrcEntityState state) {
 		state.Rb.isKinematic = true;
+		ResetToDefault(state);
 		state.gameObject.SetActive(false);
 		state.Controller.SubtractLife();
 	}
@@ -353,6 +354,8 @@ public class OrcMotor : Motor {
 	}
 	
 	public void Damage(OrcEntityState state, Vector3 dir, float force, float hurtTime, bool knockBack, bool knockUp, int attackerNumber) {
+		if (!state.gameObject.activeInHierarchy)
+			return;
 		
 		if (!state.Parrying) {
 			WasHit(state, hurtTime);
@@ -415,7 +418,9 @@ public class OrcMotor : Motor {
 	private void AddDamage(OrcEntityState state, int amount, int attackerID) {
 		state.Damage = state.Damage + amount > 999 ? 999 : state.Damage + amount;
 		state.Controller.WasHit(attackerID);
-		if (state.Damage > 100) {
+		if (state.Damage > 250) {
+			Kill(state);
+		}	else if (state.Damage > 100) {
 			state.Flash.SetRedAmount(state.Damage);
 		}
 	}

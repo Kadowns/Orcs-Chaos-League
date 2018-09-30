@@ -12,7 +12,6 @@ public class CameraController : Singleton<CameraController> {
 	[SerializeField] private float _moveSpeed;
 	
 	private Camera _camera;
-	private CameraProjectionChange _projectionChange;
 	private Animator _animator;
 	private GameObject[] _orcs;
 	private GameObject[] _spawners;
@@ -25,7 +24,6 @@ public class CameraController : Singleton<CameraController> {
 		_defaultTarget = transform;
 		_animator = GetComponent<Animator>();
 		_camera = GetComponentInChildren<Camera>();
-		_projectionChange = GetComponentInChildren<CameraProjectionChange>();
 		UpdatePlayers();
 	}
 	

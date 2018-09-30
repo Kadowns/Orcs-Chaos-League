@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce80ed67479f814f9ea707144d8bdd9, type: 3}
   m_Name: PotatoBomb
   m_EditorClassIdentifier: 
-  EventType: 1
-  Duration: 10
+  EventHudSprite: {fileID: 21300018, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
+  Duration: 30
+  BombsToSpawn: 2
+  SpawnInterval: 10

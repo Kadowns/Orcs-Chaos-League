@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class GreatEvent : ScriptableObject {
-    public enum GreatEventType {
-        Eruption,
-        PotatoBomb
-    };
 
-    public GreatEventType EventType;
+    public Sprite EventHudSprite;
 
     public float Duration;
 
     public virtual void Setup(ArenaState state) {}
 
     public void Execute(ArenaState state) {
-        EventHUDProxy.Instance.ShowEventHUD(EventType);
+        EventHUDProxy.Instance.ShowEventHUD(EventHudSprite);
         var fx = ScreenEffects.Instance;
         fx.ScreenShake(1.5f, 5f);
-        fx.BlurForSeconds(1.5f, 20f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
+        fx.BlurForSeconds(1.5f, 10f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
         var music = MusicController.Instance;
         music.PlayBgmByIndex(1);
         music.SetBGMPitch(1.075f);

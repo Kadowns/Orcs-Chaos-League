@@ -38,7 +38,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 
 	private void FixedUpdate() {
 		if (_exploding) {
-			var dir = (_targetTransform.position - transform.position) * 2f;
+			var dir = (_targetTransform.position - _rb.position).normalized;
 			_rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));		
 			return;
 		}
@@ -50,8 +50,9 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 				_targetController = null;
 				_targetTransform = null;
 			} else {
-				var dir = ((_targetTransform.position + Vector3.up * YOffset) - transform.position) * 2f;
-				_rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));
+
+				_rb.MovePosition(Vector3.Lerp(_rb.position, _targetTransform.position + Vector3.up * YOffset,
+					MoveSpeed * Time.deltaTime));
 			}
 		}
 		else {

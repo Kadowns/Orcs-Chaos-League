@@ -5,19 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GreatEvent/PotatoBomb")]
 public class PotatoBombEvent : GreatEvent {
 
-	public string ObjectNameInPool;
-
-	public void Setup(ArenaState state) {
-		
+	public int BombsToSpawn = 5;
+	public float SpawnInterval = 1.5f;
+	
+	private SpawnPipe _pipe;
+	
+	public override void Setup(ArenaState state) {
+		_pipe = SpawnPipe.Instance;
 	}
 
 	protected override void OnExecute(ArenaState state) {
-		int rand = Random.Range(0, state.EventSpawners.Length);
-		
-		state.EventSpawners[rand].Execute();
+		_pipe.SpawnObjects("PotatoBomb", BombsToSpawn, SpawnInterval);
 	}
 
 	protected  override void OnTerminate(ArenaState state) {
-		
+		_pipe.ForceStop();
 	}
 }

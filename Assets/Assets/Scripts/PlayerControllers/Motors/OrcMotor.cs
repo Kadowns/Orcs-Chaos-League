@@ -264,8 +264,8 @@ public class OrcMotor : Motor {
 	
 	private void ApplyDamage(MovableEntity entity, OrcEntityState state) {
 	
-		Collider[] orcsCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range, 1<<11);
-		Collider[] rockCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range * 1.5f, 1<<12);
+		Collider[] orcsCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range, 1<<LayerMask.NameToLayer("Players"));
+		Collider[] rockCols = Physics.OverlapSphere(entity.transform.position, state.ActualAttack.range * 1.5f, 1<<LayerMask.NameToLayer("Rocks"));
 		
 		if (orcsCols.Length > 0) {
 			for (int i = 0; i < orcsCols.Length; i++) {

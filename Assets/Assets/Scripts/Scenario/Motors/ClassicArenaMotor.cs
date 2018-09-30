@@ -33,8 +33,8 @@ public class ClassicArenaMotor : ArenaMotor {
 		do {
 			int explosions = Random.Range(2, 6);
 			for (int i = 0; i < explosions; i++) {
-				int rand = Random.Range(0, state.EventSpawners.Length);
-				state.EventSpawners[rand].Execute();
+				int rand = Random.Range(0, state.LavaGeysers.Length);
+				state.LavaGeysers[rand].Execute();
 				yield return new WaitForSeconds(Random.Range(1, 5));
 			}
 

@@ -34,10 +34,7 @@ public class ArenaController : Singleton<ArenaController> {
 	private ScreenEffects _fx;
 
 	private void Awake() {
-		_players = GameController.Instance.PlayerControllers;
-		foreach (var p in _players) {
-			p.DeathEvent += PlayerDied;
-		}
+		_players = GameController.Instance.PlayerControllers;	
 	}
 	
 	private void Start() {
@@ -119,13 +116,6 @@ public class ArenaController : Singleton<ArenaController> {
 	    _startGame = false;
         ArenaMotor.ResetToDefault(this, Arenas[_currentArena]);
     }
-
-	public void PlayerDied(int attackerNumber) {
-		if (_players == null || attackerNumber == -1)
-			return;
-		
-		_players[attackerNumber].GotKill();	
-	}
 
 	public void PrepareGame(ref PlayerController[] players, int currentArena) {
        

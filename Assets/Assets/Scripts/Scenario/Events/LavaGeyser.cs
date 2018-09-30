@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour, IEvent {
+public class LavaGeyser : MonoBehaviour {
 
 	public float ExplosionForce;
 	public float WaitToExplode;
 	public int ObjectsToSpawn;
 	public string ObjectName;
 
-	protected Light _light;	
-	protected SoundEffectPlayer _sfx;
-	protected ParticleSystem _ps;	
-	protected ObjectPooler _pool;
-	protected ScreenEffects _fx;
+	private Light _light;
+	private SoundEffectPlayer _sfx;
+	private ParticleSystem _ps;
+	private ObjectPooler _pool;
+	private ScreenEffects _fx;
 
 	private void Start () {
 		_ps = GetComponent<ParticleSystem>();
@@ -23,8 +23,8 @@ public class Explosion : MonoBehaviour, IEvent {
 		_pool = ObjectPooler.Instance;
 		_fx = ScreenEffects.Instance;
 	}
-	
-	protected IEnumerator SmoothLight(float targetIntensity, float timeToSmooth) {
+
+	private IEnumerator SmoothLight(float targetIntensity, float timeToSmooth) {
 		float lastIntensity = _light.intensity;
 		float timer = 0;
 		while (timer < timeToSmooth) {
@@ -40,7 +40,7 @@ public class Explosion : MonoBehaviour, IEvent {
 		StartCoroutine(DoExplode());
 	}
 
-	protected IEnumerator DoExplode() {
+	private IEnumerator DoExplode() {
 		_ps.Play();	
 		StartCoroutine(SmoothLight(30f, 0.25f));
 		_sfx.PlaySFxByIndex(0, Random.Range(0.6f, 0.9f));

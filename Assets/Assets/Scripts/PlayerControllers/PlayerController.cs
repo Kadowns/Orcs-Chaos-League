@@ -29,9 +29,6 @@ public class PlayerController : MonoBehaviour {
 
 	public bool AutoSpawn;
 
-	
-	
-
     [SerializeField] GameObject _orcPrefab;
 	[SerializeField] private MovableEntity _box;
 	[SerializeField] private FighterHUD _hud;
@@ -163,15 +160,15 @@ public class PlayerController : MonoBehaviour {
 		if (!_orc.gameObject.activeInHierarchy)
 			return;
 		KillCount++;
-		KilledEvent.Invoke(KillCount);
-		if (KillCount > 10) {
+		KilledEvent?.Invoke(KillCount);
+		if (KillCount >= 10) {
 			ArenaController.Instance.GameShouldEnd(_playerNumber);
 		}	
 	}
 
 	public void SubtractLife() {
 
-		for (int i = 0; i < KillCount; i++) {
+		for (int i = 0; i < KillCount + 1; i++) {
 			_pool.SpawnFromPool("OrcHead", _orc.transform.position, Quaternion.identity);
 		}
 
@@ -179,9 +176,9 @@ public class PlayerController : MonoBehaviour {
 		SetPointerTarget(_box.transform);
 		StartSpawning();
 		
-		DamageEvent.Invoke();
-		KilledEvent.Invoke(KillCount);
-		DeathEvent.Invoke(LastAttackerNumber);
+		DamageEvent?.Invoke();
+		KilledEvent?.Invoke(KillCount);
+		DeathEvent?.Invoke(LastAttackerNumber);
 	}
 
 	private void Update() {

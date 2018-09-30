@@ -38,8 +38,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 
 	private void FixedUpdate() {
 		if (_exploding) {
-			var dir = (_targetTransform.position - _rb.position).normalized;
-			_rb.MovePosition(transform.position + (dir * MoveSpeed * Time.deltaTime));		
+			_rb.MovePosition(Vector3.Lerp(_rb.position, _targetTransform.position, MoveSpeed * Time.deltaTime));		
 			return;
 		}
 
@@ -49,10 +48,11 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 				_lastTargetId = -1;
 				_targetController = null;
 				_targetTransform = null;
+				
 			} else {
-
 				_rb.MovePosition(Vector3.Lerp(_rb.position, _targetTransform.position + Vector3.up * YOffset,
 					MoveSpeed * Time.deltaTime));
+				
 			}
 		}
 		else {
@@ -61,7 +61,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 	}
 
 	private void OnCollisionEnter(Collision other) {
-		if (!_exploding || other.collider.gameObject.layer != 11)
+		if (!_exploding || other.collider.gameObject.layer != LayerMask.NameToLayer("Players"))
 			return;
 		
 		var entity = other.gameObject.GetComponent<MovableEntity>();

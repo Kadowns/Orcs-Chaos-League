@@ -44,7 +44,7 @@ public class OrcHeadItem : CollectableItem {
 
 	private void OnCollisionEnter(Collision other) {
 		if (LayerMask.NameToLayer("Lava") == other.gameObject.layer && _target == null) {
-			_rb.AddForce((-_rb.position + Vector3.up * 20).normalized * SpawnForce , ForceMode.Impulse);
+			_rb.AddForce((-_rb.position.normalized + Vector3.up).normalized * SpawnForce , ForceMode.Impulse);
 			
 		} else if (LayerMask.NameToLayer("Players") == other.gameObject.layer) {		
 			var otherEntity = other.gameObject.GetComponent<MovableEntity>();

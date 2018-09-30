@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 65467902733501170}
   - component: {fileID: 54863155718546674}
   - component: {fileID: 114553918086870934}
+  - component: {fileID: 114985971345870382}
   - component: {fileID: 114419415721024030}
   m_Layer: 9
   m_Name: OrcHead
@@ -129,7 +130,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965766203290680}
-  m_Material: {fileID: 13400000, guid: 1d9f01765227541469cf80de4c163910, type: 2}
+  m_Material: {fileID: 13400000, guid: 9e282fc32afe4b54e82f83ca104c8071, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   MoveSpeed: 4
-  SpawnForce: 100
+  SpawnForce: 75
 --- !u!114 &114669060225227428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,6 +200,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b683344727468aadd6096b48564f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114985971345870382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965766203290680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1162b0ae2b8e4ac981a905557c2ecc89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaskToContact:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!135 &135232287475500852
 SphereCollider:
   m_ObjectHideFlags: 1

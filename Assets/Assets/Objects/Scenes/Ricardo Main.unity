@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 42022316}
   - component: {fileID: 42022315}
   - component: {fileID: 42022314}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (12)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -6247,7 +6247,7 @@ GameObject:
   - component: {fileID: 58820325}
   - component: {fileID: 58820324}
   - component: {fileID: 58820323}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (1)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -6279,7 +6279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -11069,6 +11069,48 @@ Transform:
   m_Father: {fileID: 1140138325}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &78964593
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 502.7734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &82378801
 GameObject:
   m_ObjectHideFlags: 0
@@ -11415,7 +11457,7 @@ GameObject:
   - component: {fileID: 92249202}
   - component: {fileID: 92249201}
   - component: {fileID: 92249200}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (5)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -11447,7 +11489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -18829,7 +18871,7 @@ GameObject:
   - component: {fileID: 242266569}
   - component: {fileID: 242266568}
   - component: {fileID: 242266567}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (7)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -18861,7 +18903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -24157,7 +24199,7 @@ GameObject:
   - component: {fileID: 273858887}
   - component: {fileID: 273858886}
   - component: {fileID: 273858885}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (3)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -24189,7 +24231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -32406,7 +32448,7 @@ GameObject:
   - component: {fileID: 455585144}
   - component: {fileID: 455585143}
   - component: {fileID: 455585142}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (4)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -32438,7 +32480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -38999,7 +39041,7 @@ GameObject:
   - component: {fileID: 552659445}
   - component: {fileID: 552659444}
   - component: {fileID: 552659443}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (10)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -39031,7 +39073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -46421,48 +46463,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 691544124}
   m_Mesh: {fileID: 4300004, guid: a79275034ca4c8344925f8e237953b20, type: 3}
---- !u!1001 &691882034
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 502.7734
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -4.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &697754057
 GameObject:
   m_ObjectHideFlags: 0
@@ -46760,7 +46760,7 @@ GameObject:
   - component: {fileID: 703096472}
   - component: {fileID: 703096471}
   - component: {fileID: 703096470}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (6)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -46792,7 +46792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -52102,7 +52102,7 @@ GameObject:
   - component: {fileID: 753594418}
   - component: {fileID: 753594417}
   - component: {fileID: 753594416}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (16)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -52134,7 +52134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -58802,7 +58802,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420259016680064, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.92
+      value: -2.867
       objectReference: {fileID: 0}
     - target: {fileID: 4420259016680064, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -58810,7 +58810,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420259016680064, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.98
+      value: -2.055
       objectReference: {fileID: 0}
     - target: {fileID: 4420259016680064, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -60288,7 +60288,7 @@ GameObject:
   - component: {fileID: 958827282}
   - component: {fileID: 958827281}
   - component: {fileID: 958827280}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (19)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -60320,7 +60320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -65037,7 +65037,7 @@ GameObject:
   - component: {fileID: 978671736}
   - component: {fileID: 978671735}
   - component: {fileID: 978671734}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (18)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -65069,7 +65069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -70690,7 +70690,7 @@ GameObject:
   - component: {fileID: 1057413425}
   - component: {fileID: 1057413424}
   - component: {fileID: 1057413423}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (17)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -70722,7 +70722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -83023,7 +83023,7 @@ GameObject:
   - component: {fileID: 1465875596}
   - component: {fileID: 1465875595}
   - component: {fileID: 1465875594}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (9)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -83055,7 +83055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -89506,7 +89506,7 @@ GameObject:
   - component: {fileID: 1551386571}
   - component: {fileID: 1551386570}
   - component: {fileID: 1551386569}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (8)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -89538,7 +89538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -95574,7 +95574,7 @@ GameObject:
   - component: {fileID: 1624369947}
   - component: {fileID: 1624369946}
   - component: {fileID: 1624369945}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (15)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -95606,7 +95606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -104699,7 +104699,7 @@ GameObject:
   - component: {fileID: 1843914687}
   - component: {fileID: 1843914686}
   - component: {fileID: 1843914685}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (11)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -104731,7 +104731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -109884,7 +109884,7 @@ GameObject:
   - component: {fileID: 1893183940}
   - component: {fileID: 1893183939}
   - component: {fileID: 1893183938}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (14)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -109916,7 +109916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -117985,7 +117985,7 @@ GameObject:
   - component: {fileID: 2031212853}
   - component: {fileID: 2031212852}
   - component: {fileID: 2031212851}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (13)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -118017,7 +118017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock
@@ -123484,7 +123484,7 @@ GameObject:
   - component: {fileID: 2061824298}
   - component: {fileID: 2061824297}
   - component: {fileID: 2061824296}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LavaExplosion (2)
   m_TagString: LavaExplosion
   m_Icon: {fileID: 0}
@@ -123516,7 +123516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a343b4a9cecdf489e7e6ccb55ef7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionForce: 200
+  ExplosionForce: 125
   WaitToExplode: 1.5
   ObjectsToSpawn: 5
   ObjectName: LavaRock

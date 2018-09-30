@@ -15,7 +15,7 @@ public class PlataformBehaviour : MonoBehaviour {
     public float _oscilationFrequency { get; set; }
     public float _oscilationScale { get; set; }
     public float _offSetter { get; set; }
-
+	
 	private void FixedUpdate() {
 		if (!_defined || _shaking || _lowered)
 			return;

@@ -221,7 +221,7 @@ public class OrcMotor : Motor {
 		RaycastHit hit;
 		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, 1<<13)) {
 			state.DoubleJump = false;
-			entity.transform.SetParent(hit.transform);
+			entity.transform.SetParent(hit.transform.parent);
 			if (state.DropAttack) {
 				ScreenEffects.Instance.CreateStompParticles(state.transform.position);
 				PlataformBehaviour plat = hit.collider.gameObject.GetComponent<PlataformBehaviour>();

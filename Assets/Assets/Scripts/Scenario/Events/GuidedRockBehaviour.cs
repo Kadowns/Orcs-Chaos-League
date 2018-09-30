@@ -58,11 +58,17 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 			return;
 		}
 
-		if (_target != null && _target.gameObject.activeInHierarchy) {
-			_velocity = (_target.position - transform.position).normalized * InitialSpeed * (_numberOfHits + 1);
-			_velocity += Vector3.up * (_target.position.y + 3.5f + transform.localScale.y / 2 - transform.position.y);
+		if (_target != null) {
+			if (_target.gameObject.activeInHierarchy) {
+				_velocity = (_target.position - transform.position).normalized * InitialSpeed * (_numberOfHits + 1);
+				_velocity += Vector3.up * (_target.position.y + 3.5f + transform.localScale.y / 2 - transform.position.y);
+			}
+			else {
+				_target = null;
+			}
 		}
 		else {
+			_velocity *= 0.98f;
 			_target = FindTarget();
 		}
 	}
@@ -74,7 +80,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	private Transform FindTarget() {
-		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1<<11);
+		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1<<LayerMask.NameToLayer("Players"));
 		Transform target = null;
 		float maxDist = float.MaxValue;
 		foreach (var col in cols) {
@@ -114,7 +120,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	private void OnCollisionEnter(Collision other) {
-		if (other.collider.gameObject.layer != 11)
+		if (other.collider.gameObject.layer != LayerMask.NameToLayer("Players"))
 			return;
 
 		var entity = other.collider.GetComponent<MovableEntity>();
@@ -122,7 +128,6 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		var state = entity.State as OrcEntityState;
 		var dir = (entity.transform.position - transform.position).normalized;
 		if (!state.Parrying) {
-			motor.Burn(state, 80, 0.5f, dir, 150, AttackerId);
 			StartCoroutine(DoExplosion());
 		}
 		else {
@@ -143,7 +148,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 			timer += Time.deltaTime;
 			yield return null;
 		}
-		Collider[] cols = Physics.OverlapSphere(transform.position, 15, 1<<11);
+		Collider[] cols = Physics.OverlapSphere(transform.position, 15, 1<<LayerMask.NameToLayer("Players"));
 		foreach (var col in cols) {
 			var entity = col.GetComponent<MovableEntity>();
 			var motor = entity.Motor as OrcMotor;

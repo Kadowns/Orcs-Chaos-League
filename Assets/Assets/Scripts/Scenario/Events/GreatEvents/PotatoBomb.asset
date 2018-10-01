@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventHudSprite: {fileID: 21300018, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
   Duration: 30
-  BombsToSpawn: 2
-  SpawnInterval: 10
+  BombsToSpawn: 3
+  SpawnInterval: 5

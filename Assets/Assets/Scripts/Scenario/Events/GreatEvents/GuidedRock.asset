@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8345501bf3d14cb79608a717f6238a16, type: 3}
   m_Name: GuidedRock
   m_EditorClassIdentifier: 
-  EventHudSprite: {fileID: 21300020, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
+  EventHudSprite: {fileID: 21300022, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
   Duration: 20
   RocksToSpawn: 10
   SpawnInterval: 1.5

@@ -44,7 +44,6 @@ public class GameController : Singleton<GameController> {
 	    _music.PlayBgmByIndex(1);
 	    _music.SetBGMLowPassFilter(200);
 	    _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
-	    _fx.SetCameraAnimationTrigger("ScanLines");
 	    StartMatch(ActivePlayers);
     }
 
@@ -119,7 +118,6 @@ public class GameController : Singleton<GameController> {
 		_fx.Blur(20f, Color.gray);
 
 		_camera.MaxZoom(true);
-		_fx.SetCameraAnimationTrigger("ScanLines");
 		ChangePlayersInput("Default", "UI");
 
 		_matchEnded = true;

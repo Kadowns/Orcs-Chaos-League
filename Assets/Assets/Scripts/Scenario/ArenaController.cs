@@ -56,7 +56,6 @@ public class ArenaController : Singleton<ArenaController> {
 		if (_startGame && !_gameStarted) {
 			ArenaMotor.NormalEvents(this, Arenas[_currentArena]);
 			_gameStarted = true;
-			_fx.SetCameraAnimationTrigger("StopFx");
 			_hud.FighterHud(true);
 			_music.PlayBgmByIndex(1);
 			_music.SetBGMPitch(1);

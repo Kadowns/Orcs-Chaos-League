@@ -122,14 +122,6 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		Time.timeScale = 0;
 		TimeController.Instance.DoTimeScale(1, recoverySpeed);
 	}
-
-	public void SetCameraAnimationTrigger(string name) {
-		_cameraAnimFx.SetTrigger(name);
-	}
-
-	public void SetNotHubAnimationTrigger(string name) {
-		_notHubAnimFx.SetTrigger(name);
-	}
 	
 	//ScreenShake (avá2)
 	public void ScreenShake(float timeToShake, float intensity) {

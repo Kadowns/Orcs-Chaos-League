@@ -44,7 +44,7 @@ public class GameController : Singleton<GameController> {
 	    _music.PlayBgmByIndex(1);
 	    _music.SetBGMLowPassFilter(200);
 	    _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
-	    StartMatch(ActivePlayers);
+	    StartMatch(PlayerSelection.PlayersInGame);
     }
 
 

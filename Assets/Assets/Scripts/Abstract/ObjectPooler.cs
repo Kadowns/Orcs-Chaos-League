@@ -48,6 +48,11 @@ public class ObjectPooler : Singleton<ObjectPooler> {
 		obj.transform.position = position;
 		obj.transform.rotation = rotation;
 		
+		var spawnable = obj.GetComponent<ISpawnable>();
+		if (spawnable != null) {
+			spawnable.OnSpawn();
+		}
+		
 		poolDictionary[tag].Enqueue(obj);
 
 		return obj;
@@ -73,6 +78,11 @@ public class ObjectPooler : Singleton<ObjectPooler> {
 		obj.transform.position = position;
 		obj.transform.rotation = rotation;
 		obj.transform.parent = parent;
+
+		var spawnable = obj.GetComponent<ISpawnable>();
+		if (spawnable != null) {
+			spawnable.OnSpawn();
+		}
 
 		poolDictionary[tag].Enqueue(obj);
 		

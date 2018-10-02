@@ -129,16 +129,61 @@ MonoBehaviour:
   MoveSpeed: 500
   DashSpeed: 150
   JumpForce: 250
-  DrawbackForSeconds: 0.5
   DashCooldown: 1
   TauntForSeconds: 1
+  Attacks:
+  - tag: Stomp
+    id: 0
+    range: 7.5
+    hurtForSeconds: 0.5
+    force: 175
+    knockBack: 1
+    knockUp: 1
+    miniDash: 0
+    screenShake: 1
+    tryClip: {fileID: 8300000, guid: c689ba2f912ef4a4c8e06f33208b0f97, type: 3}
+    hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}
+  - tag: Combo 1
+    id: 1
+    range: 5.5
+    hurtForSeconds: 0.2
+    force: 90
+    knockBack: 0
+    knockUp: 0
+    miniDash: 0
+    screenShake: 0
+    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
+    hitClip: {fileID: 8300000, guid: 76878ad0be505c946a815c688b535818, type: 3}
+  - tag: Combo 2
+    id: 2
+    range: 5
+    hurtForSeconds: 0.4
+    force: 110
+    knockBack: 0
+    knockUp: 1
+    miniDash: 1
+    screenShake: 0
+    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
+    hitClip: {fileID: 8300000, guid: ad566a3be40796a4c85c3a47dd6e2e26, type: 3}
+  - tag: Combo 3
+    id: 3
+    range: 6
+    hurtForSeconds: 0.5
+    force: 140
+    knockBack: 1
+    knockUp: 0
+    miniDash: 0
+    screenShake: 1
+    tryClip: {fileID: 8300000, guid: 92188ab65b6e74843bcd4ac3aaaa4fdf, type: 3}
+    hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}
   SimpleAttackCooldown: 0.25
   DropAttackCooldown: 0
-  AttackSpeed: 0.25
-  DropAttackForceMultiplier: 2
-  DropAttackGravity: 175
+  InitialAttackSpeed: 0.2
+  DropAttackForceMultiplier: 4
+  DropAttackGravity: 275
+  DrawbackForSeconds: 0.5
   MinimumParryTime: 0.5
-  TimeToCounter: 0.1
+  TimeToCounter: 0.2
   TimeToStun: 1
 --- !u!114 &114319751400673162
 MonoBehaviour:

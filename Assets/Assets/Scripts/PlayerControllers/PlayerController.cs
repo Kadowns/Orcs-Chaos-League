@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 	
 	public delegate void ScoreDelegate();
-	public event ScoreDelegate ScoreEvent;
+	public event ScoreDelegate DamageEvent;
 
 	public delegate void DeathDelegate(int attackerNumber);
 	public event DeathDelegate DeathEvent;
@@ -14,35 +14,52 @@ public class PlayerController : MonoBehaviour {
 	public delegate void KilledDelegate(int count);
 	public event KilledDelegate KilledEvent;
 
+    public delegate void HitDelegate(PlayerController other);
+    public event HitDelegate HitEvent;
+
 	[SerializeField] private int _playerNumber;
 
 	public int PlayerNumber {
 		get { return _playerNumber; }
 	}
+	
+	public int OrcDamage {
+		get { return (_orcState != null ? _orcState.Damage : 0); }
+	}
 
 	public bool AutoSpawn;
 
     [SerializeField] GameObject _orcPrefab;
+	[SerializeField] private MovableEntity _box;
 	[SerializeField] private FighterHUD _hud;
     [SerializeField] private float _spawnWait = 3;
 	[SerializeField] private float _attackerShouldReceiveKillTime = 5f;
 	[SerializeField] private float _maxTimeToSpawn;
 
+	public FighterHUD Hud {
+		get { return _hud; }
+	}
+
+    public MovableEntity Orc {
+        get {
+            return _orc;
+        }
+    }
+
 	private PlayerPointer _pointer;
-	private MovableEntity _box, _orc;
+	private MovableEntity _orc;
 	private BoxMotor _boxMotor;
 	private OrcMotor _orcMotor;
 	private BoxEntityState _boxState;
 	private OrcEntityState _orcState;
+	private ObjectPooler _pool;
 
 	private InputSource _input;
 
 	private Player _player;
 	
 	public int KillCount { get; private set; }
-    public int Score { get { return _score; } }
-	private int _lastAttackerNumber;
-	private int _score = 0;
+	public int LastAttackerNumber;
 	private int _actualGameState;
 	
     private float _spawnTimer = 0, _timeToGiveKill = 0;
@@ -54,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Awake() {
- 
+		
 		_pointer = GetComponent<PlayerPointer>();
 		_input = GetComponent<InputSource>();
 		var playerInput = _input as PlayerInput;
@@ -62,10 +79,14 @@ public class PlayerController : MonoBehaviour {
 			_player = ReInput.players.GetPlayer(_playerNumber);
 			playerInput.Player = _player;
 		}			
+		
+		CreateOrc();
+		BindBox();
 	}
 	
 	private void Start() {
-		CreateOrc();
+		_pool = ObjectPooler.Instance;
+		
 	}
 
 	private void CreateOrc() {
@@ -79,43 +100,45 @@ public class PlayerController : MonoBehaviour {
 		_orcState.PlayerColor = _pointer.GetPlayerColor();
 
 	}
-	
+
+	private void BindBox() {
+				
+		_box.Input = _input;
+		_boxMotor = _box.Motor as BoxMotor;
+		_boxState = _box.State as BoxEntityState;
+		_boxState.Controller = this;
+	}
+
+    public void Hit(PlayerController other) {
+        if (HitEvent != null) {
+            HitEvent.Invoke(other);
+        }
+    }
+
 	public void SpawnOrc() {
 
 		_orcPrefab.SetActive(true);
-		if (_actualGameState == 0 && !_playerInGame) {
-			
-			_orcPrefab.transform.rotation = Quaternion.identity;
-			_orcPrefab.transform.position = new Vector3(0, 510, 0);
-			_orcPrefab.transform.parent = transform;
-			_hud.gameObject.SetActive(true);
-			GameController.Instance.IncreaseActivePlayers();
-			_orcMotor.ResetToDefault(_orcState);
-			SetPointerTarget(_orcPrefab.transform);
-			_playerInGame = true;
 
-		}
-		else {
-			ArenaController.Instance.PlayerSpawned();
-			_boxMotor.DisableBox(_boxState);
-			_boxMotor.RaiseBox(_boxState);
-			_boxState.CanSpawn = false;
-			_orcPrefab.GetComponent<Rigidbody>().AddForce(_box.GetComponent<Rigidbody>().velocity * 4f, ForceMode.Impulse);
+		ArenaController.Instance.PlayerSpawned();
+		_boxMotor.DisableBox(_boxState);
+		_boxMotor.RaiseBox(_boxState);
+		_boxState.CanSpawn = false;
+		_orcPrefab.GetComponent<Rigidbody>().AddForce(_box.GetComponent<Rigidbody>().velocity * 4f, ForceMode.Impulse);
 
-			_spawnTimer = 0;
-			_orcPrefab.transform.rotation = Quaternion.identity;
-			_orcPrefab.transform.position = _box.transform.position;
-			_orcPrefab.transform.parent = transform;
-			_orcMotor.ResetToDefault(_orcState);
-			SetPointerTarget(_orcPrefab.transform);
-			_spawnNewOrc = false;
+		_spawnTimer = 0;
+		_orcPrefab.transform.rotation = Quaternion.identity;
+		_orcPrefab.transform.position = _box.transform.position;
+		_orcPrefab.transform.parent = transform;
+		_orcMotor.ResetToDefault(_orcState);
+		SetPointerTarget(_orcPrefab.transform);
+		_spawnNewOrc = false;
 
-		}
-        ScoreEvent.Invoke();
-		CameraController.Instance.UpdatePlayers();	
-		CameraController.Instance.MaxZoom(false);  
+
+		DamageEvent.Invoke();
+		CameraController.Instance.UpdatePlayers();
+		CameraController.Instance.MaxZoom(false);
 	}
-	
+
 	public void Vibrate(int motorIndex, float motorLevel, float duration) {
 		if (_player == null)
 			return;
@@ -128,73 +151,56 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void WasHit(int attackerNumber) {
-		_lastAttackerNumber = attackerNumber;
+		DamageEvent.Invoke();
+		LastAttackerNumber = attackerNumber;
 		_timeToGiveKill = Time.time + _attackerShouldReceiveKillTime;
 	}
 
 	public void GotKill() {
+		if (!_orc.gameObject.activeInHierarchy)
+			return;
 		KillCount++;
-		KilledEvent.Invoke(KillCount);
+		KilledEvent?.Invoke(KillCount);
+		if (KillCount >= 10) {
+			ArenaController.Instance.GameShouldEnd(_playerNumber);
+		}	
 	}
 
 	public void SubtractLife() {
-		
-		if (_box != null) {
 
-            _score /= 2;
-            ScoreEvent.Invoke();
-		    SetPointerTarget(_box.transform);
-			StartSpawning();
+		for (int i = 0; i < KillCount + 1; i++) {
+			_pool.SpawnFromPool("OrcHead", _orc.transform.position, Quaternion.identity);
 		}
-		else {
-			ResetToDefault(false);
-			GameController.Instance.DecreaseActivePlayers();
-		}		
-		DeathEvent.Invoke(_lastAttackerNumber);
+
+		KillCount = 0;	
+		SetPointerTarget(_box.transform);
+		StartSpawning();
+		
+		DamageEvent?.Invoke();
+		KilledEvent?.Invoke(KillCount);
+		DeathEvent?.Invoke(LastAttackerNumber);
 	}
 
-    private void Update() {
-	    if (_input.CenterButtonPresssed && _actualGameState != -1) {
-		    GameController.Instance.Pause(PlayerNumber);
-	    }
-	    switch (_actualGameState) {
-		    case -1:
-                break;
-		    case 0:
-			    if ((_player.GetAnyButtonDown() || AutoSpawn) && !_playerInGame) {
-				    SpawnOrc();			    
-			    }
-			    break;
-		    case 1:
-			    if (_lastAttackerNumber != -1 && Time.time > _timeToGiveKill) {
-				    _lastAttackerNumber = -1;
-			    }
-			    
-			    if (_spawnNewOrc) {
-				    CameraController.Instance.MaxZoom(true);
-				    if (Time.time > _spawnTimer) {
-					    _boxState.CanSpawn = true;
-					    if (Time.time > _spawnTimer + _maxTimeToSpawn) {
-						    SpawnOrc();
-					    }
-				    }
-			    }
-			    break;
-		    
-		   default:	
-			   if (_player.GetAnyButton()) {
-				   GameController.Instance.StartGame();
-			   }
-			   break;	         	    
-	    }	    
-    }	
-	
-	public void AddScore(int scoreToAdd) {
-		_score += scoreToAdd;
-		ScoreEvent.Invoke();
-        if (_score >= 999) {
-            ArenaController.Instance.GameShouldEnd(_playerNumber);
-        }
+	private void Update() {
+		if (_actualGameState != 1)
+			return;
+		if (_input.CenterButtonPresssed) {
+			GameController.Instance.Pause(PlayerNumber);
+		}
+
+		if (LastAttackerNumber != -1 && Time.time > _timeToGiveKill) {
+			LastAttackerNumber = -1;
+		}
+
+		if (_spawnNewOrc) {
+			CameraController.Instance.MaxZoom(true);
+			if (Time.time > _spawnTimer) {
+				_boxState.CanSpawn = true;
+				if (Time.time > _spawnTimer + _maxTimeToSpawn) {
+					SpawnOrc();
+				}
+			}
+		}
 	}
 
 	public void UpdateGameState(int index) {
@@ -206,46 +212,13 @@ public class PlayerController : MonoBehaviour {
 		_spawnTimer = Time.time + _spawnWait;
 	}
 
-	public void SetDefaultSpawner(GameObject parent) {
-		_box = parent.GetComponent<MovableEntity>();
-
-		_box.Input = _input;
-		_boxMotor = _box.Motor as BoxMotor;
-		_boxState = _box.State as BoxEntityState;
-		
-		SetPointerTarget(_box.transform);
-	}
-
-	public void ResetToDefault(bool rematch) {		
-        _score = 0;
+	public void ResetToDefault() {		
 		KillCount = 0;
-		_hud.ResetToDefault();
-        if (rematch)   
-            return;
-        		
-		_spawnNewOrc = false;
-		CameraController.Instance.MaxZoom(false);
-		if (_box != null)
-			_boxMotor.ResetToDefault(_boxState);
-		_box = null;
-		
-		_hud.gameObject.SetActive(false);
-		_playerInGame= false;
 		_spawnTimer = 0;
-		SetPointerTarget(null);
+		_spawnNewOrc = false;
+		_hud.ResetToDefault();
+		_boxMotor.ResetToDefault(_boxState);
 	}
-
-	public void PlayerIsNotReady() {
-		_orcMotor.ExitBox(_orcState, _box.transform.position);
-		if (_box != null)
-			_boxMotor.ResetToDefault(_boxState);
-		_box = null;
-		SetPointerTarget(_orcPrefab.transform);
-		ScreenEffects.Instance.CreateCageParticles(_orcPrefab.transform.position);
-		GameController.Instance.DecreaseReadyPlayers();
-		CameraController.Instance.UpdatePlayers();	
-	}
-
 
 	public void StartSpawning() {	
 		_boxMotor.Free(_boxState);
@@ -258,10 +231,6 @@ public class PlayerController : MonoBehaviour {
 	public void SetDefaultPosition(Vector3 position) {
 		_boxMotor.SetDefaultRaised(_boxState, position.y + 300);
 		_boxMotor.SetDefaultLowered(_boxState, position.y + 200);
-	}
-	
-	public bool CanSpawn() {
-		return _spawnTimer > _spawnWait;
 	}
 	
 	public void ChangeInputMode(string categoryToDisable, string categoryToEnable) {

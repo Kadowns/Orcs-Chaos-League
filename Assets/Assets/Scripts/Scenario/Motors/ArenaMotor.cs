@@ -9,5 +9,4 @@ public abstract class ArenaMotor : ScriptableObject {
 	public abstract void Tick(ArenaController controller, ArenaState state);
 	public abstract void ResetToDefault(ArenaController controller, ArenaState state);
 	public abstract void NormalEvents(ArenaController controller, ArenaState state);
-	public abstract void OnSuddenDeath(ArenaController controller, ArenaState state);
 }

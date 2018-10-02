@@ -47,6 +47,8 @@ public class SpriteFlash : MonoBehaviour {
 	}
 
 	public void ImpactFlash(Color flashColor, float timeToFlash, float intensity) {
+		if (!gameObject.activeInHierarchy)
+			return;
 		_renderer.material.SetColor("_FlashColor", flashColor);
 		
 		if (_whiteFlashRoutine != null)

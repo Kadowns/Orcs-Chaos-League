@@ -8,14 +8,14 @@ public class OrcEntityState : EntityState {
 	#region Fields
 
 	#region MainFields
-	
+	[Space(10)]
+	[Header("Main Settings")]
 	public float AirDrag = 7f;
 	public float GroundDrag = 14f;
 	public float FallMultiplier = 10f;
 	public float MoveSpeed = 20f;
 	public float DashSpeed = 150f;
 	public float JumpForce = 30f;
-	public float DrawbackForSeconds = 0.5f;
 	public float DashCooldown = 2f;
 	public float TauntForSeconds = 1f;
 	
@@ -23,11 +23,16 @@ public class OrcEntityState : EntityState {
 
 	#region AttackFields
 	//Ataque	
+	[Space(10)]
+	[Header("Attacks Settings")]
+	public List<Attack> Attacks;
 	public float SimpleAttackCooldown = 1f;
-	public float DropAttackCooldown = 1f;	
-	public float AttackSpeed = 0.25f;
+	public float DropAttackCooldown = 1f;
+	public float InitialAttackSpeed = 0.2f;
+	
 	public float DropAttackForceMultiplier = 2;
 	public float DropAttackGravity = 300f;
+	public float DrawbackForSeconds = 0.5f;
 	public float MinimumParryTime = 0.5f;
 	public float TimeToCounter = 1f;
 	public float TimeToStun = 1f;
@@ -115,6 +120,8 @@ public class OrcEntityState : EntityState {
 	#region AttackProperties
 
 	public Attack ActualAttack { get; set; }
+	
+	public float AttackSpeed { get; set; }
 
 	public int LastAttackId { get; set; }
 

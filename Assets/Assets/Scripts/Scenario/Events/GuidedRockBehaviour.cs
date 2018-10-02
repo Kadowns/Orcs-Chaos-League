@@ -16,6 +16,8 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	public float ExplosionDelayTime = 2f;
 
 	public float ScaleFactor = 2;
+	
+	public int AttackerId { get; set; }
 
 	public AnimationCurve HitScaleCurve;
 	public AnimationCurve ExplosionScaleCurve;
@@ -56,11 +58,17 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 			return;
 		}
 
-		if (_target != null && _target.gameObject.activeInHierarchy) {
-			_velocity = (_target.position - transform.position).normalized * InitialSpeed * (_numberOfHits + 1);
-			_velocity += Vector3.up * (_target.position.y + 3.5f + transform.localScale.y / 2 - transform.position.y);
+		if (_target != null) {
+			if (_target.gameObject.activeInHierarchy) {
+				_velocity = (_target.position - transform.position).normalized * InitialSpeed * (_numberOfHits + 1);
+				_velocity += Vector3.up * (_target.position.y + 3.5f + transform.localScale.y / 2 - transform.position.y);
+			}
+			else {
+				_target = null;
+			}
 		}
 		else {
+			_velocity *= 0.98f;
 			_target = FindTarget();
 		}
 	}
@@ -72,11 +80,10 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	private Transform FindTarget() {
-		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1<<11);
+		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1<<LayerMask.NameToLayer("Players"));
 		Transform target = null;
 		float maxDist = float.MaxValue;
 		foreach (var col in cols) {
-			
 			float dist = (col.transform.position - transform.position).sqrMagnitude;
 			if (dist < maxDist) {
 				maxDist = dist;
@@ -93,11 +100,12 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		return target;
 	}
 
-	public void Throw(Vector3 dir) {
+	public void Throw(Vector3 dir, int attackerID) {
 		if (_wasHit)
 			return;
 
 		_numberOfHits++;
+		AttackerId = attackerID;
 
 		var latDir = new Vector3(dir.x, 0, dir.z);
 		_rb.AddForce(latDir * HitForce, ForceMode.Impulse);
@@ -112,7 +120,7 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	private void OnCollisionEnter(Collision other) {
-		if (other.collider.gameObject.layer != 11)
+		if (other.collider.gameObject.layer != LayerMask.NameToLayer("Players"))
 			return;
 
 		var entity = other.collider.GetComponent<MovableEntity>();
@@ -120,12 +128,11 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 		var state = entity.State as OrcEntityState;
 		var dir = (entity.transform.position - transform.position).normalized;
 		if (!state.Parrying) {
-			motor.Burn(state, 80, 0.5f, dir, 150);
 			StartCoroutine(DoExplosion());
 		}
 		else {
 			motor.DoCounter(state);
-			Throw(-dir);
+			Throw(-dir, AttackerId);
 		}
 	}
 
@@ -141,12 +148,12 @@ public class GuidedRockBehaviour : MonoBehaviour, IThrowable {
 			timer += Time.deltaTime;
 			yield return null;
 		}
-		Collider[] cols = Physics.OverlapSphere(transform.position, 15, 1<<11);
+		Collider[] cols = Physics.OverlapSphere(transform.position, 15, 1<<LayerMask.NameToLayer("Players"));
 		foreach (var col in cols) {
 			var entity = col.GetComponent<MovableEntity>();
 			var motor = entity.Motor as OrcMotor;
 			var state = entity.State as OrcEntityState;
-			motor.Burn(state, 150, 3f, (entity.transform.position - transform.position).normalized, 200f);
+			motor.Burn(state, 150, 3f, (entity.transform.position - transform.position).normalized, 200f, AttackerId);
 		}
 		_fx.ScreenShake(0.15f, 1.5f);
 		_fx.FreezeFrame(0.1f);

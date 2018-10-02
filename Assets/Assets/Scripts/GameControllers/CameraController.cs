@@ -12,20 +12,18 @@ public class CameraController : Singleton<CameraController> {
 	[SerializeField] private float _moveSpeed;
 	
 	private Camera _camera;
-	private CameraProjectionChange _projectionChange;
 	private Animator _animator;
 	private GameObject[] _orcs;
 	private GameObject[] _spawners;
 	private Vector3 _target;
 	private Transform _defaultTarget;
 	private bool _maxZoom, _transition, _externAgent;
-	private int _gameState, _aliveOrcs;
+	private int _aliveOrcs;
 	
 	private void Awake() {
 		_defaultTarget = transform;
 		_animator = GetComponent<Animator>();
 		_camera = GetComponentInChildren<Camera>();
-		_projectionChange = GetComponentInChildren<CameraProjectionChange>();
 		UpdatePlayers();
 	}
 	
@@ -148,18 +146,8 @@ public class CameraController : Singleton<CameraController> {
 		return target + _defaultTarget.position;
 	}
 
-	public void UpdateGameState(int state) {
-		_gameState = state;
-	}
-
 	public void MaxZoom(bool value) {
 		_maxZoom = value;
-	}
-
-	public void ChangePerspective() {
-		_projectionChange.ChangeProjection = true;
-		_transition = !_transition;
-
 	}
 
 	public void DoTransition(string transitionName) {

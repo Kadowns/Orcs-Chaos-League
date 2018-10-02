@@ -30,6 +30,7 @@ public class MusicController : Singleton<MusicController> {
 	}
 
 	IEnumerator LerpFilterFrequency(float targetFrequency, float timeToLerp) {
+
 		float lastFrequency = _bgmLowPassFilter.cutoffFrequency;
 		float timer = 0;
 		while (timer < timeToLerp) {

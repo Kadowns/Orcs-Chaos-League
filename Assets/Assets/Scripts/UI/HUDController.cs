@@ -44,11 +44,8 @@ public class HUDController : Singleton<HUDController> {
             _fightersHud.GetComponent<Animator>().SetTrigger("Hide");
     }
 
-    public void ResetToDefault(bool goToHub) {
-        if (goToHub)
-            _fightersHud.GetComponent<LayoutReposition>().DeactivateChild();
-        else
-            _fightersHud.GetComponent<LayoutReposition>().ResetActiveChild();
+    public void ResetToDefault() {
+        _fightersHud.GetComponent<LayoutReposition>().ResetActiveChild();
     }
 
     public void PauseAnimation(int playerNumber) {

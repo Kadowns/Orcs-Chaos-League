@@ -1620,3 +1620,404 @@ Elapsed time: 0.14 sec
 
 - Errors (0 lines):
 
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:28:38                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor-firstpass.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-25a41f113fceadc4982052e14322b65b
+Exit code: 1
+Elapsed time: 0,83 sec
+
+- Output (75 lines):
+0: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(43,1): error CS8300: Merge conflict marker encountered
+1: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(48,1): error CS8300: Merge conflict marker encountered
+2: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(64,1): error CS8300: Merge conflict marker encountered
+3: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(108,1): error CS8300: Merge conflict marker encountered
+4: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(112,1): error CS8300: Merge conflict marker encountered
+5: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(115,1): error CS8300: Merge conflict marker encountered
+6: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(124,1): error CS8300: Merge conflict marker encountered
+7: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(129,1): error CS8300: Merge conflict marker encountered
+8: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(145,1): error CS8300: Merge conflict marker encountered
+9: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(147,1): error CS8300: Merge conflict marker encountered
+10: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(149,1): error CS8300: Merge conflict marker encountered
+11: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(160,1): error CS8300: Merge conflict marker encountered
+12: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(163,1): error CS8300: Merge conflict marker encountered
+13: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(165,1): error CS8300: Merge conflict marker encountered
+14: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(172,1): error CS8300: Merge conflict marker encountered
+15: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(173,1): error CS8300: Merge conflict marker encountered
+16: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(175,1): error CS8300: Merge conflict marker encountered
+17: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(290,1): error CS1519: Invalid token '>' in class, struct, or interface member declaration
+18: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(291,5): error CS1585: Member modifier 'private' must precede the member type and name
+19: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(309,1): error CS8300: Merge conflict marker encountered
+20: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(310,1): error CS1028: Unexpected preprocessor directive
+21: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(312,1): error CS8300: Merge conflict marker encountered
+22: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(364,1): error CS8300: Merge conflict marker encountered
+23: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(372,1): error CS8300: Merge conflict marker encountered
+24: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(374,1): error CS8300: Merge conflict marker encountered
+25: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(389,1): error CS8300: Merge conflict marker encountered
+26: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(414,1): error CS8300: Merge conflict marker encountered
+27: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(418,1): error CS8300: Merge conflict marker encountered
+28: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(422,1): error CS8300: Merge conflict marker encountered
+29: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(435,1): error CS8300: Merge conflict marker encountered
+30: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(436,1): error CS8300: Merge conflict marker encountered
+31: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(524,1): error CS8300: Merge conflict marker encountered
+32: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(534,1): error CS8300: Merge conflict marker encountered
+33: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(536,1): error CS8300: Merge conflict marker encountered
+34: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(538,1): error CS8300: Merge conflict marker encountered
+35: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(544,1): error CS8300: Merge conflict marker encountered
+36: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(546,1): error CS8300: Merge conflict marker encountered
+37: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(548,1): error CS8300: Merge conflict marker encountered
+38: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(563,1): error CS8300: Merge conflict marker encountered
+39: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(567,1): error CS8300: Merge conflict marker encountered
+40: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(585,1): error CS8300: Merge conflict marker encountered
+41: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(632,1): error CS8300: Merge conflict marker encountered
+42: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(655,1): error CS8300: Merge conflict marker encountered
+43: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(675,1): error CS8300: Merge conflict marker encountered
+44: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(680,1): error CS8300: Merge conflict marker encountered
+45: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(683,1): error CS8300: Merge conflict marker encountered
+46: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(685,1): error CS8300: Merge conflict marker encountered
+47: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(695,1): error CS8300: Merge conflict marker encountered
+48: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(696,1): error CS8300: Merge conflict marker encountered
+49: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(712,1): error CS8300: Merge conflict marker encountered
+50: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(788,1): error CS8300: Merge conflict marker encountered
+51: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(792,1): error CS8300: Merge conflict marker encountered
+52: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(798,1): error CS8300: Merge conflict marker encountered
+53: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(857,68): error CS1026: ) expected
+54: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(857,68): error CS1002: ; expected
+55: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(860,44): error CS1519: Invalid token '+=' in class, struct, or interface member declaration
+56: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(860,62): error CS1519: Invalid token '=>' in class, struct, or interface member declaration
+57: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(862,33): error CS1001: Identifier expected
+58: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(862,35): error CS1031: Type expected
+59: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(862,35): error CS1001: Identifier expected
+60: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(862,35): error CS1003: Syntax error, ',' expected
+61: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(863,20): error CS1519: Invalid token '(' in class, struct, or interface member declaration
+62: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(863,43): error CS8124: Tuple must contain at least two elements.
+63: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(863,44): error CS1519: Invalid token ';' in class, struct, or interface member declaration
+64: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(888,84): error CS1525: Invalid expression term '>'
+65: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(889,3): error CS1525: Invalid expression term '>'
+66: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(889,5): error CS1525: Invalid expression term '>'
+67: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(889,7): error CS1525: Invalid expression term '>'
+68: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(889,11): error CS1002: ; expected
+69: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(889,49): error CS1002: ; expected
+70: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(1153,5): error CS0106: The modifier 'private' is not valid for this item
+71: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(1153,13): error CS0106: The modifier 'static' is not valid for this item
+72: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(1167,6): error CS1513: } expected
+73: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(1467,3): error CS1022: Type or namespace definition, or end-of-file expected
+74: Assets\Plugins\Editor\JetBrains\Unity3DRider.cs(1468,1): error CS1022: Type or namespace definition, or end-of-file expected
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:28:38                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-95001f391bccb1943a280069dcfdef05
+Exit code: 0
+Elapsed time: 3,05 sec
+
+- Output (48 lines):
+0: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
+1: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
+2: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
+3: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
+4: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
+5: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
+6: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
+7: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
+8: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
+9: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
+10: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
+11: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
+12: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
+13: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
+14: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
+15: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
+16: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
+17: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
+18: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
+19: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
+20: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
+21: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
+22: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
+23: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
+24: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
+25: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
+26: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
+27: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
+28: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
+29: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
+30: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
+31: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
+32: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
+33: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
+34: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
+35: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
+36: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
+37: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
+38: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
+39: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
+40: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
+41: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
+42: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
+43: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
+44: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+45: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
+46: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
+47: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:19                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Unity.Postprocessing.Runtime.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-350fb0c996e385c459f115d6dbb540ba
+Exit code: 0
+Elapsed time: 3,65 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:19                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Unity.PackageManagerUI.Editor.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-94ce3ecb7464cd94d81a395bda3be6e0
+Exit code: 0
+Elapsed time: 3,49 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:19                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: UnityEditor.StandardEvents.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-1796d12c225d2b34199955022a4570d6
+Exit code: 0
+Elapsed time: 3,56 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:23                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Unity.Postprocessing.Editor.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-c8f8408599cb6fa4293e7510769b99a2
+Exit code: 0
+Elapsed time: 2,72 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:26                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-firstpass.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-bbfd76ccac738ff48a02ee044cf650b7
+Exit code: 0
+Elapsed time: 2,86 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:29                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-e13a812e0b1e2094d96f6077191a5ce5
+Exit code: 0
+Elapsed time: 3,38 sec
+
+- Output (48 lines):
+0: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
+1: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
+2: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
+3: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
+4: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
+5: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
+6: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
+7: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
+8: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
+9: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
+10: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
+11: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
+12: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
+13: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
+14: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
+15: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
+16: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
+17: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
+18: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
+19: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
+20: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
+21: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
+22: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
+23: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
+24: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
+25: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
+26: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
+27: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
+28: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
+29: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
+30: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
+31: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
+32: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
+33: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
+34: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
+35: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
+36: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
+37: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
+38: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
+39: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
+40: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
+41: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
+42: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
+43: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
+44: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
+45: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
+46: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
+47: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:30                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor-firstpass.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-2cf5bf49cd795844891772c6a85a5f4a
+Exit code: 0
+Elapsed time: 3,47 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 16:29:33                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-37d67d541b413c3498ea0f3f2f1b1211
+Exit code: 0
+Elapsed time: 2,91 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+

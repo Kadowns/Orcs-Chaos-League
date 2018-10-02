@@ -1,120 +1,5 @@
 ********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:45                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Unity.Postprocessing.Runtime.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-8582f47e5d4694e49abdb5a7cf42831d
-Exit code: 0
-Elapsed time: 5,36 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:45                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: UnityEditor.StandardEvents.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-be07c3bf1bd14bf4ca2ceea82cad912d
-Exit code: 0
-Elapsed time: 5,03 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:45                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Unity.PackageManagerUI.Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-bdfc79c696ad533468e84c30795b8f27
-Exit code: 0
-Elapsed time: 5,17 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:51                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Unity.Postprocessing.Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-cbd43cc952139114aa2955a3751097ee
-Exit code: 0
-Elapsed time: 3,13 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:55                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-firstpass.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-bd5a0fac7a671ac48849323adbb26bbd
-Exit code: 0
-Elapsed time: 3,52 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:59                  *
+*                  terça-feira, 2 de outubro de 2018 17:31:43                  *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 4.0.4.230
 Unity version: 2018.1.5f1
@@ -128,56 +13,338 @@ Compiler: Microsoft C# 7.3 (2.8.0.62830)
 - Compilation ------------------------------------------------
 
 Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-b46b3f51a70639c47bdfb4f72a8fc383
+Arguments: -noconfig @Temp/UnityTempFile-01cfa67f8c437be40924fcf04f65edcf
 Exit code: 0
-Elapsed time: 4,14 sec
+Elapsed time: 3,58 sec
 
 - Output (48 lines):
-0: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
-1: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
-2: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
-3: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
-4: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
-5: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
-6: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
-7: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
-8: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
-9: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
-10: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
-11: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
-12: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
-13: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
-14: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
-15: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
-16: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
-17: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
-18: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
-19: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
-20: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
-21: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
-22: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
-23: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
-24: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
-25: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
-26: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
-27: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
-28: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
-29: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
-30: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
-31: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
-32: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
-33: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
-34: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
-35: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
-36: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
-37: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
-38: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
-39: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
-40: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+0: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
+1: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
+2: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
+3: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
+4: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
+5: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
+6: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
+7: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
+8: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
+9: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
+10: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
+11: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
+12: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
+13: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
+14: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
+15: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
+16: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
+17: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
+18: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
+19: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
+20: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
+21: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
+22: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
+23: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
+24: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
+25: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
+26: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
+27: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
+28: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
+29: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
+30: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
+31: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
+32: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
+33: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
+34: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
+35: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
+36: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
+37: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
+38: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
+39: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
+40: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
 41: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
-42: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
-43: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
+42: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
+43: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
+44: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
+45: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+46: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
+47: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 17:31:47                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-4939a278e14089544830d88fa58ff003
+Exit code: 0
+Elapsed time: 3,58 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 17:32:43                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-925e9b751e2cea341950ddf70eb3ab4c
+Exit code: 0
+Elapsed time: 3,48 sec
+
+- Output (48 lines):
+0: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
+1: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
+2: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
+3: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
+4: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
+5: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
+6: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
+7: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
+8: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
+9: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
+10: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
+11: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
+12: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
+13: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
+14: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
+15: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
+16: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
+17: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
+18: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
+19: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
+20: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
+21: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
+22: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
+23: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
+24: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
+25: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
+26: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
+27: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
+28: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
+29: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
+30: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
+31: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
+32: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
+33: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
+34: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
+35: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
+36: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
+37: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
+38: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
+39: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
+40: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+41: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
+42: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
+43: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
+44: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
+45: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
+46: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
+47: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 17:32:47                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-6b34f3596c975d24a8ebf5ea45ac47a0
+Exit code: 0
+Elapsed time: 3,41 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 17:36:55                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-6b13705c790350a4b97ffeed3b2f3955
+Exit code: 0
+Elapsed time: 3,31 sec
+
+- Output (48 lines):
+0: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
+1: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
+2: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
+3: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
+4: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
+5: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
+6: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
+7: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
+8: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
+9: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
+10: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
+11: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
+12: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
+13: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
+14: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
+15: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
+16: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
+17: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
+18: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
+19: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
+20: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
+21: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
+22: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
+23: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
+24: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
+25: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
+26: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
+27: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
+28: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
+29: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
+30: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
+31: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
+32: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
+33: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
+34: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
+35: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
+36: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
+37: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
+38: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
+39: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
+40: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
+41: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
+42: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
+43: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
 44: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
+45: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
+46: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+47: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 17:36:59                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-c38fe56b3d65ede4f837eb4011905b99
+Exit code: 0
+Elapsed time: 3,23 sec
+
+- Output (0 lines):
+
+- Errors (0 lines):
+
+********************************************************************************
+*                  terça-feira, 2 de outubro de 2018 17:38:32                  *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 4.0.4.230
+Unity version: 2018.1.5f1
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
+Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
+Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
+Compiler: Microsoft C# 7.3 (2.8.0.62830)
+
+- Compilation ------------------------------------------------
+
+Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
+Arguments: -noconfig @Temp/UnityTempFile-f6c7b8e7dd702534ea23a775ee236c76
+Exit code: 0
+Elapsed time: 3,29 sec
+
+- Output (48 lines):
+0: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
+1: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
+2: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
+3: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
+4: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
+5: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
+6: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
+7: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
+8: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
+9: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
+10: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
+11: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
+12: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
+13: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
+14: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
+15: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
+16: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
+17: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
+18: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
+19: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
+20: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
+21: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
+22: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
+23: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
+24: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
+25: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
+26: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
+27: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
+28: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
+29: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
+30: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
+31: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
+32: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
+33: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
+34: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
+35: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
+36: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
+37: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
+38: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
+39: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
+40: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
+41: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
+42: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
+43: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
+44: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
 45: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
 46: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
 47: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
@@ -185,30 +352,7 @@ Elapsed time: 4,14 sec
 - Errors (0 lines):
 
 ********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:34:59                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor-firstpass.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-e09ee68127bab984a85464871125d236
-Exit code: 0
-Elapsed time: 4,23 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:35:03                  *
+*                  terça-feira, 2 de outubro de 2018 17:38:35                  *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 4.0.4.230
 Unity version: 2018.1.5f1
@@ -222,665 +366,9 @@ Compiler: Microsoft C# 7.3 (2.8.0.62830)
 - Compilation ------------------------------------------------
 
 Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-744d9de801316aa4bbd2e4d8df22db7f
+Arguments: -noconfig @Temp/UnityTempFile-1d9f9e5ac887f5648907db6c17ee579c
 Exit code: 0
-Elapsed time: 2,83 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:35:56                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-7f0b66c2dafa0e643a1b0ca86ff7abee
-Exit code: 0
-Elapsed time: 3,49 sec
-
-- Output (48 lines):
-0: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
-1: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
-2: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
-3: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
-4: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
-5: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
-6: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
-7: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
-8: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
-9: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
-10: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
-11: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
-12: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
-13: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
-14: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
-15: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
-16: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
-17: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
-18: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
-19: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
-20: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
-21: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
-22: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
-23: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
-24: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
-25: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
-26: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
-27: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
-28: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
-29: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
-30: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
-31: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
-32: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
-33: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
-34: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
-35: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
-36: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
-37: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
-38: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
-39: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
-40: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
-41: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
-42: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
-43: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
-44: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
-45: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
-46: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
-47: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:36:00                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-df9502895810bcb43949671fd3e28d32
-Exit code: 0
-Elapsed time: 3,22 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:39:35                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-e435a741721971946b131345d2ab3717
-Exit code: 0
-Elapsed time: 2,93 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:42:14                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-c69471ff922567544ba93f92dfce4140
-Exit code: 0
-Elapsed time: 2,82 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:42:41                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-1d4e190674f5ce149b76af8c1953bf6b
-Exit code: 0
-Elapsed time: 2,80 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:44:55                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-1dc5af7035c8c0a4a88cfc4b2b6ed183
-Exit code: 0
-Elapsed time: 3,05 sec
-
-- Output (48 lines):
-0: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
-1: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
-2: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
-3: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
-4: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
-5: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
-6: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
-7: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
-8: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
-9: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
-10: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
-11: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
-12: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
-13: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
-14: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
-15: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
-16: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
-17: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
-18: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
-19: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
-20: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
-21: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
-22: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
-23: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
-24: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
-25: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
-26: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
-27: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
-28: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
-29: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
-30: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
-31: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
-32: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
-33: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
-34: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
-35: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
-36: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
-37: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
-38: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
-39: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
-40: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
-41: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
-42: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
-43: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
-44: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
-45: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
-46: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
-47: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:44:58                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-90159583861712d41a795219497e6025
-Exit code: 0
-Elapsed time: 2,81 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:46:30                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-4423391aa2f60fe42adc03a19ed5a7ba
-Exit code: 0
-Elapsed time: 2,98 sec
-
-- Output (48 lines):
-0: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
-1: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
-2: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
-3: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
-4: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
-5: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
-6: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
-7: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
-8: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
-9: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
-10: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
-11: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
-12: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
-13: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
-14: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
-15: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
-16: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
-17: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
-18: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
-19: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
-20: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
-21: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
-22: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
-23: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
-24: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
-25: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
-26: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
-27: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
-28: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
-29: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
-30: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
-31: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
-32: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
-33: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
-34: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
-35: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
-36: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
-37: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
-38: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
-39: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
-40: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
-41: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
-42: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
-43: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
-44: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
-45: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
-46: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
-47: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:46:34                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-c5d7553677fa57447a02f4e6f58e50bd
-Exit code: 0
-Elapsed time: 2,80 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:48:32                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-7e09baabed801bd4da7c3dc7483a6f69
-Exit code: 0
-Elapsed time: 2,86 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:49:49                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-8cc0aa5bc3b6ac3408959326b19f88b7
-Exit code: 0
-Elapsed time: 2,88 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:52:26                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-cb6092d00624b674c8bb3028d279fbe5
-Exit code: 0
-Elapsed time: 2,90 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:53:16                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-8db83012bd8fe6a4eabac414703ccbd1
-Exit code: 0
-Elapsed time: 3,05 sec
-
-- Output (48 lines):
-0: Assets\Assets\Scripts\FXs\ShadowCaster.cs(18,43): warning CS0649: Field 'ShadowCaster._castShadow' is never assigned to, and will always have its default value false
-1: Assets\Assets\Scripts\UI\HUDController.cs(13,46): warning CS0649: Field 'HUDController._menu' is never assigned to, and will always have its default value null
-2: Assets\Assets\Scripts\UI\HUDController.cs(14,82): warning CS0649: Field 'HUDController._WinnerSymbol' is never assigned to, and will always have its default value null
-3: Assets\Assets\Scripts\UI\LayoutReposition.cs(9,46): warning CS0649: Field 'LayoutReposition._childs' is never assigned to, and will always have its default value null
-4: Assets\Assets\Scripts\FXs\Audio\MusicController.cs(7,39): warning CS0649: Field 'MusicController._bgm' is never assigned to, and will always have its default value null
-5: Assets\Assets\Scripts\UI\FighterHUD.cs(8,32): warning CS0649: Field 'FighterHUD._scoreText' is never assigned to, and will always have its default value null
-6: Assets\Assets\Scripts\UI\HUDController.cs(14,39): warning CS0649: Field 'HUDController._logo' is never assigned to, and will always have its default value null
-7: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(34,38): warning CS0649: Field 'PlayerController._hud' is never assigned to, and will always have its default value null
-8: Assets\Assets\Scripts\UI\HUDController.cs(12,40): warning CS0649: Field 'HUDController._fightersHud' is never assigned to, and will always have its default value null
-9: Assets\Assets\Scripts\Scenario\Rotator.cs(7,33): warning CS0649: Field 'Rotator._rotationFrequency' is never assigned to, and will always have its default value 0
-10: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(11,36): warning CS0649: Field 'PlayerPointer._sprites' is never assigned to, and will always have its default value null
-11: Assets\Assets\Scripts\UI\HUDController.cs(14,58): warning CS0649: Field 'HUDController._pauseMenuPlayerNumber' is never assigned to, and will always have its default value null
-12: Assets\Assets\Scripts\GameControllers\CameraController.cs(11,33): warning CS0649: Field 'CameraController._minSize' is never assigned to, and will always have its default value 0
-13: Assets\Assets\Scripts\Scenario\Events\SpawnPipe.cs(6,40): warning CS0649: Field 'SpawnPipe._pipeEnd' is never assigned to, and will always have its default value null
-14: Assets\Assets\Scripts\Scenario\StaticCable.cs(9,33): warning CS0649: Field 'StaticCable._cableStrength' is never assigned to, and will always have its default value 0
-15: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(9,35): warning CS0649: Field 'PlayerPointer._offSet' is never assigned to, and will always have its default value
-16: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(33,41): warning CS0649: Field 'PlayerController._box' is never assigned to, and will always have its default value null
-17: Assets\Assets\Scripts\FXs\Audio\SoundEffectPlayer.cs(7,39): warning CS0649: Field 'SoundEffectPlayer._sfx' is never assigned to, and will always have its default value null
-18: Assets\Assets\Scripts\FXs\ScreenEffects.cs(25,46): warning CS0649: Field 'ScreenEffects._blurPanel' is never assigned to, and will always have its default value null
-19: Assets\Assets\Scripts\Scenario\Rotator.cs(9,33): warning CS0649: Field 'Rotator._rotationSpeed' is never assigned to, and will always have its default value 0
-20: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(20,31): warning CS0649: Field 'PlayerController._playerNumber' is never assigned to, and will always have its default value 0
-21: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(37,33): warning CS0649: Field 'PlayerController._maxTimeToSpawn' is never assigned to, and will always have its default value 0
-22: Assets\Assets\Scripts\PlayerControllers\PlayerController.cs(67,29): warning CS0649: Field 'PlayerController._playerInGame' is never assigned to, and will always have its default value false
-23: Assets\Assets\Scripts\Scenario\StaticCable.cs(8,33): warning CS0649: Field 'StaticCable._cableLength' is never assigned to, and will always have its default value 0
-24: Assets\Assets\Scripts\GameControllers\CameraController.cs(12,33): warning CS0649: Field 'CameraController._moveSpeed' is never assigned to, and will always have its default value 0
-25: Assets\Assets\Scripts\FXs\HorizontalLines.cs(13,23): warning CS0649: Field 'HorizontalLines.hardness' is never assigned to, and will always have its default value 0
-26: Assets\Assets\Scripts\UI\FighterHUD.cs(9,35): warning CS0649: Field 'FighterHUD._killCountText' is never assigned to, and will always have its default value null
-27: Assets\Assets\Scripts\Scenario\Rotator.cs(11,42): warning CS0649: Field 'Rotator._rotationCurve' is never assigned to, and will always have its default value null
-28: Assets\Assets\Scripts\FXs\HorizontalLines.cs(7,23): warning CS0649: Field 'HorizontalLines.lineHeight' is never assigned to, and will always have its default value 0
-29: Assets\Assets\Scripts\GameControllers\GameController.cs(13,38): warning CS0649: Field 'GameController._scenario1' is never assigned to, and will always have its default value null
-30: Assets\Assets\Scripts\Scenario\Events\PotatoBombBehaviour.cs(12,33): warning CS0649: Field 'PotatoBombBehaviour._spawnForce' is never assigned to, and will always have its default value 0
-31: Assets\Assets\Scripts\Scenario\StaticCable.cs(7,32): warning CS0649: Field 'StaticCable._shouldApplyForce' is never assigned to, and will always have its default value false
-32: Assets\Assets\Scripts\FXs\HorizontalLines.cs(10,23): warning CS0649: Field 'HorizontalLines.lineMoveSpeed' is never assigned to, and will always have its default value 0
-33: Assets\Assets\Scripts\Scenario\StaticCable.cs(10,37): warning CS0649: Field 'StaticCable._endPoint' is never assigned to, and will always have its default value null
-34: Assets\Assets\Scripts\GameControllers\CameraController.cs(10,33): warning CS0649: Field 'CameraController._maxSize' is never assigned to, and will always have its default value 0
-35: Assets\Assets\Scripts\FXs\ShadowCaster.cs(10,38): warning CS0649: Field 'ShadowCaster._shadowPrefab' is never assigned to, and will always have its default value null
-36: Assets\Assets\Scripts\PlayerControllers\PlayerPointer.cs(8,33): warning CS0649: Field 'PlayerPointer._playerColor' is never assigned to, and will always have its default value
-37: Assets\Assets\Scripts\UI\EventHUDProxy.cs(9,33): warning CS0649: Field 'EventHUDProxy._eventIconImage' is never assigned to, and will always have its default value null
-38: Assets\Assets\Scripts\FXs\Audio\GlobalAudio.cs(7,39): warning CS0649: Field 'GlobalAudio._sfx' is never assigned to, and will always have its default value null
-39: Assets\Assets\Scripts\UI\HUDController.cs(14,46): warning CS0649: Field 'HUDController._pausemenu' is never assigned to, and will always have its default value null
-40: Assets\Assets\Scripts\GameControllers\GameController.cs(25,14): warning CS0414: The field 'GameController._activePlayers' is assigned but its value is never used
-41: Assets\Assets\Scripts\GameControllers\GameController.cs(32,16): warning CS0414: The field 'GameController._suddenDeathTimer' is assigned but its value is never used
-42: Assets\Assets\Scripts\GameControllers\GameController.cs(26,14): warning CS0414: The field 'GameController._readyPlayers' is assigned but its value is never used
-43: Assets\Assets\Scripts\GameControllers\GameController.cs(28,17): warning CS0414: The field 'GameController._playerInGame' is assigned but its value is never used
-44: Assets\Assets\Scripts\GameControllers\GameController.cs(30,19): warning CS0414: The field 'GameController._timeToStart' is assigned but its value is never used
-45: Assets\Assets\Scripts\UI\FighterHUD.cs(14,28): warning CS0414: The field 'FighterHUD.LifeCount' is assigned but its value is never used
-46: Assets\Assets\Scripts\Scenario\Events\LavaRockBehaviour.cs(17,14): warning CS0414: The field 'LavaRockBehaviour._lastPlayerId' is assigned but its value is never used
-47: Assets\Assets\Scripts\UI\MonitorProxy.cs(14,16): warning CS0414: The field 'MonitorProxy._offSet' is assigned but its value is never used
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:53:20                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-db8ef3e01391b3d4a99caf3dd5db26f7
-Exit code: 0
-Elapsed time: 2,81 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:56:03                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-76497776297e62440a87cce89e047a32
-Exit code: 0
-Elapsed time: 3,14 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 16:56:58                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-607a59db4dfaf9346966d61ca87e06f3
-Exit code: 1
-Elapsed time: 2,52 sec
-
-- Output (2 lines):
-0: Assets\Assets\Scripts\Editor\ArenaEditor.cs(44,11): error CS0103: The name 'onSettingsUpdated' does not exist in the current context
-1: Assets\Assets\Scripts\Editor\ArenaEditor.cs(45,8): error CS0103: The name 'onSettingsUpdated' does not exist in the current context
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 17:00:27                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-6f7c2562d3b70ff4c9a834b58835ad55
-Exit code: 1
-Elapsed time: 2,56 sec
-
-- Output (2 lines):
-0: Assets\Assets\Scripts\Editor\ArenaEditor.cs(57,11): error CS0103: The name 'onSettingsUpdated' does not exist in the current context
-1: Assets\Assets\Scripts\Editor\ArenaEditor.cs(58,8): error CS0103: The name 'onSettingsUpdated' does not exist in the current context
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 17:01:24                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-d757438a493348c49aa4038806aca72e
-Exit code: 0
-Elapsed time: 3,11 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 17:01:36                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-e9081ba7971a90a4ea13b051a68f1625
-Exit code: 0
-Elapsed time: 3,05 sec
-
-- Output (0 lines):
-
-- Errors (0 lines):
-
-********************************************************************************
-*                  terça-feira, 2 de outubro de 2018 17:04:48                  *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 4.0.4.230
-Unity version: 2018.1.5f1
-Platform: Windows
-Target assembly: Assembly-CSharp-Editor.dll
-Project directory: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League
-Target profile directory: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unityjit
-Unity Mono executable: C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\bin\mono.exe
-Compiler: Microsoft C# 7.3 (2.8.0.62830)
-
-- Compilation ------------------------------------------------
-
-Process: C:\Users\lajep\Desktop\GAMES\Orcs-Chaos-League\CSharp70Support\Roslyn\csc.exe
-Arguments: -noconfig @Temp/UnityTempFile-e8ca41873fb017d4693cc8a139699808
-Exit code: 0
-Elapsed time: 2,96 sec
+Elapsed time: 3,39 sec
 
 - Output (0 lines):
 

@@ -6,6 +6,7 @@ public abstract class GreatEvent : ScriptableObject {
 
     public Sprite EventHudSprite;
 
+    [Range(10f, 60f)]
     public float Duration;
 
     public virtual void Setup(ArenaState state) {}

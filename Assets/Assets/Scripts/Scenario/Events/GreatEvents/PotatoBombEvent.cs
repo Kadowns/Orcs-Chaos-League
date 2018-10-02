@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GreatEvent/PotatoBomb")]
 public class PotatoBombEvent : GreatEvent {
 
+	[Range(1, 10)]
 	public int BombsToSpawn = 5;
+	[Range(0.1f, 10f)]
 	public float SpawnInterval = 1.5f;
 	
 	private SpawnPipe _pipe;

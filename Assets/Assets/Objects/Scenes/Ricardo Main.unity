@@ -117159,9 +117159,9 @@ MonoBehaviour:
   - {fileID: 2146184027}
   - {fileID: 2098955954}
   GreatEvents:
-  - {fileID: 11400000, guid: 20f2042887e441245827d43b39ca9952, type: 2}
-  - {fileID: 11400000, guid: 8475877fc84ba754bbd2ed87af911651, type: 2}
-  - {fileID: 11400000, guid: 0ba789bfe90c298408a3dec7a004afb0, type: 2}
+  - {fileID: 11400000, guid: 8ece390d82d64b54994374957fe412ff, type: 2}
+  - {fileID: 11400000, guid: 85592e4303f084d4697d8c73f8799eac, type: 2}
+  - {fileID: 11400000, guid: 458cdd2a191140446a5c74b1d0e9152d, type: 2}
   LavaGeysers:
   - {fileID: 58820322}
   - {fileID: 2061824295}

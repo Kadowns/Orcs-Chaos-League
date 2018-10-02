@@ -5,6 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GreatEvent/Eruption")]
 public class EruptionEvent : GreatEvent {
 
+
+    [Range(2, 15)]
+    public int ExplosionsPerWave = 10;
+    [Range(0.1f, 2f)]
+    public float ExplosionsInterval = 0.5f;
+    [Range(0.5f, 5f)]
+    public float WaveInterval = 2f;
+    [Range(0f, 1f)]
+    public float PlataformSinkPercentage;
+    
     public bool Eruption { get; private set; }
 
     protected override void OnExecute(ArenaState state) {
@@ -29,7 +39,7 @@ public class EruptionEvent : GreatEvent {
         bool[] sunk = new bool[state.Plataforms.Count];
         do {
 
-            int plataformsToSink = state.Plataforms.Count - (int)(state.Plataforms.Count * 0.5f);
+            int plataformsToSink = state.Plataforms.Count - (int)(state.Plataforms.Count * PlataformSinkPercentage);
 			Debug.Log(plataformsToSink);
             if (sunkPlataforms < plataformsToSink) {
                 state.Plataforms[rand].Lower();		
@@ -60,14 +70,13 @@ public class EruptionEvent : GreatEvent {
 
     private IEnumerator EruptionExplosions(ArenaState state) {
         do {
-            int explosions = Random.Range(5, 10);
-            for (int i = 0; i < explosions; i++) {
+            for (int i = 0; i < ExplosionsPerWave; i++) {
                 int rand = Random.Range(0, state.LavaGeysers.Length);
                 state.LavaGeysers[rand].Execute();
-                yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+                yield return new WaitForSeconds(ExplosionsInterval);
             }
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(WaveInterval);
         } while (Eruption);
     }
 }

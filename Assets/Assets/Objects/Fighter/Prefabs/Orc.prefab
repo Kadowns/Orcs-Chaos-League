@@ -141,7 +141,7 @@ MonoBehaviour:
     knockUp: 1
     miniDash: 0
     screenShake: 1
-    tryClip: {fileID: 8300000, guid: c689ba2f912ef4a4c8e06f33208b0f97, type: 3}
+    tryClip: {fileID: 8300000, guid: c28feccdb440f12499f01e086579e5bb, type: 3}
     hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}
   - tag: Combo 1
     id: 1
@@ -152,8 +152,8 @@ MonoBehaviour:
     knockUp: 0
     miniDash: 0
     screenShake: 0
-    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
-    hitClip: {fileID: 8300000, guid: 76878ad0be505c946a815c688b535818, type: 3}
+    tryClip: {fileID: 8300000, guid: a095e950408333041960794b683355c0, type: 3}
+    hitClip: {fileID: 8300000, guid: cfa25d1b38b26584bbfe0d75c90d7c89, type: 3}
   - tag: Combo 2
     id: 2
     range: 5
@@ -163,8 +163,8 @@ MonoBehaviour:
     knockUp: 1
     miniDash: 1
     screenShake: 0
-    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
-    hitClip: {fileID: 8300000, guid: ad566a3be40796a4c85c3a47dd6e2e26, type: 3}
+    tryClip: {fileID: 8300000, guid: d844a3242b8fb6a44a252e0a59dad4d0, type: 3}
+    hitClip: {fileID: 8300000, guid: 074fa2940f194fa42b8e8e9e77f566cc, type: 3}
   - tag: Combo 3
     id: 3
     range: 6
@@ -174,8 +174,8 @@ MonoBehaviour:
     knockUp: 0
     miniDash: 0
     screenShake: 1
-    tryClip: {fileID: 8300000, guid: 92188ab65b6e74843bcd4ac3aaaa4fdf, type: 3}
-    hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}
+    tryClip: {fileID: 8300000, guid: 654a8df0af17e3c44802d5ce4999773a, type: 3}
+    hitClip: {fileID: 8300000, guid: 4c7c449bb7402424994604e896106f2c, type: 3}
   SimpleAttackCooldown: 0.25
   DropAttackCooldown: 0
   InitialAttackSpeed: 0.2
@@ -210,8 +210,8 @@ MonoBehaviour:
   _sfx:
   - {fileID: 8300000, guid: 5c4ca0217853c3f468e8808cfad60753, type: 3}
   - {fileID: 8300000, guid: 2f7ff56d930332d4fb1486eeb100dd27, type: 3}
-  - {fileID: 8300000, guid: a60f72218b8d7414aaafe3dc694d4710, type: 3}
-  - {fileID: 8300000, guid: 76878ad0be505c946a815c688b535818, type: 3}
+  - {fileID: 8300000, guid: 6220be5e68dc72042a56207510ec2f34, type: 3}
+  - {fileID: 8300000, guid: 98866e353324b0449ab66331830cf2ea, type: 3}
 --- !u!114 &114378334696371328
 MonoBehaviour:
   m_ObjectHideFlags: 1

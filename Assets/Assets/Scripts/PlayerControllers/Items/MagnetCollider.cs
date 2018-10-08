@@ -8,6 +8,7 @@ public class MagnetCollider : MonoBehaviour {
     public event DetectedColliderDelegate DetectedColliderEvent;
 
     private void OnTriggerEnter(Collider other) {
-        DetectedColliderEvent?.Invoke(other);
+        if (DetectedColliderEvent != null)
+            DetectedColliderEvent.Invoke(other);
     }
 }

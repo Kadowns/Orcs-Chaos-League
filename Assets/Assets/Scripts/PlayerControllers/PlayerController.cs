@@ -160,7 +160,8 @@ public class PlayerController : MonoBehaviour {
 		if (!_orc.gameObject.activeInHierarchy)
 			return;
 		KillCount++;
-		KilledEvent?.Invoke(KillCount);
+		if (KilledEvent != null)
+			KilledEvent.Invoke(KillCount);
 		if (KillCount >= 10) {
 			ArenaController.Instance.GameShouldEnd(_playerNumber);
 		}	
@@ -175,10 +176,13 @@ public class PlayerController : MonoBehaviour {
 		KillCount = 0;	
 		SetPointerTarget(_box.transform);
 		StartSpawning();
-		
-		DamageEvent?.Invoke();
-		KilledEvent?.Invoke(KillCount);
-		DeathEvent?.Invoke(LastAttackerNumber);
+
+		if (DamageEvent != null)
+			DamageEvent.Invoke();
+		if (KilledEvent != null)
+			KilledEvent.Invoke(KillCount);
+		if (DeathEvent != null)
+			DeathEvent.Invoke(LastAttackerNumber);
 	}
 
 	private void Update() {

@@ -13,7 +13,8 @@ namespace Assets.Scripts.Abstract {
         }
 
         private void FixedUpdate() {
-            if (Physics.Raycast(transform.position, Vector3.down, out var hit, _sizeY + 0.1f, MaskToContact)) {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, _sizeY + 0.1f, MaskToContact)) {
                 transform.SetParent(hit.transform);
             }
             else {

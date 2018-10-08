@@ -160,6 +160,8 @@ public class PlayerController : MonoBehaviour {
 		if (!_orc.gameObject.activeInHierarchy)
 			return;
 		KillCount++;
+		ScreenEffects.Instance.CreatePlusOneParticles(_orc.transform.position + Vector3.up * 6);
+		Vibrate(1, 0.2f, 0.15f);
 		if (KilledEvent != null)
 			KilledEvent.Invoke(KillCount);
 		if (KillCount >= 10) {

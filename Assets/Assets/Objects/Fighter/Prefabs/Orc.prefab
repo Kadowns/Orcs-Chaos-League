@@ -210,8 +210,8 @@ MonoBehaviour:
   _sfx:
   - {fileID: 8300000, guid: 5c4ca0217853c3f468e8808cfad60753, type: 3}
   - {fileID: 8300000, guid: 2f7ff56d930332d4fb1486eeb100dd27, type: 3}
-  - {fileID: 8300000, guid: 6220be5e68dc72042a56207510ec2f34, type: 3}
-  - {fileID: 8300000, guid: 98866e353324b0449ab66331830cf2ea, type: 3}
+  - {fileID: 8300000, guid: ce1c106e9ca985046b2bf45d39466ada, type: 3}
+  - {fileID: 0}
 --- !u!114 &114378334696371328
 MonoBehaviour:
   m_ObjectHideFlags: 1

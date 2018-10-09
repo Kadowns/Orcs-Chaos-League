@@ -358,6 +358,7 @@ public class OrcMotor : Motor {
 			return;
 		
 		if (!state.Parrying) {
+			state.Sfx.PlaySFxByIndex(2, Random.Range(0.9f, 1.1f));
 			WasHit(state, hurtTime);
 			AddDamage(state, (int) ((state.Damage + force) * 0.07f), attackerNumber);
 			ScreenEffects.Instance.CreateHitParticles(state.transform, dir);

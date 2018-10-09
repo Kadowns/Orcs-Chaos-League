@@ -685,6 +685,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 20241682}
   m_Mesh: {fileID: 4300004, guid: edd179c665c4e3d4189dac377cbc0922, type: 3}
+--- !u!1 &21533618 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1858643899442918, guid: b12c58c3e6106384c9b12e821e002539,
+    type: 2}
+  m_PrefabInternal: {fileID: 1936334487}
+--- !u!114 &21533620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21533618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3365364296485abc1ce53afea1fecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &25593740
 GameObject:
   m_ObjectHideFlags: 0
@@ -10920,6 +10936,22 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &73615216 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1858643899442918, guid: b12c58c3e6106384c9b12e821e002539,
+    type: 2}
+  m_PrefabInternal: {fileID: 543423845}
+--- !u!114 &73615218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73615216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3365364296485abc1ce53afea1fecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &78864249
 GameObject:
   m_ObjectHideFlags: 0
@@ -30236,7 +30268,7 @@ Prefab:
     - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: ActivePlayers.Array.data[2]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
@@ -30263,6 +30295,11 @@ Prefab:
         type: 2}
       propertyPath: Volume
       value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: ActivePlayers.Array.data[3]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640f2a8230aeb7746bb418524273333a, type: 2}
@@ -38687,6 +38724,22 @@ Transform:
   m_Father: {fileID: 1873777615}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 10.368, z: 0}
+--- !u!1 &532856688 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1858643899442918, guid: b12c58c3e6106384c9b12e821e002539,
+    type: 2}
+  m_PrefabInternal: {fileID: 1618330776}
+--- !u!114 &532856690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 532856688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3365364296485abc1ce53afea1fecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &543423845
 Prefab:
   m_ObjectHideFlags: 0
@@ -38783,7 +38836,8 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114939149705271064, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &544135095
@@ -44041,6 +44095,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 571427665}
   m_Mesh: {fileID: 4300022, guid: edd179c665c4e3d4189dac377cbc0922, type: 3}
+--- !u!1 &574073169 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1858643899442918, guid: b12c58c3e6106384c9b12e821e002539,
+    type: 2}
+  m_PrefabInternal: {fileID: 616506119}
+--- !u!114 &574073171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 574073169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3365364296485abc1ce53afea1fecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &586068867
 GameObject:
   m_ObjectHideFlags: 0
@@ -44766,6 +44836,7 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 114939149705271064, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &620560735
@@ -95458,7 +95529,8 @@ Prefab:
       propertyPath: _hud
       value: 
       objectReference: {fileID: 1413721415}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114939149705271064, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1619402684
@@ -115597,6 +115669,7 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 114939149705271064, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1941261715

@@ -25,8 +25,11 @@ public class BotInput : InputSource {
             if (dist > 50) {
                 AxisX = moveDir.x;
                 AxisY = moveDir.z;
+                ActionLeftButtonPressed = false;
             }
             else {
+
+                ActionLeftButtonPressed = true;
                 AxisX = 0;
                 AxisY = 0;
             }

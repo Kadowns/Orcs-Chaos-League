@@ -17,7 +17,7 @@ public abstract class GreatEvent : ScriptableObject {
         fx.ScreenShake(1.5f, 5f);
         fx.BlurForSeconds(1.5f, 10f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
         var music = MusicController.Instance;
-        music.PlayBgmByIndex(1);
+        music.PlayBgmByIndex(0);
         music.SetBGMPitch(1.075f);
         music.DramaticFrequencyChange(0.1f, 1.5f, 0.5f, 200f, 22000f);
              

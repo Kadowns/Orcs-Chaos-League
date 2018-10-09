@@ -74,14 +74,23 @@ public class PlayerController : MonoBehaviour {
 		
 		_pointer = GetComponent<PlayerPointer>();
 		_input = GetComponent<InputSource>();
-		var playerInput = _input as PlayerInput;
-		if (playerInput != null) {		
-			_player = ReInput.players.GetPlayer(_playerNumber);
-			playerInput.Player = _player;
-		}			
+			
 		
 		CreateOrc();
 		BindBox();
+		
+		var playerInput = _input as PlayerInput;
+		if (playerInput != null) {
+			_player = ReInput.players.GetPlayer(_playerNumber);
+			playerInput.Player = _player;
+		}
+		else {
+			var botInput = _input as BotInput;
+			if (botInput != null) {
+				botInput.Orc = _orc.transform;
+				botInput.Box = _box.transform;
+			}
+		}
 	}
 	
 	private void Start() {

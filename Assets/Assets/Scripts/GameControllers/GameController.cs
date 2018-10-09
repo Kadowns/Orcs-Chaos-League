@@ -45,7 +45,7 @@ public class GameController : Singleton<GameController> {
 	    _music = MusicController.Instance;
 	    _hud = HUDController.Instance;
 	    
-	    _music.PlayBgmByIndex(1);
+	    _music.PlayBgmByIndex(0);
 	    _music.SetBGMLowPassFilter(200);
 	    _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
 	    StartMatch(PlayerSelection.PlayersInGame);

@@ -314,7 +314,6 @@ public class OrcMotor : Motor {
 
 					throwable.Throw(dir, state.Controller.PlayerNumber);
 				}
-
 			}
 		}
 		state.Cooldown = true;

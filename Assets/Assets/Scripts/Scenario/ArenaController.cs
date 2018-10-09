@@ -57,7 +57,7 @@ public class ArenaController : Singleton<ArenaController> {
 			ArenaMotor.NormalEvents(this, Arenas[_currentArena]);
 			_gameStarted = true;
 			_hud.FighterHud(true);
-			_music.PlayBgmByIndex(1);
+			_music.PlayBgmByIndex(0);
 			_music.SetBGMPitch(1);
 			_music.ChangeLowPassFilterFrequency(22000f, 0.25f);
 		}

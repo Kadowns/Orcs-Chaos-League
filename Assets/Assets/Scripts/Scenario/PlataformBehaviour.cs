@@ -15,6 +15,13 @@ public class PlataformBehaviour : MonoBehaviour {
     public float _oscilationFrequency { get; set; }
     public float _oscilationScale { get; set; }
     public float _offSetter { get; set; }
+
+	private Material _mat;
+	private float _timeToFlash = 0.1f;
+
+	private void Awake() {
+		_mat = GetComponent<Renderer>().material;
+	}
 	
 	private void FixedUpdate() {
 		if (!_defined || _shaking || _lowered)
@@ -41,6 +48,7 @@ public class PlataformBehaviour : MonoBehaviour {
 		if (_shaking || _lowered)
 			return;
 
+		
 		_life--;
 		if (_life <= 0) {		
 			StartCoroutine(LowerAndRaise());
@@ -50,20 +58,28 @@ public class PlataformBehaviour : MonoBehaviour {
 		}
 	}
 
+
+
 	private IEnumerator ShakePlataform(float timeToShake, float shakeIntensity) {
 		_shaking = true;
-		float shakeTimer = 0f;
-
+		
+		
 		Vector3 lastPos = transform.localPosition;
-
+		
+		_mat.SetColor("_EmissionColor", Color.white);
+		
+		float shakeTimer = 0f;
 		while (shakeTimer < timeToShake) {
 			transform.localPosition += new Vector3(Random.Range(-shakeIntensity, shakeIntensity),
 				Random.Range(-shakeIntensity, shakeIntensity) / 4,
 				Random.Range(-shakeIntensity, shakeIntensity));
+			
+			_mat.SetColor("_EmissionColor", Color.Lerp(Color.white, Color.black, shakeTimer / timeToShake));
 			shakeTimer += Time.deltaTime;
+			
 			yield return null;
 		}
-
+		_mat.SetColor("_EmissionColor", Color.black);
 		transform.localPosition = lastPos;
 		_shaking = false;
 	}

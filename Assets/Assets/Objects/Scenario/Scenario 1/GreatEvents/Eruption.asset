@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Eruption
   m_EditorClassIdentifier: 
   EventHudSprite: {fileID: 21300014, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
-  Duration: 42
+  Duration: 22.5
   ExplosionsPerWave: 7
-  ExplosionsInterval: 0.6
-  WaveInterval: 2.78
-  PlataformSinkPercentage: 0.31
+  ExplosionsInterval: 0.57
+  WaveInterval: 1.88
+  PlataformSinkPercentage: 0.66

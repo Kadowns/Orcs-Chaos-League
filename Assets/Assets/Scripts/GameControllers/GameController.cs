@@ -34,6 +34,10 @@ public class GameController : Singleton<GameController> {
 	private bool _rematch, _goToHub, _paused, _gameOverMenu, _transition, _matchEnded;
 	
     private void Start() {
+
+	    for (int i = 0; i < ActivePlayers.Length; i++) {
+		    PlayerSelection.PlayersInGame[i] = ActivePlayers[i];
+	    }
         
         
 	    _camera = CameraController.Instance;
@@ -77,6 +81,11 @@ public class GameController : Singleton<GameController> {
 						var orcs = GameObject.FindGameObjectsWithTag("Player");
 						foreach (var orc in orcs) {
 							orc.SetActive(false);
+						}
+
+						var skulls = GameObject.FindGameObjectsWithTag("OrcHead");
+						foreach (var skull in skulls) {
+							skull.SetActive(false);
 						}
 
 						_hud.EnableMenuByIndex(-1);

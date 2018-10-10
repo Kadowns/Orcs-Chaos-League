@@ -40,7 +40,6 @@ public class EruptionEvent : GreatEvent {
         do {
 
             int plataformsToSink = state.Plataforms.Count - (int)(state.Plataforms.Count * PlataformSinkPercentage);
-			Debug.Log(plataformsToSink);
             if (sunkPlataforms < plataformsToSink) {
                 state.Plataforms[rand].Lower();		
                 sunk[rand] = true;

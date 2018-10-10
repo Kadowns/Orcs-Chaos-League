@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour {
 		else {
 			var botInput = _input as BotInput;
 			if (botInput != null) {
-				botInput.Orc = _orc.transform;
-				botInput.Box = _box.transform;
+				botInput.ThisOrc = _orc.transform;
+				botInput.ThisBox = _box.transform;
 			}
 		}
 	}

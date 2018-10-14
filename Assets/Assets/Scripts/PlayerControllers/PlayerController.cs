@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.PlayerControllers.Input;
 using Rewired;
 using UnityEngine;
 
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 	private OrcEntityState _orcState;
 	private ObjectPooler _pool;
 
-	private InputSource _input;
+	private InputController _input;
 
 	private Player _player;
 	
@@ -73,22 +74,22 @@ public class PlayerController : MonoBehaviour {
 	private void Awake() {
 		
 		_pointer = GetComponent<PlayerPointer>();
-		_input = GetComponent<InputSource>();
+		_input = GetComponent<InputController>();
 			
 		
 		CreateOrc();
 		BindBox();
 		
-		var playerInput = _input as PlayerInput;
+		var playerInput = _input.Source as PlayerInput;
 		if (playerInput != null) {
 			_player = ReInput.players.GetPlayer(_playerNumber);
 			playerInput.Player = _player;
 		}
 		else {
-			var botInput = _input as BotInput;
+			var botInput = _input.Source as BotInput;
 			if (botInput != null) {
-				botInput.ThisOrc = _orc.transform;
-				botInput.ThisBox = _box.transform;
+				BotBrains.BrainMemorys[PlayerNumber].ThisOrc = _orc.transform;
+				BotBrains.BrainMemorys[PlayerNumber].ThisBox = _box.transform;
 			}
 		}
 	}
@@ -124,26 +125,23 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-	public void SpawnOrc() {
+	public void SpawnOrc(Vector3 position) {
 
 		_orcPrefab.SetActive(true);
 
 		ArenaController.Instance.PlayerSpawned();
-		_boxMotor.DisableBox(_boxState);
-		_boxMotor.RaiseBox(_boxState);
-		_boxState.CanSpawn = false;
-		_orcPrefab.GetComponent<Rigidbody>().AddForce(_box.GetComponent<Rigidbody>().velocity * 4f, ForceMode.Impulse);
-
+		
 		_spawnTimer = 0;
 		_orcPrefab.transform.rotation = Quaternion.identity;
-		_orcPrefab.transform.position = _box.transform.position;
+		_orcPrefab.transform.position = position;
 		_orcPrefab.transform.parent = transform;
 		_orcMotor.ResetToDefault(_orcState);
 		SetPointerTarget(_orcPrefab.transform);
 		_spawnNewOrc = false;
 
 
-		DamageEvent.Invoke();
+		if (DamageEvent != null)
+			DamageEvent.Invoke();
 		CameraController.Instance.UpdatePlayers();
 		CameraController.Instance.MaxZoom(false);
 	}
@@ -209,12 +207,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (_spawnNewOrc) {
 			CameraController.Instance.MaxZoom(true);
-			if (Time.time > _spawnTimer) {
-				_boxState.CanSpawn = true;
-				if (Time.time > _spawnTimer + _maxTimeToSpawn) {
-					SpawnOrc();
-				}
+			if (Time.time > _spawnTimer + _maxTimeToSpawn) {
+				_boxMotor.ReleaseBox(_boxState);
 			}
+			else if (Time.time > _spawnTimer) {
+				_boxState.CanSpawn = true;
+			}			
 		}
 	}
 
@@ -244,8 +242,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void SetDefaultPosition(Vector3 position) {
-		_boxMotor.SetDefaultRaised(_boxState, position.y + 300);
-		_boxMotor.SetDefaultLowered(_boxState, position.y + 200);
+		_boxMotor.SetDefaultRaised(_boxState, position.y + 150);
+		_boxMotor.SetDefaultLowered(_boxState, position.y + 100);
 	}
 	
 	public void ChangeInputMode(string categoryToDisable, string categoryToEnable) {

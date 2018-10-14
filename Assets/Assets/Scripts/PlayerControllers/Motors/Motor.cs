@@ -5,9 +5,9 @@ using UnityEngine;
 
 public abstract class Motor : ScriptableObject {
 
-	public abstract void Initialize(MovableEntity entity, InputSource input);
-	public abstract void Setup(MovableEntity entity, InputSource input);
-	public abstract void Tick(MovableEntity entity, InputSource input);
-	public abstract void FixedTick(MovableEntity entity, InputSource input);
-	public abstract void LateTick(MovableEntity entity, InputSource input);
+	public abstract void Initialize(MovableEntity entity, InputController input);
+	public abstract void Setup(MovableEntity entity, InputController input);
+	public abstract void Tick(MovableEntity entity, InputController input);
+	public abstract void FixedTick(MovableEntity entity, InputController input);
+	public abstract void LateTick(MovableEntity entity, InputController input);
 }

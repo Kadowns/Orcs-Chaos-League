@@ -1,134 +1,128 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.PlayerControllers.Input;
+using UnityEngine;
 
+
+[CreateAssetMenu(menuName = "InputSource/BotInput")]
 public class BotInput : InputSource {
     
-    public Transform ThisOrc { get; set; }
-    public Transform ThisBox { get; set; }
+    public override void Tick(InputController input) {
+        ClearInput(input);
 
-    private Transform _target;
-
-    private float _jumpTimer = 0;
-    private const float NextJumpTime = 0.15f;
-
-    private void Update() {
-        ClearInput();
-
+        var memory = BotBrains.BrainMemorys[input.PlayerNumber];
         
-
-        if (ThisOrc.gameObject.activeInHierarchy) {
+        if (memory.ThisOrc.gameObject.activeInHierarchy && ArenaController.Instance.GameStated) {
             
-            if (_target == null) {
-                FindTarget();
+            if (memory.Target == null) {
+                FindTarget(memory);
             }
             else {                   
-                if (!_target.gameObject.activeInHierarchy) {
-                    _target = null;
+                if (!memory.Target.gameObject.activeInHierarchy) {
+                    memory.Target = null;
             
                 }
             }
             
-   
-            Vector3 moveDir = Vector3.zero;
+           
             bool shouldStomp = false;
 
-            if (_target != null) {
+            if (memory.Target != null) {
 
-                moveDir = (_target.position - ThisOrc.position);
-                moveDir.Set(moveDir.x, 0, moveDir.z);
-                float dist = moveDir.sqrMagnitude;
-                moveDir.Normalize();
+                MoveToPosition(input, memory, memory.Target.position);
                 
                 
-                if (dist > 50) {
-                    
-                    AxisX = moveDir.x;
-                    AxisY = moveDir.z;
-                 
-                }
-                else {
-                    switch (Random.Range(1, 2)) {
+                if (memory.DistanceToTarget < 50) {
+
+                    input.Axis = Vector2.zero;
+                    if (Time.time > memory.InputTimer){
+                        memory.InputTimer = Time.time + memory.NextInputTime;
+                        switch (Random.Range(1, 2)) {
                             case 1:
-                                ActionLeftButtonPressed = true;
+                                input.ActionLeftButtonPressed = true;
                                 break;
                             case 2:
-                                shouldStomp = Random.Range(0f, 1f) > 0.2f;
+                             //   shouldStomp = Random.Range(0f, 1f) > 0.2f;
                                 break;
+                        }                 
                     }
-                             
-                }
+                }           
             }
             else {
-                moveDir = -ThisOrc.position;
-                moveDir.Set(moveDir.x, 0, moveDir.z);
-                float dist = moveDir.sqrMagnitude;
-                moveDir.Normalize();
+                MoveToPosition(input, memory, Vector3.zero);
                 
-                if (dist > 16) {
-                    AxisX = moveDir.x;
-                    AxisY = moveDir.z;
-                }
-                else {
-                    DPadUpPressed = true;
-                }
+                if (memory.DistanceToTarget < 16) {
+                    input.Axis = Vector2.zero;
+                    if (Time.time > memory.InputTimer){
+                        memory.InputTimer = Time.time + memory.NextInputTime;
+                        input.DPadUpPressed = true;
+                    }
+                } 
             }
          
-            if ((ShouldJump(moveDir) || shouldStomp) && Time.time > _jumpTimer) {
-                ActionDownButtonPressed = true;
-                _jumpTimer = Time.time + NextJumpTime;
+            if ((ShouldJump(input.Axis, memory) || shouldStomp) && Time.time > memory.InputTimer) {
+                input.ActionDownButtonPressed = true;
+                memory.InputTimer = Time.time + memory.NextInputTime;
             }
         }
     }
 
-    private void ClearInput() {
-        AxisX = 0;
-        AxisY = 0;
-        CenterButtonPresssed = false;
-        ActionDownButton = false;
-        ActionUpButton = false;
-        ActionLeftButton = false;
-        ActionRightButton = false;
-        ActionDownButtonPressed = false;
-        ActionUpButtonPressed = false;
-        ActionLeftButtonPressed = false;
-        ActionRightButtonPressed = false;
-        ActionDownButtonReleased = false;
-        ActionUpButtonReleased = false;
-        ActionLeftButtonReleased = false;
-        ActionRightButtonReleased = false;
-        DPadUp = false;
-        DPadDown = false;
-        DPadLeft = false;
-        DPadRight = false;
-        DPadUpPressed = false;
-        DPadDownPressed = false;
-        DPadLeftPressed = false;
-        DPadRightPressed = false;
-        DPadUpReleased = false;
-        DPadDownReleased = false;
-        DPadLeftReleased = false;
-        DPadRightReleased = false;
+    public void MoveToPosition(InputController input, BrainMemory memory, Vector3 target) {
+        Vector3 moveDir = Vector3.zero;
+        moveDir = (target - memory.ThisOrc.position);
+        moveDir.Set(moveDir.x, 0, moveDir.z);
+        memory.DistanceToTarget = moveDir.sqrMagnitude;
+        moveDir.Normalize();
+        input.Axis = new Vector2(moveDir.x, moveDir.z);
+    }
+
+    private void ClearInput(InputController input) {
+        input.Axis = Vector2.zero;
+        input.CenterButtonPresssed = false;
+        input.ActionDownButton = false;
+        input.ActionUpButton = false;
+        input.ActionLeftButton = false;
+        input.ActionRightButton = false;
+        input.ActionDownButtonPressed = false;
+        input.ActionUpButtonPressed = false;
+        input.ActionLeftButtonPressed = false;
+        input.ActionRightButtonPressed = false;
+        input.ActionDownButtonReleased = false;
+        input.ActionUpButtonReleased = false;
+        input.ActionLeftButtonReleased = false;
+        input.ActionRightButtonReleased = false;
+        input.DPadUp = false;
+        input.DPadDown = false;
+        input.DPadLeft = false;
+        input.DPadRight = false;
+        input.DPadUpPressed = false;
+        input.DPadDownPressed = false;
+        input.DPadLeftPressed = false;
+        input.DPadRightPressed = false;
+        input.DPadUpReleased = false;
+        input.DPadDownReleased = false;
+        input.DPadLeftReleased = false;
+        input.DPadRightReleased = false;
     }
 
 
-    private bool ShouldJump(Vector3 moveDir) {
+    private bool ShouldJump(Vector3 moveDir, BrainMemory memory) {
         RaycastHit hit;
-        return !Physics.Raycast(ThisOrc.position + Vector3.up * 3, (moveDir + Vector3.down * 0.5f).normalized, out hit,
-            40f, 1 << LayerMask.NameToLayer("Ground"));
+        return !Physics.Raycast(memory.ThisOrc.position + Vector3.up * 3, (moveDir + Vector3.down).normalized, out hit,
+            6f, 1 << LayerMask.NameToLayer("Ground"));
     }
 
-    private void FindTarget() {
-        var orcs = Physics.OverlapSphere(ThisOrc.position, 600f, 1 << LayerMask.NameToLayer("Players"));
+    private void FindTarget(BrainMemory memory) {
+        var orcs = Physics.OverlapSphere(memory.ThisOrc.position, 600f, 1 << LayerMask.NameToLayer("Players"));
         if (orcs.Length > 0) {
             float minDist = float.MaxValue;
             foreach (var orc in orcs) {
-                if (orc.gameObject == ThisOrc.gameObject)
+                if (orc.gameObject == memory.ThisOrc.gameObject)
                     continue;
                 
-                float dist = (orc.transform.position - ThisOrc.position).sqrMagnitude;
+                float dist = (orc.transform.position - memory.ThisOrc.position).sqrMagnitude;
 
                 if (dist < minDist) {
                     minDist = dist;
-                    _target = orc.transform;
+                    memory.Target = orc.transform;
                 }
             }
         }

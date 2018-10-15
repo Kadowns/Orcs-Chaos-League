@@ -18,7 +18,11 @@ namespace Assets.Scripts.PlayerControllers.Input {
     }
     
     public static class BotBrains {
-        public static readonly BrainMemory[] BrainMemorys =
-            {new BrainMemory(), new BrainMemory(), new BrainMemory(), new BrainMemory()};
+        public static readonly BrainMemory[] BrainMemorys = {
+            new BrainMemory(),
+            new BrainMemory(),
+            new BrainMemory(),
+            new BrainMemory()
+        };
     }
 }

@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour {
 		ArenaController.Instance.PlayerSpawned();
 		
 		_spawnTimer = 0;
+		_boxState.CanSpawn = false;
 		_orcPrefab.transform.rotation = Quaternion.identity;
 		_orcPrefab.transform.position = position;
 		_orcPrefab.transform.parent = transform;

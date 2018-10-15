@@ -22,4 +22,10 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
             Spawner.SpawnObject(ObjectToSpawnName);
         }
     }
+
+    public class FooContext : EventContext {
+        protected override void OnExecute() {
+            
+        }
+    }
 }

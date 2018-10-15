@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "InputSource/BotInput")]
 public class BotInput : InputSource {
     
+    
+    
     public override void Tick(InputController input) {
         ClearInput(input);
 

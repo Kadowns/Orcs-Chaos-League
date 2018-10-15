@@ -439,7 +439,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!59 &59496033562613372
 HingeJoint:
   m_ObjectHideFlags: 1
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd785488288b09049a8df71a0baa7ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Source: {fileID: 11400000, guid: 0bfdbf07e1dff3c47a6da08ab391705d, type: 2}
+  Source: {fileID: 11400000, guid: d4d53391014a2c04d8903b181e898b8b, type: 2}
 --- !u!114 &114449586754085860
 MonoBehaviour:
   m_ObjectHideFlags: 1

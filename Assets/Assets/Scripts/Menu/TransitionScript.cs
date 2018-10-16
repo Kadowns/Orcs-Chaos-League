@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TransitionScrypt : MonoBehaviour {
+public class TransitionScript : MonoBehaviour {
 
     private void Start()
     {

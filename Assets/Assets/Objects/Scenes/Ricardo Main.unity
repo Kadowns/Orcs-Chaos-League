@@ -30358,6 +30358,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1697478534099622, guid: f44b181e5a160c843aab59fda43e6134,
         type: 2}
+    - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: pools.Array.data[12].tag
+      value: GuidedBomb
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640f2a8230aeb7746bb418524273333a, type: 2}
   m_IsPrefabParent: 0
@@ -101644,6 +101649,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Motor: {fileID: 11400000, guid: 890f517634766b64ebef4aad1a4a2c45, type: 2}
+  LavaGeysers: []
+  GlobalPlatformSettings:
+    Curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxHealth: 0
+    LoweredTime: 0
+    OscilationFrequency: 0
+    OscilationScale: 0
   Plataforms:
   - {fileID: 228683848}
   - {fileID: 1712214005}
@@ -101698,72 +101715,6 @@ MonoBehaviour:
   - {fileID: 113084282}
   - {fileID: 1743161692}
   GreatEvents: []
-  LavaGeysers: []
-  OscilationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: -0.7188957
-      inSlope: 17.275457
-      outSlope: 17.275457
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.188097
-    - serializedVersion: 3
-      time: 0.027479544
-      value: 0.30427206
-      inSlope: -3.3432958
-      outSlope: -3.3432958
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.37680846
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.07218145
-      value: 0.008141924
-      inSlope: -15.343042
-      outSlope: -15.343042
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.6666666
-      outWeight: 0.110784866
-    - serializedVersion: 3
-      time: 0.3125
-      value: -0.95926803
-      inSlope: -0.059172243
-      outSlope: -0.059172243
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9
-      value: -0.96741486
-      inSlope: 0.033334635
-      outSlope: 0.033334635
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.49999905
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: -0.77394867
-      inSlope: 2.284152
-      outSlope: 2.284152
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.58333325
-      outWeight: 0
-    m_PreInfinity: 1
-    m_PostInfinity: 1
-    m_RotationOrder: 4
-  MaxPlataformHits: 4
-  PlataformLoweredTime: 10
-  OscilationFrequency: 0.01
-  OscilationScale: 35
-  RandomOffSet: 0
 --- !u!4 &1697129186
 Transform:
   m_ObjectHideFlags: 0
@@ -117135,27 +117086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Motor: {fileID: 11400000, guid: ae890cbcbdf1f6542a24edd4ba9b3c73, type: 2}
-  Plataforms:
-  - {fileID: 198420861}
-  - {fileID: 1908207063}
-  - {fileID: 2114306677}
-  - {fileID: 1355876381}
-  - {fileID: 735924753}
-  - {fileID: 838062445}
-  - {fileID: 78864252}
-  - {fileID: 1572115805}
-  - {fileID: 100523050}
-  - {fileID: 1148300168}
-  - {fileID: 1408569418}
-  - {fileID: 1165748718}
-  - {fileID: 1405053960}
-  - {fileID: 43055304}
-  - {fileID: 2146184027}
-  - {fileID: 2098955954}
-  GreatEvents:
-  - {fileID: 11400000, guid: 8ece390d82d64b54994374957fe412ff, type: 2}
-  - {fileID: 11400000, guid: 85592e4303f084d4697d8c73f8799eac, type: 2}
-  - {fileID: 11400000, guid: 458cdd2a191140446a5c74b1d0e9152d, type: 2}
   LavaGeysers:
   - {fileID: 58820322}
   - {fileID: 2061824295}
@@ -117176,62 +117106,81 @@ MonoBehaviour:
   - {fileID: 1057413422}
   - {fileID: 978671733}
   - {fileID: 958827279}
-  OscilationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 5.0521464
-      outSlope: 5.0521464
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.25
-      value: 1
-      inSlope: 0.009167105
-      outSlope: 0.009167105
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.5
-      value: 0
-      inSlope: -5.6904874
-      outSlope: -5.6904874
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.66684484
-    - serializedVersion: 3
-      time: 0.75
-      value: -1
-      inSlope: 0.0046014264
-      outSlope: 0.0046014264
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 4.934221
-      outSlope: 4.934221
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.56726646
-      outWeight: 0
-    m_PreInfinity: 1
-    m_PostInfinity: 1
-    m_RotationOrder: 4
-  MaxPlataformHits: 4
-  PlataformLoweredTime: 10
-  OscilationFrequency: 0.33
-  OscilationScale: 0.3
-  RandomOffSet: 1
+  GlobalPlatformSettings:
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 5.566753
+        outSlope: 5.566753
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.99303097
+      - serializedVersion: 3
+        time: 0.25
+        value: 1
+        inSlope: 0.034265406
+        outSlope: 0.034265406
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 1
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: -5.8405085
+        outSlope: -5.8405085
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.5254729
+      - serializedVersion: 3
+        time: 0.75
+        value: -1
+        inSlope: -0.032596175
+        outSlope: -0.032596175
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 1
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 4.9584656
+        outSlope: 4.9584656
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 1
+        outWeight: 0
+      m_PreInfinity: 1
+      m_PostInfinity: 1
+      m_RotationOrder: 4
+    MaxHealth: 7
+    LoweredTime: 8
+    OscilationFrequency: 0.01
+    OscilationScale: 0.72
+  Plataforms:
+  - {fileID: 198420861}
+  - {fileID: 1908207063}
+  - {fileID: 2114306677}
+  - {fileID: 1355876381}
+  - {fileID: 735924753}
+  - {fileID: 838062445}
+  - {fileID: 78864252}
+  - {fileID: 1572115805}
+  - {fileID: 100523050}
+  - {fileID: 1148300168}
+  - {fileID: 1408569418}
+  - {fileID: 1165748718}
+  - {fileID: 1405053960}
+  - {fileID: 43055304}
+  - {fileID: 2146184027}
+  - {fileID: 2098955954}
+  GreatEvents:
+  - {fileID: 11400000, guid: 5c0bd99b13204ec45b63f865ed2d1661, type: 2}
 --- !u!1 &2007863124
 GameObject:
   m_ObjectHideFlags: 0

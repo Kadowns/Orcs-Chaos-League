@@ -5,16 +5,25 @@ using UnityEngine;
 public class PlataformBehaviour : MonoBehaviour {
 
     
-    public AnimationCurve _oscilationCurve { get; set; }
-    public int _life { get; set; }
-    public int _maxLife { get; set; }
-    public bool _lowered { get; set; }
-    public bool _shaking{ get; set; }
-    public bool _defined{ get; set; }
-    public float _loweredTime { get; set; }
-    public float _oscilationFrequency { get; set; }
-    public float _oscilationScale { get; set; }
-    public float _offSetter { get; set; }
+	[System.Serializable]
+	public class PlataformSettings {
+
+		public AnimationCurve Curve = new AnimationCurve();
+		public int MaxHealth;
+		public float LoweredTime;
+		public float OscilationFrequency;
+		public float OscilationScale;		
+	}
+	
+	public PlataformSettings Settings { get; private set; }
+
+
+	private float _offset;
+	public bool Foldout { get; set; }
+	private int _life { get; set; }
+	private bool _lowered { get; set; }
+	private bool _shaking{ get; set; }
+	private bool _defined{ get; set; }
 
 	private Material _mat;
 	private float _timeToFlash = 0.1f;
@@ -27,20 +36,15 @@ public class PlataformBehaviour : MonoBehaviour {
 		if (!_defined || _shaking || _lowered)
 			return;
 		transform.localPosition = new Vector3(transform.localPosition.x,
-			_oscilationCurve.Evaluate(Time.time * _oscilationFrequency + _offSetter) * _oscilationScale,
+			Settings.Curve.Evaluate(Time.time * Settings.OscilationFrequency + _offset) * Settings.OscilationScale,
 			transform.localPosition.z);
 	}
 
-	public void DefinePlataforms(int life, float loweredTime, float frequency, float scale, AnimationCurve curve,
-		float offSet) {
+	public void DefinePlataforms(PlataformSettings settings) {
 		_defined = true;
-		_life = life;
-		_maxLife = life;
-		_loweredTime = loweredTime;
-		_oscilationFrequency = frequency;
-		_oscilationScale = scale;
-		_oscilationCurve = curve;
-		_offSetter = offSet;
+		Settings = settings;
+		_offset = Random.Range(0f, 1f);
+		_life = settings.MaxHealth;
 	}
 
 	public void Damage() {
@@ -96,20 +100,20 @@ public class PlataformBehaviour : MonoBehaviour {
 	
 	private IEnumerator LowerAndRaise() {
 		yield return StartCoroutine(DoLower());
-		yield return new WaitForSeconds(_loweredTime);
+		yield return new WaitForSeconds(Settings.LoweredTime);
 		yield return StartCoroutine(DoRaise());
 	}
 
 	private IEnumerator DoRaise() {
-		while(transform.localPosition.y < _oscilationCurve.Evaluate(Time.time * _oscilationFrequency + _offSetter) * _oscilationScale) {
+		while(transform.localPosition.y < Settings.Curve.Evaluate(Time.time * Settings.OscilationFrequency + _offset) * Settings.OscilationScale) {
 			transform.localPosition += Vector3.up * 3f * Time.deltaTime;
 			yield return null;
 		}
 		transform.localPosition = new Vector3(transform.localPosition.x,
-			_oscilationCurve.Evaluate(Time.time * _oscilationFrequency + _offSetter) * _oscilationScale,
+			Settings.Curve.Evaluate(Time.time * Settings.OscilationFrequency + _offset) * Settings.OscilationScale,
 			transform.localPosition.z);
 		_lowered = false;
-		_life = _maxLife;
+		_life = Settings.MaxHealth;
 	}
 
     private IEnumerator DoLower() {

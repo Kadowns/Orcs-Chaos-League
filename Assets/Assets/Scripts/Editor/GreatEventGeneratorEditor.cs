@@ -14,6 +14,9 @@ namespace Assets.Scripts.Editor {
         private EventContext _newContext;
 
 
+
+        private bool _eventContextListFoldout = false;
+
         public override void OnInspectorGUI() {
 
             if (_target == null) {
@@ -21,13 +24,17 @@ namespace Assets.Scripts.Editor {
             }
             
             DrawEventContextList();
-            
-            
+          //  DrawContextOptions();
+            DrawAddButtons();
         }
 
 
 
         private void DrawEventContextList() {
+
+            _eventContextListFoldout = gui.EzFoldout("Event Context List", _eventContextListFoldout);
+            if (!_eventContextListFoldout)
+                return;
 
             foreach (var context in _target.EventContexts) {
                 using (gui.Horizontal()) {
@@ -37,22 +44,32 @@ namespace Assets.Scripts.Editor {
                         break;
                     }                
                 }    
-            }
-            
-            
+            }          
+        }
 
+        private void DrawContextOptions() {
             using (gui.Horizontal()) {
-                if (gui.EzButton(gui.AddButton)) {
-                    _newContext = CreateContextObject<SpawnContext>();
-                    _target.EventContexts.Add(_newContext);
-                    _newContext = null;
-                }
-                else if (gui.EzButton(gui.AddButton)) {
-                    _newContext = CreateContextObject<FooContext>();
-                    _target.EventContexts.Add(_newContext);
-                    _newContext = null;
-                }
+            
+                gui.EzLabel("Spawn Context: ");
+              //  _spawnContext.ObjectToSpawnName = gui.EzTextField("Object to spawn name: ", _spawnContext.ObjectToSpawnName);
+               // _spawnContext.Spawner = gui.EzTextField("Object to spawn name: ", _spawnContext.ObjectToSpawnName);
+
+            }
+        }
+
+        private void DrawAddButtons() {
+            using (gui.Horizontal()) {
+                DrawButtonAddContext<SpawnContext>();
+                DrawButtonAddContext<FooContext>();
             }      
+        }
+
+        private void DrawButtonAddContext<T>() where T : Component {
+            if (gui.EzButton(typeof(T).Name)) {
+                _newContext = CreateContextObject<T>() as EventContext;
+                _target.EventContexts.Add(_newContext);
+                _newContext = null;
+            }
         }
 
 

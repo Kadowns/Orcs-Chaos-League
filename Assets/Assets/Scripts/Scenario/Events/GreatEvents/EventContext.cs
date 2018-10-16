@@ -14,16 +14,25 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
     public class SpawnContext : EventContext {
         
-        public EventSpawner Spawner;
+        public GameObject Spawner;
 
         public string ObjectToSpawnName;
+
+        private EventSpawner _eventSpawner;
+
+        private void Awake() {
+            _eventSpawner = Spawner.GetComponent<EventSpawner>();
+        }
         
         protected override void OnExecute() {
-            Spawner.SpawnObject(ObjectToSpawnName);
+            _eventSpawner.SpawnObject(ObjectToSpawnName);
         }
     }
 
     public class FooContext : EventContext {
+
+        public int SomeInt;
+        
         protected override void OnExecute() {
             
         }

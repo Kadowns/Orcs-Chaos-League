@@ -48,8 +48,6 @@ public class Menu_1stOptionSelected : MonoBehaviour {
 
     void Update() {
 
-        
-
         if (!menuGameObj.activeSelf)
         {
             MenuOptions = GameObject.FindGameObjectsWithTag("Test");
@@ -69,7 +67,7 @@ public class Menu_1stOptionSelected : MonoBehaviour {
         switch(menuGameObj.name)
         {
             case "EntradaPlayers":
-                ReturnGameMode();
+            //    ReturnGameMode();
 
                 startButtonEntradaPlayers = FindObjectOfType<Button>();
 

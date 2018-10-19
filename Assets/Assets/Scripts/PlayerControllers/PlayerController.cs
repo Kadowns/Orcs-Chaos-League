@@ -83,13 +83,13 @@ public class PlayerController : MonoBehaviour {
 		var playerInput = _input.Source as PlayerInput;
 		if (playerInput != null) {
 			_player = ReInput.players.GetPlayer(_playerNumber);
-			playerInput.Player = _player;
+			PlayerBrains.BrainMemory[_playerNumber].Player = _player;
 		}
 		else {
 			var botInput = _input.Source as BotInput;
 			if (botInput != null) {
-				BotBrains.BrainMemorys[PlayerNumber].ThisOrc = _orc.transform;
-				BotBrains.BrainMemorys[PlayerNumber].ThisBox = _box.transform;
+				BotBrains.BotBrainMemories[PlayerNumber].ThisOrc = _orc.transform;
+				BotBrains.BotBrainMemories[PlayerNumber].ThisBox = _box.transform;
 			}
 		}
 	}

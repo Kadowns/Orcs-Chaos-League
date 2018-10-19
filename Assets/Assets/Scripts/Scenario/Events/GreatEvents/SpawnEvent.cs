@@ -9,6 +9,8 @@ public class PipeSpawnEvent : GreatEvent {
 	public string ObjectToSpawnName;
 	public int ItemsToSpawn = 5;
 	public float SpawnInterval = 1.5f;
+
+	public GameObject ObjectToSpawn;
 	
 	private SpawnPipe _pipe;
 	

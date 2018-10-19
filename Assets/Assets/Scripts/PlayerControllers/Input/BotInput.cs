@@ -10,7 +10,7 @@ public class BotInput : InputSource {
     public override void Tick(InputController input) {
         ClearInput(input);
 
-        var memory = BotBrains.BrainMemorys[input.PlayerNumber];
+        var memory = BotBrains.BotBrainMemories[input.PlayerNumber];
         
         if (memory.ThisOrc.gameObject.activeInHierarchy && ArenaController.Instance.GameStated) {
             
@@ -67,7 +67,7 @@ public class BotInput : InputSource {
         }
     }
 
-    public void MoveToPosition(InputController input, BrainMemory memory, Vector3 target) {
+    public void MoveToPosition(InputController input, BotBrainMemory memory, Vector3 target) {
         Vector3 moveDir = Vector3.zero;
         moveDir = (target - memory.ThisOrc.position);
         moveDir.Set(moveDir.x, 0, moveDir.z);
@@ -106,13 +106,13 @@ public class BotInput : InputSource {
     }
 
 
-    private bool ShouldJump(Vector3 moveDir, BrainMemory memory) {
+    private bool ShouldJump(Vector3 moveDir, BotBrainMemory memory) {
         RaycastHit hit;
         return !Physics.Raycast(memory.ThisOrc.position + Vector3.up * 3, (moveDir + Vector3.down).normalized, out hit,
             6f, 1 << LayerMask.NameToLayer("Ground"));
     }
 
-    private void FindTarget(BrainMemory memory) {
+    private void FindTarget(BotBrainMemory memory) {
         var orcs = Physics.OverlapSphere(memory.ThisOrc.position, 600f, 1 << LayerMask.NameToLayer("Players"));
         if (orcs.Length > 0) {
             float minDist = float.MaxValue;

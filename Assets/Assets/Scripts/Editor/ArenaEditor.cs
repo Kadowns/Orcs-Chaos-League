@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 using EzEditor;
 using System.Collections.Generic;
+using Assets.Scripts.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -50,6 +51,10 @@ public class ArenaEditor : Editor {
 
 		}
 
+		if (gui.EzButton("Create new event")) {
+			ScriptableObjectUtility.CreateAsset<SpawnEvent>();
+		}
+
 		_newGreatEvent = gui.EzObjectField("New Great Event", _newGreatEvent);
 		if (_newGreatEvent != null) {
 			_target.GreatEvents.Add(_newGreatEvent);
@@ -68,7 +73,7 @@ public class ArenaEditor : Editor {
 					editor.OnInspectorGUI();
 				}			
 				
-				if (gui.EzButton("Delete")) {
+				if (gui.EzButton("Remove")) {
 					_target.GreatEvents.Remove(settings as GreatEvent);
 					return false;
 				}

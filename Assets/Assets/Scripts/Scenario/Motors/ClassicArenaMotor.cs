@@ -13,8 +13,7 @@ public class ClassicArenaMotor : ArenaMotor {
 
 	public override void Initialize(ArenaController controller, ArenaState state) {
 		for (int i = 0; i < state.Plataforms.Count; i++) {
-			state.Plataforms[i].DefinePlataforms(state.MaxPlataformHits, state.PlataformLoweredTime, state.OscilationFrequency,
-				state.OscilationScale, state.OscilationCurve, Random.Range(0f, 1f));
+			state.Plataforms[i].DefinePlataforms(state.GlobalPlatformSettings);
 		}
 	}
 
@@ -33,7 +32,7 @@ public class ClassicArenaMotor : ArenaMotor {
 		do {
 			int explosions = Random.Range(2, 6);
 			for (int i = 0; i < explosions; i++) {
-				int rand = Random.Range(0, state.LavaGeysers.Length);
+				int rand = Random.Range(0, state.LavaGeysers.Count);
 				state.LavaGeysers[rand].Execute();
 				yield return new WaitForSeconds(Random.Range(1, 5));
 			}

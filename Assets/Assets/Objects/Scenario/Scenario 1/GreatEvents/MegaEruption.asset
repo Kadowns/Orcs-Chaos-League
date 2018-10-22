@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de48ca5d73a84fdba68f693cda0d6c2d, type: 3}
   m_Name: MegaEruption
   m_EditorClassIdentifier: 
-  EventHudSprite: {fileID: 0}
-  Duration: 0
-  ExplosionsPerWave: 10
-  ExplosionsInterval: 0.5
-  WaveInterval: 2
-  PlataformSinkPercentage: 0
+  EventHudSprite: {fileID: 21300010, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
+  Duration: 17.4
+  ExplosionsPerWave: 15
+  ExplosionsInterval: 0.1
+  WaveInterval: 0.5
+  PlataformSinkPercentage: 1

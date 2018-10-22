@@ -60,8 +60,9 @@ public class EruptionEvent : GreatEvent {
                         break;
                     }
 
+                    yield return null;
                     i = i + 1 >= state.Plataforms.Count ? 0 : i + 1;
-                } while (true);
+                } while (Eruption);
             }
 
         } while (Eruption);
@@ -70,7 +71,7 @@ public class EruptionEvent : GreatEvent {
     private IEnumerator EruptionExplosions(ArenaState state) {
         do {
             for (int i = 0; i < ExplosionsPerWave; i++) {
-                int rand = Random.Range(0, state.LavaGeysers.Length);
+                int rand = Random.Range(0, state.LavaGeysers.Count);
                 state.LavaGeysers[rand].Execute();
                 yield return new WaitForSeconds(ExplosionsInterval);
             }

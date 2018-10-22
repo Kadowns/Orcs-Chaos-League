@@ -10,38 +10,37 @@ public class ArenaEditor : Editor {
 
 	private ArenaState _target;
 
-	private AnimationCurve oscilation = null;
-    private int _maxLife;
-    private float _loweredTime;
-    private float _oscilationFrequency;
-    private float _offSetter;
+	private LavaGeyser _newGeyser;
+	private bool _lavaGeyserFoldout;
+
+	private PlataformBehaviour _newPlataform;
+	private bool _plataformsFoldout;
+
+	private GreatEvent _newGreatEvent;
+	private Editor[] _greatEventEditors;
+	private bool[] _greatEventEditorsFoldout;
 	
-	private bool _individualPlataformEditing;
-	private bool _plataformFoldout;
-
-	private bool foldout;
-
-	private Editor[] _editors;
 	
 
 	public override void OnInspectorGUI() {
 		if (_target == null) {
 			_target = target as ArenaState;
-			_editors = new Editor[_target.GreatEvents.Count];
+			_greatEventEditors = new Editor[_target.GreatEvents.Count];
+			_greatEventEditorsFoldout = new bool[_target.GreatEvents.Count];
 		}
-
-		DrawDefaultInspector();
 		
-		DrawEventEditor();
+		gui.EzObjectArray("Lava Geysers", _target.LavaGeysers, ref _newGeyser, ref _lavaGeyserFoldout);
+		gui.EzObjectArray("Lava Geysers", _target.Plataforms, ref _newPlataform, ref _plataformsFoldout);
+		DrawGlobalPlatformOptions(ref _target.GlobalPlatformSettings);
+		DrawListEditor();
 
-		//DrawPlataformsArray();
 	}
 
-	void DrawEventEditor() {
-		int i = 0;
-		foreach (var ev in _target.GreatEvents) {
-			DrawSettingsEditor(ev, ref _editors[i]);
-			i++;
+	void DrawListEditor() {
+
+		if (_greatEventEditors.Length != _target.GreatEvents.Count || _greatEventEditorsFoldout.Length != _target.GreatEvents.Count) {
+			_greatEventEditors = new Editor[_target.GreatEvents.Count];
+			_greatEventEditorsFoldout = new bool[_target.GreatEvents.Count];
 		}
 
 		for (int i = 0; i < _target.GreatEvents.Count; i++) {
@@ -60,10 +59,10 @@ public class ArenaEditor : Editor {
 		if (_newGreatEvent != null) {
 			_target.GreatEvents.Add(_newGreatEvent);
 			_newGreatEvent = null;
-		}
+		}	
 	}
 
-	void DrawSettingsEditor(Object settings, ref Editor editor) {
+	private bool DrawSettingsEditor(Object settings, ref Editor editor, ref bool foldout) {
 
 		if (settings != null) {
 			foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
@@ -79,68 +78,16 @@ public class ArenaEditor : Editor {
 					return false;
 				}
 			}	
-		}		
+		}
+		return true;
 	}
-	
-	private void DrawPlataformsArray() {
-		_plataformFoldout = gui.EzFoldout("Plataforms", _plataformFoldout);
 
-		if (!_plataformFoldout)
-			return;
-
-		if (_target.Plataforms.Count == 0) {
-			gui.EzHelpBox("Nenhuma plataforma foi adicionada", MessageType.Warning, true);
-		}
-		
-		if (gui.EzButton("Individual Plataform Editing")) {
-			_individualPlataformEditing = !_individualPlataformEditing;
-		}
-
-        if (!_individualPlataformEditing) {
-            gui.EzLabel("OscilationCurve");
-            oscilation = gui.EzCurveField("", _target.Plataforms[0]._oscilationCurve);
-            _maxLife = gui.EzIntField("Max Health", _target.Plataforms[0]._maxLife);
-            _loweredTime = gui.EzFloatField("Lowered Time", _target.Plataforms[0]._loweredTime);
-            _oscilationFrequency = gui.EzFloatField("Oscilation Frequency", _target.Plataforms[0]._oscilationFrequency);
-            _offSetter = gui.EzFloatField("OffSetter", _target.Plataforms[0]._offSetter);
-	        foreach (var plat in _target.Plataforms) {
-		        plat._oscilationCurve = oscilation;
-		        plat._maxLife = _maxLife;
-                plat._loweredTime = _loweredTime;
-                plat._oscilationFrequency = _oscilationFrequency;
-                plat._offSetter = _offSetter;
-	        }
-        }
-
-		foreach (var plat in _target.Plataforms) {
-            gui.EzSpacer(0f, 50f);
-            if (_individualPlataformEditing) {
-                using (gui.Horizontal()) {
-
-                    gui.EzObjectField("Platform", plat, 20f);
-
-                    if (gui.EzButton(gui.DeleteButton)) {
-                        _target.Plataforms.Remove(plat);
-                    }
-                }
-                using (gui.Vertical()) {
-                    gui.EzLabel("OscilationCurve");
-                    plat._oscilationCurve = gui.EzCurveField("", plat._oscilationCurve);
-                    plat._maxLife = gui.EzIntField("Max Health", plat._maxLife);
-                    plat._loweredTime = gui.EzFloatField("Lowered Time", plat._loweredTime);
-                    plat._oscilationFrequency = gui.EzFloatField("Oscilation Frequency", plat._oscilationFrequency);
-                    plat._offSetter = gui.EzFloatField("OffSetter", plat._offSetter);
-                }
-            }
-            else {
-//                plat._oscilationCurve = plat._oscilationCurve;
-//                plat._maxLife = plat._maxLife;
-//                plat._loweredTime = _loweredTime;
-//                plat._oscilationFrequency = _oscilationFrequency;
-//                plat._offSetter = _offSetter;
-            }
-			gui.EzSpacer(0f, 50f);
-		}
+	private void DrawGlobalPlatformOptions(ref PlataformBehaviour.PlataformSettings settings) {
+		settings.Curve = gui.EzCurveField("", settings.Curve);
+		settings.MaxHealth = gui.EzIntField("Health", settings.MaxHealth);
+		settings.LoweredTime = gui.EzFloatField("Lowered Time", settings.LoweredTime);
+		settings.OscilationFrequency = gui.EzFloatField("Oscilation Frequency", settings.OscilationFrequency);
+		settings.OscilationScale = gui.EzFloatField("Oscilation Scale", settings.OscilationScale);
 	}
 }
 #endif

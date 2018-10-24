@@ -12,20 +12,27 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         private string _objectToSpawnName;
 
+        private bool _spawning;
+
         private void Awake() {
             _pooler = ObjectPooler.Instance;
             _animator = GetComponent<Animator>();
         }
 
-        public void SpawnObject(string objectName) {
+        public bool SpawnObject(string objectName) {
+            if (_spawning)
+                return false;
+            
             _objectToSpawnName = objectName;
-            _animator.SetTrigger("StartSpawnAnimation");
+            _animator.SetTrigger("Raise");
+            _spawning = true;
+            return true;
         }
 
         private void OnSpawnAnimationFinished() {
             _pooler.SpawnFromPool(_objectToSpawnName, _spawnTransform.position, Quaternion.identity);
-            _animator.SetTrigger("StopSpawnAnimation");
+            _animator.SetTrigger("Lower");
+            _spawning = false;
         }
-
     }
 }

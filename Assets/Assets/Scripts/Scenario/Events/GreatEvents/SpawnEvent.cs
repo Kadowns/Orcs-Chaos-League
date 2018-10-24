@@ -1,39 +1,48 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "GreatEvent/PipeSpawnEvent")]
-public class PipeSpawnEvent : GreatEvent {
+namespace Assets.Scripts.Scenario.Events.GreatEvents {
+	[CreateAssetMenu(menuName = "GreatEvent/SpawnEvent")]
+	public class SpawnEvent : GreatEvent {
 
 
-	public string ObjectToSpawnName;
-	public int ItemsToSpawn = 5;
-	public float SpawnInterval = 1.5f;
+		public string ObjectToSpawnName;
+		public int ItemsToSpawn = 5;
+		public float SpawnInterval = 1.5f;
 
-	public GameObject ObjectToSpawn;
-	
-	private SpawnPipe _pipe;
-	
-	public override void Setup(ArenaState state) {
-		_pipe = SpawnPipe.Instance;
-	}
+		private SpawnerManager _spawnManager;
 
-	protected override void OnExecute(ArenaState state) {
-		_pipe.SpawnObjects(ObjectToSpawnName, ItemsToSpawn, SpawnInterval);
-	}
-
-	protected  override void OnTerminate(ArenaState state) {
-		_pipe.ForceStop();
-	}
-
-
-	private void OnValidate() {
-		if (ItemsToSpawn < 1) {
-			ItemsToSpawn = 1;
+		private Coroutine _eventRoutine;
+		
+		public override void Setup(ArenaState state) {
+			_spawnManager = SpawnerManager.Instance;
 		}
 
-		if (SpawnInterval < 0.1f) {
-			SpawnInterval = 0.1f;
+		protected override void OnExecute(ArenaState state) {
+			_eventRoutine = state.StartCoroutine(DoEvent());
+		}
+
+		protected  override void OnTerminate(ArenaState state) {
+			if (_eventRoutine != null) {
+				state.StopCoroutine(_eventRoutine);
+			}
+		}
+
+		private IEnumerator DoEvent() {
+			for (int i = 0; i < ItemsToSpawn; i++) {
+				_spawnManager.SpawnObjects(ObjectToSpawnName);
+				yield return new WaitForSeconds(SpawnInterval);
+			}
+		}
+
+		private void OnValidate() {
+			if (ItemsToSpawn < 1) {
+				ItemsToSpawn = 1;
+			}
+
+			if (SpawnInterval < 0.1f) {
+				SpawnInterval = 0.1f;
+			}
 		}
 	}
 }

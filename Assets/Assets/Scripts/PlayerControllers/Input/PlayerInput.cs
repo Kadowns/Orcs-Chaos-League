@@ -1,40 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.PlayerControllers.Input;
 using Rewired;
 using UnityEngine;
+using UnityScript.Steps;
 
+[CreateAssetMenu(menuName = "InputSource/PlayerInput")]
 public class PlayerInput : InputSource {
 	
-	[HideInInspector] public Player Player;
 
-	private void Update() {
+	public override void Tick(InputController input) {
 
-		if (Player == null)
-			return;
+		var memory = PlayerBrains.BrainMemory[input.PlayerNumber].Player;
 		
-		CenterButtonPresssed = Player.GetButtonDown("Pause");
+		input.CenterButtonPresssed = memory.GetButtonDown("Pause");
 		
-		ActionDownButton = Player.GetButton("Jump");
-		ActionDownButtonPressed = Player.GetButtonDown("Jump");
-		ActionDownButtonReleased = Player.GetButtonUp("Jump");
+		input.ActionDownButton = memory.GetButton("Jump");
+		input.ActionDownButtonPressed = memory.GetButtonDown("Jump");
+		input.ActionDownButtonReleased = memory.GetButtonUp("Jump");
 			
-		ActionUpButton = Player.GetButton("Parry");
-		ActionUpButtonPressed = Player.GetButtonDown("Parry");
-		ActionUpButtonReleased = Player.GetButtonUp("Parry");
+		input.ActionUpButton = memory.GetButton("Parry");
+		input.ActionUpButtonPressed = memory.GetButtonDown("Parry");
+		input.ActionUpButtonReleased = memory.GetButtonUp("Parry");
 		
-		ActionLeftButton = Player.GetButton("Attack");
-		ActionLeftButtonPressed = Player.GetButtonDown("Attack");
-		ActionLeftButtonReleased = Player.GetButtonUp("Attack");
+		input.ActionLeftButton = memory.GetButton("Attack");
+		input.ActionLeftButtonPressed = memory.GetButtonDown("Attack");
+		input.ActionLeftButtonReleased = memory.GetButtonUp("Attack");
 		
-		ActionRightButton = Player.GetButton("Dash");
-		ActionRightButtonPressed = Player.GetButtonDown("Dash");
-		ActionRightButtonReleased = Player.GetButtonUp("Dash");
+		input.ActionRightButton = memory.GetButton("Dash");
+		input.ActionRightButtonPressed = memory.GetButtonDown("Dash");
+		input.ActionRightButtonReleased = memory.GetButtonUp("Dash");
 		
-		DPadUp = Player.GetButton("Taunt1");
-		DPadUpPressed = Player.GetButtonDown("Taunt1");
-		DPadUpReleased = Player.GetButtonUp("Taunt1");
+		input.DPadUp = memory.GetButton("Taunt1");
+		input.DPadUpPressed = memory.GetButtonDown("Taunt1");
+		input.DPadUpReleased = memory.GetButtonUp("Taunt1");
 
-		AxisX = Player.GetAxisRaw("Horizontal");
-		AxisY = Player.GetAxisRaw("Vertical");
+		input.Axis = new Vector2(memory.GetAxisRaw("Horizontal"), memory.GetAxisRaw("Vertical"));
 	}	
 }

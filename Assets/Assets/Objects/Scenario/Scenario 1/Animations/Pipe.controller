@@ -8,13 +8,13 @@ AnimatorController:
   m_Name: Pipe
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: RaisePipe
+  - m_Name: Raise
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: LowerPipe
+  - m_Name: Lower
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -41,7 +41,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: LowerPipe
+    m_ConditionEvent: Lower
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102753633261336942}
@@ -65,7 +65,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: RaisePipe
+    m_ConditionEvent: Raise
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102046834256891092}
@@ -87,7 +87,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PipeRaise
+  m_Name: Raise
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -113,7 +113,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PipeLower
+  m_Name: Lower
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -156,4 +156,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102046834256891092}
+  m_DefaultState: {fileID: 1102753633261336942}

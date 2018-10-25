@@ -415,12 +415,12 @@ namespace EzEditor
             }
         }
 
-        public static T[] EzObjectArray<T>(string title, T[] array, ref T newVar, ref bool foldoutFlag) where T : Object
+        public static List<T> EzObjectArray<T>(string title, List<T> array, ref T newVar, ref bool foldoutFlag) where T : Object
         {
             using (Vertical())
             {
                 LookLikeControls(110f, 50f);
-                var fullTitle = title + " (" + array.Length + "):";
+                var fullTitle = title + " (" + array.Count + "):";
                 foldoutFlag = EzFoldout(fullTitle, foldoutFlag);
                 if (!foldoutFlag)
                     return array;
@@ -430,15 +430,14 @@ namespace EzEditor
                     EzSpacer(5f);
                     using (Vertical())
                     {
-                        for (var i = 0; i < array.Length; i++)
+                        for (var i = 0; i < array.Count; i++)
                         {
                             using (Horizontal())
                             {
                                 array[i] = EzObjectField("", array[i]);
-                                if (EzButton(DeleteButton, null))
-                                {
-                                    array = array.RemoveAt(i);
-                                    //break;
+                                if (EzButton(DeleteButton, null)) {
+                                    array.Remove(array[i]);
+                                    break;
                                 }
                             }
                         }
@@ -452,7 +451,7 @@ namespace EzEditor
                         if (newVar == null)
                             return array;
                         
-                        array = array.Add(newVar);
+                        array.Add(newVar);
                         newVar = null;
                     }
                 }

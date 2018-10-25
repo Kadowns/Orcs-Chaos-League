@@ -51,6 +51,11 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		
 	}
 
+	public void CreateBloodSplashParticles(Vector3 position) {
+		GameObject obj = _pool.SpawnFromPool("BloodSplashPS", position, Quaternion.identity);
+		obj.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
+	}
+
 	public void CreatePlusOneParticles(Vector3 position) {
 		GameObject obj = _pool.SpawnFromPool("PlusOnePS", position, Quaternion.identity);
 		obj.GetComponent<DestroyByDuration>().InactiveAfterSeconds(1.5f);

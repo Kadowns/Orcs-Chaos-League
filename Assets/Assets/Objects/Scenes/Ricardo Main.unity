@@ -30167,7 +30167,7 @@ Prefab:
     - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: pools.Array.size
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4930082701473074, guid: 640f2a8230aeb7746bb418524273333a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -30317,6 +30317,22 @@ Prefab:
         type: 2}
       propertyPath: pools.Array.data[12].tag
       value: GuidedBomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: pools.Array.data[16].tag
+      value: ObjectSpawnPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: pools.Array.data[16].prefab
+      value: 
+      objectReference: {fileID: 1596257401853220, guid: 4709e70aedf346242b5fca98ad2f5df2,
+        type: 2}
+    - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: pools.Array.data[16].size
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640f2a8230aeb7746bb418524273333a, type: 2}
@@ -44536,6 +44552,7 @@ Transform:
   - {fileID: 1057413421}
   - {fileID: 978671732}
   - {fileID: 958827278}
+  - {fileID: 1627611556}
   m_Father: {fileID: 620560736}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70462,6 +70479,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1017412641}
   m_Mesh: {fileID: 4300016, guid: edd179c665c4e3d4189dac377cbc0922, type: 3}
+--- !u!1001 &1021994038
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20.719526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 39.182987
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 98.9616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562313067179468, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1027604580
 GameObject:
   m_ObjectHideFlags: 0
@@ -100785,8 +100844,8 @@ Transform:
   - {fileID: 751215274}
   - {fileID: 1616903089}
   - {fileID: 1078290506}
-  m_Father: {fileID: 2006345555}
-  m_RootOrder: 2
+  m_Father: {fileID: 599094009}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627906619
 GameObject:
@@ -117332,7 +117391,6 @@ Transform:
   m_Children:
   - {fileID: 620560736}
   - {fileID: 275733392}
-  - {fileID: 1627611556}
   m_Father: {fileID: 1051126070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

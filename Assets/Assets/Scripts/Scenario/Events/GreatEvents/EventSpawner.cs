@@ -31,6 +31,7 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         private void OnSpawnAnimationFinished() {
             _pooler.SpawnFromPool(_objectToSpawnName, _spawnTransform.position, Quaternion.identity);
+            _pooler.SpawnFromPool("ObjectSpawnPS", _spawnTransform.position, Quaternion.identity);
             _animator.SetTrigger("Lower");
             _spawning = false;
         }

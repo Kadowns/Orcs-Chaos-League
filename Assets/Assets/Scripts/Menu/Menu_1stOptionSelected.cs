@@ -12,18 +12,24 @@ public class Menu_1stOptionSelected : MonoBehaviour {
 
     private Player player;
 
-    private GameObject MainMenuGameObj, ModeSelectedObj;
-
     private Button startButtonEntradaPlayers;
 
-    private string gameModeSelectedString, mapSelectedString;
+    private string mapSelectedString;
+
+    private GameObject obj5, obj1, obj2, obj3, obj4, ButtonSelector1, ButtonSelector2, ButtonSelector3;
 
 
-    public GameObject GameModeSelected, mapSelected, menuGameObj, lastMenuGameObj;
+
+
+    public GameObject MainMenuGameObj;
+
+    public GameObject mapSelected, menuGameObj, lastMenuGameObj;
 
     public GameObject[] MenuOptions;
 
     public Toggle menuToggle1, menuToggle2, menuToggle3;
+
+    public Sprite mapS_rock, mapS_burning, mapS_chaos, mapS_king, mapS_runner;
 
 
 
@@ -36,80 +42,64 @@ public class Menu_1stOptionSelected : MonoBehaviour {
 
         menuGameObj = GameObject.FindGameObjectWithTag("Cell");
 
-        MainMenuGameObj = GameObject.FindGameObjectWithTag("Cell");
-
-        GameModeSelected = GameObject.FindGameObjectWithTag("Cell");
-
         mapSelected = GameObject.FindGameObjectWithTag("Cell");
 
-        player = ReInput.players.GetPlayer(0);      
+        player = ReInput.players.GetPlayer(0);
+
+        _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+
+        
 
     }
 
     void Update() {
+         
+     //   if (_eventSystem.currentSelectedGameObject == null)
+    //    {
+     //       _eventSystem.SetSelectedGameObject(MenuOptions[0]); 
+     //   }
 
-        if (!menuGameObj.activeSelf)
+    //    if (menuGameObj.name == "MainMenu")
+   //     {
+    //        _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+    //    }
+
+        switch (menuGameObj.name)
         {
-            MenuOptions = GameObject.FindGameObjectsWithTag("Test");
+            case "PressStart":
 
-            lastMenuGameObj = menuGameObj;
-
-            menuGameObj = GameObject.FindGameObjectWithTag("Cell");
-
-            if (menuGameObj.name == "ModeSelect")
-            {
-                _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-            }
-            else
-            {
-                _eventSystem.SetSelectedGameObject(MenuOptions[0]);
-            }
-        }
-
-        if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "ModeSelect")
-        {
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-        if (_eventSystem.currentSelectedGameObject == null)
-        {
-            _eventSystem.SetSelectedGameObject(MenuOptions[0]); 
-        }
-        
-        switch(menuGameObj.name)
-        {
-
-            //Mapa 1.1
-            case "ModeSelect":
-
-              //  DoAndCancel();
-
-                ModeSelectedObj = GameObject.FindGameObjectWithTag("Cell");
-              
-                GameModeSelected = _eventSystem.currentSelectedGameObject;
-                
                 pressedbuttonReturn();
-            break;
+
+                if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "MainMenu")
+                {
+                    _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+                }
+                
+                break;
+                
+            case "MainMenu":
+
+                if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "MainMenu")
+                {
+                    _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+                }
+
+                break;
 
             //Mapa 1.2
             case "MapSelect":
-                mapSelected = _eventSystem.currentSelectedGameObject;
+
+                MapCycle();
 
                 ReturnMapSelected();
 
                 pressedbuttonReturn();
             break;
-
+                
             //Mapa 1.3
             case "EntradaPlayers":
-                ReturnGameMode();
+                //  ReturnGameMode();
 
-                startButtonEntradaPlayers = FindObjectOfType<Button>();
-
-                if (menuToggle1.isOn == false && menuToggle2.isOn == false && menuToggle3.isOn == false)
-                {
-                    startButtonEntradaPlayers.interactable = false;
-                }
 
                 pressedbuttonReturn();
             break;
@@ -131,8 +121,34 @@ public class Menu_1stOptionSelected : MonoBehaviour {
 
             //Mapa 3.1
             case "ReallyQuit":
+
+                if (_eventSystem.currentSelectedGameObject == null)
+                {
+                    _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+                }
+
                 pressedbuttonReturn();
+
             break;
+
+        }
+
+        if (!menuGameObj.activeSelf)
+        {
+            MenuOptions = GameObject.FindGameObjectsWithTag("Test");
+
+            lastMenuGameObj = menuGameObj;
+
+            menuGameObj = GameObject.FindGameObjectWithTag("Cell");
+
+            if (menuGameObj.name == "MapSelect")
+            {
+                _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+            else
+            {
+                _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+            }
 
         }
 
@@ -141,18 +157,17 @@ public class Menu_1stOptionSelected : MonoBehaviour {
 
     public void pressedbuttonReturn()
     {
-        if(player.GetButtonDown("UICancel"))
+   
+        if (player.GetButtonDown("UICancel") && lastMenuGameObj.name == "MainMenu" && menuGameObj.name == "ReallyQuit")
         {
+            MainMenuGameObj.SetActive(true);
             menuGameObj.SetActive(false);
-            lastMenuGameObj.SetActive(true);
         }
 
-        if(player.GetButtonDown("UICancel") && lastMenuGameObj.name == "EntradaPlayers" && menuGameObj.name == "ModeSelect")
+        if (player.GetButtonDown("UICancel") || player.GetButtonDown("UISubmit") && menuGameObj.name == "PressStart")
         {
-            lastMenuGameObj.SetActive(false);
-            lastMenuGameObj = MainMenuGameObj;
             menuGameObj.SetActive(false);
-            lastMenuGameObj.SetActive(true);
+            MainMenuGameObj.SetActive(true);
         }
 
         if (player.GetButtonDown("UICancel") && lastMenuGameObj.name == "SoundOptions" && menuGameObj.name == "Options")
@@ -171,46 +186,238 @@ public class Menu_1stOptionSelected : MonoBehaviour {
             lastMenuGameObj.SetActive(true);
         }
 
+        if (player.GetButtonDown("UICancel") && lastMenuGameObj.name == "MainMenu" && menuGameObj.name == "MapSelect")
+        {
+            lastMenuGameObj.SetActive(true);   
+            menuGameObj.SetActive(false);
+
+            if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "MainMenu")
+            {
+                _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+            }
+
+        }
+
+
         if (player.GetButtonDown("UICancel") && lastMenuGameObj.name == "EntradaPlayers" && menuGameObj.name == "MapSelect")
         {
             lastMenuGameObj.SetActive(false);
             lastMenuGameObj = menuGameObj;
-          // .SetActive(false);
-            ModeSelectedObj.SetActive(true);
-        }
-
-
-        if (player.GetButtonDown("UICancel") && lastMenuGameObj.name == "MapSelect" && menuGameObj.name == "ModeSelect")
-        {
-            lastMenuGameObj.SetActive(false);
-            lastMenuGameObj = menuGameObj;
-            // .SetActive(false);
             MainMenuGameObj.SetActive(true);
+         //   mapSelected.SetActive(true);
         }
 
-
-        if (player.GetButton("UICancel") && lastMenuGameObj.name == "MapSelect" && menuGameObj.name == "EntradaPlayers")
+        if (player.GetButtonDown("UICancel") && lastMenuGameObj.name == "MapSelect" && menuGameObj.name == "EntradaPlayers")
         {
             menuToggle1.isOn = false;
             menuToggle2.isOn = false;
             menuToggle3.isOn = false;
 
+            MainMenuGameObj.SetActive(false);
             menuGameObj.SetActive(false);
             lastMenuGameObj.SetActive(true);
         }
     }
-
-    public string ReturnGameMode()
-    {
-        gameModeSelectedString = GameModeSelected.name;
-        return gameModeSelectedString;
-    }
-
+    
     public string ReturnMapSelected()
     {
-        mapSelectedString = mapSelected.name;
+       // mapSelectedString = mapSelected.name;
         return mapSelectedString;
     }
 
+    public void MapCycle()
+    {
+        bool tomarnorabo = true;
+
+        obj5 = GameObject.Find("LastMap");
+
+        obj1 = GameObject.Find("MapActual");
+
+        obj2 = GameObject.Find("SecondMap");
+
+        obj3 = GameObject.Find("ThirdMap");
+
+        obj4 = GameObject.Find("FourthMap");
+
+        ///FORWARDS///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if (player.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_runner && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_runner;
+                obj1.GetComponent<Image>().sprite = mapS_rock;
+                obj2.GetComponent<Image>().sprite = mapS_burning;
+                obj3.GetComponent<Image>().sprite = mapS_king;
+                obj4.GetComponent<Image>().sprite = mapS_chaos;
+                tomarnorabo = false;
+                mapSelectedString = "mapS_rock";
+                _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+        
+
+        if (player.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_rock && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_rock;
+                obj1.GetComponent<Image>().sprite = mapS_burning;
+                obj2.GetComponent<Image>().sprite = mapS_king;
+                obj3.GetComponent<Image>().sprite = mapS_chaos;
+                obj4.GetComponent<Image>().sprite = mapS_runner;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_burning";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+            
+        if (player.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_burning && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_burning;
+                obj1.GetComponent<Image>().sprite = mapS_king;
+                obj2.GetComponent<Image>().sprite = mapS_chaos;
+                obj3.GetComponent<Image>().sprite = mapS_runner;
+                obj4.GetComponent<Image>().sprite = mapS_rock;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_king";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+
+
+        if (player.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_king && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_king;
+                obj1.GetComponent<Image>().sprite = mapS_chaos;
+                obj2.GetComponent<Image>().sprite = mapS_runner;
+                obj3.GetComponent<Image>().sprite = mapS_rock;
+                obj4.GetComponent<Image>().sprite = mapS_burning;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_chaos";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+
+        if (player.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_chaos && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_chaos;
+                obj1.GetComponent<Image>().sprite = mapS_runner;
+                obj2.GetComponent<Image>().sprite = mapS_rock;
+                obj3.GetComponent<Image>().sprite = mapS_burning;
+                obj4.GetComponent<Image>().sprite = mapS_king;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_runner";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+            
+       
+
+        ///BACKWARDS///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        
+     
+            if (player.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_runner && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_king;
+                obj1.GetComponent<Image>().sprite = mapS_chaos;
+                obj2.GetComponent<Image>().sprite = mapS_runner;
+                obj3.GetComponent<Image>().sprite = mapS_rock;
+                obj4.GetComponent<Image>().sprite = mapS_burning;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_chaos";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+
+            if (player.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_chaos && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_burning;
+                obj1.GetComponent<Image>().sprite = mapS_king;
+                obj2.GetComponent<Image>().sprite = mapS_chaos;
+                obj3.GetComponent<Image>().sprite = mapS_runner;
+                obj4.GetComponent<Image>().sprite = mapS_rock;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_king";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+
+            if (player.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_king && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_rock;
+                obj1.GetComponent<Image>().sprite = mapS_burning;
+                obj2.GetComponent<Image>().sprite = mapS_king;
+                obj3.GetComponent<Image>().sprite = mapS_chaos;
+                obj4.GetComponent<Image>().sprite = mapS_runner;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_burning";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+
+
+            if (player.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_burning && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_runner;
+                obj1.GetComponent<Image>().sprite = mapS_rock;
+                obj2.GetComponent<Image>().sprite = mapS_burning;
+                obj3.GetComponent<Image>().sprite = mapS_king;
+                obj4.GetComponent<Image>().sprite = mapS_chaos;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_rock";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+            
+            if (player.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_rock && tomarnorabo == true)
+            {
+                obj5.GetComponent<Image>().sprite = mapS_chaos;
+                obj1.GetComponent<Image>().sprite = mapS_runner;
+                obj2.GetComponent<Image>().sprite = mapS_rock;
+                obj3.GetComponent<Image>().sprite = mapS_burning;
+                obj4.GetComponent<Image>().sprite = mapS_king;
+                tomarnorabo = false;
+            mapSelectedString = "mapS_runner";
+            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+    }
+
+    public void ButtonVerify()
+    {
+
+        startButtonEntradaPlayers = FindObjectOfType<Button>();
+
+        if (menuToggle1.isOn == true || menuToggle2.isOn == true && menuToggle3.isOn == true && startButtonEntradaPlayers.interactable == false)
+        {
+            startButtonEntradaPlayers.interactable = true;
+        }
+
+        if (menuToggle1.isOn == false && menuToggle2.isOn == false && menuToggle3.isOn == false)
+        {
+            startButtonEntradaPlayers.interactable = false;
+        }
+
+        if (menuToggle1.isOn == true)
+        {
+            ButtonSelector1 = GameObject.Find("SelectedPlayers");
+        }
+        if (menuToggle2.isOn == true)
+        {
+            ButtonSelector2 = GameObject.Find("SelectedPlayers2");
+        }
+        if (menuToggle3.isOn == true)
+        {
+            ButtonSelector3 = GameObject.Find("SelectedPlayers3");
+        }
+
+        if (ButtonSelector1.activeSelf == true && menuToggle1.isOn == false)
+        {
+            menuToggle1.isOn = true;
+            startButtonEntradaPlayers.interactable = true;
+        }
+
+
+        if (ButtonSelector2.activeSelf == true && menuToggle2.isOn == false)
+        {
+            menuToggle2.isOn = true;
+            startButtonEntradaPlayers.interactable = true;
+        }
+
+
+        if (ButtonSelector3.activeSelf == true && menuToggle3.isOn == false)
+        {
+            menuToggle3.isOn = true;
+            startButtonEntradaPlayers.interactable = true;
+        }
+    }
 }
    

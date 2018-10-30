@@ -16,4 +16,11 @@ public class TransitionScript : MonoBehaviour {
         }
     }
 
+    public void ExitGame(bool quit)
+    {
+        if (quit == true)
+        {
+            Application.Quit();
+        }
+    }
 }

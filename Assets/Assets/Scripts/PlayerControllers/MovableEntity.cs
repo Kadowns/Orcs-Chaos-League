@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MovableEntity : MonoBehaviour {
 
-	[HideInInspector] public InputSource Input;
+	[HideInInspector] public InputController Input;
 	public EntityState State;
 	public Motor Motor;
 	

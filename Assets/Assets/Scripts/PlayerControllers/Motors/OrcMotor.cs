@@ -8,7 +8,7 @@ public class OrcMotor : Motor {
 	
 	private FighterColors _colors;
 	
-	public override void Initialize(MovableEntity entity, InputSource input) {
+	public override void Initialize(MovableEntity entity, InputController input) {
 		var state = entity.State as OrcEntityState;
 		
 		state.ColliderRadiusY = entity.GetComponent<Collider>().bounds.size.y / 2;
@@ -21,7 +21,7 @@ public class OrcMotor : Motor {
 		
 	}
 
-	public override void Setup(MovableEntity entity, InputSource input) {
+	public override void Setup(MovableEntity entity, InputController input) {
 		var state = entity.State as OrcEntityState;
 		
 		foreach (var atk in state.Attacks) {
@@ -32,13 +32,13 @@ public class OrcMotor : Motor {
 		state.Rb.drag = state.AirDrag;
 	}
 
-	public override void Tick(MovableEntity entity, InputSource input) {
+	public override void Tick(MovableEntity entity, InputController input) {
 		var state = entity.State as OrcEntityState;
 		state.Grounded = Grounded(entity, state);
 
-		var hori = input.AxisX;
-		var vert = input.AxisY;
-		if (Mathf.Abs(hori)  >= 0.03f|| Mathf.Abs(vert) >= 0.03f) {
+		var direction = input.Axis;
+		
+		if (Mathf.Abs(direction.x)  >= 0.03f|| Mathf.Abs(direction.y) >= 0.03f) {
 			if (state.Grounded) {
 				state.DistanceMoved += state.Rb.velocity.sqrMagnitude;
 				if (state.DistanceMoved > 70f * 70f) {
@@ -46,7 +46,7 @@ public class OrcMotor : Motor {
 					state.Sfx.PlaySFxByIndex(0, Random.Range(0.8f, 1.2f));
 				}
 			}
-			Move(state, new Vector3(hori, 0, vert).normalized);		
+			Move(state, new Vector3(direction.x, 0, direction.y).normalized);		
 		}
 		if (input.ActionRightButtonPressed) {
 			Dash(entity, state);
@@ -168,7 +168,7 @@ public class OrcMotor : Motor {
 		}
 	}
 
-	public override void FixedTick(MovableEntity entity, InputSource input) {
+	public override void FixedTick(MovableEntity entity, InputController input) {
 		var state = entity.State as OrcEntityState;
 		
 
@@ -203,7 +203,7 @@ public class OrcMotor : Motor {
 		ApplyGravity(entity, state);
 	}
 
-	public override void LateTick(MovableEntity entity, InputSource input) {}
+	public override void LateTick(MovableEntity entity, InputController input) {}
 
 	private static void ApplyGravity(MovableEntity entity, OrcEntityState state) {
 		Vector3 gravity = Physics.gravity * (state.GravityScale + 5);
@@ -211,6 +211,7 @@ public class OrcMotor : Motor {
 	}
 
 	private void Kill(OrcEntityState state) {
+		
 		state.Rb.isKinematic = true;
 		ResetToDefault(state);
 		state.gameObject.SetActive(false);
@@ -314,7 +315,6 @@ public class OrcMotor : Motor {
 
 					throwable.Throw(dir, state.Controller.PlayerNumber);
 				}
-
 			}
 		}
 		state.Cooldown = true;
@@ -420,6 +420,8 @@ public class OrcMotor : Motor {
 		state.Controller.WasHit(attackerID);
 		if (state.Damage > 250) {
 			Kill(state);
+			ScreenEffects.Instance.CreateBloodSplashParticles(state.transform.position);
+			ScreenEffects.Instance.FreezeFrame(0.1f);
 		}	else if (state.Damage > 100) {
 			state.Flash.SetRedAmount(state.Damage);
 		}

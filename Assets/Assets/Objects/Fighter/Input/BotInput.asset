@@ -8,10 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8345501bf3d14cb79608a717f6238a16, type: 3}
-  m_Name: GuidedRock
+  m_Script: {fileID: 11500000, guid: cc3365364296485abc1ce53afea1fecd, type: 3}
+  m_Name: BotInput
   m_EditorClassIdentifier: 
-  EventHudSprite: {fileID: 21300020, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
-  Duration: 22
-  RocksToSpawn: 5
-  SpawnInterval: 4.9

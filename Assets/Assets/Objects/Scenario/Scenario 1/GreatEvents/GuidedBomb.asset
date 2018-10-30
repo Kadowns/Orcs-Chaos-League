@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ce80ed67479f814f9ea707144d8bdd9, type: 3}
-  m_Name: PotatoBomb
+  m_Name: GuidedBomb
   m_EditorClassIdentifier: 
-  EventHudSprite: {fileID: 21300018, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
-  Duration: 18.1
-  ObjectToSpawnName: PotatoBomb
-  ItemsToSpawn: 2
-  SpawnInterval: 3.3
+  EventHudSprite: {fileID: 21300020, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
+  Duration: 20.9
+  ObjectToSpawnName: GuidedBomb
+  ItemsToSpawn: 6
+  SpawnInterval: 2.5

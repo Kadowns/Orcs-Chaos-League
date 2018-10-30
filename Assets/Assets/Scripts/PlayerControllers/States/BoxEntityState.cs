@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.PlayerControllers;
 using UnityEngine;
 
 public class BoxEntityState : EntityState {
@@ -8,6 +9,7 @@ public class BoxEntityState : EntityState {
 	
 	public Transform RoofPoint;
 	public Rigidbody JointRb;
+	public DropBox DropBox;
 	public float MoveSpeed = 500f;
     public float GravityScale = 10f;
 
@@ -27,6 +29,7 @@ public class BoxEntityState : EntityState {
 	public GameObject Orc{ get; set; }
 	public Vector3 DefaultPosition{ get; set; }
 	public bool PlayerInside{ get; set; }
+	public bool BoxReleased { get; set; }
 	public bool CanSpawn { get; set; }
 	
 	#endregion

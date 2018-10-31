@@ -20,7 +20,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
     private GameObject obj5, obj1, obj2, obj3, obj4, ButtonSelector1, ButtonSelector2, ButtonSelector3;
 
-    
+   // public PlayerInGAME pIg;    
 
 
 
@@ -73,7 +73,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
         //GettingSprites();
 
-       
+      //  pIg = new PlayerInGAME();
 
 
         _eventSystem = EventSystem.current;
@@ -177,7 +177,20 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
                 pressedbuttonReturn();
 
+                if(p1_active_p && p2_active_p || p2_active_bot || p3_active_p || p3_active_bot || p4_active_p || p4_active_bot)
+                {
+                    startConfirm.interactable = true;
+                    if(p1.GetButtonDown("Start") || p2.GetButtonDown("Start") || p3.GetButtonDown("Start") || p4.GetButtonDown("Start"))
+                    {
+                        SceneManager.LoadScene(1);
+                    }
+                }
+                else
+                {
+                    startConfirm.interactable = false;
+                }
 
+                /*
                 for(int i = 0; i < 4; i++)
                 {
                     bool ifistrue = true; ;
@@ -202,7 +215,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
                         }
                     }
                 }
-                
+                */
 
              
 
@@ -901,21 +914,21 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p1_active_bot = true;
                 p1_active_p = false;
-                PlayerInGAME.CPU[0] = true;
-                PlayerInGAME.PlayersInGame[0] = false;
+             //   PlayerInGAME.CPU[0] = true;
+              //  PlayerInGAME.PlayersInGame[0] = false;
             }
             
             if(w.GetComponent<Image>().sprite == p1_on)
             {
                 p1_active_bot = false;
                 p1_active_p = true;
-                PlayerInGAME.CPU[0] = false;
-                PlayerInGAME.PlayersInGame[0] = true;
+              //  PlayerInGAME.CPU[0] = false;
+              //  PlayerInGAME.PlayersInGame[0] = true;
             }
         }
         else
         {
-            PlayerInGAME.CPU[0] = false;
+      ///      PlayerInGAME.CPU[0] = false;
             PlayerInGAME.PlayersInGame[0] = false;
         }
 
@@ -926,7 +939,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p2_active_bot = true;
                 p2_active_p = false;
-                PlayerInGAME.CPU[1] = true;
+         //       PlayerInGAME.CPU[1] = true;
                 PlayerInGAME.PlayersInGame[1] = false;
             }
 
@@ -934,14 +947,14 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p2_active_bot = false;
                 p2_active_p = true;
-                PlayerInGAME.CPU[1] = false;
-                PlayerInGAME.PlayersInGame[1] = true;
+       //         PlayerInGAME.CPU[1] = false;
+       //         PlayerInGAME.PlayersInGame[1] = true;
             }
         }
         else
         {
-            PlayerInGAME.CPU[1] = false;
-            PlayerInGAME.PlayersInGame[1] = false;
+          //  PlayerInGAME.CPU[1] = false;
+   //         PlayerInGAME.PlayersInGame[1] = false;
         }
 
 
@@ -951,22 +964,23 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p3_active_bot = true;
                 p3_active_p = false;
-                PlayerInGAME.CPU[2] = true;
-                PlayerInGAME.PlayersInGame[2] = false;
+         
+         //       PlayerInGAME.CPU[2] = true;
+          //      PlayerInGAME.PlayersInGame[2] = false;
             }
             
             if (y.GetComponent<Image>().sprite == p3_on)
             {
                 p3_active_bot = false;  
                 p3_active_p = true;
-                PlayerInGAME.CPU[2] = false;
-                PlayerInGAME.PlayersInGame[2] = true;
+             ///   PlayerInGAME.CPU[2] = false;
+              //  PlayerInGAME.PlayersInGame[2] = true;
             } 
         }
         else
         {
-            PlayerInGAME.CPU[2] = false;
-            PlayerInGAME.PlayersInGame[2] = false;
+     //       PlayerInGAME.CPU[2] = false;
+      //      PlayerInGAME.PlayersInGame[2] = false;
         }
 
 
@@ -976,22 +990,22 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p4_active_bot = true;
                 p4_active_p = false;
-                PlayerInGAME.CPU[3] = true;
-                PlayerInGAME.PlayersInGame[3] = false;
+          //      PlayerInGAME.CPU[3] = true;
+    //            PlayerInGAME.PlayersInGame[3] = false;
             }
 
             if (z.GetComponent<Image>().sprite == p4_on)
             {
                 p4_active_bot = false;
                 p4_active_p = true;
-                PlayerInGAME.CPU[3] = false;
-                PlayerInGAME.PlayersInGame[3] = true;
+        //        PlayerInGAME.CPU[3] = false;
+        //        PlayerInGAME.PlayersInGame[3] = true;
             }
         }
         else
         {
-            PlayerInGAME.CPU[3] = false;
-            PlayerInGAME.PlayersInGame[3] = false;
+     ///       PlayerInGAME.CPU[3] = false;
+  //          PlayerInGAME.PlayersInGame[3] = false;
         }
 
      

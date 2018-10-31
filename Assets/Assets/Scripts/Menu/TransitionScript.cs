@@ -10,11 +10,11 @@ public class TransitionScript : MonoBehaviour {
             SceneManager.LoadScene(1);
     }
 
-    public void SetPlayers(int value) {
-        for (int i = 0; i < PlayerSelection.PlayersInGame.Length; i++) {
-            PlayerSelection.PlayersInGame[i] = i < value;
-        }
-    }
+   // public void SetPlayers(int value) {
+   //     for (int i = 0; i < PlayerInGAME.PlayersInGame.Length; i++) {
+  //          PlayerInGAME.PlayersInGame[i] = i < value;
+   //     }
+  //  }
 
     public void ExitGame(bool quit)
     {

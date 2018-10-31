@@ -28780,7 +28780,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7830189, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.4245283, g: 0.25832146, b: 0.25832146, a: 0.69411767}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -52575,7 +52575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ef3183688dd6545a0155b8f0a9ba01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  add: 0
   mapS_rock: {fileID: 21300000, guid: 4ee81b929a49d8f41b44496ca764de1b, type: 3}
   mapS_burning: {fileID: 21300000, guid: f4339b3c1f405764b9d2ae22580e97cf, type: 3}
   mapS_chaos: {fileID: 21300000, guid: 402fcf9cdb351ab4b994f7dcd3c9d15c, type: 3}

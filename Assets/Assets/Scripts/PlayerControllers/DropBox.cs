@@ -28,9 +28,21 @@ namespace Assets.Scripts.PlayerControllers {
         private void DestroyBox() {
             gameObject.SetActive(false);
             _rb.isKinematic = true;
+            Explosion();
             ScreenEffects.Instance.CreateBoxParticles(transform.position);
             ScreenEffects.Instance.ScreenShake(0.15f, 1.5f);
             _controller.SpawnOrc(transform.position);
+        }
+
+        private void Explosion() {
+            var orcs = Physics.OverlapSphere(transform.position, 20f, 1 << LayerMask.NameToLayer("Players"));
+            
+            foreach (var orc in orcs) {
+                var entity = orc.GetComponent<MovableEntity>();
+                var motor = entity.Motor as OrcMotor;
+                var state = entity.State as OrcEntityState;
+                motor.Damage(state, (orc.transform.position - transform.position).normalized, 200f, 0.5f, true, true, _controller.PlayerNumber);
+            }
         }
         
         private void OnCollisionEnter(Collision other) {

@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.PlayerControllers.Input {
 
-    public class BrainMemory {
+    public class BotBrainMemory {
         public Transform ThisOrc { get; set; }
         public Transform ThisBox { get; set; }
 
@@ -18,11 +18,11 @@ namespace Assets.Scripts.PlayerControllers.Input {
     }
     
     public static class BotBrains {
-        public static readonly BrainMemory[] BrainMemorys = {
-            new BrainMemory(),
-            new BrainMemory(),
-            new BrainMemory(),
-            new BrainMemory()
+        public static readonly BotBrainMemory[] BotBrainMemories = {
+            new BotBrainMemory(),
+            new BotBrainMemory(),
+            new BotBrainMemory(),
+            new BotBrainMemory()
         };
     }
 }

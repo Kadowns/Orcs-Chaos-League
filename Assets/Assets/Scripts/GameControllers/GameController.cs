@@ -36,7 +36,7 @@ public class GameController : Singleton<GameController> {
     private void Start() {
 
 	    for (int i = 0; i < ActivePlayers.Length; i++) {
-		    PlayerSelection.PlayersInGame[i] = ActivePlayers[i];
+		    PlayerInGAME.PlayersInGame[i] = ActivePlayers[i];
 	    }
         
         
@@ -48,7 +48,7 @@ public class GameController : Singleton<GameController> {
 	    _music.PlayBgmByIndex(0);
 	    _music.SetBGMLowPassFilter(200);
 	    _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
-	    StartMatch(PlayerSelection.PlayersInGame);
+	    StartMatch(PlayerInGAME.PlayersInGame);
     }
 
 

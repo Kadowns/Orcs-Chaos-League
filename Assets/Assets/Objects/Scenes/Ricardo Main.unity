@@ -101912,7 +101912,34 @@ MonoBehaviour:
   GlobalPlatformSettings:
     Curve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1.0041962
+        outSlope: 1.0041962
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.49647433
+        value: 0.49855763
+        inSlope: 1.0000001
+        outSlope: 1.0000001
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0375061
+        value: -0.012500763
+        inSlope: -0.94459957
+        outSlope: -0.94459957
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -101982,7 +102009,7 @@ Transform:
   m_GameObject: {fileID: 1697129184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
   m_Children:
   - {fileID: 797717947}
   - {fileID: 1371775409}

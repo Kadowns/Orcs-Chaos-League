@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-public struct PlayerInGAME{
+public struct PlayerData{
 	
 	public static bool[] PlayersInGame = new bool[4];
 

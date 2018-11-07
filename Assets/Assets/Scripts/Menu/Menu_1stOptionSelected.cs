@@ -182,12 +182,12 @@ public class Menu_1stOptionSelected : MonoBehaviour
                 {
                     bool ifistrue = true; ;
 
-                    if(PlayerInGAME.CPU[i] == true && ifistrue == true)
+                    if(PlayerData.CPU[i] == true && ifistrue == true)
                     {
                         contador++;
                     }
 
-                    if(PlayerInGAME.PlayersInGame[i] == true && ifistrue == true)
+                    if(PlayerData.PlayersInGame[i] == true && ifistrue == true)
                     {
                         contador++;
                         ifistrue = false;
@@ -901,22 +901,22 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p1_active_bot = true;
                 p1_active_p = false;
-                PlayerInGAME.CPU[0] = true;
-                PlayerInGAME.PlayersInGame[0] = false;
+                PlayerData.CPU[0] = true;
+                PlayerData.PlayersInGame[0] = false;
             }
             
             if(w.GetComponent<Image>().sprite == p1_on)
             {
                 p1_active_bot = false;
                 p1_active_p = true;
-                PlayerInGAME.CPU[0] = false;
-                PlayerInGAME.PlayersInGame[0] = true;
+                PlayerData.CPU[0] = false;
+                PlayerData.PlayersInGame[0] = true;
             }
         }
         else
         {
-            PlayerInGAME.CPU[0] = false;
-            PlayerInGAME.PlayersInGame[0] = false;
+            PlayerData.CPU[0] = false;
+            PlayerData.PlayersInGame[0] = false;
         }
 
 
@@ -926,22 +926,22 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p2_active_bot = true;
                 p2_active_p = false;
-                PlayerInGAME.CPU[1] = true;
-                PlayerInGAME.PlayersInGame[1] = false;
+                PlayerData.CPU[1] = true;
+                PlayerData.PlayersInGame[1] = false;
             }
 
             if (x.GetComponent<Image>().sprite == p2_on)
             {
                 p2_active_bot = false;
                 p2_active_p = true;
-                PlayerInGAME.CPU[1] = false;
-                PlayerInGAME.PlayersInGame[1] = true;
+                PlayerData.CPU[1] = false;
+                PlayerData.PlayersInGame[1] = true;
             }
         }
         else
         {
-            PlayerInGAME.CPU[1] = false;
-            PlayerInGAME.PlayersInGame[1] = false;
+            PlayerData.CPU[1] = false;
+            PlayerData.PlayersInGame[1] = false;
         }
 
 
@@ -951,22 +951,22 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p3_active_bot = true;
                 p3_active_p = false;
-                PlayerInGAME.CPU[2] = true;
-                PlayerInGAME.PlayersInGame[2] = false;
+                PlayerData.CPU[2] = true;
+                PlayerData.PlayersInGame[2] = false;
             }
             
             if (y.GetComponent<Image>().sprite == p3_on)
             {
                 p3_active_bot = false;  
                 p3_active_p = true;
-                PlayerInGAME.CPU[2] = false;
-                PlayerInGAME.PlayersInGame[2] = true;
+                PlayerData.CPU[2] = false;
+                PlayerData.PlayersInGame[2] = true;
             } 
         }
         else
         {
-            PlayerInGAME.CPU[2] = false;
-            PlayerInGAME.PlayersInGame[2] = false;
+            PlayerData.CPU[2] = false;
+            PlayerData.PlayersInGame[2] = false;
         }
 
 
@@ -976,22 +976,22 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 p4_active_bot = true;
                 p4_active_p = false;
-                PlayerInGAME.CPU[3] = true;
-                PlayerInGAME.PlayersInGame[3] = false;
+                PlayerData.CPU[3] = true;
+                PlayerData.PlayersInGame[3] = false;
             }
 
             if (z.GetComponent<Image>().sprite == p4_on)
             {
                 p4_active_bot = false;
                 p4_active_p = true;
-                PlayerInGAME.CPU[3] = false;
-                PlayerInGAME.PlayersInGame[3] = true;
+                PlayerData.CPU[3] = false;
+                PlayerData.PlayersInGame[3] = true;
             }
         }
         else
         {
-            PlayerInGAME.CPU[3] = false;
-            PlayerInGAME.PlayersInGame[3] = false;
+            PlayerData.CPU[3] = false;
+            PlayerData.PlayersInGame[3] = false;
         }
 
      

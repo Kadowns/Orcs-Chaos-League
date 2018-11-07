@@ -79,24 +79,38 @@ public class PlayerController : MonoBehaviour {
 		
 		CreateOrc();
 		BindBox();
+
 		
-		var playerInput = _input.Source as PlayerInput;
-		if (playerInput != null) {
-			_player = ReInput.players.GetPlayer(_playerNumber);
-			PlayerBrains.BrainMemory[_playerNumber].Player = _player;
-		}
-		else {
-			var botInput = _input.Source as BotInput;
-			if (botInput != null) {
-				BotBrains.BotBrainMemories[PlayerNumber].ThisOrc = _orc.transform;
-				BotBrains.BotBrainMemories[PlayerNumber].ThisBox = _box.transform;
-			}
-		}
+		
+//		var playerInput = _input.Source as PlayerInput;
+//		if (playerInput != null) {
+//			_player = ReInput.players.GetPlayer(_playerNumber);
+//			PlayerBrains.BrainMemory[_playerNumber].Player = _player;
+//		}
+//		else {
+//			var botInput = _input.Source as BotInput;
+//			if (botInput != null) {
+//				BotBrains.BotBrainMemories[PlayerNumber].ThisOrc = _orc.transform;
+//				BotBrains.BotBrainMemories[PlayerNumber].ThisBox = _box.transform;
+//			}
+//		}
 	}
 	
 	private void Start() {
 		_pool = ObjectPooler.Instance;
 		
+		if (PlayerData.CPU[_playerNumber]) {
+			Debug.Log("Virei bot");
+			BotBrains.BotBrainMemories[_playerNumber].ThisOrc = _orc.transform;
+			BotBrains.BotBrainMemories[_playerNumber].ThisBox = _box.transform;
+			_input.IsBot(true);
+		}
+		else {
+			Debug.Log("Virei player");
+			_player = ReInput.players.GetPlayer(_playerNumber);
+			PlayerBrains.BrainMemory[_playerNumber].Player = _player;
+			_input.IsBot(false);
+		}
 	}
 
 	private void CreateOrc() {

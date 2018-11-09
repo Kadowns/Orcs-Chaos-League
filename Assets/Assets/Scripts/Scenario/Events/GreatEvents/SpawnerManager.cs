@@ -6,10 +6,10 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
     public class SpawnerManager : Singleton<SpawnerManager> {
 
         [HideInInspector]
-        public List<EventSpawner> Spawners;
+        public Dictionary<string, List<EventSpawner>> Spawners = new Dictionary<string, List<EventSpawner>>();
 
-        public void SpawnObjects(string name) {
-            while (!Spawners[Random.Range(0, Spawners.Count - 1)].SpawnObject(name)) { }
+        public void SpawnObjects(string objectName, string spawnerType) {
+            while (!Spawners[spawnerType][Random.Range(0, Spawners.Count - 1)].SpawnObject(name)) { }
         }
     }
 }

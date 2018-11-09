@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 using Assets.Scripts.Scenario.Events.GreatEvents;
+using System.Collections.Generic;
 using EzEditor;
 using UnityEditor;
 using UnityEngine;
@@ -21,8 +22,8 @@ namespace Assets.Scripts.Editor {
 		private GreatEvent _newGreatEvent;
 		private UnityEditor.Editor[] _greatEventEditors;
 		private bool[] _greatEventEditorsFoldout;
-	
-	
+
+		private string _newType = "";
 
 		public override void OnInspectorGUI() {
 			if (_target == null) {
@@ -40,13 +41,25 @@ namespace Assets.Scripts.Editor {
 
 		void DrawListEditor() {
 
-			if (_greatEventEditors.Length != _target.GreatEvents.Count || _greatEventEditorsFoldout.Length != _target.GreatEvents.Count) {
+			if (_greatEventEditors.Length != _target.GreatEvents.Count ||
+			    _greatEventEditorsFoldout.Length != _target.GreatEvents.Count) {
 				_greatEventEditors = new UnityEditor.Editor[_target.GreatEvents.Count];
 				_greatEventEditorsFoldout = new bool[_target.GreatEvents.Count];
 			}
 
-			EventSpawner newSpawner = null;
-			gui.EzObjectArray("Spawners", SpawnerManager.Instance.Spawners, ref newSpawner, ref _eventSpawnerFoldout);
+			if (SpawnerManager.Instance.Spawners.Count != 0) {
+				foreach (var type in SpawnerManager.Instance.Spawners) {
+					EventSpawner newSpawner = null;
+					gui.EzObjectArray(type.Key, type.Value, ref newSpawner, ref _eventSpawnerFoldout);
+				}
+			}
+
+			_newType = gui.EzTextField("New Spawner Type", _newType);
+			if (gui.EzButton("Add new Spawner type")) {
+				SpawnerManager.Instance.Spawners.Add(_newType, new List<EventSpawner>());
+				_newType = "";
+			}
+		
 
 			for (int i = 0; i < _target.GreatEvents.Count; i++) {
 

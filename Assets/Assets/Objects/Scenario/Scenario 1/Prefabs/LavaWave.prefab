@@ -24,13 +24,14 @@ GameObject:
   - component: {fileID: 23219869135292694}
   - component: {fileID: 64653507399501368}
   - component: {fileID: 54703252007290304}
-  m_Layer: 0
+  - component: {fileID: 114600278159922850}
+  m_Layer: 8
   m_Name: LavaWave
   m_TagString: Lava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4645970199237188
 Transform:
   m_ObjectHideFlags: 1
@@ -108,10 +109,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1567509376849228}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0c1cba1cbd09a0b47bf77c5533c3db70, type: 3}
@@ -126,5 +127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f82f58a3bac4e66b3f1ff05f76bb538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: 5
+  LifeTime: 30
   Speed: 20
+--- !u!114 &114600278159922850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1567509376849228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4251034827bf8904fb02508b7eb12066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -23,6 +23,7 @@ namespace Assets.Scripts.Scenario.Events {
 
         public void OnSpawn() {
             _direction = -transform.position.normalized;
+            transform.right = _direction;
             _timeAlive = Time.time + LifeTime;   
         }
     }

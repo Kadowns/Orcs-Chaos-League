@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce80ed67479f814f9ea707144d8bdd9, type: 3}
   m_Name: Meteorites
   m_EditorClassIdentifier: 
-  EventHudSprite: {fileID: 0}
-  Duration: 0
+  EventHudSprite: {fileID: 21300010, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
+  Duration: 30.4
   ObjectToSpawnName: 
+  SpawnTypeName: 
   ItemsToSpawn: 5
   SpawnInterval: 1.5

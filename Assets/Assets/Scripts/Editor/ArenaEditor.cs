@@ -23,7 +23,7 @@ namespace Assets.Scripts.Editor {
 		private UnityEditor.Editor[] _greatEventEditors;
 		private bool[] _greatEventEditorsFoldout;
 
-		private string _newType = "";
+		private string _newTypeName = "";
 
 		public override void OnInspectorGUI() {
 			if (_target == null) {
@@ -47,17 +47,21 @@ namespace Assets.Scripts.Editor {
 				_greatEventEditorsFoldout = new bool[_target.GreatEvents.Count];
 			}
 
-			if (SpawnerManager.Instance.Spawners.Count != 0) {
-				foreach (var type in SpawnerManager.Instance.Spawners) {
+			if (SpawnerManager.Instance.SpawnersTypes.Count != 0) {
+				foreach (var type in SpawnerManager.Instance.SpawnersTypes) {
 					EventSpawner newSpawner = null;
-					gui.EzObjectArray(type.Key, type.Value, ref newSpawner, ref _eventSpawnerFoldout);
+					gui.EzObjectArray(type.Name, type.Spawners, ref newSpawner, ref _eventSpawnerFoldout);
 				}
 			}
 
-			_newType = gui.EzTextField("New Spawner Type", _newType);
-			if (gui.EzButton("Add new Spawner type")) {
-				SpawnerManager.Instance.Spawners.Add(_newType, new List<EventSpawner>());
-				_newType = "";
+			_newTypeName = gui.EzTextField("New Spawner Type", _newTypeName);
+			if (gui.EzButton("Add new Spawner type") && _newTypeName != "") {
+				SpawnerManager.SpawnerType newSpawnerType = new SpawnerManager.SpawnerType {
+					Name = _newTypeName,
+					Spawners = new List<EventSpawner>()
+				};
+				SpawnerManager.Instance.SpawnersTypes.Add(newSpawnerType);
+				_newTypeName = "";
 			}
 		
 

@@ -157,7 +157,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
     {
         for (int i = 0; i < players.Length; i++)
         {
-            if (players[i].GetButtonDown("UICancel") && dontChangeMenu == false)
+            if (players[0].GetButtonDown("UICancel") && dontChangeMenu == false)
             {
                 Debug.Log("MudeiMesmo!!!!!!!!!!!!!!!");
                 toDeactivateMenu.SetActive(false);
@@ -176,12 +176,12 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 var a = GameObject.Find("1");
                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
-                a = GameObject.Find("2");
-                a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
-                a = GameObject.Find("3");
-                a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
-                a = GameObject.Find("4");
-                a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                var b = GameObject.Find("2");
+                b.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                var c = GameObject.Find("3");
+                c.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                var d = GameObject.Find("4");
+                d.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
                 startConfirm.SetActive(false);
                 players_active[0] = false;
                 gambiarra = false;
@@ -496,16 +496,16 @@ public class Menu_1stOptionSelected : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             if (bot_active[i] == true){
-                PlayerInGAME.PlayersInGame[i] = true;
+                PlayerInGame.PlayersInGame[i] = true;
             }
             else{
-                PlayerInGAME.PlayersInGame[i] = false;
+                PlayerInGame.PlayersInGame[i] = false;
             }
             if (players_active[i] == true){
-                PlayerInGAME.PlayersInGame[i] = true;
+                PlayerInGame.PlayersInGame[i] = true;
             }
             else{
-                PlayerInGAME.PlayersInGame[i] = false;
+                PlayerInGame.PlayersInGame[i] = false;
             }
         }
 

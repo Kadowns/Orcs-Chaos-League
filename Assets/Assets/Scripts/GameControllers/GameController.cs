@@ -35,41 +35,37 @@ public class GameController : Singleton<GameController> {
 	
 	private bool _rematch, _goToHub, _paused, _gameOverMenu, _transition, _matchEnded;
 
-<<<<<<< HEAD
-	    for (int i = 0; i < ActivePlayers.Length; i++) {
-		    PlayerInGame.PlayersInGame[i] = ActivePlayers[i];
-	    }
-        
-=======
+
 
 	private void Awake() {
-		if (ForcePlayers) {
+
+        for (int i = 0; i < ActivePlayers.Length; i++)
+        {
+            PlayerData.PlayersInGame[i] = ActivePlayers[i];
+        }
+
+        if (ForcePlayers) {
 			for (int i = 0; i < ActivePlayers.Length; i++) {
 				PlayerData.PlayersInGame[i] = ActivePlayers[i];
 				PlayerData.CPU[i] = BotPlayers[i];
 			}
 		}	
 	}
-	
-    private void Start() {   
->>>>>>> master
-        
-	    _camera = CameraController.Instance;
-	    _fx = ScreenEffects.Instance;
-	    _music = MusicController.Instance;
-	    _hud = HUDController.Instance;
-	    
-	    _music.PlayBgmByIndex(0);
-	    _music.SetBGMLowPassFilter(200);
-	    _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
-<<<<<<< HEAD
-	    StartMatch(PlayerInGame.PlayersInGame);
-=======
-	    StartMatch(PlayerData.PlayersInGame);
->>>>>>> master
+
+    private void Start()
+    {
+
+        _camera = CameraController.Instance;
+        _fx = ScreenEffects.Instance;
+        _music = MusicController.Instance;
+        _hud = HUDController.Instance;
+
+        _music.PlayBgmByIndex(0);
+        _music.SetBGMLowPassFilter(200);
+        _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
+
+        StartMatch(PlayerData.PlayersInGame);
     }
-
-
 	private void Update() {
 
 		if (_matchEnded) {

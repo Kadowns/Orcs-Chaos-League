@@ -111,6 +111,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
             case "EntradaPlayersDefinitivo":
                 playersConfirmation();
                 pressedbuttonReturn(menuGameObj, MainMenuGameObj);
+                ChangingPlayersIngame();
                 dontChangeMenu = false;
             break;
             /*Mapa 2
@@ -175,6 +176,13 @@ public class Menu_1stOptionSelected : MonoBehaviour
             {
                 var a = GameObject.Find("1");
                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
+                a = GameObject.Find("2");
+                a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                a = GameObject.Find("3");
+                a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                a = GameObject.Find("4");
+                a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                startConfirm.SetActive(false);
                 players_active[0] = false;
                 gambiarra = false;
             }
@@ -282,7 +290,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
                         players_active[2] = false;
                         break;
                     case 3:
-                        b = GameObject.Find("2");
+                        b = GameObject.Find("4");
                         b.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
                         players_active[3] = false;
                         break;
@@ -300,16 +308,19 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p2_cpu;
                                 botControl = false;
+                                bot_active[1] = true;
                             }
                             a = GameObject.Find("3");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p3_cpu;
                                 botControl = false;
+                                bot_active[2] = true;
                             }
                             a = GameObject.Find("4");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p4_cpu;
                                 botControl = false;
+                                bot_active[3] = true;
                             }
                             break;
                         case 1:
@@ -317,16 +328,19 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_cpu;
                                 botControl = false;
+                                bot_active[0] = true;
                             }
                             a = GameObject.Find("3");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p3_cpu;
                                 botControl = false;
+                                bot_active[2] = true;
                             }
                             a = GameObject.Find("4");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p4_cpu;
                                 botControl = false;
+                                bot_active[3] = true;
                             }
                             break;
                         case 2:
@@ -334,16 +348,19 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_cpu;
                                 botControl = false;
+                                bot_active[0] = true;
                             }
                             a = GameObject.Find("2");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p2_cpu;
                                 botControl = false;
+                                bot_active[1] = true;
                             }
                             a = GameObject.Find("4");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p4_cpu;
                                 botControl = false;
+                                bot_active[3] = true;
                             }
                             break;
                         case 3:
@@ -351,16 +368,19 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_cpu;
                                 botControl = false;
+                                bot_active[0] = true;
                             }
                             a = GameObject.Find("2");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p2_cpu;
                                 botControl = false;
+                                bot_active[1] = true;
                             }
                             a = GameObject.Find("3");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_off && botControl == true){
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p3_cpu;
                                 botControl = false;
+                                bot_active[2] = true;
                             }
                             break;
                     }      
@@ -379,18 +399,21 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
                                 botControl2 = false;
+                                bot_active[1] = false;
                             }
                             a = GameObject.Find("3");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
                                 botControl2 = false;
+                                bot_active[2] = false;
                             }
                             a = GameObject.Find("4");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
                                 botControl2 = false;
+                                bot_active[3] = false;
                             }
                             break;
                         case 1:
@@ -399,18 +422,21 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
                                 botControl2 = false;
+                                bot_active[0] = false;
                             }
                             a = GameObject.Find("3");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
                                 botControl2 = false;
+                                bot_active[2] = false;
                             }
                             a = GameObject.Find("4");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
                                 botControl2 = false;
+                                bot_active[3] = false;
                             }
                             break;
                         case 2:
@@ -419,18 +445,21 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
                                 botControl2 = false;
+                                bot_active[0] = false;
                             }
                             a = GameObject.Find("2");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
                                 botControl2 = false;
+                                bot_active[1] = false;
                             }
                             a = GameObject.Find("4");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
                                 botControl2 = false;
+                                bot_active[3] = false;
                             }
                             break;
                         case 3:
@@ -439,20 +468,55 @@ public class Menu_1stOptionSelected : MonoBehaviour
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
                                 botControl2 = false;
+                                bot_active[0] = false;
                             }
                             a = GameObject.Find("2");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
                                 botControl2 = false;
+                                bot_active[1] = false;
                             }
                             a = GameObject.Find("3");
                             if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_cpu && botControl2 == true)
                             {
                                 a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
                                 botControl2 = false;
+                                bot_active[2] = false;
                             }
                             break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void ChangingPlayersIngame()
+    {
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (bot_active[i] == true){
+                PlayerInGAME.PlayersInGame[i] = true;
+            }
+            else{
+                PlayerInGAME.PlayersInGame[i] = false;
+            }
+            if (players_active[i] == true){
+                PlayerInGAME.PlayersInGame[i] = true;
+            }
+            else{
+                PlayerInGAME.PlayersInGame[i] = false;
+            }
+        }
+
+        if(players_active[0] == true || bot_active[0] == true)
+        {
+            for(int e = 0; e < players.Length; e++)
+            {
+                if(players_active[e] == true || bot_active[e] == true){
+                    startConfirm.SetActive(true);
+                    if (players[e].GetButtonDown("Start")){
+                        SceneManager.LoadScene(1);
                     }
                 }
             }

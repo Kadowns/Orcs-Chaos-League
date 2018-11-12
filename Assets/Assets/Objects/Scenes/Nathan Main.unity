@@ -10447,7 +10447,7 @@ GameObject:
   - component: {fileID: 148956947}
   - component: {fileID: 148956946}
   - component: {fileID: 148956945}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -20804,7 +20804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253616398}
   - component: {fileID: 253616397}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42170,7 +42170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 720565494}
   - component: {fileID: 720565493}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Rewired Input Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42964,7 +42964,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: 10
         _axisRange: 0
@@ -42975,7 +42975,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 0
         _elementIdentifierId: 11
         _axisRange: 0
@@ -42986,7 +42986,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: 12
         _axisRange: 0
@@ -42997,10 +42997,10 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 0
         _elementIdentifierId: 13
-        _axisRange: 0
+        _axisRange: 1
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 0
@@ -43008,7 +43008,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: 17
         _axisRange: 0
@@ -43019,7 +43019,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 15
         _elementType: 1
         _elementIdentifierId: 18
         _axisRange: 0
@@ -43305,6 +43305,17 @@ MonoBehaviour:
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 13
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 15
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 32
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
@@ -91330,7 +91341,7 @@ GameObject:
   - component: {fileID: 1869137920}
   - component: {fileID: 1869137919}
   - component: {fileID: 1869137918}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Rewired Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91359,7 +91370,7 @@ MonoBehaviour:
   m_CancelButton: UICancel
   m_InputActionsPerSecond: 4.5
   m_RepeatDelay: 0
-  m_allowMouseInput: 0
+  m_allowMouseInput: 1
   m_allowMouseInputIfTouchSupported: 0
   m_ForceModuleActive: 1
 --- !u!114 &1869137919

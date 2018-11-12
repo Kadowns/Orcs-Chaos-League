@@ -7,7 +7,9 @@ using UnityEngine.Rendering.PostProcessing;
 public class GameController : Singleton<GameController> {
 
 	public PlayerController[] PlayerControllers;
+	public bool ForcePlayers;
 	public bool[] ActivePlayers;
+	public bool[] BotPlayers;
 	public int CurrentArena = 0;
 	
 	[SerializeField] private GameObject _scenario1;
@@ -32,13 +34,25 @@ public class GameController : Singleton<GameController> {
 	private float _suddenDeathTimer = 0f;
 	
 	private bool _rematch, _goToHub, _paused, _gameOverMenu, _transition, _matchEnded;
-	
-    private void Start() {
 
+<<<<<<< HEAD
 	    for (int i = 0; i < ActivePlayers.Length; i++) {
 		    PlayerInGame.PlayersInGame[i] = ActivePlayers[i];
 	    }
         
+=======
+
+	private void Awake() {
+		if (ForcePlayers) {
+			for (int i = 0; i < ActivePlayers.Length; i++) {
+				PlayerData.PlayersInGame[i] = ActivePlayers[i];
+				PlayerData.CPU[i] = BotPlayers[i];
+			}
+		}	
+	}
+	
+    private void Start() {   
+>>>>>>> master
         
 	    _camera = CameraController.Instance;
 	    _fx = ScreenEffects.Instance;
@@ -48,7 +62,11 @@ public class GameController : Singleton<GameController> {
 	    _music.PlayBgmByIndex(0);
 	    _music.SetBGMLowPassFilter(200);
 	    _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
+<<<<<<< HEAD
 	    StartMatch(PlayerInGame.PlayersInGame);
+=======
+	    StartMatch(PlayerData.PlayersInGame);
+>>>>>>> master
     }
 
 

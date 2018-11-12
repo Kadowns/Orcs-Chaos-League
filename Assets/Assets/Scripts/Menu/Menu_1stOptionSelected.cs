@@ -110,11 +110,86 @@ public class Menu_1stOptionSelected : MonoBehaviour
             */
             case "EntradaPlayersDefinitivo":
                 playersConfirmation();
+<<<<<<< HEAD
                 pressedbuttonReturn(menuGameObj, MainMenuGameObj);
                 ChangingPlayersIngame();
                 dontChangeMenu = false;
             break;
             /*Mapa 2
+=======
+
+                if(p1.GetButtonDown("Submit")|| p1.GetButtonDown("AddBot"))
+                {
+                    confirming();
+                }
+
+                if (p2.GetButtonDown("Submit") || p2.GetButtonDown("AddBot"))
+                {
+                    confirming();
+                }
+
+                if (p3.GetButtonDown("Submit") || p3.GetButtonDown("AddBot"))
+                {
+                    confirming();
+                }
+
+                if (p4.GetButtonDown("Submit") || p4.GetButtonDown("AddBot"))
+                {
+                    confirming();
+                }
+
+                pressedbuttonReturn();
+
+                if(p1_active_p && p2_active_p || p2_active_bot || p3_active_p || p3_active_bot || p4_active_p || p4_active_bot)
+                {
+                    startConfirm.interactable = true;
+                    if(p1.GetButtonDown("Start") || p2.GetButtonDown("Start") || p3.GetButtonDown("Start") || p4.GetButtonDown("Start"))
+                    {
+                        SceneManager.LoadScene(1);
+                    }
+                }
+                else
+                {
+                    startConfirm.interactable = false;
+                }
+
+                /*
+                for(int i = 0; i < 4; i++)
+                {
+                    bool ifistrue = true; ;
+
+                    if(PlayerData.CPU[i] == true && ifistrue == true)
+                    {
+                        contador++;
+                    }
+
+                    if(PlayerData.PlayersInGame[i] == true && ifistrue == true)
+                    {
+                        contador++;
+                        ifistrue = false;
+                    }
+
+                    if (contador >= 4 && ifistrue == true)
+                    {
+                        startConfirm.interactable = true;
+                        if (p1.GetButtonDown("Start") || p2.GetButtonDown("Start") || p3.GetButtonDown("Start") || p4.GetButtonDown("Start"))
+                        {
+                            SceneManager.LoadScene(1);
+                        }
+                    }
+                }
+                */
+
+             
+
+               
+            
+           
+
+                break;
+
+            //Mapa 2
+>>>>>>> master
             case "Options":
                 pressedbuttonReturn();
                 break;
@@ -495,6 +570,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
     {
         for (int i = 0; i < players.Length; i++)
         {
+<<<<<<< HEAD
             if (bot_active[i] == true){
                 PlayerInGame.PlayersInGame[i] = true;
             }
@@ -507,12 +583,131 @@ public class Menu_1stOptionSelected : MonoBehaviour
             else{
                 PlayerInGame.PlayersInGame[i] = false;
             }
+=======
+            if (w.GetComponent<Image>().sprite == p1_cpu)
+            {
+                p1_active_bot = true;
+                p1_active_p = false;
+<<<<<<< HEAD
+             //   PlayerInGAME.CPU[0] = true;
+              //  PlayerInGAME.PlayersInGame[0] = false;
+=======
+                PlayerData.CPU[0] = true;
+                PlayerData.PlayersInGame[0] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+            
+            if(w.GetComponent<Image>().sprite == p1_on)
+            {
+                p1_active_bot = false;
+                p1_active_p = true;
+<<<<<<< HEAD
+              //  PlayerInGAME.CPU[0] = false;
+              //  PlayerInGAME.PlayersInGame[0] = true;
+=======
+                PlayerData.CPU[0] = false;
+                PlayerData.PlayersInGame[0] = true;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+        }
+        else
+        {
+<<<<<<< HEAD
+      ///      PlayerInGAME.CPU[0] = false;
+            PlayerInGAME.PlayersInGame[0] = false;
+=======
+            PlayerData.CPU[0] = false;
+            PlayerData.PlayersInGame[0] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+        }
+
+
+        if (x.GetComponent<Image>().sprite == p2_on || x.GetComponent<Image>().sprite == p2_cpu)
+        {
+            if (x.GetComponent<Image>().sprite == p2_cpu)
+            {
+                p2_active_bot = true;
+                p2_active_p = false;
+<<<<<<< HEAD
+         //       PlayerInGAME.CPU[1] = true;
+                PlayerInGAME.PlayersInGame[1] = false;
+=======
+                PlayerData.CPU[1] = true;
+                PlayerData.PlayersInGame[1] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+
+            if (x.GetComponent<Image>().sprite == p2_on)
+            {
+                p2_active_bot = false;
+                p2_active_p = true;
+<<<<<<< HEAD
+       //         PlayerInGAME.CPU[1] = false;
+       //         PlayerInGAME.PlayersInGame[1] = true;
+=======
+                PlayerData.CPU[1] = false;
+                PlayerData.PlayersInGame[1] = true;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+        }
+        else
+        {
+<<<<<<< HEAD
+          //  PlayerInGAME.CPU[1] = false;
+   //         PlayerInGAME.PlayersInGame[1] = false;
+=======
+            PlayerData.CPU[1] = false;
+            PlayerData.PlayersInGame[1] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+        }
+
+
+        if (y.GetComponent<Image>().sprite == p3_on || y.GetComponent<Image>().sprite == p3_cpu)
+        {
+            if (y.GetComponent<Image>().sprite == p3_cpu)
+            {
+                p3_active_bot = true;
+                p3_active_p = false;
+<<<<<<< HEAD
+         
+         //       PlayerInGAME.CPU[2] = true;
+          //      PlayerInGAME.PlayersInGame[2] = false;
+=======
+                PlayerData.CPU[2] = true;
+                PlayerData.PlayersInGame[2] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+            
+            if (y.GetComponent<Image>().sprite == p3_on)
+            {
+                p3_active_bot = false;  
+                p3_active_p = true;
+<<<<<<< HEAD
+             ///   PlayerInGAME.CPU[2] = false;
+              //  PlayerInGAME.PlayersInGame[2] = true;
+=======
+                PlayerData.CPU[2] = false;
+                PlayerData.PlayersInGame[2] = true;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            } 
+        }
+        else
+        {
+<<<<<<< HEAD
+     //       PlayerInGAME.CPU[2] = false;
+      //      PlayerInGAME.PlayersInGame[2] = false;
+=======
+            PlayerData.CPU[2] = false;
+            PlayerData.PlayersInGame[2] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+>>>>>>> master
         }
 
         if(players_active[0] == true || bot_active[0] == true)
         {
             for(int e = 0; e < players.Length; e++)
             {
+<<<<<<< HEAD
                 if(players_active[e] == true || bot_active[e] == true){
                     startConfirm.SetActive(true);
                     if (players[e].GetButtonDown("Start")){
@@ -521,5 +716,50 @@ public class Menu_1stOptionSelected : MonoBehaviour
                 }
             }
         }
+=======
+                p4_active_bot = true;
+                p4_active_p = false;
+<<<<<<< HEAD
+          //      PlayerInGAME.CPU[3] = true;
+    //            PlayerInGAME.PlayersInGame[3] = false;
+=======
+                PlayerData.CPU[3] = true;
+                PlayerData.PlayersInGame[3] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+
+            if (z.GetComponent<Image>().sprite == p4_on)
+            {
+                p4_active_bot = false;
+                p4_active_p = true;
+<<<<<<< HEAD
+        //        PlayerInGAME.CPU[3] = false;
+        //        PlayerInGAME.PlayersInGame[3] = true;
+=======
+                PlayerData.CPU[3] = false;
+                PlayerData.PlayersInGame[3] = true;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+            }
+        }
+        else
+        {
+<<<<<<< HEAD
+     ///       PlayerInGAME.CPU[3] = false;
+  //          PlayerInGAME.PlayersInGame[3] = false;
+=======
+            PlayerData.CPU[3] = false;
+            PlayerData.PlayersInGame[3] = false;
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+        }
+
+     
+
+     //   if (p1_active_p == true || p2_active_p == true || p3_active_p == true || p4_active_p == true || p1_active_p == true || p2_active_p == true || p3_active_p == true || p4_active_bot == true || p1_active_p == true || p2_active_p == true || p3_active_bot == true || p4_active_bot == true || p1_active_p == true || p2_active_p == true || p3_active_bot == true || p4_active_bot == true || p1_active_p == true || p2_active_bot == true || p3_active_bot == true || p4_active_bot == true)
+     //   {
+     //  startConfirm.interactable = true;
+     //   }
+
+
+>>>>>>> master
     }
 }

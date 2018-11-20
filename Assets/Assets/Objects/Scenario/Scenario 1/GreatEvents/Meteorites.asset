@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Meteorites
   m_EditorClassIdentifier: 
   EventHudSprite: {fileID: 21300010, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
-  Duration: 28
+  Duration: 20
   ObjectToSpawnName: Meteorite
   SpawnTypeName: Air
   ItemsToSpawn: 80

@@ -21,7 +21,7 @@ namespace Assets.Scripts.Scenario.Events {
         }
 
         public void OnSpawn() {
-            Throw(Vector3.down, _lastAttackerId);
+            Throw(Vector3.down + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f) * 2.5f), _lastAttackerId);
         }
 
         private void OnCollisionEnter(Collision other) {

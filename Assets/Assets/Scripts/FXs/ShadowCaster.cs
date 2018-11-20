@@ -17,6 +17,8 @@ public class ShadowCaster : MonoBehaviour {
 
 	[SerializeField] private bool _castLine, _castShadow;
 
+    public float DistanceThreshold = 10, MinimumSize = 1.5f;
+
 	private LineRenderer _line;
 
 	
@@ -56,11 +58,11 @@ public class ShadowCaster : MonoBehaviour {
 			if (_castShadow) {
 				_tr.rotation = Quaternion.Euler(90, 0, 0);
 				_tr.position = new Vector3(transform.position.x, dist + transform.position.y, transform.position.z);
-				if (1.5f + dist / 10 > 0)
-					_tr.localScale = new Vector3(1.5f + dist / 10, 1.5f + dist / 10, 1);
+				if (MinimumSize + dist / DistanceThreshold > 0)
+					_tr.localScale = new Vector3(MinimumSize + dist / DistanceThreshold, MinimumSize + dist / DistanceThreshold, 1);
 
 				else {
-					_tr.localScale = Vector3.zero;
+					_tr.localScale = Vector3.forward;
 				}
 
 				float alpha = Mathf.Lerp(1f, 0.6f, -dist / 10);

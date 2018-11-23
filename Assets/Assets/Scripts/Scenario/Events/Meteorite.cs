@@ -21,7 +21,7 @@ namespace Assets.Scripts.Scenario.Events {
         }
 
         public void OnSpawn() {
-            Throw((-transform.position.normalized + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f))).normalized, -1);
+            Throw(Vector3.down + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f) * 2.5f), _lastAttackerId);
         }
 
         private void OnCollisionEnter(Collision other) {
@@ -31,6 +31,12 @@ namespace Assets.Scripts.Scenario.Events {
                 var state = entity.State as OrcEntityState;
                 motor.Burn(state, DamageOnContact, 0.5f, (entity.transform.position - transform.position).normalized, 250f, _lastAttackerId);
                 ScreenEffects.Instance.FreezeFrame(0.08f);
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Ground")) {
+                var plat = GetComponent<PlataformBehaviour>();
+                if (plat != null) {
+                    plat.Damage();
+                }
             }
             
             ScreenEffects.Instance.ScreenShake(0.1f, 1f);

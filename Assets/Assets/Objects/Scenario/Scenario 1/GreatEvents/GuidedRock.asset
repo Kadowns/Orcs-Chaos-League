@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: GuidedRock
   m_EditorClassIdentifier: 
   EventHudSprite: {fileID: 21300020, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
-  Duration: 26.5
+  Duration: 15
   ObjectToSpawnName: GuidedBomb
-  ItemsToSpawn: 15
-  SpawnInterval: 1.5
+  SpawnTypeName: Pipes
+  ItemsToSpawn: 5
+  SpawnInterval: 3

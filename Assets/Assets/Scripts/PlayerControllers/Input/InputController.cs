@@ -4,9 +4,8 @@ using Assets.Scripts.PlayerControllers.Input;
 using UnityEngine;
 
 public class InputController : MonoBehaviour {
-
-
-	public InputSource Source;
+	
+	public InputSource PlayerSource, BotSource;
 
 	public int PlayerNumber { get; private set; }
 
@@ -44,11 +43,21 @@ public class InputController : MonoBehaviour {
 	public bool DPadLeftReleased { get; set; }
 	public bool DPadRightReleased { get; set; }
 
+	private InputSource _source;
+	
 	private void Awake() {
 		PlayerNumber = GetComponent<PlayerController>().PlayerNumber;
 	}
 
 	private void Update() {
-		Source.Tick(this);
+		_source.Tick(this);
+	}
+
+	public void IsBot(bool bot) {
+		if (bot)
+			_source = BotSource;
+		else
+			_source = PlayerSource;
+
 	}
 }

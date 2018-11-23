@@ -24,15 +24,14 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
                 return false;
             
             _objectToSpawnName = objectName;
-            _animator.SetTrigger("Raise");
-            _spawning = true;
-            return true;
+            _animator.SetTrigger("Start");
+            return _spawning = true;
         }
 
         private void OnSpawnAnimationFinished() {
             _pooler.SpawnFromPool(_objectToSpawnName, _spawnTransform.position, Quaternion.identity);
             _pooler.SpawnFromPool("ObjectSpawnPS", _spawnTransform.position, Quaternion.identity);
-            _animator.SetTrigger("Lower");
+            _animator.SetTrigger("Stop");
             _spawning = false;
         }
     }

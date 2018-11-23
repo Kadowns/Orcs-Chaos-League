@@ -82,8 +82,8 @@ public class BoxMotor : Motor {
 	public void ResetToDefault(BoxEntityState state) {
 		state.StopAllCoroutines();
 		state.Rb.isKinematic = true;
-		state.RoofPoint.position = state.DefaultPosition + Vector3.up * -200;
-		state.transform.position = state.DefaultPosition;
+		state.RoofPoint.position.Set(state.DefaultPosition.x, state.DefaultRaised, state.DefaultPosition.z);
+		state.transform.position.Set(state.DefaultPosition.x, state.DefaultRaised - 50, state.DefaultPosition.z);
 		state.transform.rotation = Quaternion.identity;
 		state.JointRb.isKinematic = true;
 		state.JointRb.transform.position = state.transform.position;

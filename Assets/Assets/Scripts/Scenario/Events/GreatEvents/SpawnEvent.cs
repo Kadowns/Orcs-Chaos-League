@@ -7,6 +7,7 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
 
 		public string ObjectToSpawnName;
+		public string SpawnTypeName;
 		public int ItemsToSpawn = 5;
 		public float SpawnInterval = 1.5f;
 
@@ -30,7 +31,7 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
 		private IEnumerator DoEvent() {
 			for (int i = 0; i < ItemsToSpawn; i++) {
-				_spawnManager.SpawnObjects(ObjectToSpawnName);
+				_spawnManager.SpawnObjects(ObjectToSpawnName,SpawnTypeName);
 				yield return new WaitForSeconds(SpawnInterval);
 			}
 		}

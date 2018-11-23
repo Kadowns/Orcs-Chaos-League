@@ -17,6 +17,7 @@ TagManager:
   - Cell
   - READY
   - OrcHead
+  - playerInMenu
   layers:
   - Default
   - TransparentFX

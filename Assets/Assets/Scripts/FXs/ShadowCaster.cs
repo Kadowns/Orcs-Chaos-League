@@ -90,7 +90,7 @@ public class ShadowCaster : MonoBehaviour {
 	private float DistanceToGround() {
 		float dist = 0;
 		RaycastHit hit;
-		if (Physics.Raycast(transform.position, Vector3.down, out hit, 100f)) {
+		if (Physics.Raycast(transform.position, Vector3.down, out hit, 500f, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Lava"))) {
 			dist = hit.point.y - transform.position.y;
 		}
 		return dist + 0.1f;

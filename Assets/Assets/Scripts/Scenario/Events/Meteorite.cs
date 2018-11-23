@@ -22,6 +22,7 @@ namespace Assets.Scripts.Scenario.Events {
 
         public void OnSpawn() {
             Throw(Vector3.down + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f) * 2.5f), _lastAttackerId);
+            _rb.AddTorque(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Random.Range(-180f, 180f));
         }
 
         private void OnCollisionEnter(Collision other) {

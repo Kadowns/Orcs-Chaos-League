@@ -1,4 +1,6 @@
-﻿Shader "Custom/Noise/Perlin"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Noise/Texture"
 {
     Properties
     {
@@ -20,7 +22,7 @@
         Pass
         {
             CGPROGRAM
-            #pragma vertex vert_img
+            #pragma vertex vert
             #pragma fragment frag
             #include "UnityCG.cginc"
  
@@ -115,30 +117,45 @@
             float _X;
             float _Y;
             
- 
-            fixed4 frag (v2f_img i) : SV_Target {                    
+            struct vData {
+                float4 pos : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
             
-                i.uv *= _GridSize;
-                i.uv += float2(_X, _Y);
-                
+            
+            float calculateNoise(float3 coord){
+		                 
                 float amplitude = 1;
                 float frequency = 1;
                 float noiseHeight = 0;
                 
                 for (int octave = 0; octave < _Octaves; octave++) {
-                    float sampleX = i.uv.x / _Scale * frequency;
-                    float sampleZ = i.uv.y / _Scale * frequency;
-                    float ns = snoise(float3(sampleX, sampleZ, _SinTime.w));
+                    float sampleX = coord.x / _Scale * frequency;
+                    float sampleZ = coord.y / _Scale * frequency;
+                    float ns = snoise(float3(sampleX, sampleZ, coord.z));
                     noiseHeight += ns * amplitude;
                     
                     amplitude *= _Persistence;
                     frequency *= _Lacunarity;
                 }                    
                 noiseHeight += _AnimationTime;       
-           
-                
-                return float4(noiseHeight, noiseHeight, noiseHeight, 1.0f) * _Color;
+                return noiseHeight;
+		    }
+		    
+            vData vert(appdata_img v) {
+                vData  o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv = v.texcoord;
+                return o;
             }
+            
+            fixed4 frag (vData v) : SV_Target {
+			    // Albedo comes from a texture tinted by color
+		        v.uv *= _GridSize;
+                v.uv += float2(_X, _Y);
+			    float4 c = _Color * calculateNoise(float3(v.uv, _Time.y * 0.5f));
+			    return c;		
+		    }
             ENDCG
         }
     }

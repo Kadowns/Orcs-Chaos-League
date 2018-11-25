@@ -4,6 +4,7 @@ Shader "Custom/Noise/Texture"
 {
     Properties
     {
+        _OscilationScale ("Oscilation Scale", float) = 1.0
         _Color ("Color", Color) = (1.0, 1.0, 1.0, 1.0)
         _GridSize ("GridSize", float) = 1.0
         _X ("Seed X", float) = 1.0
@@ -107,6 +108,7 @@ Shader "Custom/Noise/Texture"
                 return (value - first) / (second - first);
             }
            
+            float _OscilationScale;
             float _Persistence;
             float _Lacunarity;
             float _Scale;
@@ -144,6 +146,7 @@ Shader "Custom/Noise/Texture"
 		    
             vData vert(appdata_img v) {
                 vData  o;
+                v.vertex.y += sin((v.vertex.x + v.vertex.z) * _Time.x * 0.05) * _OscilationScale;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = v.texcoord;
                 return o;

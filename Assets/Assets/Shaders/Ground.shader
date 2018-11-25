@@ -1,13 +1,12 @@
 ﻿Shader "Custom/Ground" {
 	Properties {
-		_Color ("MainColor", Color) = (1,1,1,1)
-		_HotColor ("HotColor", Color) = (1,0,0,1)
-		_HotStartRegion("Hot Start Region", Range(0,1)) = 0
-		_HotEndRegion("Hot End Region", Range(0,1)) = 0.5
-		_ColdStartRegion("Cold Start Region", Range(0,1)) = 0.5
-		_ColdEndRegion("Cold End Region", Range(0,1)) = 1.0
+		_ColdColor ("Cold Color", Color) = (1,1,1,1)
+		_HotColor ("Hot Color", Color) = (1,0,0,1)
+		_BlendRegion("Blend Region", Range(0, 1)) = 0.5
+		_BlendThreshold("Blend Threshold", Range(0, 1)) = 0.1
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
+		_FlashAmount("Flash Amount", Range(0, 1)) = 0.0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -35,26 +34,35 @@
 		half _Glossiness;
 		half _Metallic;
 		half _BlendRegion;
-		half _HotStartRegion;
-		half _HotEndRegion;
-		half _ColdStartRegion;
-		half _ColdEndRegion;
-		fixed4 _Color;
+		half _BlendThreshold;
+		half _FlashAmount;
+		fixed4 _ColdColor;
 		fixed4 _HotColor;
 		
 		void vert (inout appdata_full v, out Input o) {
             UNITY_INITIALIZE_OUTPUT(Input,o);
-            o.yPosition = v.vertex.yw;
+            o.yPosition = v.vertex.y / 5;//GAMBIARRA DO CARALHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
         }
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-		    float weight = IN.yPosition / 4 + 2;			
-			fixed4 c = lerp(_HotColor, _Color, weight);
+		    float weight = IN.yPosition * 0.5 + 0.5;		
+		    fixed4 c;
+		    if (weight > _BlendRegion + _BlendThreshold){
+		        c = _ColdColor;
+		    } else if (weight < _BlendRegion - _BlendThreshold) {
+		        c = _HotColor;      
+		        o.Emission = c.rgb;
+		    } else {
+		        fixed percent = (weight - (_BlendRegion - _BlendThreshold)) / (_BlendThreshold * 2);
+		        c = lerp(_HotColor, _ColdColor, percent);
+		        o.Emission = c.rgb * (1 - percent);
+		    }
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
+			o.Emission = lerp(o.Emission, fixed3(1.0, 1.0, 1.0), _FlashAmount);
 		}
 		ENDCG
 	}

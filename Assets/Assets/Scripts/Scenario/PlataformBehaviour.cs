@@ -70,7 +70,7 @@ public class PlataformBehaviour : MonoBehaviour {
 		
 		Vector3 lastPos = transform.localPosition;
 		
-		_mat.SetColor("_EmissionColor", Color.white);
+		_mat.SetFloat("_FlashAmount", 1);
 		
 		float shakeTimer = 0f;
 		while (shakeTimer < timeToShake) {
@@ -78,12 +78,12 @@ public class PlataformBehaviour : MonoBehaviour {
 				Random.Range(-shakeIntensity, shakeIntensity) / 4,
 				Random.Range(-shakeIntensity, shakeIntensity));
 			
-			_mat.SetColor("_EmissionColor", Color.Lerp(Color.white, Color.black, shakeTimer / timeToShake));
+			_mat.SetFloat("_FlashAmount", Mathf.Lerp(1, 0, shakeTimer / timeToShake));
 			shakeTimer += Time.deltaTime;
 			
 			yield return null;
 		}
-		_mat.SetColor("_EmissionColor", Color.black);
+		_mat.SetFloat("_FlashAmount", 0);
 		transform.localPosition = lastPos;
 		_shaking = false;
 	}

@@ -17321,6 +17321,10 @@ Prefab:
       propertyPath: m_Name
       value: GuidedMissile
       objectReference: {fileID: 0}
+    - target: {fileID: 1349353263348454, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
   m_IsPrefabParent: 0
@@ -27745,7 +27749,12 @@ Prefab:
     - target: {fileID: 114210279834778692, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: _bgm.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676308106400148, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: _sfx.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
@@ -27888,7 +27897,7 @@ Prefab:
     - target: {fileID: 114210279834778692, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: Volume
-      value: 0.23
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
@@ -27926,7 +27935,7 @@ Prefab:
         type: 2}
       propertyPath: _sfx.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: c8839a0ef0db8a84ab6fe330f4ac1c52, type: 3}
+      objectReference: {fileID: 8300000, guid: 60a2cb75f739c96449340275127cb718, type: 3}
     - target: {fileID: 114676308106400148, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: _sfx.Array.data[4]
@@ -28047,7 +28056,7 @@ Prefab:
     - target: {fileID: 114210279834778692, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: Priotity
-      value: 68
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 114071840231634442, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
@@ -28065,6 +28074,11 @@ Prefab:
       propertyPath: pools.Array.data[19].size
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114676308106400148, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: _sfx.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: f891037938d75f940bf5c86b089dc491, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640f2a8230aeb7746bb418524273333a, type: 2}
   m_IsPrefabParent: 0
@@ -34761,6 +34775,16 @@ Prefab:
       propertyPath: _cableLength
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _spawnWait
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _maxTimeToSpawn
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
   m_IsPrefabParent: 0
@@ -40452,6 +40476,16 @@ Prefab:
         type: 2}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _spawnWait
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _maxTimeToSpawn
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -68963,15 +68997,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4351410377358704, guid: 307a6f22040418843ab7af1efac28886, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.882745
+      value: -38.4
       objectReference: {fileID: 0}
     - target: {fileID: 4351410377358704, guid: 307a6f22040418843ab7af1efac28886, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.848232
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 4351410377358704, guid: 307a6f22040418843ab7af1efac28886, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -25.638853
+      value: -31.9
       objectReference: {fileID: 0}
     - target: {fileID: 4351410377358704, guid: 307a6f22040418843ab7af1efac28886, type: 2}
       propertyPath: m_LocalRotation.x
@@ -68996,6 +69030,11 @@ Prefab:
     - target: {fileID: 1974229221779144, guid: 307a6f22040418843ab7af1efac28886, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82645163036157580, guid: 307a6f22040418843ab7af1efac28886,
+        type: 2}
+      propertyPath: Priority
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 307a6f22040418843ab7af1efac28886, type: 2}
@@ -82902,6 +82941,16 @@ Prefab:
         type: 2}
       propertyPath: _cableLength
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _spawnWait
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _maxTimeToSpawn
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b12c58c3e6106384c9b12e821e002539, type: 2}
@@ -101114,6 +101163,16 @@ Prefab:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _spawnWait
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770617314744036, guid: b12c58c3e6106384c9b12e821e002539,
+        type: 2}
+      propertyPath: _maxTimeToSpawn
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -101909,8 +101968,6 @@ MonoBehaviour:
   - {fileID: 2146184027}
   - {fileID: 2098955954}
   GreatEvents:
-  - {fileID: 11400000, guid: 4f44dfc0e0619944d8a92bec95ec6fcd, type: 2}
-  - {fileID: 11400000, guid: 8ece390d82d64b54994374957fe412ff, type: 2}
   - {fileID: 11400000, guid: 0d76196a38502134ca38386a2935105c, type: 2}
 --- !u!1 &2007863124
 GameObject:

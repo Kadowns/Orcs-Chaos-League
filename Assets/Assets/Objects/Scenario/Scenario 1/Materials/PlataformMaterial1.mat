@@ -56,8 +56,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BlendOscilation: 0.1
-    - _BlendRegion: 0.5
-    - _BlendThreshold: 0.1
+    - _BlendRegion: 0.45
+    - _BlendThreshold: 0.2
     - _BumpScale: 1
     - _ColdEndRegion: 1
     - _ColdStartRegion: 0.21

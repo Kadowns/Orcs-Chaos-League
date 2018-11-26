@@ -214,6 +214,7 @@ public class OrcMotor : Motor {
 	private void Kill(OrcEntityState state) {
 		
 		state.Rb.isKinematic = true;
+		GlobalAudio.Instance.PlayByIndex(7);
 		ResetToDefault(state);
 		state.gameObject.SetActive(false);
 		state.Controller.SubtractLife();

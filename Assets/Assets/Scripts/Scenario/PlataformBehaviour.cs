@@ -64,16 +64,11 @@ public class PlataformBehaviour : MonoBehaviour {
 
 
 	private IEnumerator ShakePlataform(float timeToShake, float shakeIntensity) {
-			
-		Vector3 lastPos = transform.localPosition;
 		
 		_mat.SetFloat("_FlashAmount", 1);
 		
 		float shakeTimer = 0f;
 		while (shakeTimer < timeToShake) {
-			transform.localPosition += new Vector3(Random.Range(-shakeIntensity, shakeIntensity),
-				Random.Range(-shakeIntensity, shakeIntensity) / 4,
-				Random.Range(-shakeIntensity, shakeIntensity));
 			
 			_mat.SetFloat("_FlashAmount", Mathf.Lerp(1, 0, shakeTimer / timeToShake));
 			shakeTimer += Time.deltaTime;
@@ -81,7 +76,6 @@ public class PlataformBehaviour : MonoBehaviour {
 			yield return null;
 		}
 		_mat.SetFloat("_FlashAmount", 0);
-		transform.localPosition = lastPos;
 	}
 
 	public void Lower() {

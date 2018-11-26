@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Custom/Noise/Texture"
+﻿Shader "Custom/Noise/Texture"
 {
     Properties
     {
@@ -155,7 +153,7 @@ Shader "Custom/Noise/Texture"
             fixed4 frag (vData v) : SV_Target {
 			    // Albedo comes from a texture tinted by color
 		        v.uv *= _GridSize;
-                v.uv += float2(_X, _Y);
+                v.uv += float2(_Time.w * _X, _Time.w * _Y);
 			    float4 c = _Color * calculateNoise(float3(v.uv, _Time.y * 0.5f));
 			    return c;		
 		    }

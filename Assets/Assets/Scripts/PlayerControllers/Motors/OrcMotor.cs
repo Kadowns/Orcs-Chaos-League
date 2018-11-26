@@ -100,6 +100,7 @@ public class OrcMotor : Motor {
 			if (state.DropAttack) {		
 				if (state.Grounded) {
 					state.ActualAttack.TrySFx(Random.Range(0.8f, 1.2f));
+					state.Sfx.PlaySFxByIndex(4, Random.Range(0.8f, 1.2f));
 					ScreenEffects.Instance.ScreenShake(0.15f, 2.5f);
 					ApplyDamage(entity, state);
 					state.StompDrawback = true;

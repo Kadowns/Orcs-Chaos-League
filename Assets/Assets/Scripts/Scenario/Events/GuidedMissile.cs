@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class GuidedMissile : MonoBehaviour {
+public class GuidedMissile : MonoBehaviour, ISpawnable {
 
 	public float HitForce = 100;
 
@@ -23,13 +23,17 @@ public class GuidedMissile : MonoBehaviour {
 
 	private Rigidbody _rb;
 
-	private Vector3 _velocity, _acceleration;
+	private Vector3 _velocity;
 
 	private MeshRenderer _renderer;
 
+	private TrailRenderer _trail;
+
 	private ScreenEffects _fx;
 
-	private AudioSource _engine;
+	private SoundEffectPlayer _sfx;
+
+	private Coroutine _pursuitRoutine;
 
 	private const float RotationSpeed = Mathf.Deg2Rad * 360;
 
@@ -37,41 +41,28 @@ public class GuidedMissile : MonoBehaviour {
 	
 		_rb = GetComponent<Rigidbody>();
 		_renderer = GetComponentInChildren<MeshRenderer>();
-		_engine = GetComponent<AudioSource>();
+		_trail = GetComponentInChildren<TrailRenderer>();
+		_sfx = GetComponent<SoundEffectPlayer>();
 		_fx = ScreenEffects.Instance;
 	}
 
-	private void Update() {
-		
-		if (_target != null) {
-			if (_target.gameObject.activeInHierarchy) {
-				_upAngle += Time.deltaTime * RotationSpeed;
-				
-				Vector3 up = new Vector3(Mathf.Cos(_upAngle), Mathf.Sin(_upAngle), 0.0f);
-				Debug.Log(up);
-				var rot = Quaternion.LookRotation((_target.position - transform.position).normalized, up);
-				transform.rotation = Quaternion.Lerp(transform.rotation, rot, 0.1f);
-				_velocity = (_target.position - transform.position).normalized * MoveSpeed;
-				
-			}
-			else {
-				_target = null;
-			}
+	private void Start() {
+		var sources = GetComponents<AudioSource>();
+		foreach (var source in sources) {
+			source.priority = 255;
 		}
-		else {
-			_velocity *= 0.98f;
-			_target = FindTarget();
-		}
-		_engine.pitch = Mathf.Lerp(0.7f, 2.0f, _velocity.magnitude / MoveSpeed);
-		
 	}
 
-	private void FixedUpdate() {
-		_rb.MovePosition(transform.position + (_velocity * Time.deltaTime));
+	private void Update() {
+		if (_pursuitRoutine == null && gameObject.activeInHierarchy) {
+			_pursuitRoutine = StartCoroutine(PursuitAndExplode());
+		}
+		
+		
 	}
 
 	private Transform FindTarget() {
-		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1<<LayerMask.NameToLayer("Players"));
+		Collider[] cols = Physics.OverlapSphere(transform.position, 900, 1 << LayerMask.NameToLayer("Players"));
 		Transform target = null;
 		float maxDist = float.MaxValue;
 		foreach (var col in cols) {
@@ -85,6 +76,11 @@ public class GuidedMissile : MonoBehaviour {
 		if (target != null) {
 			_targetColor = target.GetComponent<OrcEntityState>().PlayerColor;
 			_renderer.material.SetColor("_EmissionColor", _targetColor * 5);
+			_trail.startColor = Color.white;
+			_trail.endColor = _targetColor;
+		}
+		else {
+			_trail.startColor = Color.white;
 		}
 		
 		
@@ -95,22 +91,92 @@ public class GuidedMissile : MonoBehaviour {
 		if (other.collider.gameObject.layer != LayerMask.NameToLayer("Players"))
 			return;
 
-		Collider[] cols = Physics.OverlapSphere(transform.position, 15, 1 << LayerMask.NameToLayer("Players"));
+		Detonate();
+	}
+
+	private void Detonate() {
+		Collider[] cols = Physics.OverlapSphere(transform.position, ExplosionRadius, 1 << LayerMask.NameToLayer("Players"));
 		foreach (var col in cols) {
 			var entity = col.GetComponent<MovableEntity>();
 			var motor = entity.Motor as OrcMotor;
 			var state = entity.State as OrcEntityState;
-			motor.Burn(state, 150, 3f, (entity.transform.position - transform.position).normalized, 200f, -1);
+			motor.Burn(state, (int)HitForce, 3f, (entity.transform.position - transform.position).normalized, HitForce, -1);
 		}
 		_fx.ScreenShake(0.15f, 1.5f);
 		_fx.FreezeFrame(0.1f);
-		_fx.CreateGuidedRockExpParticles(transform.position);
+		_fx.CreateGuidedMissileExpParticles(transform.position);
 		
 		ResetToDefault();
 		gameObject.SetActive(false);
 	}
 
 	private void ResetToDefault() {
+		if (_pursuitRoutine != null) {
+			StopCoroutine(_pursuitRoutine);
+		}
+	}
+
+	public void OnSpawn() {
+
+		_pursuitRoutine = StartCoroutine(PursuitAndExplode());
+	}
+
+	private IEnumerator PursuitAndExplode() {
+		float timer = 0;
+		float beepTimer = 0;
+		while (timer < TimeToExplode) {
+			timer += Time.deltaTime;
+			beepTimer += Time.deltaTime;
+			Vector3 targetPosition = transform.forward;
+			
+			if (_target != null) {
+				if (_target.gameObject.activeInHierarchy) {
+					targetPosition = _target.position;
+				}
+				else {				
+					_target = null;				
+				}
+			}
+			else {
+				_target = FindTarget();
+				float t = Time.time * 2;
+				targetPosition = new Vector3(Mathf.Cos(t) * 20, 20f, Mathf.Sin(t) * 20);
+				
+			}
+
+			if (0.2f < (beepTimer / TimeToExplode)) {
+				_sfx.PlaySFxByIndex(0, 1f);
+				beepTimer = 0;
+			}
+			
+			_upAngle += Time.deltaTime * RotationSpeed;
+			var dir = (targetPosition - transform.position).normalized;
+			var up = new Vector3(Mathf.Cos(_upAngle), Mathf.Sin(_upAngle), 0.0f);
+			var rot = Quaternion.LookRotation(dir, up);
+			_rb.MoveRotation(Quaternion.Slerp(transform.rotation, rot, 0.1f));
+			
+			_velocity = transform.forward * (MoveSpeed * (timer + 1)) * Time.deltaTime;
+			_rb.MovePosition(transform.position + _velocity);
+			yield return null;
+		}
+
+		beepTimer = 0;
+		timer = 0;
+		while (timer < 1f) {
+			timer += Time.deltaTime;
+			beepTimer += Time.deltaTime;
+			
+			if (0.1f < (beepTimer)) {
+				_sfx.PlaySFxByIndex(0, 1.5f);
+				beepTimer = 0;
+			}
+			
+			_velocity = transform.forward * (MoveSpeed * TimeToExplode * 2) * Time.deltaTime;
+			_rb.MovePosition(transform.position + _velocity);
+			
+			yield return null;
+		}
 		
-	}	
+		Detonate();
+	}
 }

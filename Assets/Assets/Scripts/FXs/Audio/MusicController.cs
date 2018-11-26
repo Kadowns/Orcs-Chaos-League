@@ -5,8 +5,12 @@ using UnityEngine;
 public class MusicController : Singleton<MusicController> {
 	
 	[SerializeField] private AudioClip[] _bgm;
+	
 	[Range(0f, 1f)]
 	public float Volume;
+
+	[Range(0, 255)] public byte Priotity = 128;
+	
 	private AudioSource _bgmPlayer;
 	
 	private AudioLowPassFilter _bgmLowPassFilter;
@@ -17,6 +21,7 @@ public class MusicController : Singleton<MusicController> {
 	private void Awake() {
 		_bgmPlayer = gameObject.AddComponent<AudioSource>();
 		_bgmPlayer.volume = Volume;
+		_bgmPlayer.priority = Priotity;
 		_bgmLowPassFilter = gameObject.AddComponent<AudioLowPassFilter>();
 	}
 

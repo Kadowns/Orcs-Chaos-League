@@ -15,5 +15,5 @@ MonoBehaviour:
   Duration: 20
   ObjectToSpawnName: Meteorite
   SpawnTypeName: Air
-  ItemsToSpawn: 80
+  ItemsToSpawn: 30
   SpawnInterval: 0.5

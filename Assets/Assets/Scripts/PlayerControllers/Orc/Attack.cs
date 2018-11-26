@@ -15,8 +15,12 @@ using UnityEngine;
     public void Start(GameObject gameObject) {
         _trySFx = gameObject.AddComponent<AudioSource>();
         _trySFx.clip = tryClip;
+        _trySFx.priority = 255;
+        _trySFx.volume = 0.8f;
         _hitSFx =  gameObject.AddComponent<AudioSource>();
         _hitSFx.clip = hitClip;
+        _hitSFx.priority = 255;
+        _hitSFx.volume = 1f;
     }
 
     public void TrySFx(float pitch) {

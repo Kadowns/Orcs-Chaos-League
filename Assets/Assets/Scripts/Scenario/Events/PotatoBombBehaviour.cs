@@ -74,7 +74,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 		
 		_fx.ScreenShake(0.15f, 1.5f);
 		_fx.FreezeFrame(0.1f);
-		_fx.CreateGuidedRockExpParticles(transform.position);
+		_fx.CreateGuidedMissileExpParticles(transform.position);
 		
 		
 		gameObject.SetActive(false);

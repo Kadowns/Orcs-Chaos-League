@@ -61,6 +61,11 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		obj.GetComponent<DestroyByDuration>().InactiveAfterSeconds(1.5f);
 	}
 
+	public void CreateMeteoriteParticles(Vector3 position) {
+		GameObject obj = _pool.SpawnFromPool("MeteoritePS", position, Quaternion.identity);
+		obj.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
+	}
+
 	public void CreateDeadOrc(Vector3 position) {
 		GameObject deadOrc = _pool.SpawnFromPool("DeadOrc", position, Quaternion.identity);
 		deadOrc.GetComponent<DestroyByDuration>().InactiveAfterSeconds(1.5f);
@@ -71,7 +76,7 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		ps.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
 	}
 	
-	public void CreateGuidedRockExpParticles(Vector3 position) {
+	public void CreateGuidedMissileExpParticles(Vector3 position) {
 		GameObject ps = _pool.SpawnFromPool("GuidedRockExpPS", position, Quaternion.identity);
 		ps.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
 	}

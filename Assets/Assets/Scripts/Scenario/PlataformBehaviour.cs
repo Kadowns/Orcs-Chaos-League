@@ -22,7 +22,6 @@ public class PlataformBehaviour : MonoBehaviour {
 	public bool Foldout { get; set; }
 	private int _life { get; set; }
 	private bool _lowered { get; set; }
-	private bool _shaking{ get; set; }
 	private bool _defined{ get; set; }
 
 	private Material _mat;
@@ -33,7 +32,7 @@ public class PlataformBehaviour : MonoBehaviour {
 	}
 	
 	private void FixedUpdate() {
-		if (!_defined || _shaking || _lowered)
+		if (!_defined || _lowered)
 			return;
 		transform.localPosition = new Vector3(transform.localPosition.x,
 			Settings.Curve.Evaluate(Time.time * Settings.OscilationFrequency + _offset) * Settings.OscilationScale,
@@ -49,7 +48,7 @@ public class PlataformBehaviour : MonoBehaviour {
 
 	public void Damage() {
 
-		if (_shaking || _lowered)
+		if (_lowered)
 			return;
 
 		
@@ -65,9 +64,7 @@ public class PlataformBehaviour : MonoBehaviour {
 
 
 	private IEnumerator ShakePlataform(float timeToShake, float shakeIntensity) {
-		_shaking = true;
-		
-		
+			
 		Vector3 lastPos = transform.localPosition;
 		
 		_mat.SetFloat("_FlashAmount", 1);
@@ -85,7 +82,6 @@ public class PlataformBehaviour : MonoBehaviour {
 		}
 		_mat.SetFloat("_FlashAmount", 0);
 		transform.localPosition = lastPos;
-		_shaking = false;
 	}
 
 	public void Lower() {
@@ -114,6 +110,7 @@ public class PlataformBehaviour : MonoBehaviour {
 			transform.localPosition.z);
 		_lowered = false;
 		_life = Settings.MaxHealth;
+		_mat.SetFloat("_FlashAmount", 0);
 	}
 
     private IEnumerator DoLower() {

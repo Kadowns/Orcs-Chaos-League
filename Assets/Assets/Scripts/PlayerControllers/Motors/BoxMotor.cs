@@ -137,9 +137,7 @@ public class BoxMotor : Motor {
 
 	private IEnumerator LowerSpawner(BoxEntityState state) {
 
-
-		state.Sfx.PlaySFxByIndex(0, Random.Range(0.9f, 1.1f));
-		state.Sfx.PlayForSeconds(1, Random.Range(0.9f, 1.1f), 4f);
+		
 		Vector3 targetPos = new Vector3(state.RoofPoint.position.x, state.DefaultLowered, state.RoofPoint.position.z);
 		float timer = 0;
 		while (timer < 2f) {
@@ -147,7 +145,7 @@ public class BoxMotor : Motor {
 			timer += Time.deltaTime;
 			yield return null;
 		}
-
+		//state.Sfx.PlaySFxByIndex(0, Random.Range(0.8f, 1.2f));
 		state.ShadowCaster.SetLineEnabled(true);
 		state.Controller.ReadyToSpawn();
 

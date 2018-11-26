@@ -74,7 +74,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Octaves: 8
-    - _OscilationScale: 3.7
+    - _OscilationScale: 5
     - _Parallax: 0.02
     - _Persistence: 0.79
     - _Scale: 112.85

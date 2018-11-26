@@ -141,8 +141,8 @@ MonoBehaviour:
     knockUp: 1
     miniDash: 0
     screenShake: 1
-    tryClip: {fileID: 8300000, guid: f00898131b5e60f4aab65f0354a8c8b7, type: 3}
-    hitClip: {fileID: 8300000, guid: ac4b9581263a90d46a0dd9f6fbd8acf6, type: 3}
+    tryClip: {fileID: 8300000, guid: e603852c84a67c04291d694e33e61aa7, type: 3}
+    hitClip: {fileID: 8300000, guid: b1416e4dccc523949a06b29a7a331595, type: 3}
   - tag: Combo 1
     id: 1
     range: 5.5
@@ -152,8 +152,8 @@ MonoBehaviour:
     knockUp: 0
     miniDash: 0
     screenShake: 0
-    tryClip: {fileID: 8300000, guid: 6055b28d805e65c44be45ccf48154243, type: 3}
-    hitClip: {fileID: 8300000, guid: db3d106236827c14c853b35afbe4811d, type: 3}
+    tryClip: {fileID: 8300000, guid: e958a473bc4381f4eb5f882180533473, type: 3}
+    hitClip: {fileID: 8300000, guid: 76878ad0be505c946a815c688b535818, type: 3}
   - tag: Combo 2
     id: 2
     range: 5
@@ -163,8 +163,8 @@ MonoBehaviour:
     knockUp: 1
     miniDash: 1
     screenShake: 0
-    tryClip: {fileID: 8300000, guid: 6768e2cca00bbf444ae4de048798b5b1, type: 3}
-    hitClip: {fileID: 8300000, guid: befa7b01f1312c044a68eeedf75e7faf, type: 3}
+    tryClip: {fileID: 8300000, guid: d2102afab5eb0de4f80ed1e0e415fcea, type: 3}
+    hitClip: {fileID: 8300000, guid: 28e72f7387826c940987591e6f924dbf, type: 3}
   - tag: Combo 3
     id: 3
     range: 6
@@ -174,8 +174,8 @@ MonoBehaviour:
     knockUp: 0
     miniDash: 0
     screenShake: 1
-    tryClip: {fileID: 8300000, guid: 4d19572f2061fd647aec1a01849ced38, type: 3}
-    hitClip: {fileID: 8300000, guid: befa7b01f1312c044a68eeedf75e7faf, type: 3}
+    tryClip: {fileID: 8300000, guid: 501ef912d3b058b44ab856a40b794692, type: 3}
+    hitClip: {fileID: 8300000, guid: d7fad6eef16f47d4383803cf6b8c45b4, type: 3}
   SimpleAttackCooldown: 0.25
   DropAttackCooldown: 0
   InitialAttackSpeed: 0.2
@@ -207,11 +207,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5444a21de3f0e940ac0b693c9f7d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Volume: 0.31
+  Priority: 255
   _sfx:
   - {fileID: 8300000, guid: 5c4ca0217853c3f468e8808cfad60753, type: 3}
-  - {fileID: 8300000, guid: 9cddf21529a3e4e48af5f426f38f7f8f, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 2f7ff56d930332d4fb1486eeb100dd27, type: 3}
+  - {fileID: 8300000, guid: 5bdb95b335fccdd439a99c2dd3962d2c, type: 3}
+  - {fileID: 8300000, guid: b8ad8b95d714bac4a8e75257a250138e, type: 3}
+  - {fileID: 8300000, guid: c689ba2f912ef4a4c8e06f33208b0f97, type: 3}
 --- !u!114 &114378334696371328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +255,8 @@ MonoBehaviour:
     type: 2}
   _castLine: 1
   _castShadow: 1
+  DistanceThreshold: 10
+  MinimumSize: 1.5
 --- !u!114 &114804058021032574
 MonoBehaviour:
   m_ObjectHideFlags: 1

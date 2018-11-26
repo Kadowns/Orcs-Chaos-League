@@ -17,7 +17,7 @@ public class CameraController : Singleton<CameraController> {
 	private GameObject[] _spawners;
 	private Vector3 _target;
 	private Transform _defaultTarget;
-	private bool _maxZoom, _transition, _externAgent;
+	private bool _maxZoom, _transition = true, _externAgent;
 	private int _aliveOrcs;
 	
 	private void Awake() {

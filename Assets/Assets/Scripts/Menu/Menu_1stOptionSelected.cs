@@ -520,6 +520,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
      
         for (int e = 0; e < 4; e++)
         {
+
             if (players_active[e] == true)
             {
                 if(bot_active[e] == true){
@@ -528,13 +529,16 @@ public class Menu_1stOptionSelected : MonoBehaviour
                 }
                 else{
                     PlayerData.PlayersInGame[e] = players_active[e];
-            //        PlayerData.CPU[e] = bot_active[e];
                 }
 
                 y++;
                 if (y >= 2)
                 {
                     startConfirm.SetActive(true);
+                    if (players[e].GetButtonDown("Start"))
+                    {
+                        SceneManager.LoadScene(1);
+                    }
                 }
                 else
                 {
@@ -551,13 +555,13 @@ public class Menu_1stOptionSelected : MonoBehaviour
                 else
                 {
                     PlayerData.PlayersInGame[e] = players_active[e];
-                    //        PlayerData.CPU[e] = bot_active[e];
                 }
             }
             
          
 
         }
+        
         Debug.Log(y);
     }
 }

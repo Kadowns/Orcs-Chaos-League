@@ -8,7 +8,6 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
 		public string ObjectToSpawnName;
 		public string SpawnTypeName;
-		public int ItemsToSpawn = 5;
 		public float SpawnInterval = 1.5f;
 
 		private SpawnerManager _spawnManager;
@@ -30,17 +29,15 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 		}
 
 		private IEnumerator DoEvent() {
-			for (int i = 0; i < ItemsToSpawn; i++) {
+			float timer = 0;
+			while (timer < Duration) {
 				_spawnManager.SpawnObjects(ObjectToSpawnName,SpawnTypeName);
+				timer += Time.deltaTime;
 				yield return new WaitForSeconds(SpawnInterval);
 			}
 		}
 
 		private void OnValidate() {
-			if (ItemsToSpawn < 1) {
-				ItemsToSpawn = 1;
-			}
-
 			if (SpawnInterval < 0.1f) {
 				SpawnInterval = 0.1f;
 			}

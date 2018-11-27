@@ -155,6 +155,7 @@ public class GameController : Singleton<GameController> {
 	}
 
 	public void Pause(int playerNumber) {
+		Debug.Log("Apertei");
 		_paused = !_paused;
 		if (_paused) {
 			_hud.EnableMenuByIndex(0);

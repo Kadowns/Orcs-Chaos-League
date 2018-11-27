@@ -10548,11 +10548,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.16
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 502.7734
+      value: 15.76
       objectReference: {fileID: 0}
     - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10577,6 +10577,10 @@ Prefab:
     - target: {fileID: 4463889263841222, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965766203290680, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
@@ -10804,7 +10808,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 3ca9a3218fcb09c4b964af025b9afbd9, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -15926,7 +15930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4681013805804794, guid: a8a166adf3a79ad418532845d325c419, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 495.9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4681013805804794, guid: a8a166adf3a79ad418532845d325c419, type: 2}
       propertyPath: m_LocalPosition.z
@@ -15952,6 +15956,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1320102641833578, guid: a8a166adf3a79ad418532845d325c419, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212807155658004332, guid: a8a166adf3a79ad418532845d325c419,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dfc2decfa647224ca1b114cb448a0f9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8a166adf3a79ad418532845d325c419, type: 2}
   m_IsPrefabParent: 0
@@ -63498,8 +63511,8 @@ MonoBehaviour:
   Arenas:
   - {fileID: 2006345556}
   - {fileID: 1697129185}
-  TimeLimit: 210
-  EventIntervalTime: 10
+  PointsToWin: 25
+  EventIntervalTime: 45
 --- !u!1 &1057413420
 GameObject:
   m_ObjectHideFlags: 0
@@ -101969,6 +101982,9 @@ MonoBehaviour:
   - {fileID: 2098955954}
   GreatEvents:
   - {fileID: 11400000, guid: 0d76196a38502134ca38386a2935105c, type: 2}
+  - {fileID: 11400000, guid: 8ece390d82d64b54994374957fe412ff, type: 2}
+  - {fileID: 11400000, guid: 4f44dfc0e0619944d8a92bec95ec6fcd, type: 2}
+  - {fileID: 11400000, guid: 99607c24116f9fb48afcbe1f8eecf5a2, type: 2}
 --- !u!1 &2007863124
 GameObject:
   m_ObjectHideFlags: 0

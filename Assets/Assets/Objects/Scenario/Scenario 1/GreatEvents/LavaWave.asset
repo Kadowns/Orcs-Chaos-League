@@ -15,5 +15,4 @@ MonoBehaviour:
   Duration: 20
   ObjectToSpawnName: LavaWave
   SpawnTypeName: Lava
-  ItemsToSpawn: 4
-  SpawnInterval: 10
+  SpawnInterval: 5

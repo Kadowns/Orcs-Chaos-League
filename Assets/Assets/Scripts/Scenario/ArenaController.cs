@@ -6,7 +6,7 @@ public class ArenaController : Singleton<ArenaController> {
 
 	public ArenaMotor ArenaMotor { get; set; }
 	public ArenaState[] Arenas;
-    public float TimeLimit = 180;
+	public int PointsToWin = 10;
 	public float EventIntervalTime;
 	public int PlayerInGame { get; private set; }
 
@@ -70,9 +70,6 @@ public class ArenaController : Singleton<ArenaController> {
 			
 				_greatEventRoutine = StartCoroutine(DoGreatEvent());
 			}
-            if (_gameTimer > TimeLimit) {
-                GameShouldEnd(-1);
-            }
 		}
 	}
 
@@ -111,6 +108,7 @@ public class ArenaController : Singleton<ArenaController> {
         Debug.Log("Winner is Player" + winnerNumber);
         GameController.Instance.EndMatch();
         _gameTimer = 0;
+	    _eventTimer = 0;
         _gameStarted = false;
 	    _startGame = false;
         ArenaMotor.ResetToDefault(this, Arenas[_currentArena]);

@@ -158,7 +158,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void WasHit(int attackerNumber) {
-		DamageEvent.Invoke();
+		if (DamageEvent != null)
+			DamageEvent.Invoke();
 		LastAttackerNumber = attackerNumber;
 		_timeToGiveKill = Time.time + _attackerShouldReceiveKillTime;
 	}
@@ -167,11 +168,14 @@ public class PlayerController : MonoBehaviour {
 		if (!_orc.gameObject.activeInHierarchy)
 			return;
 		KillCount++;
+		_orcState.Damage = _orcState.Damage - 15 < 0 ? 0 : _orcState.Damage - 15;	
+		if (DamageEvent != null)
+			DamageEvent.Invoke();
 		ScreenEffects.Instance.CreatePlusOneParticles(_orc.transform.position + Vector3.up * 6);
 		Vibrate(1, 0.2f, 0.15f);
 		if (KilledEvent != null)
 			KilledEvent.Invoke(KillCount);
-		if (KillCount >= 10) {
+		if (KillCount >= ArenaController.Instance.PointsToWin) {
 			ArenaController.Instance.GameShouldEnd(_playerNumber);
 		}	
 	}
@@ -198,7 +202,7 @@ public class PlayerController : MonoBehaviour {
 		if (_actualGameState != 1)
 			return;
 		if (_input.CenterButtonPresssed) {
-			GameController.Instance.Pause(PlayerNumber);
+			//GameController.Instance.Pause(PlayerNumber);
 		}
 
 		if (LastAttackerNumber != -1 && Time.time > _timeToGiveKill) {

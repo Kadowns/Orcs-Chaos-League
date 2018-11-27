@@ -8,31 +8,20 @@ using UnityEngine.SceneManagement;
 
 public class Menu_1stOptionSelected : MonoBehaviour
 {
-
-
     private EventSystem _eventSystem;
 
-    private Player p1, p2, p3, p4;
+    private Player[] players = new Player[4];
 
     private Button startButtonEntradaPlayers;
 
-    private string mapSelectedString;
+    private GameObject[] mapSelectedReturn = new GameObject[1];
 
-    private GameObject obj5, obj1, obj2, obj3, obj4, ButtonSelector1, ButtonSelector2, ButtonSelector3;
+    private GameObject[] objs = new GameObject[5];
 
-    
+    private GameObject spriteGameObject, CurrentMapSelect;
 
+    private bool dontChangeMenu = false, gambiarra = false;
 
-
-    
-
-    public Sprite mapS_rock, mapS_burning, mapS_chaos, mapS_king, mapS_runner;
-
-    public Sprite p1_cpu, p2_cpu, p3_cpu, p4_cpu;
-
-    public Sprite p1_off, p2_off, p3_off, p4_off;
-
-    public Sprite p1_on, p2_on, p3_on, p4_on;
 
     public GameObject MainMenuGameObj;
 
@@ -40,42 +29,16 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
     public GameObject[] MenuOptions;
 
-    public Toggle menuToggle1, menuToggle2, menuToggle3;
+    public GameObject startConfirm;
 
-    public Button startConfirm;
+    public bool[] players_active = new bool[4];
 
-    public bool p1_active_bot = false;
-
-    public bool p1_active_p = false;
-
-    public bool p2_active_bot = false;
-
-    public bool p2_active_p = false;
-
-    public bool p3_active_bot = false;
-
-    public bool p3_active_p = false;
-
-    public bool p4_active_bot = false;
-
-    public bool p4_active_p = false;
-
-    int contador = 0;
-
-
-
-
+    public bool[] bot_active = new bool[4];
 
 
 
     void Start()
     {
-
-        //GettingSprites();
-
-       
-
-
         _eventSystem = EventSystem.current;
 
         MenuOptions = GameObject.FindGameObjectsWithTag("Test");
@@ -86,161 +49,80 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
         _eventSystem.SetSelectedGameObject(MenuOptions[0]);
 
-        if (p1 == null || p2 == null || p3 == null || p4 == null)
+        for (int i = 0; i < players.Length; i++)
         {
-            p1 = ReInput.players.GetPlayer(0);
-            p2 = ReInput.players.GetPlayer(1);
-            p3 = ReInput.players.GetPlayer(2);
-            p4 = ReInput.players.GetPlayer(3);
+            players[i] = ReInput.players.GetPlayer(i);
         }
     }
 
     void Update()
     {
-
+        if (!menuGameObj.activeSelf)
+        {
+            MenuOptions = GameObject.FindGameObjectsWithTag("Test");
+            lastMenuGameObj = menuGameObj;
+            menuGameObj = GameObject.FindGameObjectWithTag("Cell");
+            if (menuGameObj.name == "EntradaPlayersDefinitivo" && startConfirm.activeSelf == true)
+            {
+                players_active[0] = false;
+                _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
+            else
+            {
+                players_active[0] = false;
+                _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+            }
+        }
         switch (menuGameObj.name)
         {
             case "PressStart":
-
-                pressedbuttonReturn();
+                pressedbuttonReturn(menuGameObj, MainMenuGameObj);
 
                 if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "MainMenu")
                 {
                     _eventSystem.SetSelectedGameObject(MenuOptions[0]);
                 }
-
                 break;
 
             case "MainMenu":
-
-                startConfirm.interactable = false;
-
-                p1_active_bot = false;
-                p1_active_p = false;
-
-                p2_active_bot = false;
-                p2_active_p = false;
-
-                p3_active_bot = false;
-                p3_active_p = false;
-
-                p4_active_bot = false;
-                p4_active_p = false;
+                gambiarra = true;
+                for (int i = 0; i < 4; i++)
+                {
+                    bot_active[i] = false;
+                    players_active[i] = false;
+                }
 
                 if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "MainMenu")
                 {
                     _eventSystem.SetSelectedGameObject(MenuOptions[0]);
                 }
-
                 break;
 
-            //Mapa 1.2
             case "MapSelect":
-
                 MapCycle();
 
                 ReturnMapSelected();
 
-                pressedbuttonReturn();
-                break;
-
-            //Mapa 1.3
-            case "EntradaPlayers":
-                //  ReturnGameMode();
-
-
-                pressedbuttonReturn();
+                pressedbuttonReturn(menuGameObj, MainMenuGameObj);
                 break;
 
             case "EntradaPlayersDefinitivo":
                 playersConfirmation();
 
-                if(p1.GetButtonDown("Submit")|| p1.GetButtonDown("AddBot"))
-                {
-                    confirming();
-                }
-
-                if (p2.GetButtonDown("Submit") || p2.GetButtonDown("AddBot"))
-                {
-                    confirming();
-                }
-
-                if (p3.GetButtonDown("Submit") || p3.GetButtonDown("AddBot"))
-                {
-                    confirming();
-                }
-
-                if (p4.GetButtonDown("Submit") || p4.GetButtonDown("AddBot"))
-                {
-                    confirming();
-                }
-
-                pressedbuttonReturn();
-
-
-                for(int i = 0; i < 4; i++)
-                {
-                    bool ifistrue = true; ;
-
-                    if(PlayerData.CPU[i] == true && ifistrue == true)
-                    {
-                        contador++;
-                    }
-
-                    if(PlayerData.PlayersInGame[i] == true && ifistrue == true)
-                    {
-                        contador++;
-                        ifistrue = false;
-                    }
-
-                    if (contador >= 4 && ifistrue == true)
-                    {
-                        startConfirm.interactable = true;
-                        if (p1.GetButtonDown("Start") || p2.GetButtonDown("Start") || p3.GetButtonDown("Start") || p4.GetButtonDown("Start"))
-                        {
-                            SceneManager.LoadScene(1);
-                        }
-                    }
-                }
-                
-
-             
-
-               
-            
-           
-
+                pressedbuttonReturn(menuGameObj, MainMenuGameObj);
+                ChangingPlayersIngame();
+                dontChangeMenu = false;
                 break;
 
-            //Mapa 2
-            case "Options":
-                pressedbuttonReturn();
-                break;
-
-            //Mapa 2.1
-            case "SoundOptions":
-                pressedbuttonReturn();
-                break;
-
-            //Mapa 2.2
-            case "GraphicsOptions":
-                pressedbuttonReturn();
-                break;
-
-            //Mapa 3.1
             case "ReallyQuit":
-
                 if (_eventSystem.currentSelectedGameObject == null)
                 {
                     _eventSystem.SetSelectedGameObject(MenuOptions[0]);
                 }
 
-                pressedbuttonReturn();
-
+                pressedbuttonReturn(menuGameObj, MainMenuGameObj);
                 break;
-
         }
-
         if (!menuGameObj.activeSelf)
         {
             MenuOptions = GameObject.FindGameObjectsWithTag("Test");
@@ -249,769 +131,437 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
             menuGameObj = GameObject.FindGameObjectWithTag("Cell");
 
+            players_active[0] = false;
+
             _eventSystem.SetSelectedGameObject(MenuOptions[0]);
         }
-
     }
 
-
-    public void pressedbuttonReturn()
+    public void pressedbuttonReturn(GameObject toDeactivateMenu, GameObject toGoToMenu)
     {
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "MainMenu" && menuGameObj.name == "EntradaPlayersDefinitivo")
+        for (int i = 0; i < players.Length; i++)
         {
-            ///   bool pranbugar = true;
-
-            var w = GameObject.Find("player1");
-            var x = GameObject.Find("player2");
-            var y = GameObject.Find("player3");
-            var z = GameObject.Find("player4");
-
-            startConfirm.interactable = false;
-
-            if (w.GetComponent<Image>().sprite != p1_off)
+            if (players[0].GetButtonDown("UICancel") && dontChangeMenu == false)
             {
-                w.GetComponent<Image>().sprite = p1_off;
-                x.GetComponent<Image>().sprite = p2_off;
-                y.GetComponent<Image>().sprite = p3_off;
-                z.GetComponent<Image>().sprite = p4_off;
+                Debug.Log("MudeiMesmo!!!!!!!!!!!!!!!");
+                toDeactivateMenu.SetActive(false);
+                toGoToMenu.SetActive(true);
+                players_active[0] = false;
+
+                if (menuGameObj.name == "EntradaPlayersDefinitivo" && startConfirm.activeSelf == true)
+                {
+                    _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+                }
+                else
+                {
+                    _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+                }
             }
-            else
+            ////POR ENQUANTO DEIXA ASSIM
+            if (menuGameObj.name == "EntradaPlayersDefinitivo" && players_active[i] == true && gambiarra == true)
             {
-                w.GetComponent<Image>().sprite = p1_off;
-                x.GetComponent<Image>().sprite = p2_off;
-                y.GetComponent<Image>().sprite = p3_off;
-                z.GetComponent<Image>().sprite = p4_off;
-
-                p1_active_bot = true;
-                p1_active_p = false;
-
-                p2_active_bot = true;
-                p2_active_p = false;
-
-                p3_active_bot = true;
-                p3_active_p = false;
-
-                p4_active_bot = true;
-                p4_active_p = false;
-
-
-
-                lastMenuGameObj.SetActive(true);
-                menuGameObj.SetActive(false);
+                var a = GameObject.Find("1");
+                a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
+                var b = GameObject.Find("2");
+                b.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                var c = GameObject.Find("3");
+                c.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                var d = GameObject.Find("4");
+                d.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                startConfirm.SetActive(false);
+                players_active[0] = false;
+                gambiarra = false;
             }
-        }
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "MainMenu" && menuGameObj.name == "ReallyQuit")
-        {
-            MainMenuGameObj.SetActive(true);
-            menuGameObj.SetActive(false);
-        }
-
-        if (p1.GetButtonDown("Start") || p1.GetButtonDown("UICancel") || p1.GetButtonDown("UISubmit") && menuGameObj.name == "PressStart")
-        {
-            menuGameObj.SetActive(false);
-            MainMenuGameObj.SetActive(true);
-        }
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "SoundOptions" && menuGameObj.name == "Options")
-        {
-            lastMenuGameObj.SetActive(false);
-            lastMenuGameObj = MainMenuGameObj;
-            menuGameObj.SetActive(false);
-            lastMenuGameObj.SetActive(true);
-        }
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "GraphicsOptions" && menuGameObj.name == "Options")
-        {
-            lastMenuGameObj.SetActive(false);
-            lastMenuGameObj = MainMenuGameObj;
-            menuGameObj.SetActive(false);
-            lastMenuGameObj.SetActive(true);
-        }
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "MainMenu" && menuGameObj.name == "MapSelect")
-        {
-            lastMenuGameObj.SetActive(true);
-            menuGameObj.SetActive(false);
-
-            if (_eventSystem.currentSelectedGameObject == null && menuGameObj.name == "MainMenu")
-            {
-                _eventSystem.SetSelectedGameObject(MenuOptions[0]);
-            }
-
-        }
-
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "EntradaPlayers" && menuGameObj.name == "MapSelect")
-        {
-            lastMenuGameObj.SetActive(false);
-            lastMenuGameObj = menuGameObj;
-            MainMenuGameObj.SetActive(true);
-            //   mapSelected.SetActive(true);
-        }
-
-        if (p1.GetButtonDown("UICancel") && lastMenuGameObj.name == "MapSelect" && menuGameObj.name == "EntradaPlayers")
-        {
-            menuToggle1.isOn = false;
-            menuToggle2.isOn = false;
-            menuToggle3.isOn = false;
-
-            MainMenuGameObj.SetActive(false);
-            menuGameObj.SetActive(false);
-            lastMenuGameObj.SetActive(true);
+            //////////GAMBOSA ACIMA
         }
     }
 
-    public string ReturnMapSelected()
+    public GameObject ReturnMapSelected()
     {
-        // mapSelectedString = mapSelected.name;
-        return mapSelectedString;
+        return mapSelectedReturn[0];
     }
 
     public void MapCycle()
     {
         bool tomarnorabo = true;
 
-        obj5 = GameObject.Find("LastMap");
+        objs[0].GetComponent<Image>().sprite = fonteSpritesCode.mapS_burning;
+        objs[1].GetComponent<Image>().sprite = fonteSpritesCode.mapS_king;
+        objs[2].GetComponent<Image>().sprite = fonteSpritesCode.mapS_chaos;
+        objs[3].GetComponent<Image>().sprite = fonteSpritesCode.mapS_runner;
+        objs[4].GetComponent<Image>().sprite = fonteSpritesCode.mapS_rock;
 
-        obj1 = GameObject.Find("MapActual");
+        for (int i = 0; i < players.Length; i++)
+        {///FORWARDS///////////////////////////////////////////////////////////////////////////////////////////////////
+            if (players[i].GetButtonDown("UIHorizontal") && tomarnorabo == true)
+            {
+                var lastIconSprite = objs[0].GetComponent<Image>().sprite;
 
-        obj2 = GameObject.Find("SecondMap");
+                objs[0].GetComponent<Image>().sprite = objs[1].GetComponent<Image>().sprite;
+                objs[1].GetComponent<Image>().sprite = objs[2].GetComponent<Image>().sprite;
+                objs[2].GetComponent<Image>().sprite = objs[3].GetComponent<Image>().sprite;
+                objs[3].GetComponent<Image>().sprite = objs[4].GetComponent<Image>().sprite;
+                objs[4].GetComponent<Image>().sprite = lastIconSprite;
 
-        obj3 = GameObject.Find("ThirdMap");
+                CurrentMapSelect = GameObject.Find("ActualMap");
+                tomarnorabo = false;
+                mapSelectedReturn[0] = CurrentMapSelect;
+                _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }///BACKWARDS///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        obj4 = GameObject.Find("FourthMap");
+            if (players[i].GetNegativeButtonDown("UIHorizontal") && tomarnorabo == true)
+            {
+                var lastIconSprite = objs[4].GetComponent<Image>().sprite;
 
-        ///FORWARDS///////////////////////////////////////////////////////////////////////////////////////////////////
+                objs[4].GetComponent<Image>().sprite = objs[0].GetComponent<Image>().sprite;
+                objs[0].GetComponent<Image>().sprite = objs[1].GetComponent<Image>().sprite;
+                objs[1].GetComponent<Image>().sprite = objs[2].GetComponent<Image>().sprite;
+                objs[2].GetComponent<Image>().sprite = objs[3].GetComponent<Image>().sprite;
+                objs[3].GetComponent<Image>().sprite = lastIconSprite;
 
-        if (p1.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_runner && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_runner;
-            obj1.GetComponent<Image>().sprite = mapS_rock;
-            obj2.GetComponent<Image>().sprite = mapS_burning;
-            obj3.GetComponent<Image>().sprite = mapS_king;
-            obj4.GetComponent<Image>().sprite = mapS_chaos;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_rock";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-
-        if (p1.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_rock && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_rock;
-            obj1.GetComponent<Image>().sprite = mapS_burning;
-            obj2.GetComponent<Image>().sprite = mapS_king;
-            obj3.GetComponent<Image>().sprite = mapS_chaos;
-            obj4.GetComponent<Image>().sprite = mapS_runner;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_burning";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-        if (p1.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_burning && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_burning;
-            obj1.GetComponent<Image>().sprite = mapS_king;
-            obj2.GetComponent<Image>().sprite = mapS_chaos;
-            obj3.GetComponent<Image>().sprite = mapS_runner;
-            obj4.GetComponent<Image>().sprite = mapS_rock;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_king";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-
-        if (p1.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_king && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_king;
-            obj1.GetComponent<Image>().sprite = mapS_chaos;
-            obj2.GetComponent<Image>().sprite = mapS_runner;
-            obj3.GetComponent<Image>().sprite = mapS_rock;
-            obj4.GetComponent<Image>().sprite = mapS_burning;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_chaos";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-        if (p1.GetButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_chaos && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_chaos;
-            obj1.GetComponent<Image>().sprite = mapS_runner;
-            obj2.GetComponent<Image>().sprite = mapS_rock;
-            obj3.GetComponent<Image>().sprite = mapS_burning;
-            obj4.GetComponent<Image>().sprite = mapS_king;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_runner";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-
-
-        ///BACKWARDS///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-        if (p1.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_runner && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_king;
-            obj1.GetComponent<Image>().sprite = mapS_chaos;
-            obj2.GetComponent<Image>().sprite = mapS_runner;
-            obj3.GetComponent<Image>().sprite = mapS_rock;
-            obj4.GetComponent<Image>().sprite = mapS_burning;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_chaos";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-        if (p1.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_chaos && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_burning;
-            obj1.GetComponent<Image>().sprite = mapS_king;
-            obj2.GetComponent<Image>().sprite = mapS_chaos;
-            obj3.GetComponent<Image>().sprite = mapS_runner;
-            obj4.GetComponent<Image>().sprite = mapS_rock;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_king";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-        if (p1.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_king && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_rock;
-            obj1.GetComponent<Image>().sprite = mapS_burning;
-            obj2.GetComponent<Image>().sprite = mapS_king;
-            obj3.GetComponent<Image>().sprite = mapS_chaos;
-            obj4.GetComponent<Image>().sprite = mapS_runner;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_burning";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-
-        if (p1.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_burning && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_runner;
-            obj1.GetComponent<Image>().sprite = mapS_rock;
-            obj2.GetComponent<Image>().sprite = mapS_burning;
-            obj3.GetComponent<Image>().sprite = mapS_king;
-            obj4.GetComponent<Image>().sprite = mapS_chaos;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_rock";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-
-        if (p1.GetNegativeButtonDown("UIHorizontal") && obj1.GetComponent<Image>().sprite == mapS_rock && tomarnorabo == true)
-        {
-            obj5.GetComponent<Image>().sprite = mapS_chaos;
-            obj1.GetComponent<Image>().sprite = mapS_runner;
-            obj2.GetComponent<Image>().sprite = mapS_rock;
-            obj3.GetComponent<Image>().sprite = mapS_burning;
-            obj4.GetComponent<Image>().sprite = mapS_king;
-            tomarnorabo = false;
-            mapSelectedString = "mapS_runner";
-            _eventSystem.SetSelectedGameObject(MenuOptions[1]);
-        }
-    }
-
-    public void ButtonVerify()
-    {
-
-        startButtonEntradaPlayers = FindObjectOfType<Button>();
-
-        if (menuToggle1.isOn == true || menuToggle2.isOn == true && menuToggle3.isOn == true && startButtonEntradaPlayers.interactable == false)
-        {
-            startButtonEntradaPlayers.interactable = true;
-        }
-
-        if (menuToggle1.isOn == false && menuToggle2.isOn == false && menuToggle3.isOn == false)
-        {
-            startButtonEntradaPlayers.interactable = false;
-        }
-
-        if (menuToggle1.isOn == true)
-        {
-            ButtonSelector1 = GameObject.Find("SelectedPlayers");
-        }
-        if (menuToggle2.isOn == true)
-        {
-            ButtonSelector2 = GameObject.Find("SelectedPlayers2");
-        }
-        if (menuToggle3.isOn == true)
-        {
-            ButtonSelector3 = GameObject.Find("SelectedPlayers3");
-        }
-
-        if (ButtonSelector1.activeSelf == true && menuToggle1.isOn == false)
-        {
-            menuToggle1.isOn = true;
-            startButtonEntradaPlayers.interactable = true;
-        }
-
-
-        if (ButtonSelector2.activeSelf == true && menuToggle2.isOn == false)
-        {
-            menuToggle2.isOn = true;
-            startButtonEntradaPlayers.interactable = true;
-        }
-
-
-        if (ButtonSelector3.activeSelf == true && menuToggle3.isOn == false)
-        {
-            menuToggle3.isOn = true;
-            startButtonEntradaPlayers.interactable = true;
+                CurrentMapSelect = GameObject.Find("ActualMap");
+                tomarnorabo = false;
+                mapSelectedReturn[0] = CurrentMapSelect;
+                _eventSystem.SetSelectedGameObject(MenuOptions[1]);
+            }
         }
     }
 
     public void playersConfirmation()
     {
-
-        if (p1.GetButtonDown("UISubmit"))
+        for (int i = 0; i < players.Length; i++)
         {
-            var a = GameObject.Find("player1");
-            a.GetComponent<Image>().sprite = p1_on;
-            confirming();
-          
-        }
-        if (p2.GetButtonDown("UISubmit"))
-        {
-            var a = GameObject.Find("player2");
-            a.GetComponent<Image>().sprite = p2_on;
-            confirming();
-
-
-        }
-        if (p3.GetButtonDown("UISubmit"))
-        {
-            var a = GameObject.Find("player3");
-            a.GetComponent<Image>().sprite = p3_on;
-            confirming();
-
-        }
-        if (p4.GetButtonDown("UISubmit"))
-        {
-            var a = GameObject.Find("player4");
-            a.GetComponent<Image>().sprite = p4_on;
-            confirming();
-
-        }
-
-        if (p1.GetButtonDown("UICancel") && menuGameObj.name == "EntradaPlayersDefinitivo")
-        {
-            var a = GameObject.Find("player1");
-            a.GetComponent<Image>().sprite = p1_off;
-            confirming();
-        }
-
-        if (p2.GetButtonDown("UICancel") && menuGameObj.name == "EntradaPlayersDefinitivo")
-        {
-            var a = GameObject.Find("player2");
-            a.GetComponent<Image>().sprite = p2_off;
-            confirming();
-        }
-        
-
-        if (p3.GetButtonDown("UICancel") && menuGameObj.name == "EntradaPlayersDefinitivo")
-        {
-            var a = GameObject.Find("player3");
-            a.GetComponent<Image>().sprite = p3_off;
-            confirming();
-        }
-
-
-        if (p4.GetButtonDown("UICancel") && menuGameObj.name == "EntradaPlayersDefinitivo")
-        {
-            var a = GameObject.Find("player4");
-            a.GetComponent<Image>().sprite = p4_off;
-            confirming();
-        }
-
-        var w = GameObject.Find("player1");
-        var x = GameObject.Find("player2");
-        var y = GameObject.Find("player3");
-        var z = GameObject.Find("player4");
-
-        ///////////////////////////////////////////
-        /////////////////////////////////////////////ADD BOTS
-        /////////////////////////////////////////////
-
-        if (p1.GetButtonDown("AddBot"))
-        {
-            bool addbot = true;
-
-            if (x.GetComponent<Image>().sprite == p2_off && addbot == true)
+            if (players[i].GetButtonDown("UISubmit") && players_active[i] == false)
             {
-                x.GetComponent<Image>().sprite = p2_cpu;
-                confirming();
-                addbot = false;
-               
+                switch (i)
+                {
+                    case 0:
+                        var a = GameObject.Find("1");
+                        a.GetComponent<Image>().sprite = fonteSpritesCode.p1_on;
+                        players_active[0] = true;
+                        break;
+                    case 1:
+                        var b = GameObject.Find("2");
+                        b.GetComponent<Image>().sprite = fonteSpritesCode.p2_on;
+                        players_active[1] = true;
+                        break;
+                    case 2:
+                        var c = GameObject.Find("3");
+                        c.GetComponent<Image>().sprite = fonteSpritesCode.p3_on;
+                        players_active[2] = true;
+                        break;
+                    case 3:
+                        var d = GameObject.Find("4");
+                        d.GetComponent<Image>().sprite = fonteSpritesCode.p4_on;
+                        players_active[3] = true;
+                        break;
+                }
             }
-
-            if (y.GetComponent<Image>().sprite == p3_off && addbot == true)
+            if (players[i].GetButtonDown("UICancel") && players_active[i] == true)
             {
-                y.GetComponent<Image>().sprite = p3_cpu;
-                confirming();
-                addbot = false;
-            
+                switch (i)
+                {
+                    case 0:
+                        var b = GameObject.Find("1");
+                        b.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
+                        players_active[0] = false;
+                        break;
+                    case 1:
+                        b = GameObject.Find("2");
+                        b.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                        players_active[1] = false;
+                        break;
+                    case 2:
+                        b = GameObject.Find("3");
+                        b.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                        players_active[2] = false;
+                        break;
+                    case 3:
+                        b = GameObject.Find("4");
+                        b.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                        players_active[3] = false;
+                        break;
+                }
+                dontChangeMenu = true;
             }
-
-            if (z.GetComponent<Image>().sprite == p4_off && addbot == true)
+            /////////////////////////////////////////////ADD BOTS
+            if (players[i].GetButtonDown("AddBot") && players_active[i] == true)
             {
-                z.GetComponent<Image>().sprite = p4_cpu;
-                confirming();
-                addbot = false;
-              
+                bool botControl = true;
+                switch (i)
+                {
+                    case 0:
+                        var a = GameObject.Find("2");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p2_cpu;
+                            botControl = false;
+                            bot_active[1] = true;
+                            players_active[1] = true;
+                        }
+                        a = GameObject.Find("3");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p3_cpu;
+                            botControl = false;
+                            bot_active[2] = true;
+                            players_active[2] = true;
+                        }
+                        a = GameObject.Find("4");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p4_cpu;
+                            botControl = false;
+                            bot_active[3] = true;
+                            players_active[3] = true;
+                        }
+                        break;
+                    case 1:
+                        a = GameObject.Find("1");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p1_cpu;
+                            botControl = false;
+                            bot_active[0] = true;
+                            players_active[0] = true;
+                        }
+                        a = GameObject.Find("3");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p3_cpu;
+                            botControl = false;
+                            bot_active[2] = true;
+                            players_active[2] = true;
+                        }
+                        a = GameObject.Find("4");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p4_cpu;
+                            botControl = false;
+                            bot_active[3] = true;
+                            players_active[3] = true;
+                        }
+                        break;
+                    case 2:
+                        a = GameObject.Find("1");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p1_cpu;
+                            botControl = false;
+                            bot_active[0] = true;
+                            players_active[0] = true;
+                        }
+                        a = GameObject.Find("2");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p2_cpu;
+                            botControl = false;
+                            bot_active[1] = true;
+                            players_active[1] = true;
+                        }
+                        a = GameObject.Find("4");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p4_cpu;
+                            botControl = false;
+                            bot_active[3] = true;
+                            players_active[3] = true;
+                        }
+                        break;
+                    case 3:
+                        a = GameObject.Find("1");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p1_cpu;
+                            botControl = false;
+                            bot_active[0] = true;
+                            players_active[0] = true;
+                        }
+                        a = GameObject.Find("2");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p2_cpu;
+                            botControl = false;
+                            bot_active[1] = true;
+                            players_active[1] = true;
+                        }
+                        a = GameObject.Find("3");
+                        if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_off && botControl == true)
+                        {
+                            a.GetComponent<Image>().sprite = fonteSpritesCode.p3_cpu;
+                            botControl = false;
+                            bot_active[2] = true;
+                            players_active[2] = true;
+                        }
+                        break;
+                }
             }
-        }
-
-        if (p2.GetButtonDown("AddBot"))
-        {
-            bool addbot2 = true;
-
-            if (w.GetComponent<Image>().sprite == p1_off && addbot2 == true)
+            if (players[i].GetButtonDown("RemoveBot"))
             {
-                w.GetComponent<Image>().sprite = p1_cpu;
-                confirming();
-                addbot2 = false;
-    
+                bool botControl2 = true;
+
+                if (botControl2 == true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            var a = GameObject.Find("2");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                                botControl2 = false;
+                                bot_active[1] = false;
+                                players_active[1] = false;
+                            }
+                            a = GameObject.Find("3");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                                botControl2 = false;
+                                bot_active[2] = false;
+                                players_active[2] = false;
+                            }
+                            a = GameObject.Find("4");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                                botControl2 = false;
+                                bot_active[3] = false;
+                                players_active[3] = false;
+                            }
+                            break;
+                        case 1:
+                            a = GameObject.Find("1");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
+                                botControl2 = false;
+                                bot_active[0] = false;
+                                players_active[0] = false;
+                            }
+                            a = GameObject.Find("3");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                                botControl2 = false;
+                                bot_active[2] = false;
+                                players_active[2] = false;
+                            }
+                            a = GameObject.Find("4");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                                botControl2 = false;
+                                bot_active[3] = false;
+                                players_active[3] = false;
+                            }
+                            break;
+                        case 2:
+                            a = GameObject.Find("1");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
+                                botControl2 = false;
+                                bot_active[0] = false;
+                                players_active[0] = false;
+                            }
+                            a = GameObject.Find("2");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                                botControl2 = false;
+                                bot_active[1] = false;
+                                players_active[1] = false;
+                            }
+                            a = GameObject.Find("4");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p4_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p4_off;
+                                botControl2 = false;
+                                bot_active[3] = false;
+                                players_active[3] = false;
+                            }
+                            break;
+                        case 3:
+                            a = GameObject.Find("1");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p1_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p1_off;
+                                botControl2 = false;
+                                bot_active[0] = false;
+                                players_active[0] = false;
+                            }
+                            a = GameObject.Find("2");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p2_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p2_off;
+                                botControl2 = false;
+                                bot_active[1] = false;
+                                players_active[1] = false;
+                            }
+                            a = GameObject.Find("3");
+                            if (a.GetComponent<Image>().sprite == fonteSpritesCode.p3_cpu && botControl2 == true)
+                            {
+                                a.GetComponent<Image>().sprite = fonteSpritesCode.p3_off;
+                                botControl2 = false;
+                                bot_active[2] = false;
+                                players_active[2] = false;
+                            }
+                            break;
+                    }
+                }
             }
-
-            if (y.GetComponent<Image>().sprite == p3_off && addbot2 == true)
-            {
-                y.GetComponent<Image>().sprite = p3_cpu;
-                confirming();
-                addbot2 = false;
-      
-            }
-
-            if (z.GetComponent<Image>().sprite == p4_off && addbot2 == true)
-            {
-                z.GetComponent<Image>().sprite = p4_cpu;
-                confirming();
-                addbot2 = false;
-          
-            }
         }
-
-        if (p3.GetButtonDown("AddBot"))
-        {
-            bool addbot3 = true;
-
-            if (w.GetComponent<Image>().sprite == p1_off && addbot3 == true)
-            {
-                w.GetComponent<Image>().sprite = p1_cpu;
-                confirming();
-                addbot3 = false;
-          
-            }
-
-            if (x.GetComponent<Image>().sprite == p2_off && addbot3 == true)
-            {
-                x.GetComponent<Image>().sprite = p2_cpu;
-                confirming();
-                addbot3 = false;
-            
-            }
-
-            if (z.GetComponent<Image>().sprite == p4_off && addbot3 == true)
-            {
-                z.GetComponent<Image>().sprite = p4_cpu;
-                confirming();
-                addbot3 = false;
-      
-            }
-        }
-
-        if (p4.GetButtonDown("AddBot"))
-        {
-            bool addbot4 = true;
-
-            if (w.GetComponent<Image>().sprite == p1_off && addbot4 == true)
-            {
-                w.GetComponent<Image>().sprite = p1_cpu;
-                confirming();
-                addbot4 = false;
-
-            }
-
-            if (x.GetComponent<Image>().sprite == p2_off && addbot4 == true)
-            {
-                x.GetComponent<Image>().sprite = p2_cpu;
-                confirming();
-                addbot4 = false;
-         
-            }
-
-            if (y.GetComponent<Image>().sprite == p3_off && addbot4 == true)
-            {
-                y.GetComponent<Image>().sprite = p3_cpu;
-                confirming();
-                addbot4 = false;
-    
-            }
-        }
-
-
-        ///////////////////////////////////////////
-        /////////////////////////////////////////////REMOVE BOTS
-        /////////////////////////////////////////////
-
-
-        bool removebot = true;
-
-        if (p1.GetButtonDown("RemoveBot") && x.GetComponent<Image>().sprite == p2_cpu && removebot == true)
-        {
-            x.GetComponent<Image>().sprite = p2_off;
-            p2_active_bot = false;
-            confirming();
-            removebot = false;
- 
-        }
-
-        if (p1.GetButtonDown("RemoveBot") && y.GetComponent<Image>().sprite == p3_cpu && removebot == true)
-        {
-            y.GetComponent<Image>().sprite = p3_off;
-            p3_active_bot = false;
-            confirming();
-            removebot = false;
-    
-        }
-
-        if (p1.GetButtonDown("RemoveBot") && z.GetComponent<Image>().sprite == p4_cpu && removebot == true)
-        {
-            z.GetComponent<Image>().sprite = p4_off;
-            p4_active_bot = false;
-            confirming();
-            removebot = false;
-
-        }
-
-
-        bool removebot2 = true;
-
-        if (p2.GetButtonDown("RemoveBot") && w.GetComponent<Image>().sprite == p1_cpu && removebot2 == true)
-        {
-            w.GetComponent<Image>().sprite = p1_off;
-            p1_active_bot = false;
-            confirming();
-            removebot2 = false;
-     
-        }
-
-        if (p2.GetButtonDown("RemoveBot") && y.GetComponent<Image>().sprite == p3_cpu && removebot2 == true)
-        {
-            y.GetComponent<Image>().sprite = p3_off;
-            p3_active_bot = false;
-            confirming();
-            removebot2 = false;
-           
-        }
-
-        if (p2.GetButtonDown("RemoveBot") && z.GetComponent<Image>().sprite == p4_cpu && removebot2 == true)
-        {
-            z.GetComponent<Image>().sprite = p4_off;
-            p4_active_bot = false;
-            confirming();
-            removebot2 = false;
-        
-        }
-
-
-
-        bool removebot3 = true;
-
-        if (p3.GetButtonDown("RemoveBot") && w.GetComponent<Image>().sprite == p1_cpu && removebot3 == true)
-        {
-            w.GetComponent<Image>().sprite = p1_off;
-            p1_active_bot = false;
-            confirming();
-            removebot3 = false;
-          
-        }
-
-        if (p3.GetButtonDown("RemoveBot") && x.GetComponent<Image>().sprite == p2_cpu && removebot3 == true)
-        {
-            x.GetComponent<Image>().sprite = p2_off;
-            p2_active_bot = false;
-            confirming();
-            removebot3 = false;
-         
-        }
-
-        if (p3.GetButtonDown("RemoveBot") && z.GetComponent<Image>().sprite == p4_cpu && removebot3 == true)
-        {
-            z.GetComponent<Image>().sprite = p4_off;
-            p4_active_bot = false;
-            confirming();
-            removebot3 = false;
-        
-        }
-
-
-        bool removebot4 = true;
-
-        if (p3.GetButtonDown("RemoveBot") && w.GetComponent<Image>().sprite == p1_cpu && removebot4 == true)
-        {
-            w.GetComponent<Image>().sprite = p1_off;
-            p1_active_bot = false;
-            confirming();
-            removebot4 = false;
-
-        }
-
-        if (p3.GetButtonDown("RemoveBot") && x.GetComponent<Image>().sprite == p2_cpu && removebot4 == true)
-        {
-            x.GetComponent<Image>().sprite = p2_off;
-            p2_active_bot = false;
-            confirming();
-            removebot4 = false;
-     
-        }
-
-        if (p3.GetButtonDown("RemoveBot") && y.GetComponent<Image>().sprite == p3_cpu && removebot4 == true)
-        {
-            y.GetComponent<Image>().sprite = p3_off;
-            p3_active_bot = false;
-            confirming();
-            removebot4 = false;
-  
-        }
-
-
-
-
-
     }
 
-    public void confirming()
+    public void ChangingPlayersIngame()
     {
-      //  bool desgraça = true;
-
-        var w = GameObject.Find("player1");
-        var x = GameObject.Find("player2");
-        var y = GameObject.Find("player3");
-        var z = GameObject.Find("player4");
-
-
-       
-        if(w.GetComponent<Image>().sprite == p1_on || w.GetComponent<Image>().sprite == p1_cpu)
-        {
-            if (w.GetComponent<Image>().sprite == p1_cpu)
-            {
-                p1_active_bot = true;
-                p1_active_p = false;
-                PlayerData.CPU[0] = true;
-                PlayerData.PlayersInGame[0] = false;
-            }
-            
-            if(w.GetComponent<Image>().sprite == p1_on)
-            {
-                p1_active_bot = false;
-                p1_active_p = true;
-                PlayerData.CPU[0] = false;
-                PlayerData.PlayersInGame[0] = true;
-            }
-        }
-        else
-        {
-            PlayerData.CPU[0] = false;
-            PlayerData.PlayersInGame[0] = false;
-        }
-
-
-        if (x.GetComponent<Image>().sprite == p2_on || x.GetComponent<Image>().sprite == p2_cpu)
-        {
-            if (x.GetComponent<Image>().sprite == p2_cpu)
-            {
-                p2_active_bot = true;
-                p2_active_p = false;
-                PlayerData.CPU[1] = true;
-                PlayerData.PlayersInGame[1] = false;
-            }
-
-            if (x.GetComponent<Image>().sprite == p2_on)
-            {
-                p2_active_bot = false;
-                p2_active_p = true;
-                PlayerData.CPU[1] = false;
-                PlayerData.PlayersInGame[1] = true;
-            }
-        }
-        else
-        {
-            PlayerData.CPU[1] = false;
-            PlayerData.PlayersInGame[1] = false;
-        }
-
-
-        if (y.GetComponent<Image>().sprite == p3_on || y.GetComponent<Image>().sprite == p3_cpu)
-        {
-            if (y.GetComponent<Image>().sprite == p3_cpu)
-            {
-                p3_active_bot = true;
-                p3_active_p = false;
-                PlayerData.CPU[2] = true;
-                PlayerData.PlayersInGame[2] = false;
-            }
-            
-            if (y.GetComponent<Image>().sprite == p3_on)
-            {
-                p3_active_bot = false;  
-                p3_active_p = true;
-                PlayerData.CPU[2] = false;
-                PlayerData.PlayersInGame[2] = true;
-            } 
-        }
-        else
-        {
-            PlayerData.CPU[2] = false;
-            PlayerData.PlayersInGame[2] = false;
-        }
-
-
-        if (z.GetComponent<Image>().sprite == p4_on || z.GetComponent<Image>().sprite == p4_cpu)
-        {
-            if (z.GetComponent<Image>().sprite == p4_cpu)
-            {
-                p4_active_bot = true;
-                p4_active_p = false;
-                PlayerData.CPU[3] = true;
-                PlayerData.PlayersInGame[3] = false;
-            }
-
-            if (z.GetComponent<Image>().sprite == p4_on)
-            {
-                p4_active_bot = false;
-                p4_active_p = true;
-                PlayerData.CPU[3] = false;
-                PlayerData.PlayersInGame[3] = true;
-            }
-        }
-        else
-        {
-            PlayerData.CPU[3] = false;
-            PlayerData.PlayersInGame[3] = false;
-        }
-
+        var y = 0;
      
+        for (int e = 0; e < 4; e++)
+        {
 
-     //   if (p1_active_p == true || p2_active_p == true || p3_active_p == true || p4_active_p == true || p1_active_p == true || p2_active_p == true || p3_active_p == true || p4_active_bot == true || p1_active_p == true || p2_active_p == true || p3_active_bot == true || p4_active_bot == true || p1_active_p == true || p2_active_p == true || p3_active_bot == true || p4_active_bot == true || p1_active_p == true || p2_active_bot == true || p3_active_bot == true || p4_active_bot == true)
-     //   {
-     //  startConfirm.interactable = true;
-     //   }
+            if (players_active[e] == true)
+            {
+                if(bot_active[e] == true){
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                    PlayerData.CPU[e] = bot_active[e];
+                }
+                else{
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                }
 
+                y++;
+                if (y >= 2)
+                {
+                    startConfirm.SetActive(true);
+                    if (players[e].GetButtonDown("Start"))
+                    {
+                        SceneManager.LoadScene(1);
+                    }
+                }
+                else
+                {
+                    startConfirm.SetActive(false);
+                }
+            }
+            else
+            {
+                if (bot_active[e] == false)
+                {
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                    PlayerData.CPU[e] = bot_active[e];
+                }
+                else
+                {
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                }
+            }
+            
+         
 
+        }
+        
+        Debug.Log(y);
     }
-
-  
-
-
 }
-
-
-
-
-
-
-

@@ -1,1 +1,13 @@
+<<<<<<< HEAD
+m_EditorVersion: 2018.1.9f1
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+m_EditorVersion: 2018.1.9f1
+=======
+m_EditorVersion: 2018.1.9f2
+>>>>>>> 93c420b90bef3a77372b34efac623b030b0fc363
+=======
 m_EditorVersion: 2018.1.1f1
+>>>>>>> 721da427316743e516620d915eb9d44b12b380b3
+>>>>>>> master

@@ -517,24 +517,20 @@ public class Menu_1stOptionSelected : MonoBehaviour
     public void ChangingPlayersIngame()
     {
         var y = 0;
+     
         for (int e = 0; e < 4; e++)
         {
-            if (players_active[e] == true && bot_active[e] == true)
+            if (players_active[e] == true)
             {
-                  PlayerData.CPU[e] = bot_active[e];
-                  PlayerData.PlayersInGame[e] = bot_active[e];
-                y++;
-                if (y >= 2){
-                    startConfirm.SetActive(true);
+                if(bot_active[e] == true){
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                    PlayerData.CPU[e] = bot_active[e];
                 }
                 else{
-                    startConfirm.SetActive(false);
+                    PlayerData.PlayersInGame[e] = players_active[e];
+            //        PlayerData.CPU[e] = bot_active[e];
                 }
-            }
 
-            if(players_active[e] == true)
-            {
-                PlayerData.PlayersInGame[e] = players_active[e];
                 y++;
                 if (y >= 2)
                 {
@@ -545,23 +541,23 @@ public class Menu_1stOptionSelected : MonoBehaviour
                     startConfirm.SetActive(false);
                 }
             }
-
-            if (players_active[e] == false && bot_active[e] == false)
+            else
             {
-                PlayerData.CPU[e] = bot_active[e];
-                PlayerData.PlayersInGame[e] = bot_active[e];
+                if (bot_active[e] == false)
+                {
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                    PlayerData.CPU[e] = bot_active[e];
+                }
+                else
+                {
+                    PlayerData.PlayersInGame[e] = players_active[e];
+                    //        PlayerData.CPU[e] = bot_active[e];
+                }
             }
+            
+         
 
-            if (players_active[e] == false)
-            {
-                PlayerData.PlayersInGame[e] = players_active[e];
-            }
-
-
-            if (y >= 2 && players[0].GetButtonDown("Start"))
-            {
-                SceneManager.LoadScene(1);
-            }
         }
+        Debug.Log(y);
     }
 }

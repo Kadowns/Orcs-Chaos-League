@@ -178,7 +178,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ActivePlayers: 01010100
+  ForcePlayers: 0
+  ActivePlayers: 01010101
+  BotPlayers: 00010101
   CurrentArena: 0
   _scenario1: {fileID: 0}
   _gameOverDelay: 3
@@ -224,13 +226,13 @@ MonoBehaviour:
   - tag: CagePS
     prefab: {fileID: 1754239542980124, guid: 45f8308c25d918449b3e057ce2846db7, type: 2}
     size: 20
-  - tag: RockExplosion
-    prefab: {fileID: 1731636424756724, guid: 1c887433c4fe0504fb053dddea6bec34, type: 2}
+  - tag: PlusOnePS
+    prefab: {fileID: 1274456460464378, guid: 7f8e518cd2726524099428c7c8658be9, type: 2}
     size: 20
-  - tag: GuidedRockExplosion
-    prefab: {fileID: 1389564396880574, guid: e0a15a14e03bc1a499f6c1fe15aec098, type: 2}
-    size: 20
-  - tag: GuidedRock
+  - tag: BloodSplashPS
+    prefab: {fileID: 1697478534099622, guid: f44b181e5a160c843aab59fda43e6134, type: 2}
+    size: 6
+  - tag: GuidedBomb
     prefab: {fileID: 1349353263348454, guid: 81f7f3686bb803343b6bd852a655ebb3, type: 2}
     size: 20
   - tag: GuidedRockExpPS
@@ -239,6 +241,21 @@ MonoBehaviour:
   - tag: OrcHead
     prefab: {fileID: 1965766203290680, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
     size: 20
+  - tag: PotatoBomb
+    prefab: {fileID: 0}
+    size: 20
+  - tag: ObjectSpawnPS
+    prefab: {fileID: 1596257401853220, guid: 4709e70aedf346242b5fca98ad2f5df2, type: 2}
+    size: 20
+  - tag: LavaWave
+    prefab: {fileID: 1567509376849228, guid: 7d68e212df42d5e41a80e7a31b50c766, type: 2}
+    size: 8
+  - tag: Meteorite
+    prefab: {fileID: 1294847363560628, guid: 21ddec6fd6f71c241b8754be13f7af9c, type: 2}
+    size: 30
+  - tag: MeteoritePS
+    prefab: {fileID: 1974229221779144, guid: 307a6f22040418843ab7af1efac28886, type: 2}
+    size: 30
 --- !u!114 &114210279834778692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,8 +268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bgm:
-  - {fileID: 8300000, guid: c49184fe1ab773845a023a1215dbc586, type: 3}
   - {fileID: 8300000, guid: b88561c8e2e574f4586180cbb0e0c615, type: 3}
+  Volume: 1
+  Priotity: 255
 --- !u!114 &114405071586714258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1390,9 +1408,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sfx:
   - {fileID: 8300000, guid: 60a2cb75f739c96449340275127cb718, type: 3}
-  - {fileID: 8300000, guid: e97eeefbd8d5b754e9fcbc0bfa50eaa4, type: 3}
-  - {fileID: 8300000, guid: 7e3cfe6df8395bc4ba6a7cac49f7f8b5, type: 3}
-  - {fileID: 8300000, guid: a01f352ba257127468714742e42abc93, type: 3}
+  - {fileID: 8300000, guid: f196ff8a24617d146a0ff24c3a550b8e, type: 3}
+  - {fileID: 8300000, guid: 843e81355f5fc034697b1ffb171ba74e, type: 3}
+  - {fileID: 8300000, guid: af34857253608e64eb7f5755c160613b, type: 3}
   - {fileID: 8300000, guid: 6ed50e6bccd46a3449a22e66dcdb9be6, type: 3}
-  - {fileID: 8300000, guid: 5d85759451eec6e4abe8c106839e6ced, type: 3}
+  - {fileID: 8300000, guid: 0c2fb265806098844a7d3e74e45b6918, type: 3}
   - {fileID: 8300000, guid: 6dfea8217c2568543adb20e5c70c3745, type: 3}
+  - {fileID: 8300000, guid: f891037938d75f940bf5c86b089dc491, type: 3}
+  SfxVolume: 0.62
+  SfxPriority: 255
+  AmbVolume: 0.29
+  AmbPriority: 136

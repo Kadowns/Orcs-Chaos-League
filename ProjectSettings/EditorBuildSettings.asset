@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Assets/Objects/Scenes/Nathan Main.unity
     guid: 7adc1e4fe15db014d910f3195858a97d
   - enabled: 1
-    path: Assets/Assets/Objects/Scenes/Ricardo Main.unity
+    path: Assets/Assets/Objects/Scenes/Map_Classic.unity
     guid: a2769c53c9378bd4a9300792c5e31c87
+  - enabled: 1
+    path: Assets/Assets/Objects/Scenes/Map_Circle.unity
+    guid: 46d3e9467bc68c24cb9ce6f0c4fd0451
+  - enabled: 1
+    path: Assets/Assets/Objects/Scenes/Map_Unstablemid.unity
+    guid: 1ee91524aad08eb4b96dffd5e2dc1a4e
   m_configObjects: {}

@@ -39,6 +39,8 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
     void Start()
     {
+        
+        MusicController.Instance.PlayBgmByIndex(0);
         _eventSystem = EventSystem.current;
 
         MenuOptions = GameObject.FindGameObjectsWithTag("Test");
@@ -535,10 +537,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
                 if (y >= 2)
                 {
                     startConfirm.SetActive(true);
-                    if (players[e].GetButtonDown("Start"))
-                    {
-                        SceneManager.LoadScene(1);
-                    }
+                    
                 }
                 else
                 {
@@ -556,6 +555,10 @@ public class Menu_1stOptionSelected : MonoBehaviour
                 {
                     PlayerData.PlayersInGame[e] = players_active[e];
                 }
+            }
+            if (players[e].GetButtonDown("Start"))
+            {
+                SceneManager.LoadScene(Random.Range(1, 3));
             }
             
          

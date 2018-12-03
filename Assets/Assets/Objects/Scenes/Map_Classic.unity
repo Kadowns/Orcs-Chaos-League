@@ -27829,6 +27829,11 @@ Prefab:
     - target: {fileID: 114210279834778692, guid: 640f2a8230aeb7746bb418524273333a,
         type: 2}
       propertyPath: Volume
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 114210279834778692, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: Priotity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

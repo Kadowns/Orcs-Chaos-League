@@ -27660,6 +27660,21 @@ Prefab:
       propertyPath: pools.Array.data[15].prefab
       value: 
       objectReference: {fileID: 1331210535}
+    - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: BotPlayers.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: ForcePlayers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042846219814886, guid: 640f2a8230aeb7746bb418524273333a,
+        type: 2}
+      propertyPath: BotPlayers.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640f2a8230aeb7746bb418524273333a, type: 2}
   m_IsPrefabParent: 0
@@ -51703,7 +51718,7 @@ Transform:
   m_GameObject: {fileID: 821218438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children:
   - {fileID: 247915254}
   - {fileID: 1187789737}

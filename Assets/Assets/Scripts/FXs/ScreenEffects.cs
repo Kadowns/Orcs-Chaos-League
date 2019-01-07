@@ -11,10 +11,6 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 
 	private Coroutine _screenShakeRoutine;
 	private Coroutine _blurForSecondsRoutine;
-
-	private Animator _cameraAnimFx;
-	
-	[SerializeField] private Animator _notHubAnimFx;
 	
 	private Quaternion _lastRotation;
 	
@@ -27,7 +23,6 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 	private void Awake() {
 		_cameraPivot = CameraController.Instance.transform;
 		_camera = Camera.main.transform;
-		_cameraAnimFx = _camera.GetComponent<Animator>();
 		_pool = ObjectPooler.Instance;
 	}
 

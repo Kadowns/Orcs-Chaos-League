@@ -15,7 +15,8 @@ public class ShadowCaster : MonoBehaviour {
 
 	private Renderer _renderer;
 
-	[SerializeField] private bool _castLine, _castShadow;
+	[SerializeField] private bool _castLine;
+	[SerializeField] private bool _castShadow;
 
     public float DistanceThreshold = 10, MinimumSize = 1.5f;
 

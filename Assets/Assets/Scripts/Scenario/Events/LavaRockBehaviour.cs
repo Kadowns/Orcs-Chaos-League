@@ -5,8 +5,6 @@ using UnityEngine;
 public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 
 	public float GravityScale = 10f;
-	
-	public int AttackerID { get; set; }
 
 	private float _minimumTimeAlive = 0.2f;
 	private float _timeAlive = 0;
@@ -40,7 +38,7 @@ public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 	}
 
 	public void Throw(Vector3 dir, int attackerID) {
-		AttackerID = attackerID;
+		_lastPlayerId = attackerID;
 		GlobalAudio.Instance.PlayByIndex(5);
 		GlobalAudio.Instance.PlayByIndex(6);
 		_rb.AddForce((dir + Vector3.up * 0.2f).normalized * 175, ForceMode.Impulse);
@@ -63,13 +61,13 @@ public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 			var otherMotor = otherEntity.Motor as OrcMotor;
 			var otherState = otherEntity.State as OrcEntityState;
 			if (!otherState.Parrying) {
-				otherMotor.Burn(otherState, 20, 1f, dir.normalized, 90, AttackerID);
+				otherMotor.Burn(otherState, 20, 1f, dir.normalized, 90, _lastPlayerId);
 				ScreenEffects.Instance.CreateRockExpParticles(transform.position);
 				gameObject.SetActive(false);
 			}
 			else {			
 				ScreenEffects.Instance.FreezeFrame(0.08f);
-				Throw((transform.position - other.transform.position).normalized, AttackerID);
+				Throw((transform.position - other.transform.position).normalized, _lastPlayerId);
 			}
 			_fx.ScreenShake(0.1f, 0.8f);
 			_fx.FreezeFrame(0.1f);

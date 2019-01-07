@@ -19,13 +19,11 @@ public class PlataformBehaviour : MonoBehaviour {
 
 
 	private float _offset;
-	public bool Foldout { get; set; }
 	private int _life { get; set; }
 	private bool _lowered { get; set; }
 	private bool _defined{ get; set; }
 
 	private Material _mat;
-	private float _timeToFlash = 0.1f;
 
 	private void Awake() {
 		_mat = GetComponent<Renderer>().material;

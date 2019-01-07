@@ -65,11 +65,7 @@ public class PlayerController : MonoBehaviour {
 	
     private float _spawnTimer = 0, _timeToGiveKill = 0;
 
-	private bool _spawnNewOrc, _playerInGame;
-
-	public bool PlayerInGame {
-		get { return _playerInGame; }
-	}
+	private bool _spawnNewOrc;
 
 	private void Awake() {
 		

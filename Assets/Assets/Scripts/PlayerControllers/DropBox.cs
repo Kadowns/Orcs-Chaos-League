@@ -41,7 +41,8 @@ namespace Assets.Scripts.PlayerControllers {
                 var entity = orc.GetComponent<MovableEntity>();
                 var motor = entity.Motor as OrcMotor;
                 var state = entity.State as OrcEntityState;
-                motor.Damage(state, (orc.transform.position - transform.position).normalized, 200f, 0.5f, true, true, _controller.PlayerNumber);
+                if (state.Controller != _controller)
+                    motor.Damage(state, (orc.transform.position - transform.position).normalized, 200f, 0.5f, true, true, _controller.PlayerNumber);
             }
         }
         

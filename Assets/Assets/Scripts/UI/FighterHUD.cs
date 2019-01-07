@@ -7,12 +7,10 @@ public class FighterHUD : MonoBehaviour {
 
 	[SerializeField] private Text _scoreText;
     [SerializeField] private Text _killCountText;
-    [SerializeField] private Animator _head;
 
 	public PlayerController Controller;
    
-    private int danoAtual, LifeCount = 0;
-    private bool timerChange, shit2;
+    private int _actualDamage;
 
     private void OnEnable() {
         Controller.DamageEvent += UpdateDamage;
@@ -50,8 +48,8 @@ public class FighterHUD : MonoBehaviour {
 		while (scaleTimer < timeToScale) {
 			scaleTimer += Time.deltaTime;
 			text.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * scale, scaleTimer / timeToScale);
-            danoAtual = (int)Mathf.Lerp(danoAtual, targetScore, scaleTimer / timeToScale);
-            text.text = defaultText + danoAtual;
+            _actualDamage = (int)Mathf.Lerp(_actualDamage, targetScore, scaleTimer / timeToScale);
+            text.text = defaultText + _actualDamage;
 			yield return null;
 		}
 		text.transform.localScale = Vector3.one;

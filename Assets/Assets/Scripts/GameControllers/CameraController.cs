@@ -10,6 +10,11 @@ public class CameraController : Singleton<CameraController> {
 	[SerializeField] private float _maxSize;
 	[SerializeField] private float _minSize;
 	[SerializeField] private float _moveSpeed;
+
+	public delegate void OnIntroDelegate();
+
+	public event OnIntroDelegate OnIntroFinished;
+	public event OnIntroDelegate OnIntroStarted;
 	
 	private Camera _camera;
 	private Animator _animator;
@@ -41,6 +46,18 @@ public class CameraController : Singleton<CameraController> {
 		
 		UpdateZoom();
 
+	}
+
+	public void CameraIntroFinished() {
+		if (OnIntroFinished != null) {
+			OnIntroFinished();
+		}
+	}
+
+	public void CameraIntroStarted() {
+		if (OnIntroStarted != null) {
+			OnIntroStarted();
+		}
 	}
 
 	private void UpdateVelocity() {

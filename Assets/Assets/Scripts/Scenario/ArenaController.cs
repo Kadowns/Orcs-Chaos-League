@@ -27,11 +27,10 @@ public class ArenaController : Singleton<ArenaController> {
 	private Coroutine _greatEventRoutine;
     private PlayerController[] _players;
 	private int _currentArena, _randomEvent;
-	private float _gameTimer, _eventTimer;
+	private float _eventTimer;
 	private bool _startGame, _gameStarted;	
 	private HUDController _hud;
 	private MusicController _music;
-	private ScreenEffects _fx;
 
 	private void Awake() {
 		_players = GameController.Instance.PlayerControllers;	
@@ -44,7 +43,6 @@ public class ArenaController : Singleton<ArenaController> {
 		
 		_hud = HUDController.Instance;
 		_music = MusicController.Instance;
-		_fx = ScreenEffects.Instance;	
 	}
 
 	private void Update() {
@@ -65,7 +63,6 @@ public class ArenaController : Singleton<ArenaController> {
     
 		if (_gameStarted) {
 			_eventTimer += Time.deltaTime;
-            _gameTimer += Time.deltaTime;
 			if (!GreatEventInExecution && _eventTimer > EventIntervalTime) {
 			
 				_greatEventRoutine = StartCoroutine(DoGreatEvent());
@@ -107,7 +104,6 @@ public class ArenaController : Singleton<ArenaController> {
 	    }
         Debug.Log("Winner is Player" + winnerNumber);
         GameController.Instance.EndMatch();
-        _gameTimer = 0;
 	    _eventTimer = 0;
         _gameStarted = false;
 	    _startGame = false;

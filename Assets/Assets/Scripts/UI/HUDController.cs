@@ -11,10 +11,11 @@ public class HUDController : Singleton<HUDController> {
 
     [SerializeField] private Transform _fightersHud;
     [SerializeField] private MenuBehaviour[] _menu;
-    [SerializeField] private Animator _logo, _pausemenu, _pauseMenuPlayerNumber, _WinnerSymbol;
+    [SerializeField] private Animator _logo, _pausemenu, _pauseMenuPlayerNumber, _winnerSymbol, _blackout;
 
     private void Start() {
         _eventSystem = EventSystem.current;
+        CameraController.Instance.OnIntroStarted += () => { BlackoutAnimation("FadeOut"); };
     }
 
     public void EnableMenuByIndex(int index) {
@@ -52,17 +53,20 @@ public class HUDController : Singleton<HUDController> {
         _pauseMenuPlayerNumber.SetInteger("PlayerNumber", playerNumber);
     }
 
+    public void BlackoutAnimation(string animation) {
+        _blackout.SetTrigger(animation);
+    }
+
     public void LogoAnimation(string animation) {
         _logo.SetTrigger(animation);
     }
 
-    public void MenuAnimation(bool _Ispaused) {
-        _pausemenu.SetBool("Bool", _Ispaused);
+    public void MenuAnimation(bool ispaused) {
+        _pausemenu.SetBool("Bool", ispaused);
     }
 
-    public void WinnerSymbol(int value)
-    {
+    public void WinnerSymbol(int value) {
         Debug.Log(value);
-        _WinnerSymbol.SetInteger("StateChange", value);
+        _winnerSymbol.SetInteger("StateChange", value);
     }
 }

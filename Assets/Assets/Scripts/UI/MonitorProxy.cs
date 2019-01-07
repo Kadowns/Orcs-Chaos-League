@@ -11,7 +11,6 @@ public class MonitorProxy : Singleton<MonitorProxy> {
 	[SerializeField ]private bool _shouldScroll;
 
 	private Material _material;
-	private float _offSet = 0;
 	// Use this for initialization
 	private void Awake() {
 		_material = GetComponent<Renderer>().material;

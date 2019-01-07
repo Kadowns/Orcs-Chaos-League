@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,8 +41,7 @@ public class MusicController : Singleton<MusicController> {
 		float lastFrequency = _bgmLowPassFilter.cutoffFrequency;
 		float timer = 0;
 		while (timer < timeToLerp) {
-			_bgmLowPassFilter.cutoffFrequency =
-				Mathf.Lerp(lastFrequency, targetFrequency, timer / timeToLerp);
+			_bgmLowPassFilter.cutoffFrequency = Mathf.Lerp(lastFrequency, targetFrequency, timer / timeToLerp);
 			timer += Time.deltaTime;
 			yield return null;
 		}

@@ -19,7 +19,7 @@ public class SpriteFlash : MonoBehaviour {
 		if (_redFlashRoutine != null) 
 			StopCoroutine(_redFlashRoutine);
 		
-		_redFlashRoutine = StartCoroutine(DamageFlashing(Mathf.Lerp(1, 10, redAmount), redAmount > 0.3f ? 0.3f : redAmount));
+		_redFlashRoutine = StartCoroutine(DamageFlashing(Mathf.Lerp(1, 10, redAmount), redAmount > 0.5f ? 0.5f : redAmount));
 	}
 
 	private IEnumerator DamageFlashing(float frequency, float amount) {

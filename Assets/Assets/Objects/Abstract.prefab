@@ -178,7 +178,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ForcePlayers: 0
+  ForcePlayers: 1
   ActivePlayers: 01010101
   BotPlayers: 00010101
   CurrentArena: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
     size: 20
   - tag: OrcHead
     prefab: {fileID: 1965766203290680, guid: bb046dd0bc51cab428b04d6cdbb8df9e, type: 2}
-    size: 20
+    size: 80
   - tag: PotatoBomb
     prefab: {fileID: 0}
     size: 20
@@ -269,8 +269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bgm:
   - {fileID: 8300000, guid: b88561c8e2e574f4586180cbb0e0c615, type: 3}
-  Volume: 1
-  Priotity: 255
+  Volume: 0.56
+  Priotity: 0
 --- !u!114 &114405071586714258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1393,7 +1393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3100341d738a6b42b1ab4baf4ac434e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _notHubAnimFx: {fileID: 0}
   _blurPanel: {fileID: 0}
 --- !u!114 &114676308106400148
 MonoBehaviour:

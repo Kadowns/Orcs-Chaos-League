@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.PlayerControllers.Items;
 using UnityEngine;
 
 public class OrcHeadItem : CollectableItem {
@@ -13,9 +14,9 @@ public class OrcHeadItem : CollectableItem {
 	private void Awake() {
 		_rb = GetComponent<Rigidbody>();
 		
-		var magnet = GetComponentInChildren<MagnetCollider>();
+		var magnet = GetComponentInChildren<ProxyCollider>();
 		if (magnet != null) {
-			magnet.DetectedColliderEvent += DetectedCollider;
+			magnet.OnProxyTriggerEnter += DetectedCollider;
 			
 		}
 	}

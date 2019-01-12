@@ -41,10 +41,10 @@ public class ShadowCaster : MonoBehaviour {
 	private void CreateLine() {
 		_line = gameObject.AddComponent<LineRenderer>();
 		_line.shadowCastingMode = ShadowCastingMode.Off;
-		_line.material = new Material(Shader.Find("UI/Default"));
+		_line.material = new Material(Shader.Find("OCL/TrailLines"));
 		var pp = GetComponentInParent<PlayerPointer>();
 		_line.material.color = pp != null ? pp.GetPlayerColor() : Color.black;
-		_line.startWidth = 0.2f;
+		_line.startWidth = 0.3f;
 		_line.positionCount = 2;
 	}
 
@@ -77,6 +77,7 @@ public class ShadowCaster : MonoBehaviour {
 				_line.enabled = true;
 				_line.SetPosition(0, transform.position);
 				_line.SetPosition(1, new Vector3(transform.position.x, dist + transform.position.y, transform.position.z));
+				_line.material.SetFloat("_Spacing", -dist * 0.25f);
 			} else {
 				_line.enabled = false;
 			}	

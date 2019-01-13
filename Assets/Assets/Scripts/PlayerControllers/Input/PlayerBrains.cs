@@ -16,6 +16,10 @@ namespace Assets.Scripts.PlayerControllers.Input {
             new PlayerBrainMemory(),
             new PlayerBrainMemory(),
             new PlayerBrainMemory(),
+            new PlayerBrainMemory(),
+            new PlayerBrainMemory(),
+            new PlayerBrainMemory(),
+            new PlayerBrainMemory(),
             new PlayerBrainMemory()
         };
     }

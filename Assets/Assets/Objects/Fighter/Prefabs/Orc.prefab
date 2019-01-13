@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4433588968351112
 Transform:
   m_ObjectHideFlags: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
     knockUp: 1
     miniDash: 0
     screenShake: 1
-    tryClip: {fileID: 8300000, guid: 60f300976585594459957b4f47c62590, type: 3}
+    tryClip: {fileID: 8300000, guid: e603852c84a67c04291d694e33e61aa7, type: 3}
     hitClip: {fileID: 8300000, guid: b1416e4dccc523949a06b29a7a331595, type: 3}
   - tag: Combo 1
     id: 1

@@ -6,6 +6,10 @@ TextureImporter:
     21300002: Player_marks_1
     21300004: Player_marks_2
     21300006: Player_marks_3
+    21300008: Player_marks_4
+    21300010: Player_marks_5
+    21300012: Player_marks_6
+    21300014: Player_marks_7
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -90,6 +94,86 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 26
+        y: 582
+        width: 228
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceacb722d3d863042ac12d8915f54820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_marks_1
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 582
+        width: 228
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cef5b2b7dc3a94c8d3879f12828867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_marks_2
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 582
+        width: 228
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da32cf89ad088ca43a1323d0ffa5c589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_marks_3
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 582
+        width: 228
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87558a6c17335744975bad7caea6af4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_marks_4
+      rect:
+        serializedVersion: 2
+        x: 26
         y: 91
         width: 228
         height: 308
@@ -100,13 +184,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0690169add884814583d579780ced7f6
+      spriteID: 4a4b9f7cb491a274fa88a2f4b7e59853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_marks_1
+      name: Player_marks_5
       rect:
         serializedVersion: 2
         x: 307
@@ -120,13 +204,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c02fcdf10167efe4290bcb24ffb170a4
+      spriteID: 132bddd9b3443bc47a522bc3f5161053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_marks_2
+      name: Player_marks_6
       rect:
         serializedVersion: 2
         x: 587
@@ -140,13 +224,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39c26082ff8e08242b9218838ee65670
+      spriteID: 541a46fa80d021c42948cc63c849d163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_marks_3
+      name: Player_marks_7
       rect:
         serializedVersion: 2
         x: 868
@@ -160,7 +244,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0b764c88ed3f4640ba296fd94fa2940
+      spriteID: a36e7b550b8d41e42b5a681623dc41dc
       vertices: []
       indices: 
       edges: []

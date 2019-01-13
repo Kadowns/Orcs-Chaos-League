@@ -32,11 +32,6 @@ public class GameController : Singleton<GameController> {
 
 
 	private void Awake() {
-
-		for (int i = 0; i < ActivePlayers.Length; i++) {
-			PlayerData.PlayersInGame[i] = ActivePlayers[i];
-		}
-
 		if (ForcePlayers) {
 			for (int i = 0; i < ActivePlayers.Length; i++) {
 				PlayerData.PlayersInGame[i] = ActivePlayers[i];

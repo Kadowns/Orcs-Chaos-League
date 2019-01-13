@@ -12,8 +12,10 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         public AudioClip LaserIntro, LaserLoop;
 
-        public AnimationCurve SpeedCurve;
+        public AnimationCurve[] SpeedCurves;
 
+        private AnimationCurve _actualSpeedCurve;
+        
         private AudioSource _source;
         
         private Animator _animator;
@@ -31,16 +33,14 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         private void OnEnable() {
             ProxyCollider.OnProxyTriggerEnter += OnTrigger;
-            ProxyCollider.OnProxyTriggerStay += OnTrigger;
         }
 
         private void OnDisable() {
             ProxyCollider.OnProxyTriggerEnter -= OnTrigger;
-            ProxyCollider.OnProxyTriggerStay -= OnTrigger;
         }
 
         private void OnTrigger(Collider other) {
-            Debug.Log("Bateu");
+            
             if (other.gameObject.layer == LayerMask.NameToLayer("Players")) {
                 var entity = other.GetComponent<MovableEntity>();
                 var motor = entity.Motor as OrcMotor;
@@ -60,6 +60,7 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
             _source.clip = LaserIntro;
             _source.Play();
             _startTime = Time.time;
+            _actualSpeedCurve = SpeedCurves[Random.Range(0, SpeedCurves.Length)];
             ParticleSystems[0].Play();
             ParticleSystems[1].Play();
         }
@@ -74,13 +75,13 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
             }
 
             if (_source.loop) {
-                _source.pitch = SpeedCurve.Evaluate(Time.time - _startTime);
+                _source.pitch = _actualSpeedCurve.Evaluate(Time.time - _startTime);
             }
         }
 
         private void FixedUpdate() {
             if (_executing) {
-                transform.Rotate(Vector3.up, MaxRotationSpeed * SpeedCurve.Evaluate(Time.time - _startTime) * Time.fixedDeltaTime);
+                transform.Rotate(Vector3.up, MaxRotationSpeed * _actualSpeedCurve.Evaluate(Time.time - _startTime) * Time.fixedDeltaTime);
             }
         }
 

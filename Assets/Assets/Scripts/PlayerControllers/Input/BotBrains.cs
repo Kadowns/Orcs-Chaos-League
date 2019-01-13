@@ -8,6 +8,8 @@ namespace Assets.Scripts.PlayerControllers.Input {
 
         public Transform Target;
 
+        public System.Action State;
+
         public float DistanceToTarget = 0;
         
         public float InputTimer = 0;
@@ -19,6 +21,10 @@ namespace Assets.Scripts.PlayerControllers.Input {
     
     public static class BotBrains {
         public static readonly BotBrainMemory[] BotBrainMemories = {
+            new BotBrainMemory(),
+            new BotBrainMemory(),
+            new BotBrainMemory(),
+            new BotBrainMemory(),
             new BotBrainMemory(),
             new BotBrainMemory(),
             new BotBrainMemory(),

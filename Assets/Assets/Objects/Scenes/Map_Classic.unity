@@ -18265,6 +18265,10 @@ Prefab:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1697478534099622, guid: f44b181e5a160c843aab59fda43e6134, type: 2}
+      propertyPath: m_Name
+      value: OrcStuffParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697478534099622, guid: f44b181e5a160c843aab59fda43e6134, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

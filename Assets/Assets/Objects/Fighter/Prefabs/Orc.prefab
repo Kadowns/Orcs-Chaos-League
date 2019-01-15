@@ -126,7 +126,7 @@ MonoBehaviour:
   AirDrag: 7
   GroundDrag: 14
   FallMultiplier: 40
-  MoveSpeed: 500
+  MoveSpeed: 550
   DashSpeed: 150
   JumpForce: 250
   DashCooldown: 1

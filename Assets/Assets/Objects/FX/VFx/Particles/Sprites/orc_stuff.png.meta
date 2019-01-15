@@ -7,6 +7,10 @@ TextureImporter:
     21300004: orc_stuff_2
     21300006: orc_stuff_3
     21300008: orc_stuff_4
+    21300010: orc_stuff_5
+    21300012: orc_stuff_6
+    21300014: orc_stuff_7
+    21300016: orc_stuff_8
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -90,29 +94,9 @@ TextureImporter:
       name: orc_stuff_0
       rect:
         serializedVersion: 2
-        x: 41
-        y: 378
-        width: 129
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 640ec96ce2fcd114badfd37672c192e5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc_stuff_1
-      rect:
-        serializedVersion: 2
-        x: 210
+        x: 50
         y: 395
-        width: 104
+        width: 108
         height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -121,7 +105,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b80fd39d9e56140a40d70f45fa3b48
+      spriteID: ee701a2a673f66d41b50fa4b561a02e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_stuff_1
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 386
+        width: 126
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b9e78a2a2e71a4b9df955de77ef41a
       vertices: []
       indices: 
       edges: []
@@ -130,10 +134,10 @@ TextureImporter:
       name: orc_stuff_2
       rect:
         serializedVersion: 2
-        x: 351
-        y: 375
-        width: 121
-        height: 111
+        x: 354
+        y: 382
+        width: 127
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76ee3733b41a6604e814e59166452388
+      spriteID: 049fff1448fa1324ea3c6e836b20d0be
       vertices: []
       indices: 
       edges: []
@@ -150,10 +154,10 @@ TextureImporter:
       name: orc_stuff_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 217
-        width: 156
-        height: 125
+        x: 9
+        y: 213
+        width: 165
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdecfad139714eb45acaac149e6e98bc
+      spriteID: 985fecd6640c67147af242b2e01e5143
       vertices: []
       indices: 
       edges: []
@@ -170,10 +174,10 @@ TextureImporter:
       name: orc_stuff_4
       rect:
         serializedVersion: 2
-        x: 173
-        y: 220
-        width: 161
-        height: 137
+        x: 187
+        y: 228
+        width: 153
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,7 +185,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c05d7039981f694b85be2fa88070073
+      spriteID: c894c3dcc80c3304bac91b6e67dcf02f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_stuff_5
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 245
+        width: 145
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca89ff569f18fd4eb9d10de16d9ec37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_stuff_6
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 50
+        width: 130
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0618ca783aaf21428e6f4acee72719c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_stuff_7
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 48
+        width: 92
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477101833d4ae9141903c806c13a5bae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_stuff_8
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 97
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6693e381a33382340acaaf382d23d6db
       vertices: []
       indices: 
       edges: []

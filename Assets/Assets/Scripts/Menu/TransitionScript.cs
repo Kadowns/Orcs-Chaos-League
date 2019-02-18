@@ -10,17 +10,8 @@ public class TransitionScript : MonoBehaviour {
             SceneManager.LoadScene(1);
     }
 
-   // public void SetPlayers(int value) {
-   //     for (int i = 0; i < PlayerInGAME.PlayersInGame.Length; i++) {
-  //          PlayerInGAME.PlayersInGame[i] = i < value;
-   //     }
-  //  }
-
-    public void ExitGame(bool quit)
+    public void ExitGame()
     {
-        if (quit == true)
-        {
             Application.Quit();
-        }
     }
 }

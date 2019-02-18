@@ -1,9 +1,13 @@
 ﻿using System.Collections;
      using System.Collections.Generic;
-     using UnityEngine;
+using OCL;
+using UnityEngine;
 
 [CreateAssetMenu]
 public class BoxMotor : Motor {
+	
+	[SerializeField]
+	private AudioClip m_freeSound;
 
 	public override void Initialize(MovableEntity entity, InputController input) {
 		var state = entity.State as BoxEntityState;
@@ -76,7 +80,7 @@ public class BoxMotor : Motor {
 		state.Cage.enabled = false;
 		state.Col.enabled = false;
 	
-		GlobalAudio.Instance.PlayByIndex(1);
+		AudioController.Instance.Play(m_freeSound, AudioController.SoundType.ExclusiveSoundEffect, false, Random.Range(0.8f, 1.2f));
 	}
 
 	public void ResetToDefault(BoxEntityState state) {

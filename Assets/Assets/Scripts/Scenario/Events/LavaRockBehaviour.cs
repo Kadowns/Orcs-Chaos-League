@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using OCL;
 using UnityEngine;
 
 public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 
 	public float GravityScale = 10f;
 
+	[SerializeField] private AudioClip m_throwAudio;
+	
 	private float _minimumTimeAlive = 0.2f;
 	private float _timeAlive = 0;
 
@@ -39,8 +42,7 @@ public class LavaRockBehaviour : MonoBehaviour, IThrowable {
 
 	public void Throw(Vector3 dir, int attackerID) {
 		_lastPlayerId = attackerID;
-		GlobalAudio.Instance.PlayByIndex(5);
-		GlobalAudio.Instance.PlayByIndex(6);
+		AudioController.Instance.Play(m_throwAudio, AudioController.SoundType.ExclusiveSoundEffect, false, Random.Range(0.8f, 1.2f), 200);
 		_rb.AddForce((dir + Vector3.up * 0.2f).normalized * 175, ForceMode.Impulse);
 		_collided = false;	
 	}

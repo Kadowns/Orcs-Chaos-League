@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using OCL;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class OrcMotor : Motor {
+
+	[SerializeField]
+	private AudioClip m_burningSound;
 	
 	private FighterColors _colors;
 	
@@ -23,10 +27,6 @@ public class OrcMotor : Motor {
 
 	public override void Setup(MovableEntity entity, InputController input) {
 		var state = entity.State as OrcEntityState;
-		
-		foreach (var atk in state.Attacks) {
-			atk.Start(entity.gameObject);
-		}
 		
 		_colors = FighterColors.Instance;
 		state.Rb.drag = state.AirDrag;
@@ -214,7 +214,6 @@ public class OrcMotor : Motor {
 	private void Kill(OrcEntityState state) {
 		
 		state.Rb.isKinematic = true;
-		GlobalAudio.Instance.PlayByIndex(7);
 		ResetToDefault(state);
 		state.gameObject.SetActive(false);
 		state.Controller.SubtractLife();
@@ -223,7 +222,7 @@ public class OrcMotor : Motor {
 	private bool Grounded(MovableEntity entity, OrcEntityState state) {
 		RaycastHit hit;
 		if (Physics.Raycast(entity.transform.position, Vector3.down, out hit, state.ColliderRadiusY + 0.05f, 1<<13)) {
-			state.DoubleJump = false;
+			state.SequentialJumps = 0;
 			entity.transform.SetParent(hit.transform.parent);
 			if (state.DropAttack) {
 				ScreenEffects.Instance.CreateStompParticles(state.transform.position);
@@ -333,7 +332,7 @@ public class OrcMotor : Motor {
 	public void DoCounter(OrcEntityState state) {
 		ScreenEffects.Instance.FreezeFrame(0.08f);
 		ScreenEffects.Instance.ScreenShake(0.1f, 0.5f);
-		GlobalAudio.Instance.PlayByIndex(4);
+		state.Sfx.PlaySFxByIndex(5, Random.Range(0.8f, 1.2f));
 		state.Countered = true;
 		StopParry(state);
 	}
@@ -394,12 +393,19 @@ public class OrcMotor : Motor {
 	}
 
 	public void FellOnLava(OrcEntityState state) {
+		if (state.HasShield && !state.ShieldConsumed) {
+			state.ShieldConsumed = true;
+			state.Rb.AddForce(Vector3.up * 300, ForceMode.Impulse);
+			ScreenEffects.Instance.CreateShield(state.transform);
+			return;
+		}
+		
 		if (state.Damage < 100) {
 			Burn(state, 50, 2.5f, Vector3.up, 300, state.Controller.LastAttackerNumber);
 		}
 		else {
 			Kill(state);
-			GlobalAudio.Instance.PlayByIndex(0);
+			AudioController.Instance.Play(m_burningSound, AudioController.SoundType.GlobalSoundEffect, false, 1, 0);
 			ScreenEffects.Instance.CreateDeadOrc(state.transform.position);
 		}
 	}
@@ -414,7 +420,7 @@ public class OrcMotor : Motor {
 		AddDamage(state, damage, attackerID);
 		WasHit(state, 0);
 		
-		GlobalAudio.Instance.PlayByIndex(0);
+		AudioController.Instance.Play(m_burningSound, AudioController.SoundType.GlobalSoundEffect, false, 1, 0);
 		ScreenEffects.Instance.CreateBurningParticles(state.transform, timeToBurn);	
 	}
 	
@@ -457,20 +463,21 @@ public class OrcMotor : Motor {
 	
 	private void Jump(OrcEntityState state) {
 		
-		if ((!state.Grounded && state.DoubleJump)|| IsUnable(state)) 
+		if ((!state.Grounded && state.SequentialJumps >= state.MaxAirJumps)|| IsUnable(state)) 
 			return;
 
 		var jumpForce = state.JumpForce;
 
-		if (!state.Grounded) {
-			state.DoubleJump = true;
+		if (!state.Grounded) {			
 			jumpForce *= 0.6f;
 			ScreenEffects.Instance.CreateDashParticles(state.transform.position + Vector3.down, state.transform, Vector3.down);
 		}
 		else {
 			state.Sfx.PlaySFxByIndex(1, Random.Range(0.8f, 1.2f));
 		}
-			
+
+		state.SequentialJumps++;
+		
 		
 		Vector3 momentum = state.Dashed ? Vector3.ClampMagnitude(state.Rb.velocity * 4, 100) : state.Rb.velocity * 4;
 		

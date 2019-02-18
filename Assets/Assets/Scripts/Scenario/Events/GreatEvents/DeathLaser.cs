@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.PlayerControllers.Items;
+using OCL;
 using UnityEngine;
 
 namespace Assets.Scripts.Scenario.Events.GreatEvents {
@@ -16,9 +17,9 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         private AnimationCurve _actualSpeedCurve;
         
-        private AudioSource _source;
-        
         private Animator _animator;
+
+        private AudioChannel _channel;
 
         private bool _executing;
 
@@ -27,7 +28,6 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
         private void Awake() {
             Instance = this;
             _animator = GetComponent<Animator>();
-            _source = GetComponent<AudioSource>();
             gameObject.SetActive(false);
         }
 
@@ -56,9 +56,7 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         private void OnExecuted() {
             _executing = true;
-            _source.loop = false;
-            _source.clip = LaserIntro;
-            _source.Play();
+            _channel = AudioController.Instance.Play(LaserIntro, AudioController.SoundType.GlobalSoundEffect, true);
             _startTime = Time.time;
             _actualSpeedCurve = SpeedCurves[Random.Range(0, SpeedCurves.Length)];
             ParticleSystems[0].Play();
@@ -68,14 +66,13 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
         private void Update() {
             if (!_executing) return;
             
-            if (!_source.isPlaying) {
-                _source.clip = LaserLoop;
-                _source.loop = true;
-                _source.Play();
+            if (!_channel.IsPlaying) {
+                _channel.Loop = true;
+                _channel.Play(LaserLoop);
             }
 
-            if (_source.loop) {
-                _source.pitch = _actualSpeedCurve.Evaluate(Time.time - _startTime);
+            if (_channel.Loop) {
+                _channel.Pitch = _actualSpeedCurve.Evaluate(Time.time - _startTime);
             }
         }
 
@@ -87,7 +84,8 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 
         public void Terminate() {
             _executing = false;
-            _source.Stop();
+            _channel.Stop();
+            _channel.IsPrivate = false;
             ParticleSystems[0].Stop();
             ParticleSystems[1].Stop();
             _animator.SetTrigger("Terminate");

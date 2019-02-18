@@ -46,6 +46,11 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		
 	}
 
+	public void CreateShield(Transform parent) {
+		GameObject obj = _pool.SpawnFromPool("Shield", parent.position, Quaternion.identity, parent);		
+		obj.GetComponent<DestroyByDuration>().InactiveAfterSeconds(4f);
+	}
+
 	public void CreateBloodSplashParticles(Vector3 position) {
 		GameObject obj = _pool.SpawnFromPool("BloodSplashPS", position, Quaternion.identity);
 		obj.GetComponent<DestroyByDuration>().InactiveAfterFineshed();
@@ -153,7 +158,6 @@ public class ScreenEffects : Singleton<ScreenEffects> {
 		float shakeTimer = 0;
 		while (shakeTimer < timeToShake) {
 			var random = Random.insideUnitSphere * intensity;
-
 			_cameraPivot.position += random;
 			_camera.rotation = Quaternion.Euler(_camera.rotation.eulerAngles.x, _camera.rotation.eulerAngles.y,
 				Mathf.Sin(shakeTimer * Mathf.PI * 16) * intensity * 5);

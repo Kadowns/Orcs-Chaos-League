@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using OCL;
 using UnityEngine;
 
 public abstract class GreatEvent : ScriptableObject {
@@ -16,9 +17,8 @@ public abstract class GreatEvent : ScriptableObject {
         var fx = ScreenEffects.Instance;
         fx.ScreenShake(1.5f, 5f);
         fx.BlurForSeconds(1.5f, 10f, new Color(0.85f, 0.85f, 0.85f), new Color(1f, 0.85f, 0.85f));
-        var music = MusicController.Instance;
-        music.SetBGMPitch(1.075f);
-        music.DramaticFrequencyChange(0.1f, 1.5f, 0.5f, 200f, 22000f);
+        AudioController.Instance.SetPitch(1.075f, AudioController.SoundType.Music);
+        AudioController.Instance.ChangeCutoffFrequency(200f, 0.1f, 1.5f, 22000f, 0.5f);
              
         OnExecute(state);
     }
@@ -27,7 +27,7 @@ public abstract class GreatEvent : ScriptableObject {
     public void Terminate(ArenaState state) {
         EventHUDProxy.Instance.HideEventHUD();
         ScreenEffects.Instance.Blur(0, Color.white);
-        MusicController.Instance.SetBGMPitch(1f);
+        AudioController.Instance.SetPitch(1f, AudioController.SoundType.Music);
         OnTerminate(state);
     }
     protected abstract void OnTerminate(ArenaState state);

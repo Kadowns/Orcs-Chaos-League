@@ -44,7 +44,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 
 		if (_targetTransform != null) {
 			if (!_targetTransform.gameObject.activeInHierarchy) {
-				_targetController.HitEvent -= ChangeTarget;
+				_targetController.OnHit -= ChangeTarget;
 				_lastTargetId = -1;
 				_targetController = null;
 				_targetTransform = null;
@@ -82,7 +82,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 	}
 
 	public void ResetToDefault() {
-		_targetController.HitEvent -= ChangeTarget;
+		_targetController.OnHit -= ChangeTarget;
 		_targetController = null;
 		_targetTransform = null;
 		_exploding = false;
@@ -99,10 +99,10 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 		    return;
 	    
 	    _lastTargetId = _targetController.PlayerNumber;
-        _targetController.HitEvent -= ChangeTarget;
+        _targetController.OnHit -= ChangeTarget;
         _targetController = other;
         _targetTransform = _targetController.Orc.transform;
-        _targetController.HitEvent += ChangeTarget;
+        _targetController.OnHit += ChangeTarget;
     }
 
 	public void FindClosestOrc() {
@@ -117,7 +117,7 @@ public class PotatoBombBehaviour : MonoBehaviour, ISpawnable {
 		}
         if (_targetTransform != null) {
             _targetController = _targetTransform.GetComponent<OrcEntityState>().Controller;
-            _targetController.HitEvent += ChangeTarget;
+            _targetController.OnHit += ChangeTarget;
             if (_setoffTimerRoutine == null)
                 _setoffTimerRoutine = StartCoroutine(SetOffTimer());
         }

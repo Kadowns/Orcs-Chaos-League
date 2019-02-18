@@ -1,22 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.PlayerControllers.Input;
+using Assets.Scripts.PlayerControllers.Orc.PowerUps;
+using OCL;
 using Rewired;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	
-	public delegate void ScoreDelegate();
-	public event ScoreDelegate DamageEvent;
-
-	public delegate void DeathDelegate(int attackerNumber);
-	public event DeathDelegate DeathEvent;
-
-	public delegate void KilledDelegate(int count);
-	public event KilledDelegate KilledEvent;
-
-    public delegate void HitDelegate(PlayerController other);
-    public event HitDelegate HitEvent;
+	public event Action OnDamage;
+	public event Action<int> OnDeath;
+	public event Action<int> OnSkullCollected;
+    public event Action<PlayerController> OnHit;
 
 	[SerializeField] private int _playerNumber;
 
@@ -29,6 +25,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public bool AutoSpawn;
+
+	public bool GivePowerUp;
 
     [SerializeField] GameObject _orcPrefab;
 	[SerializeField] private MovableEntity _box;
@@ -58,6 +56,8 @@ public class PlayerController : MonoBehaviour {
 	private InputController _input;
 
 	private Player _player;
+
+	private List<PowerUp> m_powerUps = new List<PowerUp>();
 	
 	public int KillCount { get; private set; }
 	public int LastAttackerNumber;
@@ -103,7 +103,30 @@ public class PlayerController : MonoBehaviour {
 		_orcState = _orc.State as OrcEntityState;
 		_orcState.Controller = this;
 		_orcState.PlayerColor = _pointer.GetPlayerColor();
+		if (GivePowerUp) {
+			AddPowerUp(new SpeedModifier(GameConstants.SPEED_INCREASE));
+			AddPowerUp(new Shield());
+			AddPowerUp(new ExtraJump());
+			AddPowerUp(new Frenzy());
+			AddPowerUp(new StompModifier(GameConstants.STOMP_INCREASE));
+			AddPowerUp(new StompModifier(GameConstants.STOMP_INCREASE));
+			AddPowerUp(new StompModifier(GameConstants.STOMP_INCREASE));
+		}
+	}
 
+	public void AddPowerUp(PowerUp power) {
+		power.Initialize(_orcState);
+		m_powerUps.Add(power);
+	}
+
+	public void RemovePowerUp<T>() where T : PowerUp {
+		Type type = typeof(T);		 
+		var power = m_powerUps.Find(p => type == p.GetType());
+		if (power == null) 
+			return;	
+			
+		power.Terminate(_orcState);
+		m_powerUps.Remove(power);
 	}
 
 	private void BindBox() {
@@ -115,8 +138,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
     public void Hit(PlayerController other) {
-        if (HitEvent != null) {
-            HitEvent.Invoke(other);
+        if (OnHit != null) {
+            OnHit.Invoke(other);
         }
     }
 
@@ -136,10 +159,10 @@ public class PlayerController : MonoBehaviour {
 		_spawnNewOrc = false;
 
 
-		if (DamageEvent != null)
-			DamageEvent.Invoke();
+		if (OnDamage != null)
+			OnDamage();
 		CameraController.Instance.UpdatePlayers();
-		CameraController.Instance.MaxZoom(false);
+		//CameraController.Instance.MaxZoom(false);
 	}
 
 	public void Vibrate(int motorIndex, float motorLevel, float duration) {
@@ -154,8 +177,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void WasHit(int attackerNumber) {
-		if (DamageEvent != null)
-			DamageEvent.Invoke();
+		if (OnDamage != null)
+			OnDamage();
 		LastAttackerNumber = attackerNumber;
 		_timeToGiveKill = Time.time + _attackerShouldReceiveKillTime;
 	}
@@ -164,13 +187,13 @@ public class PlayerController : MonoBehaviour {
 		if (!_orc.gameObject.activeInHierarchy)
 			return;
 		KillCount++;
-		_orcState.Damage = _orcState.Damage - 15 < 0 ? 0 : _orcState.Damage - 15;	
-		if (DamageEvent != null)
-			DamageEvent.Invoke();
+		_orcState.Damage = _orcState.Damage - 15 < 0 ? 0 : _orcState.Damage - 15;			
+		if (OnDamage != null)
+			OnDamage.Invoke();
 		ScreenEffects.Instance.CreatePlusOneParticles(_orc.transform.position + Vector3.up * 6);
 		Vibrate(1, 0.2f, 0.15f);
-		if (KilledEvent != null)
-			KilledEvent.Invoke(KillCount);
+		if (OnSkullCollected != null)
+			OnSkullCollected.Invoke(KillCount);
 		if (KillCount >= ArenaController.Instance.PointsToWin) {
 			ArenaController.Instance.GameShouldEnd(_playerNumber);
 		}	
@@ -186,12 +209,12 @@ public class PlayerController : MonoBehaviour {
 		SetPointerTarget(_box.transform);
 		StartSpawning();
 
-		if (DamageEvent != null)
-			DamageEvent.Invoke();
-		if (KilledEvent != null)
-			KilledEvent.Invoke(KillCount);
-		if (DeathEvent != null)
-			DeathEvent.Invoke(LastAttackerNumber);
+		if (OnDamage != null)
+			OnDamage.Invoke();
+		if (OnSkullCollected != null)
+			OnSkullCollected.Invoke(KillCount);
+		if (OnDeath != null)
+			OnDeath.Invoke(LastAttackerNumber);
 	}
 
 	private void Update() {
@@ -206,7 +229,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (_spawnNewOrc) {
-			CameraController.Instance.MaxZoom(true);
 			if (Time.time > _spawnTimer + _maxTimeToSpawn) {
 				_boxMotor.ReleaseBox(_boxState);
 			}
@@ -214,6 +236,8 @@ public class PlayerController : MonoBehaviour {
 				_boxState.CanSpawn = true;
 			}			
 		}
+		
+		m_powerUps.ForEach(p => p.Tick(_orcState));
 	}
 
 	public void UpdateGameState(int index) {
@@ -238,7 +262,7 @@ public class PlayerController : MonoBehaviour {
 		_boxMotor.EnableBox(_boxState);
 		_boxMotor.LowerBox(_boxState);
 		SetPointerTarget(_box.transform);
-		CameraController.Instance.MaxZoom(true);
+		//CameraController.Instance.MaxZoom(true);
 	}
 
 	public void SetDefaultPosition(Vector3 position) {

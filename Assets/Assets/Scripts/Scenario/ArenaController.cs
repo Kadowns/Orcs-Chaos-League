@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using OCL;
 using UnityEngine;
 
 public class ArenaController : Singleton<ArenaController> {
 
 	public ArenaMotor ArenaMotor { get; set; }
-	public ArenaState[] Arenas;
+	public ArenaState Arena;
 	public int PointsToWin = 10;
 	public float EventIntervalTime;
 	public int PlayerInGame { get; private set; }
@@ -20,44 +21,39 @@ public class ArenaController : Singleton<ArenaController> {
 		get { return _startGame; }
 	}
 
-	public int CurrentArena {
-		get { return _currentArena; }
-	}
-
 	private Coroutine _greatEventRoutine;
     private PlayerController[] _players;
-	private int _currentArena, _randomEvent;
+	private int _randomEvent;
 	private float _eventTimer;
 	private bool _startGame, _gameStarted;	
 	private HUDController _hud;
-	private MusicController _music;
+	//private MusicController _music;
 
 	private void Awake() {
 		_players = GameController.Instance.PlayerControllers;	
 	}
 	
 	private void Start() {
-		foreach (var ev in Arenas[_currentArena].GreatEvents) {
-			ev.Setup(Arenas[_currentArena]);
+		foreach (var ev in Arena.GreatEvents) {
+			ev.Setup(Arena);
 		}
 		
 		_hud = HUDController.Instance;
-		_music = MusicController.Instance;
+		//_music = MusicController.Instance;
 	}
 
 	private void Update() {
 		if (ArenaMotor == null)
 			return;
 		
-		ArenaMotor.Tick(this, Arenas[_currentArena]);
+		ArenaMotor.Tick(this, Arena);
 		
 		if (_startGame && !_gameStarted) {
-			ArenaMotor.NormalEvents(this, Arenas[_currentArena]);
+			ArenaMotor.NormalEvents(this, Arena);
 			_gameStarted = true;
 			_hud.FighterHud(true);
-			_music.PlayBgmByIndex(0);
-			_music.SetBGMPitch(1);
-			_music.ChangeLowPassFilterFrequency(22000f, 0.25f);
+			GameController.Instance.PlayMainTheme();
+			AudioController.Instance.ChangeCutoffFrequency(22000f, 0.25f);
 		}
 
     
@@ -72,14 +68,14 @@ public class ArenaController : Singleton<ArenaController> {
 
 	private IEnumerator DoGreatEvent() {
 		GreatEventInExecution = true;
-		_randomEvent = Random.Range(0, Arenas[_currentArena].GreatEvents.Count);
-		Arenas[_currentArena].GreatEvents[_randomEvent].Execute(Arenas[_currentArena]);
-		yield return new WaitForSeconds(Arenas[_currentArena].GreatEvents[_randomEvent].Duration);
-		Arenas[_currentArena].GreatEvents[_randomEvent].Terminate(Arenas[_currentArena]);
+		_randomEvent = Random.Range(0, Arena.GreatEvents.Count);
+		Arena.GreatEvents[_randomEvent].Execute(Arena);
+		yield return new WaitForSeconds(Arena.GreatEvents[_randomEvent].Duration);
+		Arena.GreatEvents[_randomEvent].Terminate(Arena);
 		GreatEventInExecution = false;
 		
 		_eventTimer = 0;
-		ArenaMotor.NormalEvents(this, Arenas[_currentArena]);
+		ArenaMotor.NormalEvents(this, Arena);
 	}
 
     public void GameShouldEnd(int winnerNumber) {
@@ -99,7 +95,7 @@ public class ArenaController : Singleton<ArenaController> {
 
 	    if (_greatEventRoutine != null) {
 		    StopCoroutine(_greatEventRoutine);    
-		    Arenas[_currentArena].GreatEvents[_randomEvent].Terminate(Arenas[_currentArena]);
+		    Arena.GreatEvents[_randomEvent].Terminate(Arena);
 		    GreatEventInExecution = false;
 	    }
         Debug.Log("Winner is Player" + winnerNumber);
@@ -107,16 +103,15 @@ public class ArenaController : Singleton<ArenaController> {
 	    _eventTimer = 0;
         _gameStarted = false;
 	    _startGame = false;
-        ArenaMotor.ResetToDefault(this, Arenas[_currentArena]);
+        ArenaMotor.ResetToDefault(this, Arena);
     }
 
-	public void PrepareGame(ref PlayerController[] players, int currentArena) {
+	public void PrepareGame(ref PlayerController[] players) {
        
         PlayerInGame = GetActivePlayers();
-		_currentArena = currentArena;
-		ArenaMotor = Arenas[currentArena].Motor;
-		ArenaMotor.Setup(this, Arenas[currentArena]);
-		ArenaMotor.Initialize(this, Arenas[currentArena]);
+		ArenaMotor = Arena.Motor;
+		ArenaMotor.Setup(this, Arena);
+		ArenaMotor.Initialize(this, Arena);
 	}
 
 	public void PlayerSpawned() {

@@ -243,7 +243,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858643899442918}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -258,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1431359096685504}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13, y: 200, z: 13}
+  m_LocalPosition: {x: 13, y: 200, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4987864956641268}
@@ -392,7 +392,7 @@ Rigidbody:
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!54 &54382329675221982
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22aa4a92644ed12489e2dbf729895f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerColor: {r: 0, g: 1, b: 1, a: 1}
+  _playerColor: {r: 1, g: 0, b: 0, a: 1}
   _offSet: {x: 0, y: 11, z: 0}
   _pointer: {fileID: 1681762698188922, guid: c5cb1ea4055926d478a3b4ee40a26d46, type: 2}
   _sprites:
@@ -609,6 +609,10 @@ MonoBehaviour:
   - {fileID: 21300002, guid: ec46bca909864194085c2b66dae68956, type: 3}
   - {fileID: 21300004, guid: ec46bca909864194085c2b66dae68956, type: 3}
   - {fileID: 21300006, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300008, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300010, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300012, guid: ec46bca909864194085c2b66dae68956, type: 3}
+  - {fileID: 21300014, guid: ec46bca909864194085c2b66dae68956, type: 3}
 --- !u!114 &114611649396182090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,14 +662,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ad64de5756e6c4b8fc8d03a44211fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerNumber: 1
+  _playerNumber: 0
   AutoSpawn: 0
   _orcPrefab: {fileID: 1320102641833578, guid: a8a166adf3a79ad418532845d325c419, type: 2}
   _box: {fileID: 114723687384268086}
   _hud: {fileID: 0}
-  _spawnWait: 4
+  _spawnWait: 0
   _attackerShouldReceiveKillTime: 5
-  _maxTimeToSpawn: 7
+  _maxTimeToSpawn: 3
   LastAttackerNumber: 0
 --- !u!114 &114958360848049792
 MonoBehaviour:

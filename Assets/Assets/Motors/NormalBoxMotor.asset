@@ -11,3 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc596744c64b944381d89960300e98b, type: 3}
   m_Name: NormalBoxMotor
   m_EditorClassIdentifier: 
+  m_freeSound: {fileID: 8300000, guid: e97eeefbd8d5b754e9fcbc0bfa50eaa4, type: 3}

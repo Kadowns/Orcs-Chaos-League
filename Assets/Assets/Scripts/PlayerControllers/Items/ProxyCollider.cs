@@ -1,20 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.PlayerControllers.Items {
     [RequireComponent(typeof(Collider))]
     public class ProxyCollider : MonoBehaviour {
 
-        public delegate void TriggerDelegate(Collider other);
+        public event Action<Collider> OnProxyTriggerEnter;
+        public event Action<Collider> OnProxyTriggerStay;
+        public event Action<Collider> OnProxyTriggerExit;
 
-        public delegate void CollisionDelegate(Collision collision);
-
-        public event TriggerDelegate OnProxyTriggerEnter;
-        public event TriggerDelegate OnProxyTriggerStay;
-        public event TriggerDelegate OnProxyTriggerExit;
-
-        public event CollisionDelegate OnProxyCollisionEnter;
-        public event CollisionDelegate OnProxyCollisionStay;
-        public event CollisionDelegate OnProxyCollisionExit;
+        public event Action<Collision> OnProxyCollisionEnter;
+        public event Action<Collision> OnProxyCollisionStay;
+        public event Action<Collision> OnProxyCollisionExit;
 
         private void OnTriggerEnter(Collider other) {
             if (OnProxyTriggerEnter != null) {

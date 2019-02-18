@@ -108,7 +108,6 @@ public class PlataformBehaviour : MonoBehaviour {
     private IEnumerator DoLower() {
 	    _lowered = true;
 
-	    GlobalAudio.Instance.PlayByIndex(3);
 	    yield return StartCoroutine(ShakePlataform(1f, 0.2f));
 		
 	    while(transform.localPosition.y > -6f) {

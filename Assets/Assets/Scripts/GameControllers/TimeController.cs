@@ -7,6 +7,7 @@ public class TimeController : Singleton<TimeController> {
     private bool _lerping;
     private float _timeToFreeze, _freezeTimer;
 
+
     private void Update() {
         if (!_lerping) {
             return;
@@ -18,17 +19,6 @@ public class TimeController : Singleton<TimeController> {
             _lerping = false;
             _freezeTimer = 0;
         }
-
-
-//        var currentScale = Time.timeScale;
-//      
-//        Time.timeScale = Mathf.Lerp(currentScale, _targetScale, TransitionSpeed);
-//        var max = Mathf.Max(currentScale, _targetScale);
-//        var min = Mathf.Min(currentScale, _targetScale);
-//        if (Mathf.Abs(max - min) < SnapThreshold) {
-//            _lerping = false;
-//            Time.timeScale = _targetScale;
-//        }
     }
 
     public void DoTimeScale(float toScale, float transitionTime) {

@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class CameraController : Singleton<CameraController> {
@@ -11,26 +14,24 @@ public class CameraController : Singleton<CameraController> {
 	[SerializeField] private float _minSize;
 	[SerializeField] private float _moveSpeed;
 
-	public delegate void OnIntroDelegate();
-
-	public event OnIntroDelegate OnIntroFinished;
-	public event OnIntroDelegate OnIntroStarted;
+	public event Action OnIntroFinished;
+	public event Action OnIntroStarted;
 	
 	private Camera _camera;
 	private Animator _animator;
 	private GameObject[] _orcs;
-	private GameObject[] _spawners;
+	private BoxEntityState[] _spawners = new BoxEntityState[0];
 	private Vector3 _target;
-	private Transform _defaultTarget;
-	private bool _maxZoom, _transition = true, _externAgent;
-	private int _aliveOrcs;
-	
+	private bool  _transition = true, _externAgent;
+	private int _aliveOrcs, _activeSpawners;
+
 	private void Awake() {
-		_defaultTarget = transform;
 		_animator = GetComponent<Animator>();
 		_camera = GetComponentInChildren<Camera>();
 		UpdatePlayers();
 	}
+	
+
 	
 	private void FixedUpdate() {
 		
@@ -38,6 +39,7 @@ public class CameraController : Singleton<CameraController> {
 			return;
 
 		_aliveOrcs = ActiveOrcs();
+		_activeSpawners = ActiveSpawners();
 		
 		UpdateVelocity();
 
@@ -52,6 +54,8 @@ public class CameraController : Singleton<CameraController> {
 		if (OnIntroFinished != null) {
 			OnIntroFinished();
 		}
+		var objs = GameObject.FindGameObjectsWithTag("Spawner").ToList();
+		objs.ForEach(obj => { _spawners.Add(obj.GetComponent<BoxEntityState>()); });
 	}
 
 	public void CameraIntroStarted() {
@@ -76,7 +80,7 @@ public class CameraController : Singleton<CameraController> {
 		float targetZoom;
 
 
-		if (_aliveOrcs > 0 && !_maxZoom) {
+		if (_aliveOrcs > 0) {
 			targetZoom = Mathf.Lerp(_minSize, _maxSize, GetTargetZoom() / 90);
 		}
 		else {
@@ -99,9 +103,11 @@ public class CameraController : Singleton<CameraController> {
 		float maxDist = 0;
 		if (_aliveOrcs > 1) {
 			for (int i = 0; i < _orcs.Length; i++) {
-				if (!_orcs[i].activeInHierarchy) continue;
+				if (!_orcs[i].activeInHierarchy)
+					continue;
 				for (int j = 0; j < _orcs.Length; j++) {
-					if (j <= i || !_orcs[j].activeInHierarchy) continue;
+					if (j <= i || !_orcs[j].activeInHierarchy)
+						continue;
 					float dist = (_orcs[i].transform.position - _orcs[j].transform.position).sqrMagnitude;
 					if (dist > maxDist) {
 						maxDist = dist;
@@ -112,7 +118,7 @@ public class CameraController : Singleton<CameraController> {
 		else {
 			for (int i = 0; i < _orcs.Length; i++) {
 				if (!_orcs[i].activeInHierarchy) continue;			
-				maxDist = (_defaultTarget.position - _orcs[i].transform.position).sqrMagnitude;
+				maxDist = _orcs[i].transform.position.sqrMagnitude;
 				break;
 			}
 		}
@@ -124,47 +130,63 @@ public class CameraController : Singleton<CameraController> {
 	private Vector3 GetTarget() {
 		Vector3 target = Vector3.zero;
 
-
-		switch (_aliveOrcs) {
-			case 0:
-				return _defaultTarget.position;
-			case 1:
-				foreach (var p in _orcs) {
-					if (!p.activeInHierarchy) {
-						continue;
-					}
-
-					target += p.transform.position;
-					break;
-				}
-
-				var div = _aliveOrcs * 1.5f;
-				
-				target = new Vector3(target.x / div, target.y, target.z / div);
-	
-				break;
-			default:
-				foreach (var p in _orcs) {
-					if (!p.activeInHierarchy) {
-						continue;
-					}
-
-					target += p.transform.position;
-				}
-				
-				var d = _aliveOrcs * 1.2f;
-				
-				target = new Vector3(target.x / d, target.y / _aliveOrcs, target.z / d);
-				
-				break;
+		if (_aliveOrcs == 0 && _activeSpawners == 0) {
+			return target;
+		}
+		
+		foreach (var p in _orcs) {
+			if (!p.activeInHierarchy) {
+				continue;
+			}
+			target += p.transform.position;
 		}
 
-		target.Set(target.x, target.y - _defaultTarget.position.y, target.z);
-		return target + _defaultTarget.position;
-	}
+		foreach (var s in _spawners) {
+			if (s.CanSpawn) {
+				target += new Vector3(s.transform.position.x, 0, s.transform.position.z);
+			}
+		}
 
-	public void MaxZoom(bool value) {
-		_maxZoom = value;
+		var d = (_aliveOrcs + _activeSpawners) * 1.2f;
+		target /= d;
+		return target;
+		
+//		switch (_aliveOrcs) {
+//			case 0:
+//				return target;
+//			case 1:
+//				foreach (var p in _orcs) {
+//					if (!p.activeInHierarchy) {
+//						continue;
+//					}
+//
+//					target += p.transform.position;
+//					break;
+//				}
+//
+//				var div = _aliveOrcs * 1.5f;
+//				
+//				target = new Vector3(target.x / div, target.y, target.z / div);
+//	
+//				break;
+//			default:
+//				foreach (var p in _orcs) {
+//					if (!p.activeInHierarchy) {
+//						continue;
+//					}
+//
+//					target += p.transform.position;
+//				}
+//				
+//				var d = _aliveOrcs * 1.2f;
+//				
+//				target = new Vector3(target.x / d, target.y / _aliveOrcs, target.z / d);
+//				
+//				break;
+//		}
+//
+//		target.Set(target.x, target.y, target.z);
+//		return target;
 	}
 
 	public void DoTransition(string transitionName) {
@@ -172,10 +194,6 @@ public class CameraController : Singleton<CameraController> {
 		StartAnimator();
 		_animator.SetTrigger(transitionName);
 	}	
-
-	public void SceneCenter(Transform newTarget) {
-		_defaultTarget = newTarget;
-	}
 
 	public void StopAnimator() {
 		GameController.Instance.SetPlayersInput("Default", true);
@@ -205,9 +223,20 @@ public class CameraController : Singleton<CameraController> {
 
 		return sum;
 	}
+
+	public int ActiveSpawners() {
+		int sum = 0;
+		foreach (var spawner in _spawners) {
+			if (spawner.CanSpawn)
+				sum++;
+		}
+
+		return sum;
+	}
 	
 	public void UpdatePlayers() {		
 		_orcs = GameObject.FindGameObjectsWithTag("Player");
+		
 	}
 
 	public float GetMaxSize() {

@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dbf391b89221a4fbe6396fca9469f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GravityScale: 10
+  m_throwAudio: {fileID: 8300000, guid: 9b4e9728d8e50684a962cf1e93bfdced, type: 3}
 --- !u!135 &135488111326740338
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -40,7 +40,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
     void Start()
     {
         
-        MusicController.Instance.PlayBgmByIndex(0);
+        //MusicController.Instance.PlayBgmByIndex(0);
         _eventSystem = EventSystem.current;
 
         MenuOptions = GameObject.FindGameObjectsWithTag("Test");

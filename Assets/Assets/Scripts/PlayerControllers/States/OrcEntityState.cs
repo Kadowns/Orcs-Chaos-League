@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.PlayerControllers.Orc.PowerUps;
 using UnityEngine;
 
 
@@ -36,6 +37,7 @@ public class OrcEntityState : EntityState {
 	public float MinimumParryTime = 0.5f;
 	public float TimeToCounter = 1f;
 	public float TimeToStun = 1f;
+	public int MaxAirJumps = 1;
 	
 	#endregion
 	
@@ -45,7 +47,7 @@ public class OrcEntityState : EntityState {
 	
 	#region MainProperties
 	
-	public int Damage { get; set; }
+	public int Damage { get; set; }	
 
 	public Rigidbody Rb { get; set; }
 
@@ -83,7 +85,11 @@ public class OrcEntityState : EntityState {
 
 	public bool Grounded { get; set; }
 	
-	public bool DoubleJump { get; set; }
+	public int SequentialJumps { get; set; }
+	
+	public bool HasShield { get; set; }
+	
+	public bool ShieldConsumed { get; set; }
 
 	public bool Dashed { get; set; }
 

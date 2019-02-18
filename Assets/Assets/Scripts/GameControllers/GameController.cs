@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using OCL;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -10,17 +11,16 @@ public class GameController : Singleton<GameController> {
 	public bool ForcePlayers;
 	public bool[] ActivePlayers;
 	public bool[] BotPlayers;
-	public int CurrentArena = 0;
 	
-	[SerializeField] private GameObject _scenario1;
 	[SerializeField] private float _gameOverDelay = 3;
 
+	[SerializeField] private AudioClip m_mainTheme;
+	
 
     private FighterHUD _fhud;
     private PlayerController _pinput;
     private CameraController _camera;
 	private ScreenEffects _fx;
-	private MusicController _music;
 	private HUDController _hud;
 
 	private int _gameState = 66;
@@ -29,7 +29,9 @@ public class GameController : Singleton<GameController> {
 	
 	private bool _rematch, _goToHub, _paused, _gameOverMenu, _matchEnded;
 
-
+	public void PlayMainTheme() {
+		AudioController.Instance.Play(m_mainTheme, AudioController.SoundType.Music);
+	}
 
 	private void Awake() {
 		if (ForcePlayers) {
@@ -45,11 +47,10 @@ public class GameController : Singleton<GameController> {
         _camera = CameraController.Instance;
 	    _camera.OnIntroFinished += () => { StartMatch(PlayerData.PlayersInGame); };
         _fx = ScreenEffects.Instance;
-        _music = MusicController.Instance;
         _hud = HUDController.Instance;
 
-        _music.PlayBgmByIndex(0);
-        _music.SetBGMLowPassFilter(200);
+		PlayMainTheme();
+        AudioController.Instance.SetCutoffFrequency(200);
         _fx.Blur(0.5f, new Color(0.9f, 0.9f, 0.9f));
     }
 	
@@ -102,8 +103,7 @@ public class GameController : Singleton<GameController> {
 	//Função chamada no inicio do jogo pra começar o jogo NÉ
 	public void StartMatch(bool[] playersInGame) {
 		UpdateGameState(1);
-		_camera.SceneCenter(_scenario1.transform);			
-		_music.DramaticFrequencyChange(0.5f, 4.5f, 1f, 600f, 250f);
+		AudioController.Instance.ChangeCutoffFrequency(600f, 0.5f, 4.5f, 250f, 1f);		
 
 		for (int i = 0; i < PlayerControllers.Length; i++) {
 			if (!playersInGame[i]) {
@@ -112,22 +112,22 @@ public class GameController : Singleton<GameController> {
 			}
 
 			PlayerControllers[i].Hud.gameObject.SetActive(true);
-			PlayerControllers[i].SetDefaultPosition(_scenario1.transform.position);
+			PlayerControllers[i].SetDefaultPosition(Vector3.zero);
 			PlayerControllers[i].StartSpawning();
 		}
 		_hud.UpdateFighterHudPosition();
 				
-		ArenaController.Instance.PrepareGame(ref PlayerControllers, CurrentArena);
+		ArenaController.Instance.PrepareGame(ref PlayerControllers);
 		_matchEnded = false;
 	}
 
 	public void EndMatch() {
 		UpdateGameState(-1);
 
-		_music.ChangeLowPassFilterFrequency(900f, 1f);
+		AudioController.Instance.ChangeCutoffFrequency(900f, 1f);
 		_fx.Blur(20f, Color.gray);
 
-		_camera.MaxZoom(true);
+		//_camera.MaxZoom(true);
 		ChangePlayersInput("Default", "UI");
 
 		_matchEnded = true;

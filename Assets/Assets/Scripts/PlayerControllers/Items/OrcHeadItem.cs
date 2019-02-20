@@ -8,17 +8,15 @@ public class OrcHeadItem : CollectableItem {
 	public float MoveSpeed = 100f;
 	public float SpawnForce = 100f;
 
+	[SerializeField]
+	private ProxyCollider m_proxy;
+	
 	private Rigidbody _rb;
 	private Transform _target;
 
 	private void Awake() {
-		_rb = GetComponent<Rigidbody>();
-		
-		var magnet = GetComponentInChildren<ProxyCollider>();
-		if (magnet != null) {
-			magnet.OnProxyTriggerEnter += DetectedCollider;
-			
-		}
+		_rb = GetComponentInParent<Rigidbody>();
+		m_proxy.OnProxyTriggerEnter += DetectedCollider;
 	}
 
 	private void DetectedCollider(Collider other) {
@@ -43,7 +41,7 @@ public class OrcHeadItem : CollectableItem {
 		}	
 	}
 
-	private void OnCollisionEnter(Collision other) {
+	private void OnTriggerEnter(Collider other) {
 		if (LayerMask.NameToLayer("Lava") == other.gameObject.layer && _target == null) {
 			_rb.AddForce((-_rb.position.normalized + Vector3.up).normalized * SpawnForce , ForceMode.Impulse);
 			
@@ -57,7 +55,7 @@ public class OrcHeadItem : CollectableItem {
 	}
 
 	public override void Collect() {
-		gameObject.SetActive(false);
+		transform.parent.gameObject.SetActive(false);		
 	}
 
 	public override void OnSpawn() {

@@ -22,23 +22,5 @@ public class ClassicArenaMotor : ArenaMotor {
 	public override void ResetToDefault(ArenaController controller, ArenaState state) {
 		controller.StopAllCoroutines();
 	}
-
-	public override void NormalEvents(ArenaController controller, ArenaState state) {
-		controller.StartCoroutine(Explosions(controller, state));
-	}	
-
-
-	protected IEnumerator Explosions(ArenaController controller, ArenaState state) {
-		do {
-			int explosions = Random.Range(2, 6);
-			for (int i = 0; i < explosions; i++) {
-				int rand = Random.Range(0, state.LavaGeysers.Count);
-				state.LavaGeysers[rand].Execute();
-				yield return new WaitForSeconds(Random.Range(1, 5));
-			}
-
-			yield return new WaitForSeconds(10f);
-		} while (!controller.GreatEventInExecution);
-	}
 }
 

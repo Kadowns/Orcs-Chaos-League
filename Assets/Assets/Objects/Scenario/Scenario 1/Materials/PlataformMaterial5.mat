@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PlataformMaterial1
+  m_Name: PlataformMaterial5
   m_Shader: {fileID: 4800000, guid: 9a0d9ac5e0410014d9fc5d4ecaf61b64, type: 3}
   m_ShaderKeywords: _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 1
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: eb66db7db46aae14c9085e7b87139d8b, type: 3}
+        m_Texture: {fileID: 2800000, guid: ae3bfa68ab30f6642aec3896c98ca85e, type: 3}
         m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -55,10 +55,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Blend: 2
-    - _BlendOscilation: 0.1
-    - _BlendRegion: 0.45
-    - _BlendThreshold: 0.2
+    - _Blend: 5.7
+    - _BlendOscilation: 0.54
+    - _BlendRegion: 0.51
+    - _BlendThreshold: 0.64
     - _BumpScale: 1
     - _ColdEndRegion: 1
     - _ColdStartRegion: 0.21
@@ -67,11 +67,11 @@ Material:
     - _DstBlend: 0
     - _FlashAmount: 0
     - _GlossMapScale: 0
-    - _Glossiness: 0
+    - _Glossiness: 0.7
     - _GlossyReflections: 1
     - _HotEndRegion: 0.35
     - _HotStartRegion: 0
-    - _Metallic: 0.71
+    - _Metallic: 0.82
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -81,7 +81,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _ColdColor: {r: 0.6698113, g: 0.60892713, b: 0.5971431, a: 1}
+    - _ColdColor: {r: 0.9811321, g: 0.8284087, b: 0.8284087, a: 1}
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HotColor: {r: 1, g: 0.53292656, b: 0, a: 1}

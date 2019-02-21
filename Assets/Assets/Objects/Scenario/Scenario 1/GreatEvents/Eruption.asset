@@ -13,7 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventHudSprite: {fileID: 21300014, guid: 726a5d87e72acbc458e9489e2f65d420, type: 3}
   Duration: 15
-  ExplosionsPerWave: 4
-  ExplosionsInterval: 1.2
+  ExplosionsInterval: 1.23
   WaveInterval: 2.22
-  PlataformSinkPercentage: 0.33
+  PlataformSinkPercentage: 0.16

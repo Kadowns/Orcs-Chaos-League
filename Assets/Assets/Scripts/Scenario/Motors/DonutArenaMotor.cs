@@ -22,9 +22,6 @@ public class DonutArenaMotor : ArenaMotor {
 	public override void ResetToDefault(ArenaController controller, ArenaState state) {
 	}
 
-	public override void NormalEvents(ArenaController controller, ArenaState state) {
-	}
-
 	public void GreatEvents(ArenaController controller, ArenaState state) {
 	}
 }

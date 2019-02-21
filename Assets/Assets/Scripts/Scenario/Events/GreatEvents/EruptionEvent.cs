@@ -6,8 +6,6 @@ using UnityEngine;
 public class EruptionEvent : GreatEvent {
 
 
-    [Range(2, 15)]
-    public int ExplosionsPerWave = 10;
     [Range(0.1f, 2f)]
     public float ExplosionsInterval = 0.5f;
     [Range(0.5f, 5f)]
@@ -69,8 +67,10 @@ public class EruptionEvent : GreatEvent {
     }
 
     private IEnumerator EruptionExplosions(ArenaState state) {
+        
         do {
-            for (int i = 0; i < ExplosionsPerWave; i++) {
+            int explosions = Random.Range(2, 6);
+            for (int i = 0; i < explosions; i++) {
                 int rand = Random.Range(0, state.LavaGeysers.Count);
                 state.LavaGeysers[rand].Execute();
                 yield return new WaitForSeconds(ExplosionsInterval);

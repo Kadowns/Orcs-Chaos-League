@@ -31,15 +31,14 @@ public class Menu_1stOptionSelected : MonoBehaviour
         _eventSystem.SetSelectedGameObject(MenuOptions[0]);
    
         PiM = ReInput.players.GetPlayer(0);
-     
+
+        UpdateOpcoesMenu();
     }
 
-    void Update()
+    public void UpdateOpcoesMenu()
     {
-        selectedButton = _eventSystem.currentSelectedGameObject;
-
         MenuOptions = GameObject.FindGameObjectsWithTag("Test");
-    //    lastMenu = currentMenu;
+  
         currentMenu = GameObject.FindGameObjectWithTag("Cell");
 
             switch (currentMenu.name)
@@ -49,6 +48,13 @@ public class Menu_1stOptionSelected : MonoBehaviour
                     currentMenu = GameObject.FindGameObjectWithTag("Cell");
 
                     lastMenu = currentMenu;
+                    break;
+
+                case "MapSelect":
+                    MenuOptions = GameObject.FindGameObjectsWithTag("Test");
+                    currentMenu = GameObject.FindGameObjectWithTag("Cell");
+
+                    lastMenu = menuStaticObj;
                     break;
 
                 case "EntradaPlayersDefinitivo":
@@ -82,14 +88,11 @@ public class Menu_1stOptionSelected : MonoBehaviour
                     break;
 
                 case "ReallyQuit":
+                    lastMenu = menuStaticObj;
+
                     MenuOptions = GameObject.FindGameObjectsWithTag("Test");
                     currentMenu = GameObject.FindGameObjectWithTag("Cell");
                     break;
-        }
-
-        if (_eventSystem.currentSelectedGameObject == null || _eventSystem.currentSelectedGameObject.active == false)
-        {
-            _eventSystem.SetSelectedGameObject(MenuOptions[0]);
         }
 
         if (PiM.GetButtonDown("UICancel") && currentMenu.name != "MainMenu")
@@ -100,6 +103,21 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
             MenuOptions = GameObject.FindGameObjectsWithTag("Test");
             currentMenu = GameObject.FindGameObjectWithTag("Cell");
+        }
+    }
+
+    void Update()
+    {
+        selectedButton = _eventSystem.currentSelectedGameObject;
+
+        if (_eventSystem.currentSelectedGameObject == null || _eventSystem.currentSelectedGameObject.active == false)
+        {
+            _eventSystem.SetSelectedGameObject(MenuOptions[0]);
+        }
+
+        if (PiM.GetButtonDown("UICancel") && currentMenu.name != "MainMenu")
+        {
+            UpdateOpcoesMenu();
         }
     }
 }

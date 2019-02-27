@@ -40,7 +40,6 @@ namespace OCL {
 				cacheVolumes = false;
 			}
 			var clip = m_onDeathNarration[Random.Range(0, m_onDeathNarration.Count - 1)];
-			Debug.Log(clip.name);
 			m_speakRoutine = StartCoroutine(			
 				Speak(clip, cacheVolumes)
 			);

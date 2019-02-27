@@ -25,13 +25,6 @@ Shader "Custom/Ground" {
 			float2 uv_MainTex;
 			float yPosition;
 		};
-		
-		half lin(half min, half max, half value, int inverse) {
-            half range = max - min;
-            half result = (value - min) / range;
-            result = clamp(result, 1, 0);
-            return inverse == 1 ? 1 - result : result;
-        }
 
         sampler2D _MainTex;
 		half _Glossiness;
@@ -47,20 +40,7 @@ Shader "Custom/Ground" {
         }
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-//		    float weight = IN.yPosition * 0.5 + 0.5;		
-//		    float blend = _BlendRegion + (_SinTime.w * 0.5 + 0.5) * _BlendOscilation;
-//		    fixed4 c;
-//		    if (weight > blend + _BlendThreshold){
-//		        c = _ColdColor;
-//		    } else if (weight < blend - _BlendThreshold) {
-//		        c = _HotColor;      
-//		        o.Emission = c.rgb;
-//		    } else {
-//		        fixed percent = (weight - (blend - _BlendThreshold)) / (_BlendThreshold * 2);
-//		        c = lerp(_HotColor, _ColdColor, percent);
-//		        o.Emission = c.rgb * (1 - percent);
-//		    }
-            fixed4 c = tex2D(_MainTex, IN.uv_MainTex);	
+            fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
 			fixed weight = clamp(IN.yPosition, 0 , _Blend) / _Blend;
 			o.Albedo = _ColdColor * c.rgb;
 			o.Emission = _HotColor * c.rgb * (1 - weight) * 2;

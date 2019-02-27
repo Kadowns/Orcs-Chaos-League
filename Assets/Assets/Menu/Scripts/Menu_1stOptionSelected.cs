@@ -73,22 +73,6 @@ public class Menu_1stOptionSelected : MonoBehaviour
                     currentMenu = GameObject.FindGameObjectWithTag("Cell");
                     break;
 
-                case "GraphicsOptions":
-                    lastMenu = optStaticObj;
-                    MenuOptions = GameObject.FindGameObjectsWithTag("Test");
-                    
-
-                    currentMenu = GameObject.FindGameObjectWithTag("Cell");
-                    break;
-
-                case "SoundOptions":
-                    lastMenu = optStaticObj;
-                    MenuOptions = GameObject.FindGameObjectsWithTag("Test");
-                    
-
-                    currentMenu = GameObject.FindGameObjectWithTag("Cell");
-                    break;
-
                 case "ReallyQuit":
                     lastMenu = menuStaticObj;
 

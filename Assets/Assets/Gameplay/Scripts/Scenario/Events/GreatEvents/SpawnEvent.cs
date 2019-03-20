@@ -15,7 +15,7 @@ namespace Assets.Scripts.Scenario.Events.GreatEvents {
 		private Coroutine _eventRoutine;
 		
 		public override void Setup(ArenaState state) {
-			_spawnManager = SpawnerManager.Instance;
+			_spawnManager = state.SpawnerManager;
 		}
 
 		protected override void OnExecute(ArenaState state) {

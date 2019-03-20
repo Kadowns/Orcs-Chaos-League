@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Scenario.Events.GreatEvents {
     
-    public class SpawnerManager : Singleton<SpawnerManager> {
+    public class SpawnerManager :  MonoBehaviour {
 
         [System.Serializable]
         public class SpawnerType {

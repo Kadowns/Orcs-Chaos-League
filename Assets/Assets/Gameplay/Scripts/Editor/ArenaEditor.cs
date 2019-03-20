@@ -47,23 +47,35 @@ namespace Assets.Scripts.Editor {
 				_greatEventEditorsFoldout = new bool[_target.GreatEvents.Count];
 			}
 
-			if (SpawnerManager.Instance.SpawnersTypes.Count != 0) {
-				foreach (var type in SpawnerManager.Instance.SpawnersTypes) {
-					EventSpawner newSpawner = null;
-					gui.EzObjectArray(type.Name, type.Spawners, ref newSpawner, ref _eventSpawnerFoldout);
+			_target.SpawnerManager = gui.EzObjectField("Spawner", _target.SpawnerManager);
+			if (_target.SpawnerManager != null) {
+				
+				if (_target.SpawnerManager.SpawnersTypes.Count != 0) {
+					foreach (var type in _target.SpawnerManager.SpawnersTypes) {
+						EventSpawner newSpawner = null;
+						using (gui.Horizontal()) {
+							if (gui.EzButton(gui.DeleteButton)) {
+								_target.SpawnerManager.SpawnersTypes.Remove(type);
+								break;
+							}
+
+							gui.EzSpacer(20, 0);
+							gui.EzObjectArray(type.Name, type.Spawners, ref newSpawner, ref _eventSpawnerFoldout);
+						}
+					}
+				}
+
+				_newTypeName = gui.EzTextField("New Spawner Type", _newTypeName);
+				if (gui.EzButton("Add new Spawner type") && _newTypeName != "") {
+					SpawnerManager.SpawnerType newSpawnerType = new SpawnerManager.SpawnerType {
+						Name = _newTypeName,
+						Spawners = new List<EventSpawner>()
+					};
+					_target.SpawnerManager.SpawnersTypes.Add(newSpawnerType);
+					_newTypeName = "";
 				}
 			}
 
-			_newTypeName = gui.EzTextField("New Spawner Type", _newTypeName);
-			if (gui.EzButton("Add new Spawner type") && _newTypeName != "") {
-				SpawnerManager.SpawnerType newSpawnerType = new SpawnerManager.SpawnerType {
-					Name = _newTypeName,
-					Spawners = new List<EventSpawner>()
-				};
-				SpawnerManager.Instance.SpawnersTypes.Add(newSpawnerType);
-				_newTypeName = "";
-			}
-		
 
 			for (int i = 0; i < _target.GreatEvents.Count; i++) {
 

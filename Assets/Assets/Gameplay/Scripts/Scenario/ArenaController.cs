@@ -34,9 +34,10 @@ public class ArenaController : Singleton<ArenaController> {
 
 	private void Awake() {
 		_players = GameController.Instance.PlayerControllers;
+		for (int i = 0; i < Arenas.Count; i++) {			
+			Arenas[i].gameObject.SetActive(i == SelectedArena);
+		}
 		m_currentArena = Arenas[SelectedArena];
-		m_currentArena.gameObject.SetActive(true);
-		
 	}
 	
 	private void Start() {

@@ -47,16 +47,6 @@ namespace Assets.Scripts.Editor {
             }          
         }
 
-        private void DrawContextOptions() {
-            using (gui.Horizontal()) {
-            
-                gui.EzLabel("Spawn Context: ");
-              //  _spawnContext.ObjectToSpawnName = gui.EzTextField("Object to spawn name: ", _spawnContext.ObjectToSpawnName);
-               // _spawnContext.Spawner = gui.EzTextField("Object to spawn name: ", _spawnContext.ObjectToSpawnName);
-
-            }
-        }
-
         private void DrawAddButtons() {
             using (gui.Horizontal()) {
                 DrawButtonAddContext<SpawnContext>();

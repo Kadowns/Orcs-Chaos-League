@@ -31,7 +31,8 @@ namespace Assets.Scripts.Editor {
 				_greatEventEditors = new UnityEditor.Editor[_target.GreatEvents.Count];
 				_greatEventEditorsFoldout = new bool[_target.GreatEvents.Count];
 			}
-		
+
+			_target.Motor = gui.EzObjectField("Motor", _target.Motor);
 			gui.EzObjectArray("Lava Geysers", _target.LavaGeysers, ref _newGeyser, ref _lavaGeyserFoldout);
 			gui.EzObjectArray("Lava Geysers", _target.Plataforms, ref _newPlataform, ref _plataformsFoldout);
 			DrawGlobalPlatformOptions(ref _target.GlobalPlatformSettings);

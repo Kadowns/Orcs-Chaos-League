@@ -11,10 +11,8 @@ public class ClassicArenaMotor : ArenaMotor {
 		
 	}
 
-	public override void Initialize(ArenaController controller, ArenaState state) {
-		for (int i = 0; i < state.Plataforms.Count; i++) {
-			state.Plataforms[i].DefinePlataforms(state.GlobalPlatformSettings);
-		}
+	protected override void OnInitialize(ArenaController controller, ArenaState state) {
+		
 	}
 
 	public override void Tick(ArenaController controller, ArenaState state) { }

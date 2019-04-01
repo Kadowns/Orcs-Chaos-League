@@ -9,11 +9,8 @@ public class DonutArenaMotor : ArenaMotor {
 		
 	}
 
-	public override void Initialize(ArenaController controller, ArenaState state) {
-//		for (int i = 0; i < state.Plataforms.Length; i++) {
-//			state.Plataforms[i].DefinePlataforms(state.MaxPlataformHits, state.PlataformLoweredTime, state.OscilationFrequency,
-//				state.OscilationScale, state.OscilationCurve, (float)i / state.Plataforms.Length);
-//		}
+	protected override void OnInitialize(ArenaController controller, ArenaState state) {
+
 	}
 
 	public override void Tick(ArenaController controller, ArenaState state) {

@@ -61132,7 +61132,7 @@ MonoBehaviour:
   - {fileID: 854756648}
   - {fileID: 448181387}
   ForcePlayers: 1
-  ActivePlayers: 0101010100000000
+  ActivePlayers: 0101010101010101
   BotPlayers: 0001010101010101
   _gameOverDelay: 3
   m_mainTheme: {fileID: 8300000, guid: b88561c8e2e574f4586180cbb0e0c615, type: 3}

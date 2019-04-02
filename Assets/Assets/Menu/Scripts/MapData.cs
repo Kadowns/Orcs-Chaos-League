@@ -1,5 +1,4 @@
 ﻿public static class MapData
 {
-    public static bool[] SelectedMap = new bool[6];
-
+    public static int SelectedMap = 0;
 }

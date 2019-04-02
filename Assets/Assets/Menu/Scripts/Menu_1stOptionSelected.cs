@@ -132,10 +132,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
     public void ChangeMap()
     {
-        for (int x = 0; x < 6; x++)
-        {
-            MapData.SelectedMap[x] = false;
-        }
+        MapData.SelectedMap = 0;
         
         if (currentMenu.name == "MapSelect")
         {
@@ -145,33 +142,24 @@ public class Menu_1stOptionSelected : MonoBehaviour
         switch (mapSelectedButton.name)
         {
             case "Map1":
-                MapData.SelectedMap[0] = true;
+                MapData.SelectedMap = 0;
             break;
             case "Map2":
-                MapData.SelectedMap[1] = true;
+                MapData.SelectedMap = 1;
             break;      
             case "Map3":
-                MapData.SelectedMap[2] = true;
+                MapData.SelectedMap = 2;
             break;      
             case "Map4":
-                MapData.SelectedMap[3] = true;                  
+                MapData.SelectedMap = 3;                  
             break;   
             case "Map5":
-                MapData.SelectedMap[4] = true;
+                MapData.SelectedMap = 4;
             break;
             case "Map6":
-                MapData.SelectedMap[5] = true;
+                MapData.SelectedMap = 5;
             break;             
-        }
-        
-        /*
-        Debug.Log(mapSelectedButton.name);
-        
-        for (int x = 0; x < 6; x++)
-        {
-            Debug.Log(MapData.SelectedMap[x]);
-        } 
-        */                                      
+        }                                
     }
 
     public void ChangePlayerSprite()

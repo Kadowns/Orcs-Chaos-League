@@ -24,13 +24,12 @@ public class Menu_1stOptionSelected : MonoBehaviour
     private bool[] playerActive = new bool[8];
     private bool[] botActive = new bool[8];
 
-    public Sprite[] sprites = new Sprite[43];
+    public Sprite[] sprites = new Sprite[43]; 
     
     bool changer = true;
-    bool changer1 = true;
 
     void Start()
-    {      
+    {
         _eventSystem = EventSystem.current;
 
         currentMenu = GameObject.FindGameObjectWithTag("Cell");
@@ -46,7 +45,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
         for (int x = 0; x < 8; x++)                                      
         {                                                                
             PlayerArray[x] = ReInput.players.GetPlayer(x);                
-        }                                                                                                                                              
+        }
                                                                                
         UpdateOpcoesMenu();
     }
@@ -112,6 +111,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
 
     void Update()
     {
+        
         selectedButton = _eventSystem.currentSelectedGameObject;
 
         if (_eventSystem.currentSelectedGameObject == null || _eventSystem.currentSelectedGameObject.active == false)
@@ -127,6 +127,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
         if (currentMenu.name == "EntradaPlayersDefinitivo")
         {
             ChangePlayerSprite();
+            
         }
     }
 
@@ -220,8 +221,7 @@ public class Menu_1stOptionSelected : MonoBehaviour
                     break;  
                 }
                 changer = false;
-            }
-            
+            }           
             if (MenuOptions[x].name == selectedButton.name && PiM.GetButtonDown("AddBot") && changer == true && playerActive[x] == false && botActive[x] == false)
             {
                 var xis = GameObject.Find(selectedButton.name);
@@ -383,4 +383,6 @@ public class Menu_1stOptionSelected : MonoBehaviour
             }
         }
     }
+    
+    
 }

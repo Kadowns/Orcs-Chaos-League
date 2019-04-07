@@ -18,6 +18,7 @@ TagManager:
   - READY
   - OrcHead
   - playerInMenu
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Ground
   - PostProcess
   - Hazard
-  - 
+  - UI2
   - 
   - 
   - 

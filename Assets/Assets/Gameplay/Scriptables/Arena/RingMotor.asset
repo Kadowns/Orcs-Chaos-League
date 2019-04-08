@@ -11,3 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac663415937d4ac5a0787d60889493e9, type: 3}
   m_Name: RingMotor
   m_EditorClassIdentifier: 
+  RotateTime: 10
